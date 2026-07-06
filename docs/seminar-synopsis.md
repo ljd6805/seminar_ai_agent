@@ -1,4 +1,4 @@
-# AI Agent 기술 세미나 — 발표 시놉 (v0.5)
+# AI Agent 기술 세미나 — 발표 시놉 (v0.6)
 
 ## 기본 정보
 
@@ -67,10 +67,12 @@
    - 개념을 들은 직후 체감시키는 자리
 
 3. **유용한 것들 소개 + 설치법 + 주의사항**
-   - 대표 skill · mcp · plugin 몇 개 소개
-     - (후보) Context 확장: ralph loop, claude-mem, superpowers
-     - (후보) Web 개발용: firecrawl, frontend design, playwright
-     - (후보) Token 절약: caveman, ponytail, yagni
+   - 대표 skill · mcp · plugin — **1장에 압축**. 3칸(Context확장 / Web / Token절약) × 각 대표 1개.
+     - 카테고리 지도(어떤 결의 도구들이 있나)만 본문에 전달, 도구명 나열은 지양
+     - 전체 후보 목록은 **부록 B**로 (발표 시간 비용 0, 세미나 후 자가학습 경로)
+       - Context 확장: ralph loop, claude-mem, superpowers
+       - Web 개발: firecrawl, frontend design, playwright
+       - Token 절약: caveman, ponytail, yagni
    - 설치 방법
    - 보안 주의사항 — 별도 섹션 없이 여기서 **간단히만** 언급
 
@@ -107,9 +109,10 @@
 - Ex1 애니메이션은 A안(대화 재생 + 얼개 성장), 자동 재생
 - GitOps 협업(Ex3) 제외
 - 설치 주의사항은 본문 2에 흡수, 간단히만
+- **본문 2 "유용한 것들"은 1장(카테고리 3칸 × 대표 1개), 전체 목록은 부록 B**
 
 **아직 안 정한 것**
-- 대표 plugin 리스트를 어느 선까지 노출할지 (전부 / 추림 / 부록)
+- 마무리 파트 전체 방향
 
 **보류**
 - 마무리 파트
