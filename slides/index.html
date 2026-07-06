@@ -1,0 +1,598 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI Agent 입문 세미나 — 초안</title>
+<style>
+  :root{
+    --bg:#0a0e17; --bg2:#0c1220; --panel:#111726; --panel2:#141c2e;
+    --trace:#1e2a40; --trace2:#26344e;
+    --ink:#e7edf6; --muted:#8a9ab5; --faint:#5f6f8c;
+    --cyan:#35c9e8; --amber:#f5b74e; --good:#46d39a; --bad:#f26d7d;
+    --sans:"Pretendard","Apple SD Gothic Neo","Malgun Gothic","Noto Sans KR",system-ui,-apple-system,sans-serif;
+    --mono:ui-monospace,"SF Mono","JetBrains Mono",Menlo,Consolas,monospace;
+    --fs-display:clamp(2rem,4.8vw,4.1rem);
+    --fs-h1:clamp(1.55rem,3.4vw,2.9rem);
+    --fs-h2:clamp(1.1rem,1.9vw,1.6rem);
+    --fs-body:clamp(0.92rem,1.32vw,1.22rem);
+    --fs-sm:clamp(0.8rem,1.05vw,1rem);
+    --fs-mono:clamp(0.68rem,0.95vw,0.9rem);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font-family:var(--sans);overflow:hidden}
+  body{
+    background:
+      radial-gradient(120% 80% at 80% -10%, #10203a 0%, transparent 55%),
+      radial-gradient(90% 90% at 0% 110%, #0e1830 0%, transparent 55%),
+      var(--bg);
+  }
+  /* substrate grid */
+  .grid-bg{position:fixed;inset:0;pointer-events:none;opacity:.5;
+    background-image:
+      linear-gradient(var(--trace) 1px,transparent 1px),
+      linear-gradient(90deg,var(--trace) 1px,transparent 1px);
+    background-size:64px 64px;
+    -webkit-mask-image:radial-gradient(120% 120% at 50% 40%,#000 45%,transparent 85%);
+            mask-image:radial-gradient(120% 120% at 50% 40%,#000 45%,transparent 85%);
+  }
+
+  .deck{position:fixed;inset:0}
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
+    padding:8vh 8vw;gap:clamp(.7rem,1.6vh,1.4rem);
+    opacity:0;transform:translateY(16px) scale(.995);pointer-events:none;
+    transition:opacity .55s var(--ease),transform .55s var(--ease)}
+  .slide.active{opacity:1;transform:none;pointer-events:auto}
+  .slide.prev{transform:translateY(-16px) scale(.995)}
+
+  /* eyebrow / kicker */
+  .kick{display:flex;align-items:center;gap:.8ch;font-family:var(--mono);font-size:var(--fs-mono);
+    letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}
+  .kick .dot{width:7px;height:7px;border-radius:1px;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+  .kick .sec{color:var(--faint)}
+  .kick .sec b{color:var(--muted);font-weight:600}
+
+  h1.title{font-size:var(--fs-h1);line-height:1.12;margin:0;font-weight:800;letter-spacing:-.01em;text-wrap:balance;max-width:20ch}
+  .lead{font-size:var(--fs-body);color:var(--muted);line-height:1.6;max-width:60ch;margin:0}
+  .lead b{color:var(--ink);font-weight:700}
+  .accent{color:var(--amber)}
+  .cy{color:var(--cyan)}
+
+  ul.pts{list-style:none;margin:.2rem 0 0;padding:0;display:flex;flex-direction:column;gap:.75rem;max-width:64ch}
+  ul.pts li{position:relative;padding-left:1.6ch;font-size:var(--fs-body);color:var(--muted);line-height:1.55}
+  ul.pts li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--cyan);border-radius:1px}
+  ul.pts li b{color:var(--ink);font-weight:700}
+
+  .cols{display:grid;gap:clamp(1rem,2vw,1.8rem)}
+  .c2{grid-template-columns:1fr 1fr}
+  .c3{grid-template-columns:repeat(3,1fr)}
+
+  .card{background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--trace2);
+    border-radius:10px;padding:clamp(.9rem,1.7vw,1.5rem);display:flex;flex-direction:column;gap:.55rem}
+  .card .h{font-size:var(--fs-h2);font-weight:800;margin:0;display:flex;align-items:center;gap:.6ch}
+  .card .d{font-size:var(--fs-sm);color:var(--muted);line-height:1.5;margin:0}
+  .card .tag{font-family:var(--mono);font-size:var(--fs-mono);letter-spacing:.1em;color:var(--faint);text-transform:uppercase}
+  .card.hi{border-color:color-mix(in srgb,var(--cyan) 45%,var(--trace2))}
+  .chip{font-family:var(--mono);font-size:var(--fs-mono);padding:.2em .6em;border-radius:999px;
+    border:1px solid var(--trace2);color:var(--muted)}
+
+  code,.mono{font-family:var(--mono);font-size:var(--fs-mono)}
+  pre{margin:0;font-family:var(--mono);font-size:var(--fs-mono);line-height:1.55;color:#cfe3ef;
+    background:#0a1120;border:1px solid var(--trace2);border-radius:8px;padding:.9rem 1.1rem;overflow:auto}
+  pre .k{color:var(--cyan)} pre .s{color:var(--good)} pre .b{color:var(--bad)} pre .m{color:var(--faint)}
+
+  /* HUD */
+  .hud{position:fixed;left:0;right:0;bottom:0;z-index:20;display:flex;align-items:center;justify-content:space-between;
+    padding:.7rem 1.4rem;font-family:var(--mono);font-size:var(--fs-mono);color:var(--faint);pointer-events:none}
+  .hud .now{color:var(--muted)}
+  .hud .now b{color:var(--cyan)}
+  .progress{position:fixed;top:0;left:0;height:2px;background:var(--cyan);width:0;z-index:21;
+    box-shadow:0 0 10px var(--cyan);transition:width .45s var(--ease)}
+  .nav{display:flex;gap:.4rem;pointer-events:auto}
+  .nav button{font-family:var(--mono);font-size:var(--fs-mono);color:var(--muted);background:var(--panel);
+    border:1px solid var(--trace2);border-radius:6px;padding:.35em .7em;cursor:pointer;transition:.15s}
+  .nav button:hover{color:var(--ink);border-color:var(--cyan)}
+  .nav button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+  /* timeline (slide 2) */
+  .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:1rem;position:relative}
+  .tl::before{content:"";position:absolute;left:6%;right:6%;top:14px;height:2px;background:var(--trace2)}
+  .tl .n{position:relative;display:flex;flex-direction:column;gap:.5rem;padding:0 .8rem}
+  .tl .n .b{width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--faint);position:relative;z-index:1}
+  .tl .n.on .b{border-color:var(--cyan);background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
+  .tl .n .y{font-family:var(--mono);font-size:var(--fs-mono);color:var(--faint)}
+  .tl .n .t{font-weight:700;font-size:var(--fs-sm)}
+  .tl .n.on .t{color:var(--cyan)}
+  .tl .n .s{font-size:.82em;color:var(--muted);line-height:1.45}
+
+  /* cover */
+  .cover{gap:1.6rem}
+  .cover .big{font-size:var(--fs-display);font-weight:850;line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+  .cover .big .g{background:linear-gradient(100deg,var(--cyan),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .cover .copy{font-size:var(--fs-body);color:var(--muted);max-width:52ch;line-height:1.6}
+  .cover .meta{display:flex;gap:1.2rem;font-family:var(--mono);font-size:var(--fs-mono);color:var(--faint);
+    border-top:1px solid var(--trace2);padding-top:1rem;margin-top:.4rem;flex-wrap:wrap}
+  .cover .meta b{color:var(--muted);font-weight:600}
+  .flow{font-family:var(--mono);font-size:var(--fs-mono);color:var(--muted);display:flex;gap:.7ch;flex-wrap:wrap;align-items:center}
+  .flow .a{color:var(--faint)}
+
+  /* Ex probe layout */
+  .probe{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(.8rem,2vw,1.6rem);align-items:stretch;margin-top:.4rem}
+  .probe .arrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;color:var(--faint)}
+  .probe .arrow .ln{width:2px;flex:1;background:linear-gradient(var(--trace2),var(--cyan))}
+  .probe .arrow .hd{font-family:var(--mono);font-size:var(--fs-mono);color:var(--cyan);writing-mode:vertical-rl;letter-spacing:.15em}
+  .panel-h{font-family:var(--mono);font-size:var(--fs-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 .5rem}
+
+  /* Ex1 chat */
+  .ex1{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(1rem,2.4vw,2rem);margin-top:.3rem;min-height:52vh}
+  .chatwrap,.olwrap{background:var(--panel);border:1px solid var(--trace2);border-radius:10px;padding:1rem 1.1rem;display:flex;flex-direction:column;min-height:0}
+  .chat{display:flex;flex-direction:column;gap:.6rem;overflow:hidden;flex:1}
+  .bub{max-width:88%;padding:.55rem .8rem;border-radius:10px;font-size:var(--fs-sm);line-height:1.45;
+    opacity:0;transform:translateY(8px);animation:pop .4s var(--ease) forwards}
+  .bub.u{align-self:flex-end;background:#16324a;border:1px solid #235777;color:#dff1fb;border-bottom-right-radius:3px}
+  .bub.a{align-self:flex-start;background:#12203a;border:1px solid var(--trace2);color:var(--muted);border-bottom-left-radius:3px}
+  .bub .who{font-family:var(--mono);font-size:.72em;letter-spacing:.1em;color:var(--faint);display:block;margin-bottom:.2rem}
+  @keyframes pop{to{opacity:1;transform:none}}
+  .ol-title{font-weight:800;font-size:var(--fs-h2);margin:0 0 .1rem}
+  .ol-sub{font-family:var(--mono);font-size:var(--fs-mono);color:var(--faint);margin:0 0 .8rem}
+  .ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:.5rem;flex:1;justify-content:center}
+  .ol li{display:flex;align-items:center;gap:.8ch;padding:.5rem .7rem;border-left:2px solid var(--trace2);
+    opacity:0;transform:translateX(-10px);transition:.5s var(--ease)}
+  .ol li.show{opacity:1;transform:none;border-left-color:var(--cyan)}
+  .ol li .ix{font-family:var(--mono);font-size:var(--fs-mono);color:var(--cyan);min-width:5.5ch}
+  .ol li .lb{font-weight:700;font-size:var(--fs-sm)}
+  .ex-note{font-family:var(--mono);font-size:var(--fs-mono);color:var(--faint);margin-top:.6rem;opacity:0;transition:.5s}
+  .ex-note.show{opacity:1}
+  .replay{font-family:var(--mono);font-size:var(--fs-mono);color:var(--muted);background:var(--panel);
+    border:1px solid var(--trace2);border-radius:6px;padding:.3em .7em;cursor:pointer;align-self:flex-start}
+  .replay:hover{color:var(--ink);border-color:var(--cyan)}
+  .replay:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+
+  /* Ex4 runs */
+  .runs{display:flex;flex-direction:column;gap:.55rem}
+  .run{border:1px solid var(--trace2);border-radius:8px;padding:.6rem .8rem;background:#0c1322;
+    opacity:0;transform:translateY(10px);transition:.5s var(--ease)}
+  .play .run{opacity:1;transform:none}
+  .run .rh{font-family:var(--mono);font-size:var(--fs-mono);color:var(--faint);display:flex;justify-content:space-between;margin-bottom:.35rem}
+  .run.bad{border-color:color-mix(in srgb,var(--bad) 40%,var(--trace2))}
+  .run.bad .rh .st{color:var(--bad)}
+  .run.good{border-color:color-mix(in srgb,var(--good) 40%,var(--trace2))}
+  .run.good .rh .st{color:var(--good)}
+  .run code{color:#c6d6e6;font-size:.92em;line-height:1.4;display:block;white-space:pre-wrap;word-break:break-all}
+  .axis{display:flex;gap:1rem;font-family:var(--mono);font-size:var(--fs-mono);color:var(--muted);margin-top:.7rem}
+  .axis b{color:var(--ink)}
+
+  /* Ex2 reveal */
+  .ex2 .memo{white-space:pre-wrap;color:var(--muted);font-size:var(--fs-sm);line-height:1.5}
+  .ex2 pre .ln{opacity:0;transform:translateX(8px);transition:.45s var(--ease)}
+  .ex2.play pre .ln{opacity:1;transform:none}
+
+  /* data-flow diagram (slide 7) */
+  .bound{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:.6rem}
+  .zone{border:1px dashed var(--trace2);border-radius:10px;padding:1rem 1.1rem;position:relative}
+  .zone .zt{font-family:var(--mono);font-size:var(--fs-mono);letter-spacing:.1em;text-transform:uppercase;margin-bottom:.5rem}
+  .zone.inside{border-color:color-mix(in srgb,var(--good) 45%,var(--trace2))}
+  .zone.inside .zt{color:var(--good)}
+  .zone.outside{border-color:color-mix(in srgb,var(--amber) 45%,var(--trace2))}
+  .zone.outside .zt{color:var(--amber)}
+  .zone .zd{font-size:var(--fs-sm);color:var(--muted);line-height:1.5}
+
+  .rule{font-family:var(--mono);font-size:var(--fs-mono);color:var(--faint);border-top:1px solid var(--trace2);padding-top:.7rem;margin-top:.3rem}
+  .rule b{color:var(--cyan)}
+
+  /* closing big line */
+  .final .big{font-size:clamp(1.4rem,3vw,2.6rem);font-weight:800;line-height:1.3;letter-spacing:-.01em;max-width:24ch;text-wrap:balance;margin:0}
+  .final .big .a{color:var(--amber)} .final .big .c{color:var(--cyan)}
+
+  .support{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.4rem}
+
+  @media (max-width:820px){
+    .ex1,.c2,.c3,.bound{grid-template-columns:1fr}
+    .probe{grid-template-columns:1fr}
+    .probe .arrow{flex-direction:row}
+    .probe .arrow .ln{height:2px;width:auto}
+    .probe .arrow .hd{writing-mode:horizontal-tb}
+    .tl{grid-template-columns:1fr 1fr}
+    .tl::before{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .slide,.progress,.ol li,.run,.ex2 pre .ln{transition:none}
+    .bub{animation:none;opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+<div class="grid-bg"></div>
+<div class="progress" id="prog"></div>
+
+<div class="deck" id="deck">
+
+  <!-- 1 · 표지 -->
+  <section class="slide cover" data-sec="AI Agent 입문 세미나">
+    <div class="kick"><span class="dot"></span>AI AGENT · 입문 세미나</div>
+    <h1 class="big">AI Agent,<br><span class="g">일하는 방식이 바뀝니다</span></h1>
+    <p class="copy">반도체 설계·검증 팀을 위한 첫 소개.<br>있다는 걸 알고 → 왜 좋은지 보고 → 오늘 바로 써보기까지.</p>
+    <div class="flow"><span>도입</span><span class="a">→</span><span>사내·사외</span><span class="a">→</span><span>부품</span><span class="a">→</span><span>harness</span><span class="a">→</span><span>첫걸음</span></div>
+    <div class="meta"><span><b>발표자</b> ______</span><span><b>일시</b> ______</span><span><b>대상</b> 설계·검증 팀</span><span><b>ver</b> draft 0.1</span></div>
+  </section>
+
+  <!-- 2 · AI의 역사 -->
+  <section class="slide" data-sec="도입">
+    <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>여기까지 온 길</b></span></div>
+    <h1 class="title">오늘의 주인공은 어디서 왔나</h1>
+    <p class="lead">한 줄로 짚고 넘어갑니다 — 규칙을 사람이 다 짜던 시절에서, 스스로 판단하고 <b>도구를 골라 일하는</b> 단계까지.</p>
+    <div class="tl">
+      <div class="n"><span class="b"></span><span class="y">~2010</span><span class="t">규칙 기반</span><span class="s">사람이 조건을 하나하나 코딩</span></div>
+      <div class="n"><span class="b"></span><span class="y">2010s</span><span class="t">머신러닝</span><span class="s">데이터로 패턴을 학습</span></div>
+      <div class="n"><span class="b"></span><span class="y">2020s</span><span class="t">LLM</span><span class="s">말로 시키면 답하는 대형 모델</span></div>
+      <div class="n on"><span class="b"></span><span class="y">now</span><span class="t">AI Agent</span><span class="s">스스로 도구를 써 일을 끝냄</span></div>
+    </div>
+  </section>
+
+  <!-- 3 · AI agent란 -->
+  <section class="slide" data-sec="도입">
+    <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>정의</b></span></div>
+    <h1 class="title">AI agent란?</h1>
+    <p class="lead"><b>목표를 주면, 스스로 도구를 골라 여러 단계를 밟아 일을 끝내는 AI.</b> 한 번의 질문·답변이 아니라, 확인하고 고치며 끝까지 진행합니다.</p>
+    <div class="cols c3" style="margin-top:.6rem">
+      <div class="card"><span class="tag">기존 방식</span><p class="h">내가 한 단계씩</p><p class="d">파일 열고 · 찾고 · 고치고 — 매 단계를 사람이 지시.</p></div>
+      <div class="card hi"><span class="tag">agent 방식</span><p class="h cy">의도를 말하면</p><p class="d">"이걸 이렇게 해줘" → 알아서 도구를 쓰고 결과를 확인·수정.</p></div>
+      <div class="card"><span class="tag">핵심 3가지</span><p class="h">도구·다단계·검증</p><p class="d">도구를 쓴다 / 여러 단계를 스스로 / 결과를 확인하고 고친다.</p></div>
+    </div>
+  </section>
+
+  <!-- 4 · Ex1 데모 (auto) -->
+  <section class="slide" data-sec="도입" data-anim="ex1">
+    <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>Ex1 · 실증 데모</b></span><span class="chip" style="margin-left:.6ch">auto</span></div>
+    <h1 class="title" style="max-width:30ch">이 발표자료도, 이렇게 만들었습니다</h1>
+    <div class="ex1">
+      <div class="chatwrap">
+        <div class="panel-h">대화 <span style="color:var(--faint)">— 사람과 agent</span></div>
+        <div class="chat" id="ex1-chat"></div>
+        <button class="replay" id="ex1-replay" type="button">↻ 다시 재생</button>
+      </div>
+      <div class="olwrap">
+        <div class="panel-h">얼개가 자라난다</div>
+        <p class="ol-title">이 발표자료</p>
+        <p class="ol-sub">// 대화가 오갈수록 한 줄씩 성장</p>
+        <ul class="ol" id="ex1-outline">
+          <li><span class="ix">도입</span><span class="lb">AI agent란</span></li>
+          <li><span class="ix">본문 1</span><span class="lb">사내/사외 정보 흐름</span></li>
+          <li><span class="ix">본문 2</span><span class="lb">plugin · skill · mcp</span></li>
+          <li><span class="ix">본문 3</span><span class="lb">harness</span></li>
+          <li><span class="ix">마무리</span><span class="lb">이번 주, 첫걸음</span></li>
+        </ul>
+        <p class="ex-note" id="ex1-note">… 그렇게 이 19장이 나왔습니다.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 · 왜 지금 우리가 -->
+  <section class="slide" data-sec="도입">
+    <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>왜 지금</b></span></div>
+    <h1 class="title">왜 지금, 우리가</h1>
+    <div class="cols c2" style="margin-top:.6rem">
+      <div class="card"><span class="tag">그대로 두면</span><p class="h">반복 업무에 시간을</p><p class="d">문서 정리, 로그 훑기, 형식 맞추기 — 매번 손으로. 정작 판단·설계에 쓸 시간이 깎임.</p></div>
+      <div class="card hi"><span class="tag">받아들이면</span><p class="h cy">판단·설계에 시간을</p><p class="d">반복은 agent에게 넘기고, 사람은 "무엇을 시킬지·무엇을 믿을지"에 집중.</p></div>
+    </div>
+    <p class="rule">변화의 방향은 <b>도구를 늘리는 것</b>이 아니라 <b>일하는 방식을 바꾸는 것</b>.</p>
+  </section>
+
+  <!-- 6 · 우리 환경 두 갈래 -->
+  <section class="slide" data-sec="본문 1 · 정보 흐름">
+    <div class="kick"><span class="dot"></span>본문 1<span class="sec"> · <b>우리 환경부터</b></span></div>
+    <h1 class="title">우리 환경은 두 갈래</h1>
+    <div class="cols c2" style="margin-top:.6rem">
+      <div class="card"><span class="tag">이미 있음</span><p class="h cy">사내 LLM</p><p class="d">API 형태 · OpenCode 형태로 사내 서버에서 서빙. 데이터가 사내에 머문다.</p>
+        <div class="support"><span class="chip">API</span><span class="chip">OpenCode</span></div></div>
+      <div class="card"><span class="tag">도입 예정</span><p class="h accent">사외 Claude Code</p><p class="d">강력하지만 경계를 넘는다. 무엇을 보내는지 알고 써야 한다.</p>
+        <div class="support"><span class="chip">외부</span><span class="chip">도입 예정</span></div></div>
+    </div>
+    <p class="rule">두 갈래를 <b>정보가 어디로 가느냐</b>로 구분하는 게 다음 장.</p>
+  </section>
+
+  <!-- 7 · 정보는 어디로 -->
+  <section class="slide" data-sec="본문 1 · 정보 흐름">
+    <div class="kick"><span class="dot"></span>본문 1<span class="sec"> · <b>데이터 경계</b></span></div>
+    <h1 class="title">정보는 어디로 가나</h1>
+    <div class="bound">
+      <div class="zone inside"><div class="zt">사내에 머문다</div><p class="zd">사내 LLM(API·OpenCode). 설계·검증 데이터가 회사 경계를 벗어나지 않음.</p></div>
+      <div class="zone outside"><div class="zt">경계를 넘는다</div><p class="zd">사외 Claude Code. 보낸 내용이 외부로 나감 — 무엇을 보내는지 통제 필요.</p></div>
+    </div>
+    <p class="rule">원칙: 민감·설계 데이터 → <b>사내</b>. 공개·비민감 실험 → 사외. <b>애매하면 보안 먼저 확인.</b></p>
+  </section>
+
+  <!-- 8 · 부품 셋 -->
+  <section class="slide" data-sec="본문 2 · 부품">
+    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>부품을 이해한다</b></span></div>
+    <h1 class="title">부품 셋 — plugin · skill · mcp</h1>
+    <div class="cols c3" style="margin-top:.6rem">
+      <div class="card hi"><span class="tag">skill</span><p class="h cy">전문 기술</p><p class="d">특정 작업을 잘 해내는 방법 묶음. "문서를 구조화해라" 같은 능력.</p></div>
+      <div class="card hi"><span class="tag">mcp</span><p class="h cy">표준 커넥터</p><p class="d">외부 시스템·데이터에 연결하는 규격. agent를 우리 도구에 꽂는 어댑터.</p></div>
+      <div class="card hi"><span class="tag">plugin</span><p class="h cy">패키지</p><p class="d">위 것들을 묶어 배포·설치하는 단위. 골라 담는 부품 상자.</p></div>
+    </div>
+  </section>
+
+  <!-- 9 · 동작 원리 -->
+  <section class="slide" data-sec="본문 2 · 부품">
+    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>동작 원리</b></span></div>
+    <h1 class="title">어떻게 맞물리나 <span class="cy" style="font-size:.6em;font-weight:600">— 레고 비유</span></h1>
+    <p class="lead">agent는 <b>작업대</b>, skill·mcp는 그 위에 꺼내 쓰는 <b>블록</b>. 필요할 때 맞는 블록을 집어 끼우고, 다 쓰면 내려놓습니다.</p>
+    <div class="flow" style="font-size:var(--fs-body);margin-top:.6rem">
+      <span class="cy">요청</span><span class="a">→</span><span>agent가 필요한 <b style="color:var(--ink)">skill/mcp</b>를 고름</span><span class="a">→</span><span>도구 실행</span><span class="a">→</span><span>결과 확인</span><span class="a">→</span><span class="cy">완료</span>
+    </div>
+    <p class="rule">부품을 아는 순간, 다음 장에서 <b>실제로 움직이는 걸</b> 눈으로 봅니다.</p>
+  </section>
+
+  <!-- 10 · Ex2 -->
+  <section class="slide" data-sec="본문 2 · 부품" data-anim="ex2">
+    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>Ex2 · 기본 동작</b></span></div>
+    <h1 class="title" style="max-width:34ch">눈으로 보기 — 문서 한 장을 구조화</h1>
+    <div class="ex2 probe">
+      <div class="card"><span class="tag">비정형 입력 · 회의 메모</span>
+        <div class="memo">10/24 주간 동기화. 참석: 지훈, 민아, 세영.
+- 로그인 API 지연, 원인은 토큰 갱신. 지훈 금주 수정.
+- 대시보드 3안 중 2안 결정. 민아 다음 주 월요일까지.
+- 다음 회의 10/31 오후 3시.</div></div>
+      <div class="arrow"><div class="ln"></div><div class="hd">SKILL</div><div class="ln"></div></div>
+      <div class="card hi"><span class="tag">구조화 출력 · JSON</span>
+<pre id="ex2-json"><span class="ln"><span class="k">"title"</span>: <span class="s">"주간 동기화"</span>,</span>
+<span class="ln"><span class="k">"date"</span>: <span class="s">"2024-10-24"</span>,</span>
+<span class="ln"><span class="k">"participants"</span>: [<span class="s">"지훈","민아","세영"</span>],</span>
+<span class="ln"><span class="k">"action_items"</span>: [</span>
+<span class="ln">  { <span class="k">"owner"</span>:<span class="s">"지훈"</span>, <span class="k">"due"</span>:<span class="s">"금주"</span> },</span>
+<span class="ln">  { <span class="k">"owner"</span>:<span class="s">"민아"</span>, <span class="k">"due"</span>:<span class="s">"2024-10-28"</span> } ],</span>
+<span class="ln"><span class="k">"next_meeting"</span>: <span class="s">"2024-10-31 15:00"</span></span></pre></div>
+    </div>
+    <p class="rule">가르치는 점: <b>비정형 in → 구조화 out.</b> skill이 하는 일을 눈으로 확인.</p>
+  </section>
+
+  <!-- 11 · 유용한 것들 -->
+  <section class="slide" data-sec="본문 2 · 부품">
+    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>유용한 것들</b></span></div>
+    <h1 class="title">골라 쓰면 됩니다</h1>
+    <p class="lead">전부 외울 필요 없이, <b>이런 결의 도구들이 있다</b>는 지도만. 카테고리마다 대표 하나씩.</p>
+    <div class="cols c3" style="margin-top:.4rem">
+      <div class="card"><span class="tag">Context 확장</span><p class="h">맥락을 넓힌다</p><p class="d">긴 작업·기억을 이어가게. <span class="cy">대표: claude-mem</span></p></div>
+      <div class="card"><span class="tag">Web 개발</span><p class="h">웹을 다룬다</p><p class="d">브라우저·크롤링·프론트. <span class="cy">대표: playwright</span></p></div>
+      <div class="card"><span class="tag">Token 절약</span><p class="h">비용을 줄인다</p><p class="d">불필요한 소모를 깎음. <span class="cy">대표: yagni</span></p></div>
+    </div>
+    <p class="rule">더 많은 목록은 <b>부록 B</b> — 세미나 후 각자 탐색.</p>
+  </section>
+
+  <!-- 12 · 설치 + 주의 -->
+  <section class="slide" data-sec="본문 2 · 부품">
+    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>설치 · 주의</b></span></div>
+    <h1 class="title">설치는 간단, 주의는 하나</h1>
+    <div class="cols c2" style="margin-top:.6rem">
+      <div class="card"><span class="tag">설치</span><p class="h cy">몇 줄이면 끝</p><p class="d">설정에 부품을 등록하면 바로 사용. 대부분 복사-붙여넣기 수준.</p></div>
+      <div class="card"><span class="tag">주의 · 딱 하나</span><p class="h accent">데이터가 나갈 수 있다</p><p class="d">어떤 mcp·plugin은 외부로 연결됨. 무엇이 나가는지 모르면 <b>사내/보안 먼저 확인.</b></p></div>
+    </div>
+  </section>
+
+  <!-- 13 · harness란 -->
+  <section class="slide" data-sec="본문 3 · harness">
+    <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>틀로 감싸 제대로</b></span></div>
+    <h1 class="title">harness — 부품을 감싸는 틀</h1>
+    <p class="lead">앞의 부품(skill·mcp)을 <b>정해진 순서와 규칙</b>으로 묶어, <b>항상 같은 품질</b>로 돌아가게 하는 틀. 블록에 조립 설명서와 작업대를 붙이는 셈.</p>
+    <div class="flow" style="font-size:var(--fs-body);margin-top:.8rem">
+      <span>부품</span><span class="a">+</span><span>순서·규칙</span><span class="a">+</span><span>검증</span><span class="a">=</span><span class="cy">믿고 쓰는 자동화</span>
+    </div>
+  </section>
+
+  <!-- 14 · 작동 방식 -->
+  <section class="slide" data-sec="본문 3 · harness">
+    <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>작동 방식</b></span></div>
+    <h1 class="title">어떻게 감싸나</h1>
+    <div class="flow" style="font-size:var(--fs-body);margin:.8rem 0;line-height:2">
+      <span class="cy">입력</span><span class="a">→</span><span>skill 실행</span><span class="a">→</span><span>결과를 <b style="color:var(--ink)">스키마로 검증</b></span><span class="a">→</span><span>통과?</span>
+    </div>
+    <div class="cols c2">
+      <div class="card"><span class="tag">통과</span><p class="h" style="color:var(--good)">→ 출력</p><p class="d">스키마를 만족한 결과만 다음 단계로.</p></div>
+      <div class="card"><span class="tag">실패</span><p class="h" style="color:var(--amber)">↻ 재시도</p><p class="d">통과할 때까지 다시 — 출력을 스키마에 수렴시킴.</p></div>
+    </div>
+  </section>
+
+  <!-- 15 · 장단점 -->
+  <section class="slide" data-sec="본문 3 · harness">
+    <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>장점과 단점</b></span></div>
+    <h1 class="title">무엇을 얻고, 무엇을 치르나</h1>
+    <div class="cols c2" style="margin-top:.6rem">
+      <div class="card hi"><span class="tag">얻는 것</span><p class="h cy">일관된 품질 · 재현성</p><p class="d">검증을 통과한 것만 나옴 → 항상 유효. 몇 번을 돌려도 같은 형태. 자동 검증.</p></div>
+      <div class="card"><span class="tag">치르는 것</span><p class="h">초기 설계 · 유지보수</p><p class="d">틀을 짜는 첫 수고와, 바뀌면 손봐야 하는 관리 비용.</p></div>
+    </div>
+    <p class="rule">그래서 다음 장 — <b>같은 작업을, 틀이 있고 없고</b>로 나란히 봅니다.</p>
+  </section>
+
+  <!-- 16 · Ex4 climax -->
+  <section class="slide" data-sec="본문 3 · harness" data-anim="ex4">
+    <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>Ex4 · 클라이맥스</b></span><span class="chip" style="margin-left:.6ch">품질+재현성</span></div>
+    <h1 class="title" style="max-width:34ch">같은 작업, 틀이 있고 없고</h1>
+    <div class="probe" id="ex4">
+      <div>
+        <div class="panel-h" style="color:var(--bad)">harness 없이 — 매번 흔들림</div>
+        <div class="runs">
+          <div class="run bad"><div class="rh"><span>Run 1</span><span class="st">필드 누락</span></div><code>participants 가 배열이 아니라 한 문자열, due 빠짐</code></div>
+          <div class="run bad"><div class="rh"><span>Run 2</span><span class="st">스키마 불일치</span></div><code>{ "제목":…, "참석자":… } — 한글 키로 바뀜</code></div>
+          <div class="run bad"><div class="rh"><span>Run 3</span><span class="st">JSON 깨짐</span></div><code>설명 문장이 앞에 붙고 마지막 쉼표 오류 → 파싱 불가</code></div>
+        </div>
+      </div>
+      <div class="arrow"><div class="ln"></div><div class="hd">SAME INPUT</div><div class="ln"></div></div>
+      <div>
+        <div class="panel-h" style="color:var(--good)">harness로 감싸면 — 매번 동일</div>
+        <div class="runs">
+          <div class="run good"><div class="rh"><span>Run 1</span><span class="st">✓ 스키마 일치</span></div><code>Ex2와 동일한 완결 JSON</code></div>
+          <div class="run good"><div class="rh"><span>Run 2</span><span class="st">✓ 스키마 일치</span></div><code>Ex2와 동일한 완결 JSON</code></div>
+          <div class="run good"><div class="rh"><span>Run 3</span><span class="st">✓ 스키마 일치</span></div><code>Ex2와 동일한 완결 JSON</code></div>
+        </div>
+      </div>
+    </div>
+    <div class="axis"><span><b>품질</b> — 통과한 것만 나오므로 항상 유효</span><span><b>재현성</b> — 세 번 모두 동일</span></div>
+  </section>
+
+  <!-- 17 · 다시 그 장면 -->
+  <section class="slide" data-sec="마무리">
+    <div class="kick"><span class="dot"></span>마무리<span class="sec"> · <b>정서 정점</b></span><span class="chip" style="margin-left:.6ch">‖ 정지</span></div>
+    <h1 class="title">다시, 그 장면</h1>
+    <div class="ex1" style="min-height:44vh;opacity:.92">
+      <div class="chatwrap" style="filter:grayscale(.2)">
+        <div class="panel-h">대화 <span style="color:var(--faint)">— 처음 그 화면</span></div>
+        <div class="chat">
+          <div class="bub u" style="animation:none;opacity:1;transform:none"><span class="who">사람</span>반도체 팀 세미나 자료 만들어줘. AI agent 입문.</div>
+          <div class="bub a" style="animation:none;opacity:1;transform:none"><span class="who">agent</span>환경 → 부품 → 틀 순서로 쉽게 가죠.</div>
+          <div class="bub u" style="animation:none;opacity:1;transform:none"><span class="who">사람</span>harness는 있고 없고 비교로 마무리.</div>
+        </div>
+      </div>
+      <div class="olwrap">
+        <div class="panel-h">얼개</div>
+        <p class="ol-title">이 발표자료</p>
+        <ul class="ol">
+          <li class="show"><span class="ix">도입</span><span class="lb">AI agent란</span></li>
+          <li class="show"><span class="ix">본문 1</span><span class="lb">사내/사외 정보 흐름</span></li>
+          <li class="show"><span class="ix">본문 2</span><span class="lb">plugin · skill · mcp</span></li>
+          <li class="show"><span class="ix">본문 3</span><span class="lb">harness</span></li>
+          <li class="show"><span class="ix">마무리</span><span class="lb">이번 주, 첫걸음</span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="lead" style="margin-top:.4rem">처음엔 신기하기만 했는데 — <b>이제 원리가 읽히시죠?</b> 환경·부품·틀을 다 지나온 지금은, 저 화면이 마법이 아니라 <span class="cy">메커니즘</span>으로 보입니다.</p>
+  </section>
+
+  <!-- 18 · 월요일에 뭐부터 -->
+  <section class="slide" data-sec="마무리">
+    <div class="kick"><span class="dot"></span>마무리<span class="sec"> · <b>첫걸음 · CTA</b></span></div>
+    <h1 class="title">그래서, 월요일 아침</h1>
+    <p class="lead">거창한 계획 말고 <b>딱 하나</b>만. 고르기 부담도 덜어드릴게요.</p>
+    <div class="cols c3" style="margin-top:.4rem">
+      <div class="card hi"><span class="tag">어디서</span><p class="h cy">사내 LLM에서</p><p class="d">데이터가 사내를 벗어나지 않는 갈래(API·OpenCode)에서.</p></div>
+      <div class="card hi"><span class="tag">무엇을</span><p class="h cy">작은 작업 하나</p><p class="d">설계·검증 맥락의 눈으로 검증되는 것 — 스펙 문서 구조화, 로그 요약.</p></div>
+      <div class="card hi"><span class="tag">어떻게</span><p class="h cy">사람이 확인하며</p><p class="d">결과를 사람이 최종 검수하는 루프로. 완벽한 틀은 나중, 지금은 그 자리를 사람이.</p></div>
+    </div>
+    <p class="rule">애매하면 <b>보안 먼저.</b> 사외 Claude Code·harness는 <b>도입되면</b> — 오늘의 숙제는 사내에서 딱 하나.</p>
+  </section>
+
+  <!-- 19 · 질문 + 마지막 -->
+  <section class="slide final" data-sec="마무리">
+    <div class="kick"><span class="dot"></span>마무리<span class="sec"> · <b>질문 받습니다</b></span></div>
+    <p class="big">바뀐 건 도구가 아니라,<br><span class="c">그 장면을 읽어내는 여러분</span>입니다 —<br>이번 주, 사내에서 <span class="a">딱 하나만 켜서</span><br>그 첫 대화를 시작해 보세요.</p>
+    <div class="support">
+      <span class="chip">이 자료</span><span class="chip">부록 B · 자가학습</span><span class="chip">옆자리 동료</span>
+    </div>
+    <p class="rule" style="border:0;padding:0;margin-top:.6rem;color:var(--muted)">질문 받습니다 — 혼자가 아닙니다.</p>
+  </section>
+
+</div>
+
+<div class="hud">
+  <div class="now"><b id="secLabel">표지</b></div>
+  <div class="nav">
+    <button id="prevBtn" type="button">← 이전</button>
+    <span id="counter" style="align-self:center;min-width:5ch;text-align:center">01 / 19</span>
+    <button id="nextBtn" type="button">다음 →</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+  var total = slides.length;
+  var idx = 0;
+  var RM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var prog = document.getElementById('prog');
+  var counter = document.getElementById('counter');
+  var secLabel = document.getElementById('secLabel');
+  var timers = [];
+  function clearTimers(){ timers.forEach(clearTimeout); timers = []; }
+  function after(ms, fn){ timers.push(setTimeout(fn, ms)); }
+  function pad(n){ return (n<10?'0':'')+n; }
+
+  var animators = {
+    ex1: function(slide){
+      var chat = slide.querySelector('#ex1-chat');
+      var items = slide.querySelectorAll('#ex1-outline li');
+      var note = slide.querySelector('#ex1-note');
+      chat.innerHTML = '';
+      items.forEach(function(li){ li.classList.remove('show'); });
+      note.classList.remove('show');
+      var steps = [
+        {who:'u', t:'반도체 팀 세미나 자료 만들어줘. AI agent 입문.'},
+        {who:'a', t:'청자 이해도가 낮으면 쉬운 순서가 좋아요. 환경 → 부품 → 틀, 이렇게 갈까요?', ol:0},
+        {who:'u', t:'좋아. 보안이 엄격하니 사내/사외 얘기를 먼저.', ol:1},
+        {who:'a', t:'부품(plugin·skill·mcp)은 도식으로, 예시도 하나 넣죠.', ol:2},
+        {who:'u', t:'harness는 있고 없고 비교로 클라이맥스.', ol:3},
+        {who:'a', t:'마무리는 "이번 주에 하나 해보기"로 착지할게요.', ol:4}
+      ];
+      function render(i){
+        var s = steps[i];
+        var b = document.createElement('div');
+        b.className = 'bub ' + s.who;
+        b.innerHTML = '<span class="who">'+(s.who==='u'?'사람':'agent')+'</span>'+s.t;
+        chat.appendChild(b);
+        chat.scrollTop = chat.scrollHeight;
+        if(s.ol != null && items[s.ol]) items[s.ol].classList.add('show');
+      }
+      if(RM){
+        steps.forEach(function(_,i){ render(i); });
+        note.classList.add('show');
+        return;
+      }
+      steps.forEach(function(_, i){ after(500 + i*1150, function(){ render(i); }); });
+      after(500 + steps.length*1150 + 400, function(){ note.classList.add('show'); });
+    },
+    ex2: function(slide){
+      var box = slide.querySelector('.ex2');
+      box.classList.remove('play');
+      if(RM){ box.classList.add('play'); return; }
+      after(250, function(){ box.classList.add('play'); });
+    },
+    ex4: function(slide){
+      var box = slide.querySelector('#ex4');
+      box.classList.remove('play');
+      if(RM){ box.classList.add('play'); return; }
+      // stagger via inline transition-delay
+      var runs = box.querySelectorAll('.run');
+      runs.forEach(function(r,i){ r.style.transitionDelay = (i%3)*160 + (i>=3?120:0) + 'ms'; });
+      after(220, function(){ box.classList.add('play'); });
+    }
+  };
+
+  function goTo(n){
+    n = Math.max(0, Math.min(total-1, n));
+    clearTimers();
+    slides.forEach(function(s, i){
+      s.classList.toggle('active', i===n);
+      s.classList.toggle('prev', i<n);
+    });
+    idx = n;
+    prog.style.width = ((n+1)/total*100) + '%';
+    counter.textContent = pad(n+1) + ' / ' + pad(total);
+    secLabel.textContent = slides[n].getAttribute('data-sec') || '';
+    var anim = slides[n].getAttribute('data-anim');
+    if(anim && animators[anim]) animators[anim](slides[n]);
+  }
+  function next(){ goTo(idx+1); }
+  function prev(){ goTo(idx-1); }
+
+  document.addEventListener('keydown', function(e){
+    if(e.key==='ArrowRight'||e.key==='PageDown'||e.key===' '){ e.preventDefault(); next(); }
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){ e.preventDefault(); prev(); }
+    else if(e.key==='Home'){ e.preventDefault(); goTo(0); }
+    else if(e.key==='End'){ e.preventDefault(); goTo(total-1); }
+  });
+  document.getElementById('nextBtn').addEventListener('click', function(e){ e.stopPropagation(); next(); });
+  document.getElementById('prevBtn').addEventListener('click', function(e){ e.stopPropagation(); prev(); });
+  // click on background advances; ignore interactive controls
+  document.getElementById('deck').addEventListener('click', function(e){
+    if(e.target.closest('button')) return;
+    var r = window.innerWidth * 0.28;
+    if(e.clientX < r) prev(); else next();
+  });
+  var replay = document.getElementById('ex1-replay');
+  if(replay) replay.addEventListener('click', function(e){ e.stopPropagation(); animators.ex1(slides[idx]); });
+
+  goTo(0);
+})();
+</script>
+</body>
+</html>
