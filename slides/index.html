@@ -39,8 +39,8 @@
   }
 
   .deck{position:fixed;inset:0}
-  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;
-    padding:8vh 8vw;gap:clamp(.7rem,1.6vh,1.4rem);
+  .slide{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-start;
+    padding:10vh 8vw 8vh;gap:clamp(.7rem,1.6vh,1.4rem);
     opacity:0;transform:translateY(16px) scale(.995);pointer-events:none;
     transition:opacity .55s var(--ease),transform .55s var(--ease)}
   .slide.active{opacity:1;transform:none;pointer-events:auto}
@@ -53,7 +53,7 @@
   .kick .sec{color:var(--faint)}
   .kick .sec b{color:var(--muted);font-weight:600}
 
-  h1.title{font-size:var(--fs-h1);line-height:1.12;margin:0;font-weight:800;letter-spacing:-.01em;text-wrap:balance;max-width:20ch}
+  h1.title{font-size:var(--fs-h1);line-height:1.12;margin:0;font-weight:800;letter-spacing:-.01em;text-wrap:balance;word-break:keep-all;max-width:26ch}
   .lead{font-size:var(--fs-body);color:var(--muted);line-height:1.6;max-width:60ch;margin:0}
   .lead b{color:var(--ink);font-weight:700}
   .accent{color:var(--amber)}
@@ -96,9 +96,9 @@
   .nav button:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
 
   /* timeline (slide 2) */
-  .tl{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:1rem;position:relative}
+  .tl{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:clamp(1.5rem,7vh,4.5rem);position:relative}
   .tl::before{content:"";position:absolute;left:6%;right:6%;top:14px;height:2px;background:var(--trace2)}
-  .tl .n{position:relative;display:flex;flex-direction:column;gap:.5rem;padding:0 .8rem}
+  .tl .n{position:relative;display:flex;flex-direction:column;gap:.5rem;padding:0 .55rem}
   .tl .n .b{width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--faint);position:relative;z-index:1}
   .tl .n.on .b{border-color:var(--cyan);background:var(--cyan);box-shadow:0 0 14px var(--cyan)}
   .tl .n .y{font-family:var(--mono);font-size:var(--fs-mono);color:var(--faint)}
@@ -107,7 +107,8 @@
   .tl .n .s{font-size:.82em;color:var(--muted);line-height:1.45}
 
   /* cover */
-  .cover{gap:1.6rem}
+  .cover{gap:1.6rem;justify-content:center}
+  .final{justify-content:center}
   .cover .big{font-size:var(--fs-display);font-weight:850;line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
   .cover .big .g{background:linear-gradient(100deg,var(--cyan),var(--amber));-webkit-background-clip:text;background-clip:text;color:transparent}
   .cover .copy{font-size:var(--fs-body);color:var(--muted);max-width:52ch;line-height:1.6}
@@ -221,12 +222,14 @@
   <section class="slide" data-sec="도입">
     <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>여기까지 온 길</b></span></div>
     <h1 class="title">오늘의 주인공은 어디서 왔나</h1>
-    <p class="lead">한 줄로 짚고 넘어갑니다 — 규칙을 사람이 다 짜던 시절에서, 스스로 판단하고 <b>도구를 골라 일하는</b> 단계까지.</p>
+    <p class="lead">규칙을 사람이 다 짜던 시절부터 <b>스스로 도구를 골라 일하는</b> 단계까지 — 각 단계가 다음 단계의 발판이 됩니다.</p>
     <div class="tl">
-      <div class="n"><span class="b"></span><span class="y">~2010</span><span class="t">규칙 기반</span><span class="s">사람이 조건을 하나하나 코딩</span></div>
-      <div class="n"><span class="b"></span><span class="y">2010s</span><span class="t">머신러닝</span><span class="s">데이터로 패턴을 학습</span></div>
-      <div class="n"><span class="b"></span><span class="y">2020s</span><span class="t">LLM</span><span class="s">말로 시키면 답하는 대형 모델</span></div>
-      <div class="n on"><span class="b"></span><span class="y">now</span><span class="t">AI Agent</span><span class="s">스스로 도구를 써 일을 끝냄</span></div>
+      <div class="n"><span class="b"></span><span class="y">2012</span><span class="t">AlexNet</span><span class="s">딥러닝 변곡점 — 규칙 대신 <b>데이터로 학습</b> (GPU)</span></div>
+      <div class="n"><span class="b"></span><span class="y">2017</span><span class="t">Transformer</span><span class="s">self-attention·병렬 학습 — 오늘날 LLM의 토대</span></div>
+      <div class="n"><span class="b"></span><span class="y">2020</span><span class="t">GPT-3</span><span class="s">few-shot — 재학습 없이 <b>자연어 지시</b>로</span></div>
+      <div class="n"><span class="b"></span><span class="y">2022</span><span class="t">ChatGPT</span><span class="s">instruction tuning·RLHF — 지시를 안정적으로 따름</span></div>
+      <div class="n"><span class="b"></span><span class="y">2023</span><span class="t">function calling</span><span class="s">외부 도구 호출 — <b>말에서 행동하는 주체</b>로</span></div>
+      <div class="n on"><span class="b"></span><span class="y">2024–25</span><span class="t">MCP · agent</span><span class="s">표준 연결 + 자율 루프 = <b>AI agent</b></span></div>
     </div>
   </section>
 
@@ -306,23 +309,24 @@
   <!-- 8 · 부품 셋 -->
   <section class="slide" data-sec="본문 2 · 부품">
     <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>부품을 이해한다</b></span></div>
-    <h1 class="title">부품 셋 — plugin · skill · mcp</h1>
+    <h1 class="title">부품 셋 — skill · mcp · plugin</h1>
     <div class="cols c3" style="margin-top:.6rem">
-      <div class="card hi"><span class="tag">skill</span><p class="h cy">전문 기술</p><p class="d">특정 작업을 잘 해내는 방법 묶음. "문서를 구조화해라" 같은 능력.</p></div>
-      <div class="card hi"><span class="tag">mcp</span><p class="h cy">표준 커넥터</p><p class="d">외부 시스템·데이터에 연결하는 규격. agent를 우리 도구에 꽂는 어댑터.</p></div>
-      <div class="card hi"><span class="tag">plugin</span><p class="h cy">패키지</p><p class="d">위 것들을 묶어 배포·설치하는 단위. 골라 담는 부품 상자.</p></div>
+      <div class="card hi"><span class="tag">skill</span><p class="h cy">모델이 호출하는 능력</p><p class="d">재사용 절차·전문지식을 <b>SKILL.md</b>로 정의 — 요청과 맞으면 모델이 필요할 때 스스로 로드.</p></div>
+      <div class="card hi"><span class="tag">mcp</span><p class="h cy">외부 연결 표준 프로토콜</p><p class="d">AI를 외부 도구·데이터에 잇는 <b>개방형 규격</b>(client–server). 서버가 tools·resources·prompts를 노출 — "AI용 USB-C".</p></div>
+      <div class="card hi"><span class="tag">plugin</span><p class="h cy">확장 배포 패키지</p><p class="d">skill·MCP·hook을 묶어 버전관리·설치하는 자기완결 꾸러미. <b>marketplace</b>에서 설치.</p></div>
     </div>
   </section>
 
   <!-- 9 · 동작 원리 -->
   <section class="slide" data-sec="본문 2 · 부품">
     <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>동작 원리</b></span></div>
-    <h1 class="title">어떻게 맞물리나 <span class="cy" style="font-size:.6em;font-weight:600">— 레고 비유</span></h1>
-    <p class="lead">agent는 <b>작업대</b>, skill·mcp는 그 위에 꺼내 쓰는 <b>블록</b>. 필요할 때 맞는 블록을 집어 끼우고, 다 쓰면 내려놓습니다.</p>
-    <div class="flow" style="font-size:var(--fs-body);margin-top:.6rem">
-      <span class="cy">요청</span><span class="a">→</span><span>agent가 필요한 <b style="color:var(--ink)">skill/mcp</b>를 고름</span><span class="a">→</span><span>도구 실행</span><span class="a">→</span><span>결과 확인</span><span class="a">→</span><span class="cy">완료</span>
+    <h1 class="title">어떻게 동작하나</h1>
+    <div class="cols c3" style="margin-top:.6rem">
+      <div class="card"><span class="tag">skill · 로드</span><p class="h cy">필요할 때만 뜬다</p><p class="d">① 평소엔 이름·설명만 상주 → ② 요청과 맞을 때 본문·스크립트 로드 <b>(progressive disclosure)</b> — 컨텍스트 절약.</p></div>
+      <div class="card"><span class="tag">mcp · 연결</span><p class="h cy">붙이고 골라 호출</p><p class="d">① 서버 연결·tool 목록 교환 → ② 모델이 필요한 tool을 골라 호출·결과 수신. 전송: 로컬(stdio)·원격(HTTP).</p></div>
+      <div class="card"><span class="tag">plugin · 배포</span><p class="h cy">묶어서 설치</p><p class="d">① 마켓플레이스 등록 → ② 설치 시 구성요소가 <span class="mono">plugin명:이름</span> 네임스페이스로 자동 등록.</p></div>
     </div>
-    <p class="rule">부품을 아는 순간, 다음 장에서 <b>실제로 움직이는 걸</b> 눈으로 봅니다.</p>
+    <p class="rule">관계: <b>plugin</b>은 담아 배포하는 꾸러미, <b>skill·mcp</b>는 그 안에 담기는 능력·연결(단독으로도 씀). — 다음 장에서 skill이 <b>실제로 움직이는 걸</b> 봅니다.</p>
   </section>
 
   <!-- 10 · Ex2 -->
@@ -374,10 +378,10 @@
   <!-- 13 · harness란 -->
   <section class="slide" data-sec="본문 3 · harness">
     <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>틀로 감싸 제대로</b></span></div>
-    <h1 class="title">harness — 부품을 감싸는 틀</h1>
-    <p class="lead">앞의 부품(skill·mcp)을 <b>정해진 순서와 규칙</b>으로 묶어, <b>항상 같은 품질</b>로 돌아가게 하는 틀. 블록에 조립 설명서와 작업대를 붙이는 셈.</p>
+    <h1 class="title">harness — 모델을 감싸는 실행 틀</h1>
+    <p class="lead">skill·mcp를 <b>정해진 순서·규칙</b>으로 묶고, 출력을 <b>검증</b>하고, 실패하면 <b>다시 돌려</b> 항상 같은 품질로 수렴시키는 실행 틀. — <span class="cy">DUT를 감싸 정해진 자극·검사를 가하는 verification harness와 같은 결</span>, 대상이 모델일 뿐입니다.</p>
     <div class="flow" style="font-size:var(--fs-body);margin-top:.8rem">
-      <span>부품</span><span class="a">+</span><span>순서·규칙</span><span class="a">+</span><span>검증</span><span class="a">=</span><span class="cy">믿고 쓰는 자동화</span>
+      <span>skill·mcp</span><span class="a">+</span><span>순서·규칙</span><span class="a">+</span><span>검증·재시도</span><span class="a">=</span><span class="cy">재현·검증되는 실행</span>
     </div>
   </section>
 
@@ -392,6 +396,7 @@
       <div class="card"><span class="tag">통과</span><p class="h" style="color:var(--good)">→ 출력</p><p class="d">스키마를 만족한 결과만 다음 단계로.</p></div>
       <div class="card"><span class="tag">실패</span><p class="h" style="color:var(--amber)">↻ 재시도</p><p class="d">통과할 때까지 다시 — 출력을 스키마에 수렴시킴.</p></div>
     </div>
+    <p class="rule">스키마가 <b>assertion·checker</b>처럼 게이트 역할 — 통과하지 못한 출력은 다음 단계로 못 간다.</p>
   </section>
 
   <!-- 15 · 장단점 -->
