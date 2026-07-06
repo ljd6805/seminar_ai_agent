@@ -22,7 +22,7 @@
 ```
 도입    AI agent란 게 있다 (+ 오프닝 데모 Ex1: 이 자료를 만든 대화 과정)
 본문 1  사내/사외 정보 흐름   — 우리 환경부터
-본문 2  plugin / skill / mcp — 부품을 이해한다 (+ Ex2: 문서 parsing 기본 동작)
+본문 2  plugin / skill / mcp — 확장 요소를 이해한다 (+ Ex2: 문서 parsing 기본 동작)
 본문 3  harness              — 틀로 감싸 제대로 쓴다 (+ Ex4: 같은 작업의 harness 유무 대조)
 마무리  (보류)
 ```
