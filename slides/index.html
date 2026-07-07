@@ -720,22 +720,24 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="iso">
         <div class="iso-zone in autoshow fade-left">
           <div class="iso-label">회사 안 — 격리된 사내망</div>
-          <div style="display:flex; align-items:center; gap:0.8rem">
-            <div class="iso-node user" style="flex:none; width:11rem">사용자<small>무엇을 어디로 보낼지<br>결정하는 사람</small></div>
-            <div class="iso-arrow good">데이터가 사내에 머문다<span class="ln"></span></div>
-            <div class="iso-node srv" style="flex:none; width:15.5rem">사내 서빙 LLM<small>OpenCode · Roo · DS assistant API<br>직접 서빙 — 지금 사용 가능</small></div>
-          </div>
-          <div style="display:flex; align-items:center; margin-top:1.05rem; padding-left:0.5rem">
-            <div class="iso-arrow warn" style="text-align:left">입력한 코드·데이터가 경계를 넘는다<span class="ln"></span></div>
+          <div style="display:flex; align-items:center; gap:0.9rem">
+            <div class="iso-node user" style="flex:none; width:10.5rem">사용자<small>무엇을 어디로 보낼지<br>결정하는 사람</small></div>
+            <div style="flex:1; display:flex; flex-direction:column; gap:1.3rem">
+              <div style="display:flex; align-items:center; gap:0.8rem">
+                <div class="iso-arrow good">사내 agent에게 보내면<br>— 데이터가 사내에 머문다<span class="ln"></span></div>
+                <div class="iso-node srv" style="flex:none; width:15.5rem">사내 AI agent<small>OpenCode · Roo · DS assistant API<br>사내 직접 서빙 — 지금 사용 가능</small></div>
+              </div>
+              <div class="iso-arrow warn" style="align-self:stretch; margin-right:-2.6rem; text-align:left; padding-left:0.2rem">사외 agent에게 보내면 — 코드·데이터가 경계를 넘는다<span class="ln"></span></div>
+            </div>
           </div>
         </div>
         <div class="iso-wall autoshow fade-in"><span>회사 경계</span></div>
         <div class="iso-zone out autoshow fade-right">
           <div class="iso-label">회사 밖</div>
           <p class="mono faint" style="margin:0.2rem 0 0 0.2rem; font-size:0.78rem; line-height:1.6">경계 밖으로 나간 데이터는<br>회사가 통제할 수 없습니다</p>
-          <div style="margin-top:auto; display:flex; align-items:flex-end; gap:0.15rem">
-            <div class="iso-arrow warn" style="align-self:flex-end; margin-bottom:0.68rem"><span class="ln"></span></div>
-            <div class="iso-node ext" style="flex:none; width:12rem">Claude<small>외부 서비스 · 도입 예정<br>외부 서버로 전송·처리</small></div>
+          <div style="margin-top:auto; display:flex; align-items:flex-end; gap:0.15rem; margin-left:-1.7rem">
+            <div class="iso-arrow warn" style="align-self:flex-end; margin-bottom:0.4rem"><span class="ln"></span></div>
+            <div class="iso-node ext" style="flex:none; width:12rem">사외 AI agent<small>Claude · 도입 예정<br>외부 서버로 전송·처리</small></div>
           </div>
         </div>
       </div>
