@@ -1702,8 +1702,8 @@ footer, header, hgroup, main, menu, nav, section {
         note.classList.add('show');
         return;
       }
-      steps.forEach(function(_, i){ after(400 + i * 720, function(){ render(i); }); });
-      after(400 + steps.length * 720 + 280, function(){ note.classList.add('show'); });
+      steps.forEach(function(_, i){ after(100 + i * 130, function(){ render(i); }); });
+      after(100 + steps.length * 130 + 120, function(){ note.classList.add('show'); });
     }
     var replay = document.getElementById('ex1-replay');
     if (replay) replay.addEventListener('click', function(e){ e.stopPropagation(); playEx1(); });
