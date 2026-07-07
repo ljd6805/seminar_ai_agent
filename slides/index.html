@@ -54,7 +54,7 @@
   .kick .sec b{color:var(--muted);font-weight:600}
 
   h1.title{font-size:var(--fs-h1);line-height:1.12;margin:0;font-weight:800;letter-spacing:-.01em;text-wrap:balance;word-break:keep-all;max-width:26ch}
-  .lead{font-size:var(--fs-body);color:var(--muted);line-height:1.6;max-width:60ch;margin:0}
+  .lead{font-size:var(--fs-body);color:var(--muted);line-height:1.6;max-width:60ch;margin:0;word-break:keep-all}
   .lead b{color:var(--ink);font-weight:700}
   .accent{color:var(--amber)}
   .cy{color:var(--cyan)}
@@ -183,7 +183,7 @@
   .rule b{color:var(--cyan)}
 
   /* closing big line */
-  .final .big{font-size:clamp(1.4rem,3vw,2.6rem);font-weight:800;line-height:1.3;letter-spacing:-.01em;max-width:24ch;text-wrap:balance;margin:0}
+  .final .big{font-size:clamp(1.4rem,3vw,2.6rem);font-weight:800;line-height:1.3;letter-spacing:-.01em;max-width:44ch;word-break:keep-all;margin:0}
   .final .big .a{color:var(--amber)} .final .big .c{color:var(--cyan)}
 
   .support{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.4rem}
@@ -212,42 +212,30 @@
   <!-- 1 · 표지 -->
   <section class="slide cover" data-sec="AI Agent 입문 세미나">
     <div class="kick"><span class="dot"></span>AI AGENT · 입문 세미나</div>
-    <h1 class="big">AI Agent,<br><span class="g">일하는 방식이 바뀝니다</span></h1>
-    <p class="copy">반도체 설계·검증 팀을 위한 첫 소개.<br>있다는 걸 알고 → 왜 좋은지 보고 → 오늘 바로 써보기까지.</p>
-    <div class="flow"><span>도입</span><span class="a">→</span><span>사내·사외</span><span class="a">→</span><span>확장 요소</span><span class="a">→</span><span>harness</span><span class="a">→</span><span>첫걸음</span></div>
+    <h1 class="big">AI Agent,<br><span class="g">오늘부터 쓸 수 있습니다</span></h1>
+    <p class="copy">무엇인지 알고 → 왜 좋은지 보고 → 오늘 바로 써보기까지.</p>
+    <div class="flow"><span>도입</span><span class="a">→</span><span>사내/사외 AI agent 구성</span><span class="a">→</span><span>확장 요소</span><span class="a">→</span><span>harness</span><span class="a">→</span><span>결론</span></div>
     <div class="meta"><span><b>발표자</b> ______</span><span><b>일시</b> ______</span><span><b>대상</b> 설계·검증 팀</span><span><b>ver</b> draft 0.1</span></div>
   </section>
 
   <!-- 2 · AI의 역사 -->
   <section class="slide" data-sec="도입">
     <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>여기까지 온 길</b></span></div>
-    <h1 class="title">오늘의 주인공은 어디서 왔나</h1>
+    <h1 class="title">AI agent는 어디서 왔나</h1>
     <p class="lead">규칙을 사람이 다 짜던 시절부터 <b>스스로 도구를 골라 일하는</b> 단계까지 — 각 단계가 다음 단계의 발판이 됩니다.</p>
     <div class="tl">
-      <div class="n"><span class="b"></span><span class="y">2012</span><span class="t">AlexNet</span><span class="s">딥러닝 변곡점 — 규칙 대신 <b>데이터로 학습</b> (GPU)</span></div>
-      <div class="n"><span class="b"></span><span class="y">2017</span><span class="t">Transformer</span><span class="s">self-attention·병렬 학습 — 오늘날 LLM의 토대</span></div>
-      <div class="n"><span class="b"></span><span class="y">2020</span><span class="t">GPT-3</span><span class="s">few-shot — 재학습 없이 <b>자연어 지시</b>로</span></div>
-      <div class="n"><span class="b"></span><span class="y">2022</span><span class="t">ChatGPT</span><span class="s">instruction tuning·RLHF — 지시를 안정적으로 따름</span></div>
-      <div class="n"><span class="b"></span><span class="y">2023</span><span class="t">function calling</span><span class="s">외부 도구 호출 — <b>말에서 행동하는 주체</b>로</span></div>
-      <div class="n on"><span class="b"></span><span class="y">2024–25</span><span class="t">MCP · agent</span><span class="s">표준 연결 + 자율 루프 = <b>AI agent</b></span></div>
+      <div class="n"><span class="b"></span><span class="y">2012</span><span class="t">AlexNet</span><span class="s">규칙 대신 <b>데이터로 학습</b>이 통한 첫 순간 (GPU)</span></div>
+      <div class="n"><span class="b"></span><span class="y">2017</span><span class="t">Transformer</span><span class="s"><b>문맥을 통째로 보는 구조</b>(self-attention)로 대규모 학습 — LLM의 뼈대</span></div>
+      <div class="n"><span class="b"></span><span class="y">2020</span><span class="t">GPT-3</span><span class="s"><b>예시 몇 개만으로</b> 재학습 없이(few-shot) — 프롬프트로 지시</span></div>
+      <div class="n"><span class="b"></span><span class="y">2022</span><span class="t">ChatGPT</span><span class="s"><b>사람 피드백</b>(RLHF)으로 지시를 잘 따름 — 대화로 대중화</span></div>
+      <div class="n"><span class="b"></span><span class="y">2023</span><span class="t">function calling</span><span class="s">모델이 <b>외부 도구를 호출</b>(표준화) — 말에서 행동으로</span></div>
+      <div class="n on"><span class="b"></span><span class="y">2024–25</span><span class="t">MCP · agent</span><span class="s"><b>도구 연결의 표준</b>(MCP) + <b>스스로 도는 루프</b> = AI agent</span></div>
     </div>
   </section>
 
-  <!-- 3 · AI agent란 -->
-  <section class="slide" data-sec="도입">
-    <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>정의</b></span></div>
-    <h1 class="title">AI agent란?</h1>
-    <p class="lead"><b>목표를 주면, 스스로 도구를 골라 여러 단계를 밟아 일을 끝내는 AI.</b> 한 번의 질문·답변이 아니라, 확인하고 고치며 끝까지 진행합니다.</p>
-    <div class="cols c3" style="margin-top:.6rem">
-      <div class="card"><span class="tag">기존 방식</span><p class="h">내가 한 단계씩</p><p class="d">파일 열고 · 찾고 · 고치고 — 매 단계를 사람이 지시.</p></div>
-      <div class="card hi"><span class="tag">agent 방식</span><p class="h cy">의도를 말하면</p><p class="d">"이걸 이렇게 해줘" → 알아서 도구를 쓰고 결과를 확인·수정.</p></div>
-      <div class="card"><span class="tag">핵심 3가지</span><p class="h">도구·다단계·검증</p><p class="d">도구를 쓴다 / 여러 단계를 스스로 / 결과를 확인하고 고친다.</p></div>
-    </div>
-  </section>
-
-  <!-- 4 · Ex1 데모 (auto) -->
+  <!-- 3 · 데모 1 (auto) -->
   <section class="slide" data-sec="도입" data-anim="ex1">
-    <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>Ex1 · 실증 데모</b></span><span class="chip" style="margin-left:.6ch">auto</span></div>
+    <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>데모 1 · 이 자료의 탄생</b></span><span class="chip" style="margin-left:.6ch">자동 재생</span></div>
     <h1 class="title" style="max-width:30ch">이 발표자료도, 이렇게 만들었습니다</h1>
     <div class="ex1">
       <div class="chatwrap">
@@ -256,187 +244,183 @@
         <button class="replay" id="ex1-replay" type="button">↻ 다시 재생</button>
       </div>
       <div class="olwrap">
-        <div class="panel-h">얼개가 자라난다</div>
+        <div class="panel-h">구조가 자라난다</div>
         <p class="ol-title">이 발표자료</p>
         <p class="ol-sub">// 대화가 오갈수록 한 줄씩 성장</p>
         <ul class="ol" id="ex1-outline">
           <li><span class="ix">도입</span><span class="lb">AI agent란</span></li>
           <li><span class="ix">본문 1</span><span class="lb">사내/사외 정보 흐름</span></li>
-          <li><span class="ix">본문 2</span><span class="lb">plugin · skill · mcp</span></li>
+          <li><span class="ix">본문 2</span><span class="lb">확장 요소 — skill·MCP·plugin</span></li>
           <li><span class="ix">본문 3</span><span class="lb">harness</span></li>
           <li><span class="ix">마무리</span><span class="lb">이번 주, 첫걸음</span></li>
         </ul>
-        <p class="ex-note" id="ex1-note">… 그렇게 이 19장이 나왔습니다.</p>
+        <p class="ex-note" id="ex1-note">… 그렇게 이 자료가 나왔습니다.</p>
       </div>
     </div>
+  </section>
+
+  <!-- 4 · AI agent란 -->
+  <section class="slide" data-sec="도입">
+    <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>정의</b></span></div>
+    <h1 class="title">AI agent란?</h1>
+    <p class="lead"><b>방금 보신 것처럼 — 목표를 주면 필요한 도구를 스스로 선택하고, 여러 단계를 거쳐 작업을 완수하는 AI입니다.</b> 한 번의 질문·답변이 아니라, 결과를 확인하고 고치며 끝까지 진행합니다.</p>
+    <div class="cols c2" style="margin-top:.6rem">
+      <div class="card"><span class="tag">기존 방식</span><p class="h">내가 한 단계씩</p><p class="d">파일 열고 · 찾고 · 고치고 — 매 단계를 사람이 지시.</p></div>
+      <div class="card hi"><span class="tag">agent 방식</span><p class="h cy">의도를 말하면</p><p class="d">"이걸 이렇게 해줘" → 필요한 도구를 스스로 선택해 실행하고, 결과를 확인·수정.</p></div>
+    </div>
+    <p class="rule">핵심 세 가지 — <b>도구 사용 · 다단계 진행 · 결과 확인</b></p>
   </section>
 
   <!-- 5 · 왜 지금 우리가 -->
   <section class="slide" data-sec="도입">
     <div class="kick"><span class="dot"></span>도입<span class="sec"> · <b>왜 지금</b></span></div>
     <h1 class="title">왜 지금, 우리가</h1>
+    <p class="lead">모델이 외부 도구를 다루게 된 2023, 연결이 표준이 된 2024 — <b>agent가 실무에 들어올 조건은 최근에야 갖춰졌습니다.</b> 그리고 우리에겐 이미 사내 LLM이 있습니다.</p>
     <div class="cols c2" style="margin-top:.6rem">
-      <div class="card"><span class="tag">그대로 두면</span><p class="h">반복 업무에 시간을</p><p class="d">문서 정리, 로그 훑기, 형식 맞추기 — 매번 손으로. 정작 판단·설계에 쓸 시간이 깎임.</p></div>
-      <div class="card hi"><span class="tag">받아들이면</span><p class="h cy">판단·설계에 시간을</p><p class="d">반복은 agent에게 넘기고, 사람은 "무엇을 시킬지·무엇을 믿을지"에 집중.</p></div>
+      <div class="card"><span class="tag">지금까지</span><p class="h">반복 작업에 시간을</p><p class="d">문서 정리, 로그에서 필요한 줄 골라내기, 형식 맞추기 — 매번 사람 손으로. 정작 판단·설계에 쓸 시간이 밀려납니다.</p></div>
+      <div class="card hi"><span class="tag">agent를 쓰면</span><p class="h cy">판단·설계에 시간을</p><p class="d">반복은 agent에게 넘기고, 사람은 "무엇을 시킬지, 무엇을 믿을지"에 집중합니다.</p></div>
     </div>
-    <p class="rule">변화의 방향은 <b>도구를 늘리는 것</b>이 아니라 <b>일하는 방식을 바꾸는 것</b>.</p>
+    <p class="rule">이미 쓸 수 있는 환경이 회사 안에 있습니다 — <b>먼저 우리 환경부터</b> 봅니다.</p>
   </section>
 
-  <!-- 6 · 우리 환경 두 갈래 -->
+  <!-- 6 · 우리 환경 — 정보 경계 (구 6+7 병합) -->
   <section class="slide" data-sec="본문 1 · 정보 흐름">
     <div class="kick"><span class="dot"></span>본문 1<span class="sec"> · <b>우리 환경부터</b></span></div>
-    <h1 class="title">우리 환경은 두 갈래</h1>
-    <div class="cols c2" style="margin-top:.6rem">
-      <div class="card"><span class="tag">이미 있음</span><p class="h cy">사내 LLM</p><p class="d">API 형태 · OpenCode 형태로 사내 서버에서 서빙. 데이터가 사내에 머문다.</p>
-        <div class="support"><span class="chip">API</span><span class="chip">OpenCode</span></div></div>
-      <div class="card"><span class="tag">도입 예정</span><p class="h accent">사외 Claude Code</p><p class="d">강력하지만 경계를 넘는다. 무엇을 보내는지 알고 써야 한다.</p>
-        <div class="support"><span class="chip">외부</span><span class="chip">도입 예정</span></div></div>
-    </div>
-    <p class="rule">두 갈래를 <b>정보가 어디로 가느냐</b>로 구분하는 게 다음 장.</p>
-  </section>
-
-  <!-- 7 · 정보는 어디로 -->
-  <section class="slide" data-sec="본문 1 · 정보 흐름">
-    <div class="kick"><span class="dot"></span>본문 1<span class="sec"> · <b>데이터 경계</b></span></div>
-    <h1 class="title">정보는 어디로 가나</h1>
+    <h1 class="title">우리 환경 — 정보는 어디로 가나</h1>
+    <p class="lead">쓸 수 있는 경로는 둘 — 구분 기준은 하나, <b>데이터가 어디로 가는가</b>입니다.</p>
     <div class="bound">
-      <div class="zone inside"><div class="zt">사내에 머문다</div><p class="zd">사내 LLM(API·OpenCode). 설계·검증 데이터가 회사 경계를 벗어나지 않음.</p></div>
-      <div class="zone outside"><div class="zt">경계를 넘는다</div><p class="zd">사외 Claude Code. 보낸 내용이 외부로 나감 — 무엇을 보내는지 통제 필요.</p></div>
+      <div class="zone inside"><div class="zt">사내에 머문다</div><p class="zd">사내 서버에서 서빙되는 LLM — API로 직접 호출하거나 OpenCode 같은 에이전트 클라이언트로 사용. 설계·검증 데이터가 회사 경계를 벗어나지 않습니다.</p>
+        <div class="support"><span class="chip">사내 API</span><span class="chip">OpenCode</span><span class="chip">지금 사용 가능</span></div></div>
+      <div class="zone outside"><div class="zt">경계를 넘는다</div><p class="zd">사외 Claude Code(도입 예정) — 입력한 코드·데이터가 회사 밖 서버로 전송됩니다. 무엇을 보내는지 알고 써야 합니다.</p>
+        <div class="support"><span class="chip">외부 전송</span><span class="chip">도입 예정</span></div></div>
     </div>
-    <p class="rule">원칙: 민감·설계 데이터 → <b>사내</b>. 공개·비민감 실험 → 사외. <b>애매하면 보안 먼저 확인.</b></p>
+    <p class="rule">원칙: 민감·설계 데이터는 <b>사내에서</b>. 판단이 서지 않으면 <b>보안 검토 먼저.</b></p>
   </section>
 
-  <!-- 8 · 확장 요소 셋 -->
+  <!-- 7 · 확장 요소 셋 -->
   <section class="slide" data-sec="본문 2 · 확장 요소">
     <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>확장 요소를 이해한다</b></span></div>
-    <h1 class="title">확장 요소 셋 — skill · mcp · plugin</h1>
+    <h1 class="title">확장 요소 셋 — skill · MCP · plugin</h1>
     <div class="cols c3" style="margin-top:.6rem">
-      <div class="card hi"><span class="tag">skill</span><p class="h cy">모델이 호출하는 능력</p><p class="d">재사용 절차·전문지식을 <b>SKILL.md</b>로 정의 — 요청과 맞으면 모델이 필요할 때 스스로 로드.</p></div>
-      <div class="card hi"><span class="tag">mcp</span><p class="h cy">외부 연결 표준 프로토콜</p><p class="d">AI를 외부 도구·데이터에 잇는 <b>개방형 규격</b>(client–server). 서버가 tools·resources·prompts를 노출 — "AI용 USB-C".</p></div>
-      <div class="card hi"><span class="tag">plugin</span><p class="h cy">확장 배포 패키지</p><p class="d">skill·MCP·hook을 묶어 버전관리·설치하는 자기완결 꾸러미. <b>marketplace</b>에서 설치.</p></div>
+      <div class="card hi"><span class="tag">skill</span><p class="h cy">모델이 불러 쓰는 전문 절차</p><p class="d">재사용할 절차·전문지식을 <b>SKILL.md</b>로 정의 — 작업과 맞으면 모델이 스스로 불러와 따릅니다.</p></div>
+      <div class="card hi"><span class="tag">MCP</span><p class="h cy">외부 연결 표준 프로토콜</p><p class="d">AI를 외부 도구·데이터에 잇는 <b>개방형 규격</b>(client–server). 서버가 tools·resources·prompts를 노출 — 공식 문서의 비유로 "AI용 USB-C".</p></div>
+      <div class="card hi"><span class="tag">plugin</span><p class="h cy">확장 배포 패키지</p><p class="d">skill·MCP·hook(정해진 시점의 자동 동작)을 묶어 버전관리·설치하는 꾸러미 — <b>marketplace</b>에서 설치.</p></div>
     </div>
   </section>
 
-  <!-- 9 · 동작 원리 -->
+  <!-- 8 · 동작 원리 -->
   <section class="slide" data-sec="본문 2 · 확장 요소">
     <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>동작 원리</b></span></div>
     <h1 class="title">어떻게 동작하나</h1>
     <div class="cols c3" style="margin-top:.6rem">
-      <div class="card"><span class="tag">skill · 로드</span><p class="h cy">필요할 때만 뜬다</p><p class="d">① 평소엔 이름·설명만 상주 → ② 요청과 맞을 때 본문·스크립트 로드 <b>(progressive disclosure)</b> — 컨텍스트 절약.</p></div>
-      <div class="card"><span class="tag">mcp · 연결</span><p class="h cy">붙이고 골라 호출</p><p class="d">① 서버 연결·tool 목록 교환 → ② 모델이 필요한 tool을 골라 호출·결과 수신. 전송: 로컬(stdio)·원격(HTTP).</p></div>
-      <div class="card"><span class="tag">plugin · 배포</span><p class="h cy">묶어서 설치</p><p class="d">① 마켓플레이스 등록 → ② 설치 시 구성요소가 <span class="mono">plugin명:이름</span> 네임스페이스로 자동 등록.</p></div>
+      <div class="card"><span class="tag">skill · 로드</span><p class="h cy">필요할 때만 로드</p><p class="d">① 평소엔 이름·설명만 상주 → ② 작업과 맞을 때 본문·스크립트 로드 — <b>필요할 때만 펼치기</b>(progressive disclosure)로 컨텍스트 절약.</p></div>
+      <div class="card"><span class="tag">MCP · 연결</span><p class="h cy">연결하고 골라 호출</p><p class="d">① 서버 연결·tool 목록 교환 → ② 모델이 필요한 tool을 골라 호출·결과 수신. 로컬·원격 모두 연결.</p></div>
+      <div class="card"><span class="tag">plugin · 배포</span><p class="h cy">묶어서 설치</p><p class="d">① marketplace 등록 → ② 설치하면 안에 담긴 skill·명령이 <span class="mono">plugin명:이름</span> 꼬리표(이름 충돌 방지)로 자동 등록.</p></div>
     </div>
-    <p class="rule">관계: <b>plugin</b>은 담아 배포하는 꾸러미, <b>skill·mcp</b>는 그 안에 담기는 능력·연결(단독으로도 씀). — 다음 장에서 skill이 <b>실제로 움직이는 걸</b> 봅니다.</p>
+    <p class="rule">관계: <b>plugin</b>은 담아 배포하는 꾸러미 — <b>skill·MCP</b>는 그 안에 담기는 능력·연결(단독 사용도 가능). 다음 장에서 skill이 실제로 동작하는 것을 봅니다.</p>
   </section>
 
-  <!-- 10 · Ex2 -->
+  <!-- 9 · 데모 2 -->
   <section class="slide" data-sec="본문 2 · 확장 요소" data-anim="ex2">
-    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>Ex2 · 기본 동작</b></span></div>
+    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>데모 2 · 기본 동작</b></span></div>
     <h1 class="title" style="max-width:34ch">눈으로 보기 — 문서 한 장을 구조화</h1>
     <div class="ex2 probe">
       <div class="card"><span class="tag">비정형 입력 · 회의 메모</span>
         <div class="memo">10/24 주간 동기화. 참석: 지훈, 민아, 세영.
-- 로그인 API 지연, 원인은 토큰 갱신. 지훈 금주 수정.
+- 로그인 API 지연, 원인은 토큰 갱신. 지훈이 금요일까지 수정.
 - 대시보드 3안 중 2안 결정. 민아 다음 주 월요일까지.
 - 다음 회의 10/31 오후 3시.</div></div>
-      <div class="arrow"><div class="ln"></div><div class="hd">SKILL</div><div class="ln"></div></div>
+      <div class="arrow"><div class="ln"></div><div class="hd">skill</div><div class="ln"></div></div>
       <div class="card hi"><span class="tag">구조화 출력 · JSON</span>
-<pre id="ex2-json"><span class="ln"><span class="k">"title"</span>: <span class="s">"주간 동기화"</span>,</span>
-<span class="ln"><span class="k">"date"</span>: <span class="s">"2024-10-24"</span>,</span>
+<pre id="ex2-json"><span class="ln"><span class="k">"title"</span>: <span class="s">"주간 동기화"</span>, <span class="k">"date"</span>: <span class="s">"2024-10-24"</span>,</span>
 <span class="ln"><span class="k">"participants"</span>: [<span class="s">"지훈","민아","세영"</span>],</span>
+<span class="ln"><span class="k">"decisions"</span>: [<span class="s">"대시보드 시안 2안으로 결정"</span>],</span>
 <span class="ln"><span class="k">"action_items"</span>: [</span>
-<span class="ln">  { <span class="k">"owner"</span>:<span class="s">"지훈"</span>, <span class="k">"due"</span>:<span class="s">"금주"</span> },</span>
-<span class="ln">  { <span class="k">"owner"</span>:<span class="s">"민아"</span>, <span class="k">"due"</span>:<span class="s">"2024-10-28"</span> } ],</span>
+<span class="ln">  { <span class="k">"owner"</span>:<span class="s">"지훈"</span>, <span class="k">"task"</span>:<span class="s">"토큰 갱신 수정"</span>, <span class="k">"due"</span>:<span class="s">"2024-10-25"</span> },</span>
+<span class="ln">  { <span class="k">"owner"</span>:<span class="s">"민아"</span>, <span class="k">"task"</span>:<span class="s">"대시보드 2안 반영"</span>, <span class="k">"due"</span>:<span class="s">"2024-10-28"</span> } ],</span>
 <span class="ln"><span class="k">"next_meeting"</span>: <span class="s">"2024-10-31 15:00"</span></span></pre></div>
     </div>
-    <p class="rule">가르치는 점: <b>비정형 in → 구조화 out.</b> skill이 하는 일을 눈으로 확인.</p>
+    <p class="rule">핵심: <b>비정형 입력 → 구조화 출력.</b> 이 변환 규칙을 담은 것이 skill — 설계·검증에선 이 자리에 스펙 문서·검증 로그가 들어갑니다.</p>
   </section>
 
-  <!-- 11 · 유용한 것들 -->
+  <!-- 10 · 유용한 것들 + 설치·주의 (구 11+12 병합) -->
   <section class="slide" data-sec="본문 2 · 확장 요소">
-    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>유용한 것들</b></span></div>
-    <h1 class="title">골라 쓰면 됩니다</h1>
-    <p class="lead">전부 외울 필요 없이, <b>이런 결의 도구들이 있다</b>는 지도만. 카테고리마다 대표 하나씩.</p>
+    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>골라 쓰기 · 설치</b></span></div>
+    <h1 class="title">골라 쓰면 됩니다 — 설치는 간단, 주의는 하나</h1>
+    <p class="lead">전부 외울 필요는 없습니다. <b>이런 종류의 도구들이 있다</b>는 지도만 — 종류마다 예 하나씩.</p>
     <div class="cols c3" style="margin-top:.4rem">
-      <div class="card"><span class="tag">Context 확장</span><p class="h">맥락을 넓힌다</p><p class="d">긴 작업·기억을 이어가게. <span class="cy">대표: claude-mem</span></p></div>
-      <div class="card"><span class="tag">Web 개발</span><p class="h">웹을 다룬다</p><p class="d">브라우저·크롤링·프론트. <span class="cy">대표: playwright</span></p></div>
-      <div class="card"><span class="tag">Token 절약</span><p class="h">비용을 줄인다</p><p class="d">불필요한 소모를 깎음. <span class="cy">대표: yagni</span></p></div>
+      <div class="card"><span class="tag">Context 확장</span><p class="h">맥락을 넓힌다</p><p class="d">긴 작업·기억을 이어가게. <span class="cy">예: claude-mem</span></p></div>
+      <div class="card"><span class="tag">웹·브라우저</span><p class="h">웹을 다룬다</p><p class="d">브라우저 자동화·웹 자료 수집. <span class="cy">예: playwright</span></p></div>
+      <div class="card"><span class="tag">Token 절약</span><p class="h">비용을 줄인다</p><p class="d">불필요한 토큰 소모를 줄인다. <span class="cy">예: yagni</span></p></div>
     </div>
-    <p class="rule">더 많은 목록은 <b>부록 B</b> — 세미나 후 각자 탐색.</p>
+    <p class="rule">설치는 설정에 항목 하나 등록하는 수준 — 전체 후보 목록은 <b>부록</b>(마지막 장)에.</p>
+    <p class="rule" style="border-top:0;padding-top:0;margin-top:0">주의는 하나 — 일부 MCP·plugin은 <b>외부로 연결</b>됩니다. 설계 자산이 나갈 수 있으니 <b>애매하면 보안 먼저</b>(본문 1의 원칙). — 이제 이 확장 요소들을 <b>틀로 감싸 제대로 쓰는 법</b>으로 갑니다.</p>
   </section>
 
-  <!-- 12 · 설치 + 주의 -->
-  <section class="slide" data-sec="본문 2 · 확장 요소">
-    <div class="kick"><span class="dot"></span>본문 2<span class="sec"> · <b>설치 · 주의</b></span></div>
-    <h1 class="title">설치는 간단, 주의는 하나</h1>
-    <div class="cols c2" style="margin-top:.6rem">
-      <div class="card"><span class="tag">설치</span><p class="h cy">몇 줄이면 끝</p><p class="d">설정에 확장 요소를 등록하면 바로 사용. 대부분 복사-붙여넣기 수준.</p></div>
-      <div class="card"><span class="tag">주의 · 딱 하나</span><p class="h accent">데이터가 나갈 수 있다</p><p class="d">어떤 mcp·plugin은 외부로 연결됨. 무엇이 나가는지 모르면 <b>사내/보안 먼저 확인.</b></p></div>
-    </div>
-  </section>
-
-  <!-- 13 · harness란 -->
+  <!-- 11 · harness란 -->
   <section class="slide" data-sec="본문 3 · harness">
     <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>틀로 감싸 제대로</b></span></div>
     <h1 class="title">harness — 모델을 감싸는 실행 틀</h1>
-    <p class="lead">skill·mcp를 <b>정해진 순서·규칙</b>으로 묶고, 출력을 <b>검증</b>하고, 실패하면 <b>다시 돌려</b> 항상 같은 품질로 수렴시키는 실행 틀. — <span class="cy">DUT를 감싸 정해진 자극·검사를 가하는 verification harness와 같은 결</span>, 대상이 모델일 뿐입니다.</p>
+    <p class="lead">확장 요소를 <b>정해진 순서·규칙</b>으로 묶고, 출력을 <b>검증</b>하고, 실패하면 <b>재시도</b>하는 실행 틀. — <span class="cy">DUT를 감싸 정해진 자극·검사를 가하는 verification harness와 같은 구조</span>, 대상이 모델일 뿐입니다.</p>
     <div class="flow" style="font-size:var(--fs-body);margin-top:.8rem">
-      <span>skill·mcp</span><span class="a">+</span><span>순서·규칙</span><span class="a">+</span><span>검증·재시도</span><span class="a">=</span><span class="cy">재현·검증되는 실행</span>
+      <span>확장 요소</span><span class="a">+</span><span>순서·규칙</span><span class="a">+</span><span>검증·재시도</span><span class="a">=</span><span class="cy">검증되고 재현되는 실행</span>
     </div>
+    <p class="rule">공식 용어입니다 — Claude Code 문서는 스스로를 <b>"agentic harness"</b>, 모델에 도구·컨텍스트·실행 환경을 붙이는 틀이라고 설명합니다.</p>
   </section>
 
-  <!-- 14 · 작동 방식 -->
+  <!-- 12 · 작동 방식 -->
   <section class="slide" data-sec="본문 3 · harness">
     <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>작동 방식</b></span></div>
-    <h1 class="title">어떻게 감싸나</h1>
+    <h1 class="title">어떻게 도나 — 스키마 게이트</h1>
     <div class="flow" style="font-size:var(--fs-body);margin:.8rem 0;line-height:2">
-      <span class="cy">입력</span><span class="a">→</span><span>skill 실행</span><span class="a">→</span><span>결과를 <b style="color:var(--ink)">스키마로 검증</b></span><span class="a">→</span><span>통과?</span>
+      <span class="cy">입력</span><span class="a">→</span><span>skill 실행</span><span class="a">→</span><span>결과를 <b style="color:var(--ink)">스키마로 검증</b></span><span class="a">→</span><span>통과?</span><span class="a"> · </span><span style="color:var(--faint)">실패 ↻ skill 실행으로</span>
     </div>
     <div class="cols c2">
       <div class="card"><span class="tag">통과</span><p class="h" style="color:var(--good)">→ 출력</p><p class="d">스키마를 만족한 결과만 다음 단계로.</p></div>
-      <div class="card"><span class="tag">실패</span><p class="h" style="color:var(--amber)">↻ 재시도</p><p class="d">통과할 때까지 다시 — 출력을 스키마에 수렴시킴.</p></div>
+      <div class="card"><span class="tag">실패</span><p class="h" style="color:var(--amber)">↻ 재시도</p><p class="d">실패 원인을 되먹여 다시 생성(한도 내) — 출력을 스키마 쪽으로 수렴시킵니다.</p></div>
     </div>
-    <p class="rule">스키마가 <b>assertion·checker</b>처럼 게이트 역할 — 통과하지 못한 출력은 다음 단계로 못 간다.</p>
+    <p class="rule">스키마 = 출력이 지켜야 할 형식 규격 — <b>assertion처럼 형식을 지키는 게이트.</b> 내용의 정합은 별도 검사가 필요합니다(그 자리를 지금은 사람이 맡습니다).</p>
   </section>
 
-  <!-- 15 · 장단점 -->
+  <!-- 13 · 장단점 -->
   <section class="slide" data-sec="본문 3 · harness">
     <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>장점과 단점</b></span></div>
     <h1 class="title">무엇을 얻고, 무엇을 치르나</h1>
     <div class="cols c2" style="margin-top:.6rem">
-      <div class="card hi"><span class="tag">얻는 것</span><p class="h cy">일관된 품질 · 재현성</p><p class="d">검증을 통과한 것만 나옴 → 항상 유효. 몇 번을 돌려도 같은 형태. 자동 검증.</p></div>
-      <div class="card"><span class="tag">치르는 것</span><p class="h">초기 설계 · 유지보수</p><p class="d">틀을 짜는 첫 수고와, 바뀌면 손봐야 하는 관리 비용.</p></div>
+      <div class="card hi"><span class="tag">얻는 것</span><p class="h cy">일관된 품질 · 재현성</p><p class="d">품질 — 정의한 검증을 통과한 결과만 출력. 재현성 — 몇 번을 실행해도 동일한 구조.</p></div>
+      <div class="card"><span class="tag">치르는 것</span><p class="h">초기 설계 · 유지보수</p><p class="d">틀을 처음 설계하는 비용, 그리고 작업이 바뀌면 틀도 손봐야 하는 관리 비용.</p></div>
     </div>
-    <p class="rule">그래서 다음 장 — <b>같은 작업을, 틀이 있고 없고</b>로 나란히 봅니다.</p>
+    <p class="rule">그래서 다음 장 — 같은 작업을 <b>harness가 있을 때와 없을 때</b>로 나란히 봅니다.</p>
   </section>
 
-  <!-- 16 · Ex4 climax -->
+  <!-- 14 · 데모 3 -->
   <section class="slide" data-sec="본문 3 · harness" data-anim="ex4">
-    <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>Ex4 · 클라이맥스</b></span><span class="chip" style="margin-left:.6ch">품질+재현성</span></div>
-    <h1 class="title" style="max-width:34ch">같은 작업, 틀이 있고 없고</h1>
+    <div class="kick"><span class="dot"></span>본문 3<span class="sec"> · <b>데모 3 · harness 유무</b></span><span class="chip" style="margin-left:.6ch">품질+재현성</span></div>
+    <h1 class="title" style="max-width:34ch">같은 작업, harness가 있을 때와 없을 때</h1>
     <div class="probe" id="ex4">
       <div>
-        <div class="panel-h" style="color:var(--bad)">harness 없이 — 매번 흔들림</div>
+        <div class="panel-h" style="color:var(--bad)">harness 없이 — 실행마다 출력이 달라진다</div>
         <div class="runs">
           <div class="run bad"><div class="rh"><span>Run 1</span><span class="st">필드 누락</span></div><code>participants 가 배열이 아니라 한 문자열, due 빠짐</code></div>
           <div class="run bad"><div class="rh"><span>Run 2</span><span class="st">스키마 불일치</span></div><code>{ "제목":…, "참석자":… } — 한글 키로 바뀜</code></div>
           <div class="run bad"><div class="rh"><span>Run 3</span><span class="st">JSON 깨짐</span></div><code>설명 문장이 앞에 붙고 마지막 쉼표 오류 → 파싱 불가</code></div>
         </div>
       </div>
-      <div class="arrow"><div class="ln"></div><div class="hd">SAME INPUT</div><div class="ln"></div></div>
+      <div class="arrow"><div class="ln"></div><div class="hd">같은 입력</div><div class="ln"></div></div>
       <div>
-        <div class="panel-h" style="color:var(--good)">harness로 감싸면 — 매번 동일</div>
+        <div class="panel-h" style="color:var(--good)">harness로 감싸면 — 매번 스키마에 일치</div>
+        <p class="ol-sub" style="margin:0 0 .4rem">// 스키마 검증 → 불합격 시 재생성</p>
         <div class="runs">
-          <div class="run good"><div class="rh"><span>Run 1</span><span class="st">✓ 스키마 일치</span></div><code>Ex2와 동일한 완결 JSON</code></div>
-          <div class="run good"><div class="rh"><span>Run 2</span><span class="st">✓ 스키마 일치</span></div><code>Ex2와 동일한 완결 JSON</code></div>
-          <div class="run good"><div class="rh"><span>Run 3</span><span class="st">✓ 스키마 일치</span></div><code>Ex2와 동일한 완결 JSON</code></div>
+          <div class="run good"><div class="rh"><span>Run 1</span><span class="st">✓ 스키마 일치</span></div><code>완결 JSON — 데모 2와 같은 구조</code></div>
+          <div class="run good"><div class="rh"><span>Run 2</span><span class="st">✓ 스키마 일치</span></div><code>동일 구조</code></div>
+          <div class="run good"><div class="rh"><span>Run 3</span><span class="st">✓ 스키마 일치</span></div><code>동일 구조</code></div>
         </div>
       </div>
     </div>
-    <div class="axis"><span><b>품질</b> — 통과한 것만 나오므로 항상 유효</span><span><b>재현성</b> — 세 번 모두 동일</span></div>
+    <div class="axis"><span><b>품질</b> — 검증을 통과한 출력만 나간다</span><span><b>재현성</b> — 세 번 모두 같은 구조</span></div>
   </section>
 
-  <!-- 17 · 다시 그 장면 -->
+  <!-- 15 · 다시 그 장면 -->
   <section class="slide" data-sec="마무리">
     <div class="kick"><span class="dot"></span>마무리<span class="sec"> · <b>정서 정점</b></span><span class="chip" style="margin-left:.6ch">‖ 정지</span></div>
     <h1 class="title">다시, 그 장면</h1>
@@ -445,46 +429,58 @@
         <div class="panel-h">대화 <span style="color:var(--faint)">— 처음 그 화면</span></div>
         <div class="chat">
           <div class="bub u" style="animation:none;opacity:1;transform:none"><span class="who">사람</span>반도체 팀 세미나 자료 만들어줘. AI agent 입문.</div>
-          <div class="bub a" style="animation:none;opacity:1;transform:none"><span class="who">agent</span>환경 → 확장 요소 → 틀 순서로 쉽게 가죠.</div>
-          <div class="bub u" style="animation:none;opacity:1;transform:none"><span class="who">사람</span>harness는 있고 없고 비교로 마무리.</div>
+          <div class="bub a" style="animation:none;opacity:1;transform:none"><span class="who">agent</span>청자 이해도가 낮으면 쉬운 순서가 좋아요. 환경 → 확장 요소 → 틀, 이렇게 갈까요?</div>
+          <div class="bub u" style="animation:none;opacity:1;transform:none"><span class="who">사람</span>harness는 있고 없고 비교로 정점을 만들자.</div>
         </div>
       </div>
       <div class="olwrap">
-        <div class="panel-h">얼개</div>
+        <div class="panel-h">구조</div>
         <p class="ol-title">이 발표자료</p>
         <ul class="ol">
           <li class="show"><span class="ix">도입</span><span class="lb">AI agent란</span></li>
           <li class="show"><span class="ix">본문 1</span><span class="lb">사내/사외 정보 흐름</span></li>
-          <li class="show"><span class="ix">본문 2</span><span class="lb">plugin · skill · mcp</span></li>
+          <li class="show"><span class="ix">본문 2</span><span class="lb">확장 요소 — skill·MCP·plugin</span></li>
           <li class="show"><span class="ix">본문 3</span><span class="lb">harness</span></li>
           <li class="show"><span class="ix">마무리</span><span class="lb">이번 주, 첫걸음</span></li>
         </ul>
       </div>
     </div>
-    <p class="lead" style="margin-top:.4rem">처음엔 신기하기만 했는데 — <b>이제 원리가 읽히시죠?</b> 환경·확장 요소·틀을 다 지나온 지금은, 저 화면이 마법이 아니라 <span class="cy">메커니즘</span>으로 보입니다.</p>
+    <p class="lead" style="margin-top:.4rem;font-size:var(--fs-h2)">처음엔 마법처럼 보이던 이 화면, 이제는 <span class="cy">메커니즘</span>으로 보이시죠.</p>
   </section>
 
-  <!-- 18 · 월요일에 뭐부터 -->
+  <!-- 16 · 월요일에 뭐부터 -->
   <section class="slide" data-sec="마무리">
     <div class="kick"><span class="dot"></span>마무리<span class="sec"> · <b>첫걸음 · CTA</b></span></div>
     <h1 class="title">그래서, 월요일 아침</h1>
-    <p class="lead">거창한 계획 말고 <b>딱 하나</b>만. 고르기 부담도 덜어드릴게요.</p>
+    <p class="lead">거창한 계획이 아니라, <b>딱 하나</b>부터 시작합니다.</p>
     <div class="cols c3" style="margin-top:.4rem">
-      <div class="card hi"><span class="tag">어디서</span><p class="h cy">사내 LLM에서</p><p class="d">데이터가 사내를 벗어나지 않는 갈래(API·OpenCode)에서.</p></div>
-      <div class="card hi"><span class="tag">무엇을</span><p class="h cy">작은 작업 하나</p><p class="d">설계·검증 맥락의 눈으로 검증되는 것 — 스펙 문서 구조화, 로그 요약.</p></div>
-      <div class="card hi"><span class="tag">어떻게</span><p class="h cy">사람이 확인하며</p><p class="d">결과를 사람이 최종 검수하는 루프로. 완벽한 틀은 나중, 지금은 그 자리를 사람이.</p></div>
+      <div class="card hi"><span class="tag">어디서</span><p class="h cy">사내 LLM에서</p><p class="d">데이터가 사내에 머무는 경로 — 사내 LLM(API·OpenCode)에서.</p></div>
+      <div class="card hi"><span class="tag">무엇을</span><p class="h cy">작은 작업 하나</p><p class="d">결과가 맞는지 <b>스스로 바로 판단할 수 있는</b> 것 — 스펙 문서 구조화, 로그 요약.</p></div>
+      <div class="card hi"><span class="tag">어떻게</span><p class="h cy">사람이 확인하며</p><p class="d">결과는 사람이 최종 확인하는 루프로 — 자동 검증 틀(harness)은 도입되면, 지금은 그 자리를 사람이.</p></div>
     </div>
-    <p class="rule">애매하면 <b>보안 먼저.</b> 사외 Claude Code·harness는 <b>도입되면</b> — 오늘의 숙제는 사내에서 딱 하나.</p>
+    <p class="rule">애매하면 <b>보안 먼저.</b> 오늘의 첫걸음은 <b>사내에서 딱 하나.</b></p>
   </section>
 
-  <!-- 19 · 질문 + 마지막 -->
+  <!-- 17 · Q&A · 클로징 -->
   <section class="slide final" data-sec="마무리">
-    <div class="kick"><span class="dot"></span>마무리<span class="sec"> · <b>질문 받습니다</b></span></div>
-    <p class="big">바뀐 건 도구가 아니라,<br><span class="c">그 장면을 읽어내는 여러분</span>입니다 —<br>이번 주, 사내에서 <span class="a">딱 하나만 켜서</span><br>그 첫 대화를 시작해 보세요.</p>
+    <div class="kick"><span class="dot"></span>마무리<span class="sec"> · <b>Q&amp;A</b></span></div>
+    <p class="big">이제 저 화면의 <span class="c">원리를 아는 여러분</span>입니다 —<br>이번 주, 사내 LLM에서 <span class="a">작은 작업 하나</span>로<br>첫 대화를 시작해 보세요.<br><br>그 하나가 쌓이면,<br>일하는 방식은 어느새 바뀌어 있을 겁니다.</p>
     <div class="support">
-      <span class="chip">이 자료</span><span class="chip">부록 B · 자가학습</span><span class="chip">옆자리 동료</span>
+      <span class="chip">이 자료</span><span class="chip">부록 · 도구 목록</span><span class="chip">옆자리 동료</span>
     </div>
-    <p class="rule" style="border:0;padding:0;margin-top:.6rem;color:var(--muted)">질문 받습니다 — 혼자가 아닙니다.</p>
+  </section>
+
+  <!-- 18 · 부록 (발표 시 넘기지 않음) -->
+  <section class="slide" data-sec="부록">
+    <div class="kick"><span class="dot"></span>부록<span class="sec"> · <b>확장 요소 후보 · 자가학습용</b></span></div>
+    <h1 class="title">부록 — 확장 요소 후보</h1>
+    <p class="lead">발표에서는 다루지 않습니다. 자료를 받은 뒤, 관심 가는 것부터 하나씩 찾아보세요.</p>
+    <div class="cols c3" style="margin-top:.4rem">
+      <div class="card"><span class="tag">Context 확장</span><p class="h">맥락을 넓힌다</p><p class="d">ralph loop · claude-mem · superpowers</p></div>
+      <div class="card"><span class="tag">웹·브라우저</span><p class="h">웹을 다룬다</p><p class="d">firecrawl · frontend design · playwright</p></div>
+      <div class="card"><span class="tag">Token 절약</span><p class="h">비용을 줄인다</p><p class="d">caveman · ponytail · yagni</p></div>
+    </div>
+    <p class="rule">설치 전 원칙은 본문 1과 같습니다 — <b>애매하면 보안 먼저.</b></p>
   </section>
 
 </div>
@@ -493,7 +489,7 @@
   <div class="now"><b id="secLabel">표지</b></div>
   <div class="nav">
     <button id="prevBtn" type="button">← 이전</button>
-    <span id="counter" style="align-self:center;min-width:5ch;text-align:center">01 / 19</span>
+    <span id="counter" style="align-self:center;min-width:5ch;text-align:center">01 / 18</span>
     <button id="nextBtn" type="button">다음 →</button>
   </div>
 </div>
@@ -524,8 +520,8 @@
         {who:'u', t:'반도체 팀 세미나 자료 만들어줘. AI agent 입문.'},
         {who:'a', t:'청자 이해도가 낮으면 쉬운 순서가 좋아요. 환경 → 확장 요소 → 틀, 이렇게 갈까요?', ol:0},
         {who:'u', t:'좋아. 보안이 엄격하니 사내/사외 얘기를 먼저.', ol:1},
-        {who:'a', t:'확장 요소(plugin·skill·mcp)는 도식으로, 예시도 하나 넣죠.', ol:2},
-        {who:'u', t:'harness는 있고 없고 비교로 클라이맥스.', ol:3},
+        {who:'a', t:'확장 요소(skill·MCP·plugin)는 도식으로, 예시도 하나 넣죠.', ol:2},
+        {who:'u', t:'harness는 있고 없고 비교로 정점을 만들자.', ol:3},
         {who:'a', t:'마무리는 "이번 주에 하나 해보기"로 착지할게요.', ol:4}
       ];
       function render(i){
