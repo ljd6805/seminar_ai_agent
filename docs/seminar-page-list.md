@@ -46,8 +46,8 @@
 | 22 | MCP 구조·동작 | client–server + tools·resources·prompts + ①연결·목록 교환 ②골라 호출 ③결과 수신. 사용 장면 예(이슈 트래커 서버 → "이번 주 내 이슈 정리") |
 | 23 | plugin | 의미=skill·MCP·hook을 묶은 배포 단위 · 구조=plugin.json+skills/hooks/+.mcp.json · marketplace 설치·plugin명:이름 꼬리표 |
 | 24 | 관계 정리 | 능력(skill)·연결(MCP)·배포(plugin) 3칸 + "plugin은 그릇, 나머지는 내용물(단독 사용 가능)" + 18장 세 구멍과 1:1 대응 콜백 |
-| 25 | 데모 2a — SKILL.md 실물 | meeting-notes skill의 실제 내용(frontmatter+절차 5줄) — "코드가 아니라 우리말 절차서". 데모의 중간 고리(입력→**skill**→출력) 완성 |
-| 26 | **데모 2b (Ex2) — 실행** | 회의 메모 → 스키마 JSON. JSON은 선언 스키마와 완전 일치(decisions·task 포함, due ISO). rule에 도메인 다리("설계·검증에선 스펙 문서·검증 로그가 이 자리에") |
+| 25 | 데모 2a — 사람의 일 → SKILL.md | (v0.10 재구성) 먼저 **사람 손으로 하던 세 단계** 정의(메모 읽기→결정·할 일 골라내기→형식 맞춰 옮겨 적기, flow-lane 전부 사람색) → 그 절차를 그대로 받아 적은 meeting-notes SKILL.md 실물(frontmatter+절차 5줄). "코드가 아니라 우리말 절차서 = skill" |
+| 26 | **데모 2b (Ex2) — 실행** | (v0.10 재구성) 상단 flow: 비정형 메모 → **meeting-notes skill(앞 장의 세 단계를 대신 수행)** → 표준 JSON — 무엇을 skill화했는지 명시. 입력/출력 터미널 대조(JSON은 선언 스키마와 완전 일치). note = **달라진 것 3가지**(skill이 골라내기·옮겨 적기, 사람은 확인만 / 정해진 구조라 다음 단계가 받아씀 / 절차가 파일이라 누가 시켜도 같은 방식) + 도메인 다리 |
 | 27 | 도구 지도 + 설치·주의 | 3칸 지도(Context 확장/웹·브라우저/Token 절약)×예 1개 + 설치 한 줄(전체 목록은 부록) + 주의 한 줄(외부 연결 → 보안 콜백) |
 
 ## 본문 3 — harness (약 18분)
