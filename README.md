@@ -8,7 +8,7 @@
 |------|------|
 | [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 서사와 섹션별 구조 (v0.9) |
 | [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.5) |
-| [slides/index.html](slides/index.html) | 18장 슬라이드 (reveal.js 기반 단일 파일 HTML, 외부 의존 0) |
+| [slides/index.html](slides/index.html) | 19장 슬라이드 (reveal.js 기반 단일 파일 HTML, 외부 의존 0) |
 
 ## 한눈에
 
@@ -18,12 +18,12 @@
   ("일하는 방식의 변화"는 주장하지 않고 클로징 한 줄로만 — 청중이 결론내리게)
 - **자료 형태**: reveal.js 단일 파일 HTML — 키보드 네비게이션, 진입 시 자동 스태거 애니메이션, fragment 스텝(데모 3·정점·클로징), ESC 오버뷰 그리드
 
-### 전체 흐름 (18장)
+### 전체 흐름 (19장)
 
 ```
 도입    표지 · 역사 · 데모1(이 자료의 탄생) · 정의 · 왜 지금
 본문 1  우리 환경 = 정보 경계 (사내/사외, 1장)
-본문 2  확장 요소(skill·MCP·plugin) 정의 · 동작 · 데모2 · 도구+설치
+본문 2  skill · MCP · plugin (각 1장) · 데모2 · 도구+설치
 본문 3  harness란 · 스키마 게이트 · 장단점 · 데모3(유무 대조)
 마무리  정점 → 월요일 CTA → Q&A
 부록    확장 요소 후보 목록 (발표 시 넘기지 않음)
@@ -31,7 +31,7 @@
 
 ## 진행 상태
 
-**확정** — 척추(알고 써보자), 18장 구조(show→tell 도입, 본문1 1장, 병합·부록), 데모 3개(공유 parsing, 품질·재현성 축), harness=UVM 비유+공식 근거, 표기 규칙(MCP·데모 라벨)
+**확정** — 척추(알고 써보자), 19장 구조(skill·MCP·plugin 각 1장)(show→tell 도입, 본문1 1장, 병합·부록), 데모 3개(공유 parsing, 품질·재현성 축), harness=UVM 비유+공식 근거, 표기 규칙(MCP·데모 라벨)
 
 **미결** — 표지 발표자·일시, 10장 대표 도구 실값, 레이아웃 taste(상단 vs 중앙)
 
