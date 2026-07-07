@@ -7,7 +7,7 @@
 
 - **(2026-07-07) 90분 발표 · 41장 체제(v1.2)** — v1.0에서 20→42장 대확장("많이 만들고 줄이기" 전략, 비판 분석 A 서사 구멍/B 압축 과적/C 도메인 공명 반영) 후, v1.1에서 "발표자료 제작" 예시 폐기(데모 1 소재 교체 + 콜백 장 교체), v1.2에서 역사 2장을 1장으로 재병합(42→41장). 이후 단계는 사용자 렌더 리뷰 → 리허설 기준 압축(줄이기).
 - 디자인: `slides/index.html`은 reveal.js 5.1.0 기반 단일 파일(외부 의존 0, 폰트는 시스템 스택). 비주얼 컨셉은 [geniuskey/vibe-coding-202607](https://github.com/geniuskey/vibe-coding-202607) 이식(글래스 카드·네뷸라 배경·grad 텍스트·autoshow 스태거·fragment 스텝·ESC 오버뷰).
-- 인터랙션: 대부분 장은 `.autoshow`(진입 시 자동 스태거), **fragment는 3곳만**(35장 harness 유무 대조, 36장 회고 펀치라인, 39장 B 지평선+지지대). 데모 1은 커스텀 JS 오토플레이(slidechanged 훅, data-anim="ex1") + 다시 재생 버튼.
+- 인터랙션: 대부분 장은 `.autoshow`(진입 시 자동 스태거), **fragment는 3곳만**(35장 harness 유무 대조, 36장 회고 펀치라인, 39장 B 지평선+지지대). **데모 1은 정적**(2026-07-07 오토플레이 제거 — 커스텀 JS는 hero 배경·섹션 푸터 sync만 남음).
 - 브라우저 렌더 확인: MCP playwright는 `file:` 차단 → `python3 -m http.server 8765` 로 서빙 후 접속. **편집 후엔 캐시 회피를 위해 `?v=N` 쿼리로 재로드**(해시만 바꾸면 재로드 안 됨). **애니메이션 대기는 Bash sleep 말고 playwright의 wait(browser_wait_for) 사용** — 백그라운드 탭 타이머 스로틀로 setTimeout이 밀림. 스크린샷은 cwd(repo 루트)에 저장되니 리뷰 후 삭제.
 - 문서는 개념 수준이며 버전 표기(vX.Y)로 관리. 갱신 시 버전과 아래 상태를 함께 업데이트.
 - 실제 작업 브랜치: `claude/seminar-outline-structure-nejvv4` (main은 뒤처짐). 변경은 커밋 + 이 브랜치에 푸시.
