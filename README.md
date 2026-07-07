@@ -6,8 +6,8 @@
 
 | 문서 | 내용 |
 |------|------|
-| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 서사와 섹션별 구조 (v1.0) |
-| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.8) |
+| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 서사와 섹션별 구조 (v1.1) |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.9) |
 | [slides/index.html](slides/index.html) | 42장 슬라이드 (reveal.js 기반 단일 파일 HTML, 외부 의존 0) |
 
 ## 한눈에
@@ -28,7 +28,7 @@
 본문 2  간지 · 맨몸 모델의 한계 · skill(2장) · MCP(2장) · plugin · 관계 정리
         · 데모2(SKILL.md 실물+실행) · 도구 지도+설치·주의
 본문 3  간지 · 실패의 현실 · harness란 · UVM 나란히 · 스키마 게이트 · 장단점 · 언제 쓰나 · 데모3(유무 대조)
-마무리  정점 → FAQ → 월요일 CTA(+첫 프롬프트) → Q&A
+마무리  회고 → FAQ → 월요일 CTA(+첫 프롬프트) → Q&A
 부록    도구 후보 목록 · 용어집 (발표 시 넘기지 않음)
 ```
 

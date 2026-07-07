@@ -700,9 +700,9 @@ footer, header, hgroup, main, menu, nav, section {
 
     <!-- 6 · 데모 1 (auto) -->
     <section data-sec="도입" data-anim="ex1">
-      <div><span class="chip">도입 · 데모 1 · 이 자료의 탄생</span> <span class="pill neutral">자동 재생</span></div>
-      <h2>이 발표자료도, 이렇게 만들었습니다</h2>
-      <p class="mono tiny faint" style="margin:0.1rem 0 0">skill · MCP · harness — 낯선 단어가 지나가도 괜찮습니다. 오늘 전부 배웁니다.</p>
+      <div><span class="chip">도입 · 데모 1 · 우리 일의 한 장면</span> <span class="pill neutral">자동 재생</span></div>
+      <h2>월요일 아침, 이런 장면 — 회귀 로그 정리</h2>
+      <p class="mono tiny faint" style="margin:0.1rem 0 0">구성된 예시 장면입니다 — 어떤 대화가 가능한지 먼저 보시죠.</p>
       <div class="grid-2" style="margin-top:0.3rem">
         <div class="panel" style="min-height:430px">
           <div class="phead">대화 — 사람과 agent</div>
@@ -710,17 +710,17 @@ footer, header, hgroup, main, menu, nav, section {
           <button class="replay" id="ex1-replay" type="button">↻ 다시 재생</button>
         </div>
         <div class="panel">
-          <div class="phead">구조가 자라난다</div>
-          <p style="font-weight:800; font-size:1.3rem; margin:0">이 발표자료</p>
+          <div class="phead">결과가 자라난다</div>
+          <p style="font-weight:800; font-size:1.3rem; margin:0">실패 분류 리포트</p>
           <p class="mono tiny faint" style="margin:0.15rem 0 0">// 대화가 오갈수록 한 줄씩 성장</p>
           <ul class="ol" id="ex1-outline">
-            <li><span class="ix">도입</span><span class="lb">AI agent란</span></li>
-            <li><span class="ix">본문 1</span><span class="lb">사내/사외 정보 흐름</span></li>
-            <li><span class="ix">본문 2</span><span class="lb">확장 요소 — skill·MCP·plugin</span></li>
-            <li><span class="ix">본문 3</span><span class="lb">harness</span></li>
-            <li><span class="ix">마무리</span><span class="lb">이번 주, 첫걸음</span></li>
+            <li><span class="ix">수집</span><span class="lb">실패 12건 추출 — 로그 3파일</span></li>
+            <li><span class="ix">유형 A</span><span class="lb">timeout 5건 — 같은 인터페이스에 집중</span></li>
+            <li><span class="ix">유형 B</span><span class="lb">assertion 실패 4건 + 대표 케이스</span></li>
+            <li><span class="ix">유형 C</span><span class="lb">원인 불명 3건 — 사람 확인 표시</span></li>
+            <li><span class="ix">저장</span><span class="lb">요약 문서 + 대표 케이스 링크</span></li>
           </ul>
-          <p class="mono tiny faint" id="ex1-note">… 그렇게 이 자료가 나왔습니다.</p>
+          <p class="mono tiny faint" id="ex1-note">… 반복 정리는 이렇게 agent의 일이 됩니다.</p>
         </div>
       </div>
     </section>
@@ -734,17 +734,17 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="card autoshow fade-up">
           <div class="pill green">장면 ①</div>
           <h3>순서를 제안했다</h3>
-          <p>"쉬운 순서가 좋아요, 이렇게 갈까요?" — 목표를 받아 <b class="accent">계획을 스스로 세우고</b> 단계를 밟습니다.</p>
+          <p>"3종류로 보입니다, 표로 정리할까요?" — 목표를 받아 <b class="accent">계획을 스스로 세우고</b> 단계를 밟습니다.</p>
         </div>
         <div class="card autoshow fade-up">
           <div class="pill green">장면 ②</div>
-          <h3>얼개가 자라났다</h3>
-          <p>대화만 했는데 문서가 커졌다 — 말로 끝나지 않고 <b class="accent">도구로 파일을 직접 만들고 고칩니다.</b></p>
+          <h3>결과물이 자라났다</h3>
+          <p>대화만 했는데 리포트가 완성됐다 — 말로 끝나지 않고 <b class="accent">도구로 로그를 읽고 문서를 만듭니다.</b></p>
         </div>
         <div class="card autoshow fade-up">
           <div class="pill green">장면 ③</div>
           <h3>고치며 나아갔다</h3>
-          <p>"보안 얘기 먼저" 한마디에 구성이 바뀌었다 — <b class="accent">결과를 확인하고 고치며</b> 끝까지 진행합니다.</p>
+          <p>"대표 케이스 붙여줘" 한마디에 결과가 바뀌었다 — <b class="accent">결과를 확인하고 고치며</b> 끝까지 진행합니다.</p>
         </div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:1.1rem">이 세 장면을 <b>한 문장의 정의</b>로 접어 봅니다.</p>
@@ -1403,32 +1403,28 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note fragment fade-up" style="margin-top:1.1rem"><b class="accent2">품질</b> — 검증을 통과한 출력만 나간다 &nbsp;·&nbsp; <b class="accent2">재현성</b> — 세 번 모두 같은 구조</p>
     </section>
 
-    <!-- 37 · 다시 그 장면 -->
+    <!-- 37 · 오늘 지나온 길 (회고) -->
     <section data-sec="마무리">
-      <div><span class="chip">마무리 · 정서 정점</span> <span class="pill neutral">‖ 정지</span></div>
-      <h2>다시, 그 장면</h2>
-      <div class="grid-2" style="margin-top:0.3rem; opacity:0.92">
-        <div class="panel" style="filter:grayscale(.2)">
-          <div class="phead">대화 — 처음 그 화면</div>
-          <div class="chat" style="flex:1; justify-content:flex-start">
-            <div class="bubble user"><span class="who">사람</span>반도체 팀 세미나 자료 만들어줘. AI agent 입문.</div>
-            <div class="bubble ai"><span class="who">agent</span>청자 이해도가 낮으면 쉬운 순서가 좋아요. 환경 → 확장 요소 → 틀, 이렇게 갈까요?</div>
-            <div class="bubble user"><span class="who">사람</span>harness는 있고 없고 비교로 정점을 만들자.</div>
-          </div>
+      <div><span class="chip">마무리 · 회고</span></div>
+      <h2>오늘 지나온 길 — 세 가지만 가져가세요</h2>
+      <div class="grid-3" style="margin-top:1.0rem">
+        <div class="card autoshow fade-up">
+          <div class="pill neutral">본문 1 · 어디서</div>
+          <h3>데이터는 사내에</h3>
+          <p>경로를 가르는 기준은 <b style="color:#fff">데이터가 어디로 가는가</b> — 민감·설계 데이터는 사내 경로에서.</p>
         </div>
-        <div class="panel">
-          <div class="phead">구조</div>
-          <p style="font-weight:800; font-size:1.3rem; margin:0">이 발표자료</p>
-          <ul class="ol">
-            <li class="show"><span class="ix">도입</span><span class="lb">AI agent란</span></li>
-            <li class="show"><span class="ix">본문 1</span><span class="lb">사내/사외 정보 흐름</span></li>
-            <li class="show"><span class="ix">본문 2</span><span class="lb">확장 요소 — skill·MCP·plugin</span></li>
-            <li class="show"><span class="ix">본문 3</span><span class="lb">harness</span></li>
-            <li class="show"><span class="ix">마무리</span><span class="lb">이번 주, 첫걸음</span></li>
-          </ul>
+        <div class="card autoshow fade-up">
+          <div class="pill neutral">본문 2 · 무엇으로</div>
+          <h3>확장 요소 셋</h3>
+          <p>절차는 <b class="accent">skill</b>, 연결은 <b class="accent2">MCP</b>, 공유는 <b class="accent4">plugin</b> — agent에게 능력을 더하는 법.</p>
+        </div>
+        <div class="card autoshow fade-up">
+          <div class="pill neutral">본문 3 · 어떻게</div>
+          <h3>틀로 감싸서</h3>
+          <p>형식은 <b class="accent3">harness</b>가 지키고, 내용 판단은 <b style="color:#fff">사람이</b> — 그래서 사람 검수 루프.</p>
         </div>
       </div>
-      <p class="fragment fade-up" style="font-size:1.75rem; font-weight:800; margin-top:1.1rem">처음엔 마법처럼 보이던 이 화면, 이제는 <span class="grad">메커니즘</span>으로 보이시죠.</p>
+      <p class="fragment fade-up" style="font-size:1.75rem; font-weight:800; margin-top:1.3rem">뼈대는 이 세 줄이 전부입니다 — <span class="grad">어디서 · 무엇으로 · 어떻게.</span> 남은 건 써 보는 것.</p>
     </section>
 
     <!-- 38 · FAQ -->
@@ -1488,7 +1484,7 @@ footer, header, hgroup, main, menu, nav, section {
     <!-- 40 · Q&A · 클로징 -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · Q&amp;A</span></div>
-      <p style="font-size:2.1rem; font-weight:800; line-height:1.5; margin-top:0.8rem; word-break:keep-all">이제 저 화면의 <span class="accent2">원리를 아는 여러분</span>입니다 —<br>이번 주, 사내 LLM에서 <span class="accent4">작은 작업 하나</span>로<br>첫 대화를 시작해 보세요.</p>
+      <p style="font-size:2.1rem; font-weight:800; line-height:1.5; margin-top:0.8rem; word-break:keep-all">이제 AI agent의 <span class="accent2">원리를 아는 여러분</span>입니다 —<br>이번 주, 사내 LLM에서 <span class="accent4">작은 작업 하나</span>로<br>첫 대화를 시작해 보세요.</p>
       <p class="fragment fade-up" style="font-size:2.1rem; font-weight:800; line-height:1.5; margin-top:1.5rem; word-break:keep-all">그 하나가 쌓이면,<br><span class="grad">일하는 방식은 어느새 바뀌어 있을 겁니다.</span></p>
       <div class="fragment fade-up" style="margin-top:2.2rem">
         <span class="pill neutral">이 자료</span> <span class="pill neutral">부록 · 도구 목록</span> <span class="pill neutral">옆자리 동료</span>
@@ -1687,12 +1683,12 @@ footer, header, hgroup, main, menu, nav, section {
     function after(ms, fn){ timers.push(setTimeout(fn, ms)); }
 
     var steps = [
-      {who:'user', t:'반도체 팀 세미나 자료 만들어줘. AI agent 입문.'},
-      {who:'ai',   t:'청자 이해도가 낮으면 쉬운 순서가 좋아요. 환경 → 확장 요소 → 틀, 이렇게 갈까요?', ol:0},
-      {who:'user', t:'좋아. 보안이 엄격하니 사내/사외 얘기를 먼저.', ol:1},
-      {who:'ai',   t:'확장 요소(skill·MCP·plugin)는 도식으로, 예시도 하나 넣죠.', ol:2},
-      {who:'user', t:'harness는 있고 없고 비교로 정점을 만들자.', ol:3},
-      {who:'ai',   t:'마무리는 "이번 주에 하나 해보기"로 착지할게요.', ol:4}
+      {who:'user', t:'어젯밤 회귀 로그에서 실패만 골라서, 원인별로 분류해줘.'},
+      {who:'ai',   t:'로그 3파일을 읽었습니다. 실패 12건 — 원인 패턴이 3종류로 보입니다. 표로 정리할까요?', ol:0},
+      {who:'user', t:'응. 유형마다 대표 케이스 하나씩만 붙여줘.', ol:1},
+      {who:'ai',   t:'timeout 5건은 같은 인터페이스에 몰려 있어요 — 먼저 볼 후보로 표시해 둘게요.', ol:2},
+      {who:'user', t:'좋아. 원인 불명인 건 내가 직접 볼게.', ol:3},
+      {who:'ai',   t:'정리 끝 — 요약 문서와 대표 케이스 링크를 저장했습니다.', ol:4}
     ];
     function playEx1(){
       var chat = document.getElementById('ex1-chat');
