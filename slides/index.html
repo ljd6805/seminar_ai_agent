@@ -466,6 +466,71 @@ footer, header, hgroup, main, menu, nav, section {
     .meta b { color: #C9D0E4; font-weight: 600; }
     .meta span { color: #8A93B2 !important; }
 
+    /* boundary isolation diagram (slide 6) */
+    .iso { display: flex; align-items: stretch; margin-top: 1.15rem; }
+    .iso-zone { position: relative; border-radius: 16px; padding: 1.5rem 1.1rem 1.1rem; }
+    .iso-zone.in {
+      flex: 1.75;
+      border: 2px dashed rgba(43,234,208,0.55);
+      background: rgba(0,224,199,0.05);
+    }
+    .iso-zone.out {
+      flex: 1;
+      border: 2px dashed rgba(255,122,149,0.45);
+      background: rgba(255,122,149,0.05);
+      display: flex; flex-direction: column;
+    }
+    .iso-label {
+      position: absolute; top: -0.78rem; left: 1.0rem;
+      font-family: var(--mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.06em;
+      padding: 0.12rem 0.6rem; border-radius: 999px;
+      background: #0B0E1A;
+      color: #5BFFE0 !important; border: 1px solid rgba(43,234,208,0.5);
+    }
+    .iso-zone.out .iso-label { color: #FF94AC !important; border-color: rgba(255,122,149,0.5); }
+    .iso-wall {
+      width: 2.6rem; flex: none; align-self: stretch; margin: 0 0.15rem;
+      background: repeating-linear-gradient(135deg, rgba(255,212,107,0.18) 0 7px, transparent 7px 14px);
+      border-left: 2px solid rgba(255,212,107,0.55);
+      border-right: 2px solid rgba(255,212,107,0.55);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .iso-wall span {
+      writing-mode: vertical-rl; letter-spacing: 0.4em;
+      font-family: var(--mono); font-size: 0.78rem; font-weight: 800;
+      color: #FFD46B !important; background: rgba(11,14,26,0.85);
+      padding: 0.5rem 0.1rem; border-radius: 6px;
+    }
+    .iso-node {
+      border-radius: 12px; padding: 0.68rem 0.9rem; text-align: center;
+      border: 1px solid rgba(190,200,224,0.4); background: rgba(11,14,26,0.8);
+      font-weight: 700; font-size: 1.02rem; word-break: keep-all;
+    }
+    .iso-node small {
+      display: block; font-family: var(--mono); font-size: 0.72rem; font-weight: 400;
+      color: #A8B0C8 !important; margin-top: 0.32rem; line-height: 1.5;
+    }
+    .iso-node.user { border-color: rgba(155,130,255,0.65); background: linear-gradient(135deg, rgba(124,92,255,0.42), rgba(91,63,217,0.26)); }
+    .iso-node.srv  { border-color: rgba(43,234,208,0.6);  background: rgba(0,224,199,0.10); }
+    .iso-node.ext  { border-color: rgba(255,122,149,0.55); background: rgba(255,122,149,0.10); }
+    .iso-arrow {
+      flex: 1; align-self: center; text-align: center;
+      font-family: var(--mono); font-size: 0.74rem; font-weight: 700; line-height: 1.4;
+      padding: 0 0.35rem; word-break: keep-all;
+    }
+    .iso-arrow .ln { display: block; height: 2px; margin-top: 0.34rem; position: relative; }
+    .iso-arrow .ln::after {
+      content: ''; position: absolute; right: -1px; top: -4px;
+      border-left: 9px solid; border-top: 5px solid transparent; border-bottom: 5px solid transparent;
+    }
+    .iso-arrow.good { color: #5BFFE0 !important; }
+    .iso-arrow.good .ln { background: rgba(43,234,208,0.7); }
+    .iso-arrow.good .ln::after { border-left-color: #2BEAD0; }
+    .iso-arrow.warn { color: #FFD46B !important; }
+    .iso-arrow.warn .ln { background: rgba(255,212,107,0.7); }
+    .iso-arrow.warn .ln::after { border-left-color: #FFD46B; }
+
     /* ========= auto-sequential reveal on slide entry ========= */
     .autoshow { opacity: 0; }
     section.present .autoshow.fade-up    { animation: asFadeUp .6s ease forwards; }
@@ -652,19 +717,29 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">본문 1 · 우리 환경부터</span></div>
       <h2>우리 환경 — 정보는 어디로 가나</h2>
       <p class="dim autoshow fade-up" style="font-size:1.15rem">쓸 수 있는 경로는 둘 — 구분 기준은 하나, <b style="color:#fff">데이터가 어디로 가는가</b>입니다.</p>
-      <div class="grid-2" style="margin-top:1.0rem">
-        <div class="card mint autoshow fade-up">
-          <div class="pill green">사내에 머문다</div>
-          <p>사내 서버에서 서빙되는 LLM — API로 직접 호출하거나 OpenCode 같은 에이전트 클라이언트로 사용. 설계·검증 데이터가 회사 경계를 벗어나지 않습니다.</p>
-          <div class="pills"><span class="pill neutral">사내 API</span><span class="pill neutral">OpenCode</span><span class="pill green">지금 사용 가능</span></div>
+      <div class="iso">
+        <div class="iso-zone in autoshow fade-left">
+          <div class="iso-label">회사 안 — 격리된 사내망</div>
+          <div style="display:flex; align-items:center; gap:0.8rem">
+            <div class="iso-node user" style="flex:none; width:11rem">사용자<small>무엇을 어디로 보낼지<br>결정하는 사람</small></div>
+            <div class="iso-arrow good">데이터가 사내에 머문다<span class="ln"></span></div>
+            <div class="iso-node srv" style="flex:none; width:15.5rem">사내 서빙 LLM<small>OpenCode · Roo · DS assistant API<br>직접 서빙 — 지금 사용 가능</small></div>
+          </div>
+          <div style="display:flex; align-items:center; margin-top:1.05rem; padding-left:0.5rem">
+            <div class="iso-arrow warn" style="text-align:left">입력한 코드·데이터가 경계를 넘는다<span class="ln"></span></div>
+          </div>
         </div>
-        <div class="card amber autoshow fade-up">
-          <div class="pill amber">경계를 넘는다</div>
-          <p>사외 Claude Code(도입 예정) — 입력한 코드·데이터가 회사 밖 서버로 전송됩니다. 무엇을 보내는지 알고 써야 합니다.</p>
-          <div class="pills"><span class="pill pink">외부 전송</span><span class="pill neutral">도입 예정</span></div>
+        <div class="iso-wall autoshow fade-in"><span>회사 경계</span></div>
+        <div class="iso-zone out autoshow fade-right">
+          <div class="iso-label">회사 밖</div>
+          <p class="mono faint" style="margin:0.2rem 0 0 0.2rem; font-size:0.78rem; line-height:1.6">경계 밖으로 나간 데이터는<br>회사가 통제할 수 없습니다</p>
+          <div style="margin-top:auto; display:flex; align-items:flex-end; gap:0.15rem">
+            <div class="iso-arrow warn" style="align-self:flex-end; margin-bottom:0.68rem"><span class="ln"></span></div>
+            <div class="iso-node ext" style="flex:none; width:12rem">Claude<small>외부 서비스 · 도입 예정<br>외부 서버로 전송·처리</small></div>
+          </div>
         </div>
       </div>
-      <div class="quote autoshow fade-up" style="margin-top:1.15rem">원칙: 민감·설계 데이터는 <b>사내에서</b>. 판단이 서지 않으면 <b>보안 검토 먼저.</b></div>
+      <div class="quote autoshow fade-up" style="margin-top:1.15rem">두 경로는 <b>격리</b>되어 있고, 무엇을 보낼지는 <b>사용자가 관리</b>합니다 — 민감·설계 데이터는 <b>사내에서</b>, 판단이 서지 않으면 <b>보안 검토 먼저.</b></div>
     </section>
 
     <!-- 7 · skill -->
