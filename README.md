@@ -8,7 +8,7 @@
 |------|------|
 | [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 서사와 섹션별 구조 (v0.9) |
 | [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.5) |
-| [slides/index.html](slides/index.html) | 18장 슬라이드 (단일 파일 HTML, 외부 의존 0) |
+| [slides/index.html](slides/index.html) | 18장 슬라이드 (reveal.js 기반 단일 파일 HTML, 외부 의존 0) |
 
 ## 한눈에
 
@@ -16,7 +16,7 @@
 - **청자**: 반도체 설계/검증 담당자, AI agent 이해도 낮음
 - **핵심 서사(척추)**: *알고, 써보자* — 무엇인지 알고 → 왜 좋은지 보고 → 사내에서 첫걸음까지
   ("일하는 방식의 변화"는 주장하지 않고 클로징 한 줄로만 — 청중이 결론내리게)
-- **자료 형태**: 가로 슬라이드 HTML, 키보드 네비게이션, 애니메이션
+- **자료 형태**: reveal.js 단일 파일 HTML — 키보드 네비게이션, 진입 시 자동 스태거 애니메이션, fragment 스텝(데모 3·정점·클로징), ESC 오버뷰 그리드
 
 ### 전체 흐름 (18장)
 

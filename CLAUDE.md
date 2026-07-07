@@ -5,9 +5,9 @@
 
 ## 지금 무엇을 하는 중인가
 
-- 컨셉·구조 확정. **`slides/index.html`(18장 단일 파일 HTML) — v0.9 전면 다듬기 반영 완료** (척추 단일화 + 구조 재편 + 문구·사실 교정).
-- 최종 산출물 형태: 가로 슬라이드 HTML, 키보드 네비게이션, 애니메이션·인터랙션.
-- 브라우저 렌더 확인: MCP playwright는 `file:` 차단 → `python3 -m http.server` 로 서빙 후 `http://localhost:PORT/slides/index.html` 접속. **편집 후엔 캐시 회피를 위해 `?v=N` 쿼리로 재로드**(해시만 바꾸면 재로드 안 됨). 스크린샷은 cwd(repo 루트)에 저장되니 리뷰 후 삭제.
+- 컨셉·구조 확정(v0.9: 척추 단일화 + 구조 재편 + 문구·사실 교정). **디자인 채택 완료: `slides/index.html`을 reveal.js 5.1.0 기반으로 재구축** — 레퍼런스 [geniuskey/vibe-coding-202607](https://github.com/geniuskey/vibe-coding-202607)의 비주얼 컨셉(글래스 카드·네뷸라 배경·grad 텍스트·autoshow 스태거·fragment 스텝·ESC 오버뷰 그리드) 이식. reveal 코어 CSS/JS는 인라인(외부 의존 0, 폰트는 시스템 스택 — 레퍼런스의 서브셋 폰트는 글리프 누락 위험으로 미채용).
+- 인터랙션 구조: 대부분 장은 `.autoshow`(진입 시 자동 스태거), **fragment는 3곳만**(14장 harness 유무 대조 2단, 15장 정점 펀치라인, 17장 B 지평선+지지대). 데모 1은 커스텀 JS 오토플레이(slidechanged 훅) + 다시 재생 버튼.
+- 브라우저 렌더 확인: MCP playwright는 `file:` 차단 → `python3 -m http.server` 로 서빙 후 접속. **편집 후엔 캐시 회피를 위해 `?v=N` 쿼리로 재로드**(해시만 바꾸면 재로드 안 됨). **애니메이션 대기는 Bash sleep 말고 playwright의 wait(browser_wait_for) 사용** — 백그라운드 탭 타이머 스로틀로 setTimeout이 밀림. 스크린샷은 cwd(repo 루트)에 저장되니 리뷰 후 삭제.
 - 문서는 개념 수준이며 버전 표기(vX.Y)로 관리. 갱신 시 버전과 아래 상태를 함께 업데이트.
 - 실제 작업 브랜치: `claude/seminar-outline-structure-nejvv4` (main은 뒤처짐). 변경은 커밋 + 이 브랜치에 푸시.
 
@@ -45,8 +45,8 @@
 ## 아직 안 정한 것 (다음 결정 대상)
 
 - 표지 발표자·일시(`______`), 커버 버전(`draft 0.1`), 10장 대표 도구(claude-mem/playwright/yagni는 예시 placeholder) — 실제 값 대기
-- **슬라이드 레이아웃 taste 미결**: 본문 슬라이드를 상단 정렬(현재)로 둘지 중앙 정렬로 되돌릴지 — `.slide{justify-content}` 한 줄 토글
-- 시각 표현·디자인·애니메이션 세부 구체화 (보류)
+- 디자인 세부 조정(색·간격·개별 장 연출)은 사용자 피드백 받으며 반복 — 큰 컨셉은 확정(vibe 테마)
+- (해소됨) 구 "상단 vs 중앙 정렬" taste 항목 — reveal.js가 수직 센터링을 처리
 
 ## 작업 시 주의 (가드레일)
 

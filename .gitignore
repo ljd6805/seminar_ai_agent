@@ -1,9 +1,2 @@
-# OS
-.DS_Store
-Thumbs.db
-
-# Editor
-.vscode/
-.idea/
-*.swp
-*~
+.claude/settings.local.json
+.playwright-mcp/
