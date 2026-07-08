@@ -1458,8 +1458,8 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP · 구조와 동작</span></div>
       <h2>MCP의 구조 — 연결한 뒤, 골라서 호출</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">규격이라 해도 그림은 단순합니다 — <b style="color:#fff">한쪽엔 AI, 한쪽엔 도구, 사이에 공용 말.</b></p>
-      <div class="grid-2" style="margin-top:0.9rem; align-items:start">
+      <p class="dim autoshow fade-up" style="font-size:1.1rem">규격이라 해도 그림은 단순합니다 — <b style="color:#fff">한쪽엔 AI, 한쪽엔 도구, 사이에 공용 말.</b> <span class="dim">연결도 설정 한 항목이면 끝.</span></p>
+      <div class="grid-2 sk25" style="margin-top:0.7rem; align-items:start">
         <div class="autoshow fade-left">
           <div class="phead">구조 — client · server</div>
           <div class="flow-lane" style="margin-top:0.3rem">
@@ -1473,15 +1473,33 @@ footer, header, hgroup, main, menu, nav, section {
           </div>
         </div>
         <div class="autoshow fade-right">
-          <div class="phead">동작 원리 — 연결하고, 골라 호출</div>
-          <div class="runs">
-            <div class="run"><div class="rh"><span>① 연결</span></div><code>서버에 접속, 쓸 수 있는 tool 목록을 교환</code></div>
-            <div class="run"><div class="rh"><span>② 선택·호출</span></div><code>모델이 필요한 tool을 골라 호출 — 로컬·원격 모두</code></div>
-            <div class="run"><div class="rh"><span>③ 결과 수신</span></div><code>응답을 받아 다음 판단에 사용</code></div>
+          <div class="phead">연결 설정 실물 — OpenCode 기준 (예시, 주소는 가상)</div>
+          <div class="term">
+            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">opencode.json — MCP 서버 등록</span></div>
+            <div class="term-body" style="white-space:pre-wrap">{
+  <span class="t-key">"mcp"</span>: {
+    <span class="t-key">"issue-tracker"</span>: {   <span class="t-out">← 다음 장 데모의 그 서버</span>
+      <span class="t-key">"type"</span>: <span class="t-str">"remote"</span>,
+      <span class="t-key">"url"</span>: <span class="t-str">"https://issues.example.com/mcp"</span>,
+      <span class="t-key">"enabled"</span>: <span class="t-hl">true</span>
+    }
+  }
+}</div>
           </div>
+          <p class="mono tiny faint" style="margin-top:0.45rem">이 항목 하나로 연결 끝 — 서버의 tool들이 자동으로 목록에 들어옵니다.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.0rem">이 세 단계가 실제로 어떤 모습인지 — <b>다음 장에서 눈으로 봅니다.</b></p>
+      <div class="autoshow fade-up" style="margin-top:0.7rem">
+        <div class="phead">동작 — 연결하고, 골라 호출</div>
+        <div class="flow-lane" style="margin-top:0.3rem">
+          <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>① 연결</span><span class="tiny" style="font-weight:400">서버 접속 — 쓸 수 있는 tool 목록 교환</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step ai" style="flex-direction:column; gap:0.12rem"><span>② 선택·호출</span><span class="tiny" style="font-weight:400">모델이 필요한 tool을 골라 호출</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>③ 결과 수신</span><span class="tiny" style="font-weight:400">응답을 받아 다음 판단에 사용</span></div>
+        </div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:0.7rem">이 세 단계가 실제로 어떤 모습인지 — <b>다음 장에서 눈으로 봅니다.</b></p>
     </section>
 
     <!-- 28 · 데모 3 — MCP 연결 -->

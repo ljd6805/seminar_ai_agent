@@ -48,7 +48,7 @@
 | 24 | skill 개념 | 리드 "방금 보신 파일이 곧 skill" 콜백. 없으면(매번 다시 설명) vs 있으면(한 번 적고 계속, "방금 본 것처럼 회의 메모 정리해줘") 대조. 비유 "잘 쓰는 사람의 매뉴얼을 팀 서랍에" |
 | 25 | skill 구조·동작 | 3부 구성 — 좌: 파일트리(**OpenCode 규격** `.opencode/skills/meeting-notes/`, 데모 skill 재사용) + **만드는 법 세 걸음**(폴더 → frontmatter 두 줄 → 절차 본문) / 우: **SKILL.md 해부**(데모 2의 그 파일 — ① YAML frontmatter 존(name=폴더명·description, 필수) + ② Markdown 본문 존(절차, 자유 형식), 점선 존+태그로 구분) / 하단: 동작 flow(progressive disclosure ①상주 ②본문 로드 ③references/ 그때만). note = 매뉴얼 비유 + 공백 ② 브리지 |
 | 26 | MCP 개념 | 리드에 21장 콜백("공백 ② 연결을 채우는 요소"). 개방형 표준, "AI용 USB-C". 없으면(N×N 제각각) vs 있으면(한 번 만들어 어디서나) 대조. OpenAI·Google도 채택 |
-| 27 | MCP 구조·동작 | client–server + tools·resources·prompts + ①연결·목록 교환 ②골라 호출 ③결과 수신. note = 데모 브리지("다음 장에서 눈으로") |
+| 27 | MCP 구조·동작 | 3부 구성 — 좌: client–server 다이어그램 + tools·resources·prompts / 우: **연결 설정 실물**(opencode.json `mcp` 항목, issue-tracker remote 서버 — "다음 장 데모의 그 서버" 주석, 주소는 가상) / 하단: 동작 flow(①연결·목록 교환 ②골라 호출 ③결과 수신). note = 데모 브리지("다음 장에서 눈으로") |
 | 28 | **데모 3 (Ex5) — MCP 연결** | (v0.11 신설, 구성된 예시 라벨) 라벨에 21장 콜백(""못 닿는다"던 그 이슈 트래커"). 좌: 대화+tool 호출 로그(issue_search → 6건 수신), 우: 상태별 정리 결과. note = "로그인→검색→복사→붙여넣기가 사라짐 · skill=어떻게, MCP=어디까지 — 두 공백 모두 채워짐"(본문 2 마무리) |
 | 29 | 도구 지도 + 설치·주의 | 리드에 28장 피벗("직접 만들었지만 — 이미 만들어진 확장 요소도 많다"). 3칸 지도(Context 확장/웹·브라우저/Token 절약)×예 1개 — Context·Token 칸은 도입 기초(5·6장) 콜백 + 설치 한 줄(전체 목록은 부록) + 주의 한 줄(일부 MCP 서버·도구는 외부 연결 → 보안 콜백) |
 
