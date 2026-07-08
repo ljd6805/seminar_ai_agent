@@ -10,7 +10,7 @@
 - 인터랙션: 대부분 장은 `.autoshow`(진입 시 자동 스태거), **fragment는 3곳만**(34장 harness 유무 대조, 35장 회고 펀치라인, 38장 B 지평선+지지대). **데모는 전부 정적**(오토플레이 없음 — 커스텀 JS는 hero 배경·섹션 푸터 sync만).
 - 브라우저 렌더 확인: MCP playwright는 `file:` 차단 → `python3 -m http.server 8765` 로 서빙 후 접속. **편집 후엔 캐시 회피를 위해 `?v=N` 쿼리로 재로드**(해시만 바꾸면 재로드 안 됨). **애니메이션 대기는 Bash sleep 말고 playwright의 wait(browser_wait_for) 사용.** 스크린샷은 cwd(repo 루트)에 저장되니 리뷰 후 삭제.
 - 문서는 개념 수준이며 버전 표기(vX.Y)로 관리. 갱신 시 버전과 아래 상태를 함께 업데이트.
-- **(2026-07-08부터) 작업 브랜치 = `main`.** 변경은 커밋 + main에 푸시. 저장소는 `github.com/ljd6805/seminar_ai_agent` (구 my_doc_repo는 archive됨). **GitHub Pages**: main 루트에서 서빙 — 푸시하면 1~2분 내 https://ljd6805.github.io/seminar_ai_agent/slides/ 에 자동 반영(공개 주소임을 유의). 구 feature 브랜치(claude/seminar-outline-structure-nejvv4)는 이력용.
+- **(2026-07-08부터) 작업 브랜치 = `main`.** **모든 작업 단위마다 즉시 커밋 + push** — 사용자가 GitHub Pages로 실시간 모니터링·디버깅함(로컬 서버 확인만 하고 push를 미루지 말 것). 저장소는 `github.com/ljd6805/seminar_ai_agent` (구 my_doc_repo는 archive됨). **GitHub Pages**: main 루트에서 서빙 — 푸시하면 1~2분 내 https://ljd6805.github.io/seminar_ai_agent/slides/ 에 자동 반영(공개 주소임을 유의). 구 feature 브랜치(claude/seminar-outline-structure-nejvv4)는 이력용.
 
 ## 문서 위치
 
