@@ -1319,7 +1319,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="flow-arrow">→</div>
         <div class="flow-step neutral">표준 JSON</div>
       </div>
-      <div class="grid-2" style="margin-top:0.6rem; align-items:start">
+      <div class="grid-2" style="margin-top:0.5rem; align-items:start">
         <div class="term autoshow fade-left">
           <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">meeting-memo.txt — 비정형 입력</span></div>
           <div class="term-body t-out" style="white-space:pre-wrap">10/24 주간 동기화. 참석: 지훈, 민아, 세영.
@@ -1340,7 +1340,25 @@ footer, header, hgroup, main, menu, nav, section {
           </div>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:0.9rem">달라진 것 — 골라내기·옮겨 적기는 <b class="accent">skill이</b>, 사람은 <b>맞는지 확인만</b> · 출력이 <b>정해진 구조</b>라 다음 단계(스크립트·문서)가 그대로 받아쓸 수 있음 · 절차가 파일이라 <b>누가 시켜도 같은 방식.</b> <span class="dim">설계·검증에선 이 자리에 스펙 문서·검증 로그가 들어갑니다.</span></p>
+      <p class="dim autoshow fade-up" style="margin-top:0.6rem; font-size:1.02rem">이 JSON은 어디로 가나 — <b style="color:#fff">구조가 정해져 있으니, 받아쓰는 쪽을 만들 수 있습니다</b> <span class="mono tiny faint">(가상 시나리오)</span></p>
+      <div class="grid-3 autoshow fade-up" style="margin-top:0.4rem">
+        <div class="card">
+          <div class="pill">활용 ① 스크립트가 받아서</div>
+          <h3>마감 체크 자동화</h3>
+          <p>구조가 같으니 스크립트가 바로 읽습니다 — <span class="mono">action_items</span>에서 <span class="mono">due</span>가 지난 항목만 골라 매일 아침 알림.</p>
+        </div>
+        <div class="card">
+          <div class="pill">활용 ② 문서가 받아서</div>
+          <h3>주간 리포트 조립</h3>
+          <p>매주 쌓인 <span class="mono">output.json</span>을 모아 결정·액션 현황표로 — 사람이 다시 옮겨 적는 일이 없습니다.</p>
+        </div>
+        <div class="card">
+          <div class="pill green">활용 ③ 시스템에 등록</div>
+          <h3>캘린더·이슈 트래커로</h3>
+          <p><span class="mono">next_meeting</span>은 캘린더에, 액션은 트래커에 — 단, 시스템에 닿으려면 <b class="accent2">연결</b>이 필요합니다. 그게 다음 장, <b class="accent2">MCP</b>.</p>
+        </div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:0.6rem">달라진 것 — 골라내기·옮겨 적기는 <b class="accent">skill이</b>, 사람은 <b>확인만</b> · <b>누가 시켜도 같은 방식.</b> <span class="dim">설계·검증에선 이 자리에 스펙 문서·검증 로그가 들어갑니다.</span></p>
     </section>
 
     <!-- 26 · MCP 개념 -->
