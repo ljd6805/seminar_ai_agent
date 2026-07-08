@@ -449,14 +449,22 @@ footer, header, hgroup, main, menu, nav, section {
     .eq-item .eq-sub { font-size: 0.78rem; color: var(--fg-soft); text-align: center; word-break: keep-all; }
     .eq-op { align-self: center; font-size: 1.4rem; font-weight: 800; color: var(--fg-soft); }
     .eq-item.eq-agent { border-color: rgba(155,130,255,0.65); background: rgba(155,130,255,0.10); }
-    @keyframes agPulse {
-      0%, 30% { border-color: var(--accent-2); background: rgba(43,234,208,0.10); transform: scale(1.04); }
-      37%, 96% { border-color: rgba(255,255,255,0.14); background: rgba(255,255,255,0.03); transform: none; }
-      100% { border-color: var(--accent-2); background: rgba(43,234,208,0.10); transform: scale(1.04); }
+    @keyframes agOnce {
+      0% { border-color: rgba(255,255,255,0.14); background: rgba(255,255,255,0.03); transform: none; }
+      25%, 70% { border-color: var(--accent-2); background: rgba(43,234,208,0.10); transform: scale(1.04); }
+      100% { border-color: rgba(255,255,255,0.14); background: rgba(255,255,255,0.03); transform: none; }
     }
-    .eq-item.ph1, .ac-node.ph1 { animation: agPulse 5.1s ease-in-out infinite; }
-    .eq-item.ph2, .ac-node.ph2 { animation: agPulse 5.1s ease-in-out infinite 1.7s; }
-    .eq-item.ph3, .ac-node.ph3 { animation: agPulse 5.1s ease-in-out infinite 3.4s; }
+    @keyframes agHold {
+      0% { border-color: rgba(255,255,255,0.14); background: rgba(255,255,255,0.03); transform: none; }
+      40%, 100% { border-color: var(--accent-2); background: rgba(43,234,208,0.10); transform: scale(1.04); }
+    }
+    @keyframes agFinal {
+      to { border-color: var(--accent); background: rgba(155,130,255,0.22); box-shadow: 0 0 1.2rem rgba(155,130,255,0.35); }
+    }
+    section.present .ph1 { animation: agOnce 2s ease-in-out 0.3s both; }
+    section.present .ph2 { animation: agOnce 2s ease-in-out 2.1s both; }
+    section.present .ph3 { animation: agHold 2s ease-in-out 3.9s both; }
+    section.present .eq-item.eq-agent { animation: agFinal 0.8s ease 5.6s both; }
     .ac-lane { display: flex; align-items: center; gap: 0.5rem; margin-top: 1.05rem; }
     .ac-node {
       flex: 1; text-align: center; padding: 0.6rem 0.4rem;
@@ -465,8 +473,27 @@ footer, header, hgroup, main, menu, nav, section {
     }
     .ac-node.edge { flex: 0.75; border-style: dashed; color: var(--fg-soft); font-weight: 600; }
     .ac-arrow { color: var(--fg-soft); font-weight: 800; }
-    @keyframes agReturn { 0%, 64% { opacity: 0.3; } 74%, 93% { opacity: 1; } 100% { opacity: 0.3; } }
-    .ac-return { margin: 0.4rem 0 0; text-align: center; font-size: 0.82rem; color: var(--accent-4); animation: agReturn 5.1s ease-in-out infinite; }
+    @keyframes agReturnOnce { from { opacity: 0.3; } to { opacity: 1; } }
+    .ac-return { margin: 0.4rem 0 0; text-align: center; font-size: 0.82rem; color: var(--accent-4); opacity: 0.3; }
+    section.present .ac-return { animation: agReturnOnce 1s ease 4.9s both; }
+
+    /* 8장 데모 1 — 대화·리포트 시퀀스 (진입 시 1회) */
+    @keyframes ex1In { from { opacity: 0; transform: translateY(0.4rem); } to { opacity: 1; transform: none; } }
+    .chat .bubble.ex1-step { opacity: 0; }
+    .ol li.show.ex1-step { opacity: 0; }
+    p.ex1-step { opacity: 0; }
+    section.present .ex1-b1 { animation: ex1In 0.55s ease 0.4s both; }
+    section.present .ex1-b2 { animation: ex1In 0.55s ease 1.7s both; }
+    section.present .ex1-b3 { animation: ex1In 0.55s ease 3.0s both; }
+    section.present .ex1-b4 { animation: ex1In 0.55s ease 4.3s both; }
+    section.present .ex1-b5 { animation: ex1In 0.55s ease 5.6s both; }
+    section.present .ex1-b6 { animation: ex1In 0.55s ease 6.9s both; }
+    section.present .ex1-r1 { animation: ex1In 0.55s ease 7.9s both; }
+    section.present .ex1-r2 { animation: ex1In 0.55s ease 8.5s both; }
+    section.present .ex1-r3 { animation: ex1In 0.55s ease 9.1s both; }
+    section.present .ex1-r4 { animation: ex1In 0.55s ease 9.7s both; }
+    section.present .ex1-r5 { animation: ex1In 0.55s ease 10.3s both; }
+    section.present .ex1-cap { animation: ex1In 0.55s ease 11.1s both; }
 
     /* 5장 컨텍스트 — 창이 차오르고, 차면 앞부터 흐려짐 (9s · 1회) */
     .sim-cap { margin: 0.85rem 0 0; font-family: var(--sans); font-size: 0.95rem; color: var(--fg-soft); }
@@ -873,31 +900,32 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">도입 · 데모 1 · 우리 일의 한 장면</span></div>
       <h2>이런 장면부터 보시죠 — regression 로그 정리</h2>
       <p class="mono tiny faint autoshow fade-up" style="margin:0.1rem 0 0">구성된 예시 장면입니다 — 어떤 대화가 가능한지 먼저 보시죠.</p>
-      <div class="grid-2" style="margin-top:0.3rem">
+      <div class="grid-2 sim" style="margin-top:0.3rem">
         <div class="panel autoshow fade-left" style="min-height:26.875rem">
           <div class="phead">대화 — 사람과 agent</div>
           <div class="chat" style="flex:1; justify-content:flex-start">
-            <div class="bubble user"><span class="who">사람</span>어젯밤 regression 로그에서 실패만 골라서, 원인별로 분류해줘.</div>
-            <div class="bubble ai"><span class="who">agent</span>로그 3파일을 읽었습니다. 실패 12건 — 원인 패턴이 3종류로 보입니다. 표로 정리할까요?</div>
-            <div class="bubble user"><span class="who">사람</span>응. 유형마다 대표 케이스 하나씩만 붙여줘.</div>
-            <div class="bubble ai"><span class="who">agent</span>timeout 5건은 같은 인터페이스에 몰려 있어요 — 먼저 볼 후보로 표시해 둘게요.</div>
-            <div class="bubble user"><span class="who">사람</span>좋아. 원인 불명인 건 내가 직접 볼게.</div>
-            <div class="bubble ai"><span class="who">agent</span>정리 끝 — 요약 문서와 대표 케이스 링크를 저장했습니다.</div>
+            <div class="bubble user ex1-step ex1-b1"><span class="who">사람</span>어젯밤 regression 로그에서 실패만 골라서, 원인별로 분류해줘.</div>
+            <div class="bubble ai ex1-step ex1-b2"><span class="who">agent</span>로그 3파일을 읽었습니다. 실패 12건 — 원인 패턴이 3종류로 보입니다. 표로 정리할까요?</div>
+            <div class="bubble user ex1-step ex1-b3"><span class="who">사람</span>응. 유형마다 대표 케이스 하나씩만 붙여줘.</div>
+            <div class="bubble ai ex1-step ex1-b4"><span class="who">agent</span>timeout 5건은 같은 인터페이스에 몰려 있어요 — 먼저 볼 후보로 표시해 둘게요.</div>
+            <div class="bubble user ex1-step ex1-b5"><span class="who">사람</span>좋아. 원인 불명인 건 내가 직접 볼게.</div>
+            <div class="bubble ai ex1-step ex1-b6"><span class="who">agent</span>정리 끝 — 요약 문서와 대표 케이스 링크를 저장했습니다.</div>
           </div>
         </div>
         <div class="panel autoshow fade-right">
           <div class="phead">결과물</div>
           <p style="font-weight:800; font-size:1.3rem; margin:0">실패 분류 리포트</p>
           <ul class="ol">
-            <li class="show"><span class="ix">수집</span><span class="lb">실패 12건 추출 — 로그 3파일</span></li>
-            <li class="show"><span class="ix">유형 A</span><span class="lb">timeout 5건 — 같은 인터페이스에 집중</span></li>
-            <li class="show"><span class="ix">유형 B</span><span class="lb">assertion 실패 4건 + 대표 케이스</span></li>
-            <li class="show"><span class="ix">유형 C</span><span class="lb">원인 불명 3건 — 사람 확인 표시</span></li>
-            <li class="show"><span class="ix">저장</span><span class="lb">요약 문서 + 대표 케이스 링크</span></li>
+            <li class="show ex1-step ex1-r1"><span class="ix">수집</span><span class="lb">실패 12건 추출 — 로그 3파일</span></li>
+            <li class="show ex1-step ex1-r2"><span class="ix">유형 A</span><span class="lb">timeout 5건 — 같은 인터페이스에 집중</span></li>
+            <li class="show ex1-step ex1-r3"><span class="ix">유형 B</span><span class="lb">assertion 실패 4건 + 대표 케이스</span></li>
+            <li class="show ex1-step ex1-r4"><span class="ix">유형 C</span><span class="lb">원인 불명 3건 — 사람 확인 표시</span></li>
+            <li class="show ex1-step ex1-r5"><span class="ix">저장</span><span class="lb">요약 문서 + 대표 케이스 링크</span></li>
           </ul>
-          <p class="mono tiny faint">… 반복 정리는 이렇게 agent의 일이 됩니다.</p>
+          <p class="mono tiny faint ex1-step ex1-cap">… 반복 정리는 이렇게 agent의 일이 됩니다.</p>
         </div>
       </div>
+      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
     </section>
 
     <!-- 9 · 데모 1 해부 -->
@@ -930,7 +958,7 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">도입 · 정의</span></div>
       <h2>AI agent란?</h2>
       <p class="autoshow fade-up" style="font-size:1.22rem"><b>방금 보신 것처럼 — 목표를 주면 필요한 도구를 스스로 선택하고, 여러 단계를 거쳐 작업을 완수하는 AI입니다.</b> <span class="dim">한 번의 질문·답변이 아니라, 결과를 확인하고 고치며 끝까지 진행합니다.</span></p>
-      <div class="agent-eq autoshow fade-up" style="margin-top:1.1rem">
+      <div class="agent-eq sim autoshow fade-up" style="margin-top:1.1rem">
         <div class="eq-item ph1"><b>LLM</b><span class="eq-sub">두뇌 — 무엇을 할지 정한다</span></div>
         <div class="eq-op">+</div>
         <div class="eq-item ph2"><b>도구</b><span class="eq-sub">손 — 파일·명령을 실행한다</span></div>
@@ -939,7 +967,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="eq-op">=</div>
         <div class="eq-item eq-agent"><b class="grad">AI agent</b><span class="eq-sub">스스로 일을 완수</span></div>
       </div>
-      <div class="autoshow fade-up">
+      <div class="sim autoshow fade-up">
         <div class="ac-lane">
           <div class="ac-node edge">목표</div>
           <span class="ac-arrow">→</span>
@@ -953,6 +981,7 @@ footer, header, hgroup, main, menu, nav, section {
         </div>
         <p class="ac-return">확인에서 미흡하면 → 다시 계획으로 ↻ 될 때까지</p>
       </div>
+      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
       <p class="note autoshow fade-up" style="margin-top:1.1rem">핵심 세 가지 — <b class="accent">도구 사용</b> · <b class="accent">다단계 진행</b> · <b class="accent">결과 확인</b></p>
     </section>
 
@@ -1870,11 +1899,12 @@ footer, header, hgroup, main, menu, nav, section {
   // ====== 기초 4~7장: ↻ 다시 재생 (애니메이션 리셋 후 재시작) ======
   window.simReplay = function (btn) {
     var sec = btn.closest('section');
-    var sim = sec && sec.querySelector('.sim');
-    if (!sim) return;
-    sim.classList.add('sim-reset');
-    void sim.offsetWidth;
-    sim.classList.remove('sim-reset');
+    if (!sec) return;
+    sec.querySelectorAll('.sim').forEach(function (sim) {
+      sim.classList.add('sim-reset');
+      void sim.offsetWidth;
+      sim.classList.remove('sim-reset');
+    });
   };
 </script>
 </body>
