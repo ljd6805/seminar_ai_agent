@@ -456,6 +456,62 @@ footer, header, hgroup, main, menu, nav, section {
     @keyframes agReturn { 0%, 64% { opacity: 0.3; } 74%, 93% { opacity: 1; } 100% { opacity: 0.3; } }
     .ac-return { margin: 0.4rem 0 0; text-align: center; font-size: 0.82rem; color: var(--accent-4); animation: agReturn 5.1s ease-in-out infinite; }
 
+    /* 5장 컨텍스트 — 창이 차오르고, 차면 앞부터 흐려짐 (9s 루프) */
+    .sim-cap { margin: 0.85rem 0 0; font-family: var(--sans); font-size: 0.95rem; color: var(--fg-soft); }
+    .ctx-win { display: flex; flex-wrap: wrap; gap: 0.45rem; border: 0.0625rem dashed rgba(155,130,255,0.55); border-radius: 0.7rem; padding: 0.7rem; }
+    .ctx-chip { border: 0.0625rem solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); border-radius: 0.5rem; padding: 0.18rem 0.62rem; font-family: var(--sans); font-weight: 700; font-size: 0.92rem; opacity: 0; }
+    @keyframes ctx1 { 0%, 4% { opacity: 0; transform: translateY(0.4rem); } 9%, 56% { opacity: 1; transform: none; filter: none; } 63%, 93% { opacity: 0.16; filter: grayscale(1); } 100% { opacity: 0; } }
+    @keyframes ctx2 { 0%, 12% { opacity: 0; transform: translateY(0.4rem); } 17%, 64% { opacity: 1; transform: none; filter: none; } 71%, 93% { opacity: 0.16; filter: grayscale(1); } 100% { opacity: 0; } }
+    @keyframes ctx3 { 0%, 20% { opacity: 0; transform: translateY(0.4rem); } 25%, 93% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+    @keyframes ctx4 { 0%, 29% { opacity: 0; transform: translateY(0.4rem); } 34%, 93% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+    @keyframes ctx5 { 0%, 38% { opacity: 0; transform: translateY(0.4rem); } 43%, 93% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+    @keyframes ctx6 { 0%, 47% { opacity: 0; transform: translateY(0.4rem); } 52%, 93% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+    .ctx-chip.x1 { animation: ctx1 9s ease-in-out infinite; }
+    .ctx-chip.x2 { animation: ctx2 9s ease-in-out infinite; }
+    .ctx-chip.x3 { animation: ctx3 9s ease-in-out infinite; }
+    .ctx-chip.x4 { animation: ctx4 9s ease-in-out infinite; }
+    .ctx-chip.x5 { animation: ctx5 9s ease-in-out infinite; }
+    .ctx-chip.x6 { animation: ctx6 9s ease-in-out infinite; }
+    .ctx-gauge { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.8rem; font-family: var(--sans); font-size: 0.8rem; color: var(--fg-soft); }
+    .ctx-gauge .cg-bar { flex: 1; height: 0.4rem; background: rgba(255,255,255,0.08); border-radius: 62.4375rem; overflow: hidden; }
+    .ctx-gauge .cg-bar i { display: block; height: 100%; width: 6%; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: ctxGauge 9s ease-in-out infinite; }
+    @keyframes ctxGauge { 0%, 5% { width: 6%; } 55%, 93% { width: 97%; } 100% { width: 6%; } }
+    @keyframes ctxCap { 0%, 56% { opacity: 0.15; } 66%, 94% { opacity: 1; } 100% { opacity: 0.15; } }
+    .ctx-cap { animation: ctxCap 9s ease-in-out infinite; }
+
+    /* 6장 토큰 — 문장이 조각으로 잘리고 미터가 참 (7s 루프) */
+    .tok { display: inline-block; padding: 0.04rem 0.32rem; margin: 0 0.07rem; border-radius: 0.4rem; border: 0.0625rem solid transparent; }
+    @keyframes tok1 { 0%, 10% { border-color: transparent; background: transparent; } 15%, 90% { border-color: rgba(155,130,255,0.7); background: rgba(155,130,255,0.12); } 98%, 100% { border-color: transparent; background: transparent; } }
+    @keyframes tok2 { 0%, 18% { border-color: transparent; background: transparent; } 23%, 90% { border-color: rgba(155,130,255,0.7); background: rgba(155,130,255,0.12); } 98%, 100% { border-color: transparent; background: transparent; } }
+    @keyframes tok3 { 0%, 26% { border-color: transparent; background: transparent; } 31%, 90% { border-color: rgba(155,130,255,0.7); background: rgba(155,130,255,0.12); } 98%, 100% { border-color: transparent; background: transparent; } }
+    @keyframes tok4 { 0%, 34% { border-color: transparent; background: transparent; } 39%, 90% { border-color: rgba(155,130,255,0.7); background: rgba(155,130,255,0.12); } 98%, 100% { border-color: transparent; background: transparent; } }
+    @keyframes tok5 { 0%, 42% { border-color: transparent; background: transparent; } 47%, 90% { border-color: rgba(155,130,255,0.7); background: rgba(155,130,255,0.12); } 98%, 100% { border-color: transparent; background: transparent; } }
+    @keyframes tok6 { 0%, 50% { border-color: transparent; background: transparent; } 55%, 90% { border-color: rgba(155,130,255,0.7); background: rgba(155,130,255,0.12); } 98%, 100% { border-color: transparent; background: transparent; } }
+    .tok.t1 { animation: tok1 7s ease-in-out infinite; }
+    .tok.t2 { animation: tok2 7s ease-in-out infinite; }
+    .tok.t3 { animation: tok3 7s ease-in-out infinite; }
+    .tok.t4 { animation: tok4 7s ease-in-out infinite; }
+    .tok.t5 { animation: tok5 7s ease-in-out infinite; }
+    .tok.t6 { animation: tok6 7s ease-in-out infinite; }
+    .tok-meter { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.9rem; font-family: var(--sans); font-size: 0.8rem; color: var(--fg-soft); }
+    .tok-meter .tm-bar { flex: 1; height: 0.4rem; background: rgba(255,255,255,0.08); border-radius: 62.4375rem; overflow: hidden; }
+    .tok-meter .tm-bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-4)); animation: tokMeter 7s infinite; }
+    @keyframes tokMeter { 0%, 12% { width: 0; animation-timing-function: steps(6, jump-none); } 57%, 92% { width: 100%; } 100% { width: 0; } }
+    @keyframes tokCap { 0%, 55% { opacity: 0.15; } 65%, 94% { opacity: 1; } 100% { opacity: 0.15; } }
+    .tok-cap { animation: tokCap 7s ease-in-out infinite; }
+
+    /* 7장 환각 — 질문 → 유창한 오답 → 스탬프 → 근거를 주면 (10s 루프) */
+    @keyframes halQ { 0%, 3% { opacity: 0; transform: translateY(0.4rem); } 9%, 95% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+    @keyframes halA { 0%, 16% { opacity: 0; transform: translateY(0.4rem); } 23%, 95% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+    @keyframes halStamp { 0%, 36% { opacity: 0; transform: scale(1.7) rotate(-10deg); } 43%, 95% { opacity: 1; transform: scale(1) rotate(-3deg); } 100% { opacity: 0; } }
+    @keyframes halFix { 0%, 58% { opacity: 0; transform: translateY(0.4rem); } 66%, 95% { opacity: 1; transform: none; } 100% { opacity: 0; } }
+    .hal-q { opacity: 0; animation: halQ 10s ease-in-out infinite; }
+    .hal-a { opacity: 0; animation: halA 10s ease-in-out infinite; }
+    .hal-stamp { display: inline-block; margin-left: 0.5rem; padding: 0.05rem 0.5rem; border: 0.125rem solid var(--accent-3); color: var(--accent-3); border-radius: 0.45rem; font-weight: 800; font-size: 0.82rem; opacity: 0; animation: halStamp 10s ease-in-out infinite; }
+    .hal-fix { opacity: 0; animation: halFix 10s ease-in-out infinite; }
+    @keyframes halCap { 0%, 30% { opacity: 0.15; } 40%, 95% { opacity: 1; } 100% { opacity: 0.15; } }
+    .hal-cap { animation: halCap 10s ease-in-out infinite; }
+
     /* flow lane */
     .flow-lane { display: flex; align-items: stretch; gap: 0.45rem; }
     .flow-step {
@@ -737,20 +793,23 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="도입">
       <div><span class="chip">도입 · 기초 ② 컨텍스트</span></div>
       <h2>컨텍스트 — 모델의 작업 기억</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">한 번의 작업에서 모델이 참고하는 <b style="color:#fff">모든 것이 담기는 공간</b>(context) — 지시, 지금까지의 대화, 읽은 파일, 도구 실행 결과.</p>
-      <div class="grid-2" style="margin-top:0.9rem">
-        <div class="card autoshow fade-left">
-          <div class="pill neutral">성질 ①</div>
-          <h3>넣어준 것만 안다</h3>
-          <p>학습으로 얻은 일반 지식과 별개로, <b style="color:#fff">우리 프로젝트는 컨텍스트에 넣어줘야 압니다.</b> 사내 스펙·로그·코드 — 안 넣어주면 모델에겐 없는 정보입니다.</p>
-        </div>
-        <div class="card amber autoshow fade-right">
-          <div class="pill amber">성질 ②</div>
-          <h3>유한하고, 차면 흐려진다</h3>
-          <p>담을 수 있는 양(context window)에 <b style="color:#fff">한도</b>가 있고, 가득 차 갈수록 <b style="color:#fff">앞의 내용을 잊거나 놓칩니다.</b> 긴 작업이 갈수록 산으로 가는 흔한 이유.</p>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">한 번의 작업에서 모델이 참고하는 모든 것이 담기는 공간(context) — <b style="color:#fff">넣어준 것만 알고, 담을 수 있는 양엔 한도가 있습니다.</b></p>
+      <div class="term autoshow fade-up" style="margin-top:0.9rem">
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">context window — 작업 기억이 차오르는 과정 · 자동 반복 재생</span></div>
+        <div class="term-body" style="padding:1.05rem 1.3rem">
+          <div class="ctx-win">
+            <span class="ctx-chip x1">지시</span>
+            <span class="ctx-chip x2">어제 대화</span>
+            <span class="ctx-chip x3">회의 메모</span>
+            <span class="ctx-chip x4">스펙 문서</span>
+            <span class="ctx-chip x5">로그 파일</span>
+            <span class="ctx-chip x6">도구 실행 결과</span>
+          </div>
+          <div class="ctx-gauge"><span>사용량</span><span class="cg-bar"><i></i></span><span>한도</span></div>
+          <p class="sim-cap ctx-cap">가득 차 갈수록 <b style="color:#fff">앞의 내용부터 흐려집니다</b> — 긴 작업이 갈수록 산으로 가는 흔한 이유.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">그래서 컨텍스트 관리가 곧 실력입니다 — <b class="accent">필요한 것을 골라 넣고, 불필요한 것은 빼기.</b> 뒤에 나올 skill의 "필요할 때만 로드"가 바로 이 기법입니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">그래서 컨텍스트 관리가 곧 실력입니다 — <b class="accent">필요한 것(사내 스펙·로그)을 골라 넣고, 불필요한 것은 빼기.</b> 뒤에 나올 skill의 "필요할 때만 로드"가 바로 이 기법입니다.</p>
     </section>
 
     <!-- 6 · 기초 ③ 토큰 -->
@@ -758,16 +817,12 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">도입 · 기초 ③ 토큰</span></div>
       <h2>토큰 — 사용량의 단위</h2>
       <p class="dim autoshow fade-up" style="font-size:1.12rem">이건 간단합니다 — <b style="color:#fff">전기의 kWh 같은, 쓴 만큼 세는 단위</b>입니다.</p>
-      <div class="grid-2" style="margin-top:0.9rem">
-        <div class="card autoshow fade-left">
-          <div class="pill neutral">무엇인가</div>
-          <h3>텍스트의 조각</h3>
-          <p>입출력 텍스트를 잘게 쪼갠 조각(token, 대략 단어 조각) — 모델은 <b style="color:#fff">토큰 단위로 읽고 씁니다.</b></p>
-        </div>
-        <div class="card autoshow fade-right">
-          <div class="pill neutral">왜 신경 쓰나</div>
-          <h3>토큰 = 비용·시간</h3>
-          <p>쓴 만큼 <b style="color:#fff">비용과 시간</b>이 듭니다. 그리고 컨텍스트의 한도도 <b style="color:#fff">토큰으로 셉니다</b> — 아끼면 비용도, 작업 기억도 아낍니다.</p>
+      <div class="term autoshow fade-up" style="margin-top:0.9rem">
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">텍스트 → 토큰(단어 조각) · 자동 반복 재생</span></div>
+        <div class="term-body" style="padding:1.05rem 1.3rem">
+          <p class="llm-line" style="margin:0; font-size:1.3rem; font-weight:800"><span class="tok t1">어제</span><span class="tok t2">회의</span><span class="tok t3">메모를</span><span class="tok t4">표로</span><span class="tok t5">정리</span><span class="tok t6">해줘</span></p>
+          <div class="tok-meter"><span>사용량</span><span class="tm-bar"><i></i></span><span>쓴 만큼 비용 · 시간</span></div>
+          <p class="sim-cap tok-cap">모델은 이 조각(토큰) 단위로 읽고 씁니다 — 그리고 <b style="color:#fff">컨텍스트의 한도도 토큰으로 셉니다.</b></p>
         </div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:1.1rem">오늘은 이 정도면 충분합니다 — <b class="accent">아껴 쓰는 도구가 따로 있을 정도로 관리 대상</b>이라는 것만 기억하세요(부록의 "Token 절약"이 그것).</p>
@@ -778,19 +833,16 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">도입 · 기초 ④ 환각</span></div>
       <h2>환각 — 그럴듯한 오답</h2>
       <p class="dim autoshow fade-up" style="font-size:1.12rem">모르는 것도 아는 것처럼 유창하게 답하는 현상(hallucination) — 버그가 아니라 <b style="color:#fff">예측 기계의 태생적 성질</b>입니다.</p>
-      <div class="grid-2" style="margin-top:0.9rem">
-        <div class="card amber autoshow fade-left">
-          <div class="pill amber">왜 생기나</div>
-          <h3>예측은 사실 확인이 아니다</h3>
-          <p>"다음 말 예측"은 빈 곳을 <b style="color:#fff">그럴듯한 말로 채웁니다.</b> 문장이 유창해서 오답이 눈에 잘 안 띄는 것이 진짜 위험.</p>
+      <div class="panel autoshow fade-up" style="margin-top:0.9rem">
+        <div class="phead">구성된 예시 장면 · 자동 반복 재생</div>
+        <div class="chat">
+          <div class="bubble user hal-q"><span class="who">사람</span>지난 회의, 몇 층 회의실이었죠? <span class="dim">(회의실 정보는 준 적 없음)</span></div>
+          <div class="bubble ai hal-a"><span class="who">모델</span>3층 대회의실이었습니다. <span class="hal-stamp">지어낸 답</span></div>
+          <div class="bubble ai hal-fix"><span class="who">모델 + 근거</span>회의 메모를 함께 주면 — "메모에 회의실 정보는 없습니다."</div>
         </div>
-        <div class="card mint autoshow fade-right">
-          <div class="pill green">어떻게 다루나</div>
-          <h3>근거를 주고, 사람이 확인</h3>
-          <p>근거(파일·로그)를 컨텍스트로 주면 줄고, <b style="color:#fff">결과는 사람이 확인</b>합니다. 형식을 기계로 거르는 틀은 본문 3(harness)에서 봅니다.</p>
-        </div>
+        <p class="sim-cap hal-cap">"다음 말 예측"은 사실 확인이 아니라서, 빈 곳을 <b style="color:#fff">그럴듯한 말로 채웁니다</b> — 문장이 유창해서 눈에 잘 안 띄는 것이 진짜 위험.</p>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">그래서 오늘의 태도는 "쓰지 말자"가 아니라 <b class="accent">"알고 쓰자"</b>입니다. 이제, 백문이 불여일견 — 장면 하나 보시죠.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">다루는 법 — <b class="accent">근거(파일·로그)를 주면 줄고, 결과는 사람이 확인.</b> 형식을 기계로 거르는 틀은 본문 3(harness)에서. 오늘의 태도는 "쓰지 말자"가 아니라 <b class="accent">"알고 쓰자"</b> — 이제, 백문이 불여일견.</p>
     </section>
 
     <!-- 8 · 데모 1 -->
