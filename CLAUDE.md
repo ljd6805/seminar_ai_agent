@@ -6,7 +6,7 @@
 ## 지금 무엇을 하는 중인가
 
 - **(2026-07-07) 90분 발표 · 40장 체제(v1.3)** — v1.0 대확장(20→42장, "많이 만들고 줄이기") → v1.1 "발표자료 제작" 예시 폐기 → v1.2 역사 재병합(41장) → **v1.3 plugin 발표 제외 + 요소별 데모 배치(40장)**. 2026-07-07 이 시점을 **중간 정리로 main에 merge**함. 이후 단계: 사용자 렌더 리뷰 → 리허설 기준 압축(줄이기).
-- 디자인: `slides/index.html`은 reveal.js 5.1.0 기반 단일 파일(외부 의존 0, 폰트는 시스템 스택). 비주얼 컨셉은 [geniuskey/vibe-coding-202607](https://github.com/geniuskey/vibe-coding-202607) 이식(글래스 카드·네뷸라 배경·grad 텍스트·autoshow 스태거·fragment 스텝·ESC 오버뷰).
+- 디자인: `slides/index.html`은 reveal.js 5.1.0 기반 단일 파일. 폰트만 CDN 로드(Pretendard Variable + JetBrains Mono, 오프라인 시 시스템 스택 폴백) — 그 외 외부 의존 0. 선명도용 설정: 캔버스 1920×1200 + 루트 24px, 본문 text-shadow 없음 — **새 CSS는 px 말고 rem으로**(px는 1.5배 축소돼 보임). 비주얼 컨셉은 [geniuskey/vibe-coding-202607](https://github.com/geniuskey/vibe-coding-202607) 이식(글래스 카드·네뷸라 배경·grad 텍스트·autoshow 스태거·fragment 스텝·ESC 오버뷰).
 - 인터랙션: 대부분 장은 `.autoshow`(진입 시 자동 스태거), **fragment는 3곳만**(34장 harness 유무 대조, 35장 회고 펀치라인, 38장 B 지평선+지지대). **데모는 전부 정적**(오토플레이 없음 — 커스텀 JS는 hero 배경·섹션 푸터 sync만).
 - 브라우저 렌더 확인: MCP playwright는 `file:` 차단 → `python3 -m http.server 8765` 로 서빙 후 접속. **편집 후엔 캐시 회피를 위해 `?v=N` 쿼리로 재로드**(해시만 바꾸면 재로드 안 됨). **애니메이션 대기는 Bash sleep 말고 playwright의 wait(browser_wait_for) 사용.** 스크린샷은 cwd(repo 루트)에 저장되니 리뷰 후 삭제.
 - 문서는 개념 수준이며 버전 표기(vX.Y)로 관리. 갱신 시 버전과 아래 상태를 함께 업데이트.
