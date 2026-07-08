@@ -6,9 +6,9 @@
 
 | 문서 | 내용 |
 |------|------|
-| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 서사와 섹션별 구조 (v1.3) |
-| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.11) |
-| [slides/index.html](slides/index.html) | 40장 슬라이드 (reveal.js 기반 단일 파일 HTML, 외부 의존 0) |
+| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 서사와 섹션별 구조 (v1.4) |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.12) |
+| [slides/index.html](slides/index.html) | 43장 슬라이드 (reveal.js 기반 단일 파일 HTML, 외부 의존 0) |
 
 ## 한눈에
 
@@ -19,11 +19,11 @@
   ("일하는 방식의 변화"는 주장하지 않고 클로징 한 줄로만 — 청중이 결론내리게)
 - **자료 형태**: reveal.js 단일 파일 HTML — 키보드 네비게이션, 진입 시 자동 스태거, fragment 스텝(데모 4·회고·클로징), ESC 오버뷰 그리드
 
-### 전체 흐름 (40장 = 발표 38 + 부록 2)
+### 전체 흐름 (43장 = 발표 41 + 부록 2)
 
 ```
-도입    표지 · 목차 · 역사 · LLM 기초 · 데모1(regression 로그 분류, +해부) · 정의 · 챗봇 vs agent
-        · 왜 지금 · 왜 우리 · 일의 재배치 · 무엇을 맡기나
+도입    표지 · 목차 · 역사 · 기초 4장(LLM·컨텍스트·토큰·환각) · 데모1(regression 로그 분류, +해부)
+        · 정의 · 챗봇 vs agent · 왜 지금 · 왜 우리 · 일의 재배치 · 무엇을 맡기나
 본문 1  간지 · 격리 다이어그램 · 사내 도구 셋 · 보내도 되는 것·안 되는 것
 본문 2  간지 · 맨몸 모델의 한계 · skill(개념·구조) → 데모2(SKILL.md+실행)
         · MCP(개념·구조) → 데모3(연결 장면) · 도구 지도+설치·주의
@@ -34,9 +34,9 @@
 
 ## 진행 상태
 
-**확정** — 척추(알고 써보자), 90분·40장 구조(v1.3: plugin 제외, skill·MCP 각 "개념→구조·동작→데모"), 데모 4개(1 도입 훅 · 2 skill · 3 MCP · 4 harness 유무, 전부 구성된 예시·정적), harness=UVM 비유+공식 근거, 표기 규칙(MCP·데모 라벨·regression 영문)
+**확정** — 척추(알고 써보자), 90분·43장 구조(v1.3: plugin 제외, skill·MCP 각 "개념→구조·동작→데모" / v1.4: 도입 기초 4장 분리 — LLM·컨텍스트·토큰·환각), 데모 4개(1 도입 훅 · 2 skill · 3 MCP · 4 harness 유무, 전부 구성된 예시·정적), harness=UVM 비유+공식 근거, 표기 규칙(MCP·데모 라벨·regression 영문)
 
-**미결** — 표지 발표자·일시, 15장 접속 안내, 26장 대표 도구 실값, 리허설 후 압축 대상 선정
+**미결** — 표지 발표자·일시, 18장 접속 안내, 29장 대표 도구 실값, 리허설 후 압축 대상 선정
 
 **보류** — 시각 표현·디자인·애니메이션 세부
 
