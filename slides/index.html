@@ -1243,60 +1243,11 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">절차는 skill</b>, <b class="accent2">연결은 MCP</b> — 이 대응만 기억하면 됩니다. 하나씩, 데모와 함께 봅니다.</p>
     </section>
 
-    <!-- 22 · skill 개념 -->
-    <section data-sec="본문 2 · 확장 요소">
-      <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">skill</span></div>
-      <h2>skill — 절차를 파일로 적어 두면</h2>
-      <p class="autoshow fade-up" style="font-size:1.15rem"><span class="dim">앞 장의 <b class="accent" style="font-weight:700">공백 ① 절차</b>를 채우는 요소 —</span> skill은 <b>재사용할 절차·전문지식을 파일(SKILL.md)로 정리해 둔 것</b>입니다. <span class="dim">작업과 맞으면 모델이 스스로 불러와, <b style="color:#fff">같은 절차를 그대로 따릅니다.</b></span></p>
-      <div class="grid-2" style="margin-top:1.0rem">
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">skill이 없으면</div>
-          <h3>매번 다시 설명</h3>
-          <p>"이 형식으로, 이 순서로, 이건 주의하고…" — 시킬 때마다 절차를 다시 붙여넣고, 사람마다 결과가 다릅니다.</p>
-        </div>
-        <div class="card mint autoshow fade-up">
-          <div class="pill green">skill이 있으면</div>
-          <h3 class="accent2">한 번 적고 계속</h3>
-          <p>절차를 한 번 파일로 — 이후엔 <b style="color:#fff">"회의 메모 정리해줘"</b> 한 줄이면 모델이 알아서 그 절차대로.</p>
-        </div>
-      </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">비유 — <b class="accent">잘 쓰는 사람의 매뉴얼을 팀 서랍에 넣어두는 것.</b> 개인의 노하우가 팀의 절차가 됩니다.</p>
-    </section>
-
-    <!-- 23 · skill 구조·동작 -->
-    <section data-sec="본문 2 · 확장 요소">
-      <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">skill · 구조와 동작</span></div>
-      <h2>skill의 구조 — 폴더 하나, 필요할 때만 펼치기</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">skill 하나를 열어 보면 — <b style="color:#fff">구조는 폴더 하나, 동작은 필요할 때만.</b> <span class="dim">(예: 스펙 리뷰 절차를 담은 skill)</span></p>
-      <div class="grid-2" style="margin-top:0.9rem; align-items:start">
-        <div class="autoshow fade-left">
-          <div class="phead">구조 — 폴더 하나 = skill 하나</div>
-          <div class="term">
-            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">review-spec/ — skill 폴더</span></div>
-            <div class="term-body" style="white-space:pre"><span class="t-hl">review-spec/</span>
-├─ <span class="t-key">SKILL.md</span>       <span class="t-out">← 이름·설명 + 절차 본문</span>
-└─ <span class="t-key">scripts/ …</span>     <span class="t-out">← 참조 자료·스크립트(선택)</span></div>
-          </div>
-          <p class="mono tiny faint" style="margin-top:0.5rem">SKILL.md 하나면 시작 — 나머지는 필요해질 때 더하면 됩니다.</p>
-        </div>
-        <div class="autoshow fade-right">
-          <div class="phead">동작 원리 — 필요할 때만 펼치기 (progressive disclosure)</div>
-          <div class="runs">
-            <div class="run"><div class="rh"><span>① 평소</span></div><code>이름·설명만 상주 — 컨텍스트를 거의 쓰지 않음</code></div>
-            <div class="run"><div class="rh"><span>② 작업과 맞으면</span></div><code>SKILL.md 본문을 불러와 절차를 따름</code></div>
-            <div class="run"><div class="rh"><span>③ 더 필요하면</span></div><code>본문이 가리키는 참조 파일·스크립트를 그때만 로드</code></div>
-          </div>
-          <p class="mono tiny faint" style="margin-top:0.5rem">// 공식 비유: 목차 → 챕터 → 부록이 있는 매뉴얼</p>
-        </div>
-      </div>
-      <p class="note autoshow fade-up" style="margin-top:1.0rem">구조와 동작은 이게 전부입니다 — <b>이제 하나를 처음부터 만들어 봅니다.</b> 먼저, 사람이 하던 일을 정의하는 것부터.</p>
-    </section>
-
-    <!-- 24 · 데모 2a — 업무 정의 -->
+    <!-- 22 · 데모 2a — 업무 정의 -->
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 데모 2 · ① 업무 정의</span></div>
       <h2>먼저 — 손으로 하던 일을 그대로 적어 봅니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">회의가 끝날 때마다 누군가 하던 일 — <b style="color:#fff">이미 머릿속에 절차가 있습니다.</b> 꺼내서 적기만 하면 됩니다.</p>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem"><b class="accent" style="font-weight:700">공백 ① 절차</b>부터 채우러 갑니다 — 회의가 끝날 때마다 누군가 하던 일, <b style="color:#fff">이미 머릿속에 절차가 있습니다.</b> 꺼내서 적기만 하면 됩니다.</p>
       <div class="grid-3" style="margin-top:0.8rem">
         <div class="card autoshow fade-up">
           <div class="pill neutral">단계 ①</div>
@@ -1326,7 +1277,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem"><b class="accent">정의할 수 있으면, 맡길 수 있습니다.</b> 설계·검증의 반복(스펙 문서 정리·검증 로그 분류)도 똑같이 적을 수 있습니다. <b>다음 장 — 이 정의를 파일로 저장해 skill로 만듭니다.</b></p>
     </section>
 
-    <!-- 25 · 데모 2b — skill 저장 → 실행·활용 -->
+    <!-- 23 · 데모 2b — skill 저장 → 실행·활용 -->
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 데모 2 · ② skill로 저장 → 실행·활용</span></div>
       <h2>정의를 SKILL.md로 저장하면 — 언제든 같은 방식으로</h2>
@@ -1334,7 +1285,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="autoshow fade-left">
           <div class="pill green" style="margin-bottom:0.35rem">저장 — 앞 장의 정의를 파일로, 한 번만</div>
           <div class="term">
-        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">meeting-notes/SKILL.md</span></div>
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">.opencode/skills/meeting-notes/SKILL.md</span></div>
         <div class="term-body" style="white-space:pre-wrap"><span class="t-out">---</span>
 <span class="t-key">name:</span> <span class="t-str">meeting-notes</span>
 <span class="t-key">description:</span> <span class="t-str">회의 메모를 표준 JSON으로 구조화한다</span>
@@ -1392,6 +1343,57 @@ footer, header, hgroup, main, menu, nav, section {
           </div>
         </div>
       </div>
+    </section>
+
+    <!-- 24 · skill 개념 -->
+    <section data-sec="본문 2 · 확장 요소">
+      <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">skill</span></div>
+      <h2>skill — 절차를 파일로 적어 두면</h2>
+      <p class="autoshow fade-up" style="font-size:1.15rem"><span class="dim">방금 보신 파일이 곧 skill —</span> <b>재사용할 절차·전문지식을 파일(SKILL.md)로 정리해 둔 것</b>입니다. <span class="dim">작업과 맞으면 모델이 스스로 불러와, <b style="color:#fff">같은 절차를 그대로 따릅니다.</b></span></p>
+      <div class="grid-2" style="margin-top:1.0rem">
+        <div class="card autoshow fade-up">
+          <div class="pill neutral">skill이 없으면</div>
+          <h3>매번 다시 설명</h3>
+          <p>"이 형식으로, 이 순서로, 이건 주의하고…" — 시킬 때마다 절차를 다시 붙여넣고, 사람마다 결과가 다릅니다.</p>
+        </div>
+        <div class="card mint autoshow fade-up">
+          <div class="pill green">skill이 있으면</div>
+          <h3 class="accent2">한 번 적고 계속</h3>
+          <p>절차를 한 번 파일로 — 이후엔 방금 본 것처럼 <b style="color:#fff">"회의 메모 정리해줘"</b> 한 줄이면 모델이 알아서 그 절차대로.</p>
+        </div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">비유 — <b class="accent">잘 쓰는 사람의 매뉴얼을 팀 서랍에 넣어두는 것.</b> 개인의 노하우가 팀의 절차가 됩니다.</p>
+    </section>
+
+    <!-- 25 · skill 구조·동작 -->
+    <section data-sec="본문 2 · 확장 요소">
+      <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">skill · 구조와 동작</span></div>
+      <h2>skill의 구조 — 폴더 하나, 필요할 때만 펼치기</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">방금 그 skill을 폴더째 열어 보면 — <b style="color:#fff">구조는 폴더 하나, 동작은 필요할 때만.</b> <span class="dim">(OpenCode 기준 경로)</span></p>
+      <div class="grid-2" style="margin-top:0.9rem; align-items:start">
+        <div class="autoshow fade-left">
+          <div class="phead">구조 — 폴더 하나 = skill 하나</div>
+          <div class="term">
+            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">.opencode/skills/meeting-notes/ — skill 폴더</span></div>
+            <div class="term-body" style="white-space:pre"><span class="t-hl">.opencode/skills/meeting-notes/</span>
+├─ <span class="t-key">SKILL.md</span>              <span class="t-out">← 이름·설명 + 절차 본문 (필수)</span>
+└─ <span class="t-key">references/</span>           <span class="t-out">← 참조 자료 (선택)</span>
+   ├─ <span class="t-key">checklist.md</span>
+   └─ <span class="t-key">output-template.json</span></div>
+          </div>
+          <p class="mono tiny faint" style="margin-top:0.5rem">SKILL.md 하나면 시작 — 나머지는 필요해질 때 더하면 됩니다.</p>
+        </div>
+        <div class="autoshow fade-right">
+          <div class="phead">동작 원리 — 필요할 때만 펼치기 (progressive disclosure)</div>
+          <div class="runs">
+            <div class="run"><div class="rh"><span>① 평소</span></div><code>이름·설명만 상주 — 컨텍스트를 거의 쓰지 않음</code></div>
+            <div class="run"><div class="rh"><span>② 작업과 맞으면</span></div><code>SKILL.md 본문을 불러와 절차를 따름</code></div>
+            <div class="run"><div class="rh"><span>③ 더 필요하면</span></div><code>본문이 가리키는 references/ 파일을 그때만 로드</code></div>
+          </div>
+          <p class="mono tiny faint" style="margin-top:0.5rem">// 공식 비유: 목차 → 챕터 → 부록이 있는 매뉴얼</p>
+        </div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:1.0rem">구조와 동작은 이게 전부입니다 — skill은 여기까지. <b>다음은 공백 ②, 연결입니다.</b></p>
     </section>
 
     <!-- 26 · MCP 개념 -->
