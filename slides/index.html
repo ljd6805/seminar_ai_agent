@@ -495,6 +495,14 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .ex1-r5 { animation: ex1In 0.4s ease 4.4s both; }
     section.present .ex1-cap { animation: ex1In 0.4s ease 4.6s both; }
 
+    /* 25장 데모 2 — 주간 리포트 조립 시나리오 */
+    .wr-file { font-size: 0.78rem; border: 0.0625rem solid rgba(255,255,255,0.14); border-radius: 0.5rem; padding: 0.38rem 0.75rem; background: rgba(255,255,255,0.03); }
+    .wr-file.src { border-color: rgba(43,234,208,0.7); background: rgba(43,234,208,0.08); }
+    .wr-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .wr-table th, .wr-table td { text-align: left; padding: 0.3rem 0.65rem; border-bottom: 0.0625rem solid rgba(255,255,255,0.08); white-space: nowrap; }
+    .wr-table th { color: var(--fg-soft); font-weight: 600; font-size: 0.7rem; }
+    .wr-table tr.hl td { background: rgba(43,234,208,0.07); }
+
     /* 5장 컨텍스트 — 창이 차오르고, 차면 앞부터 흐려짐 (9s · 1회) */
     .sim-cap { margin: 0.85rem 0 0; font-family: var(--sans); font-size: 0.95rem; color: var(--fg-soft); }
     .ctx-win { display: flex; flex-wrap: wrap; gap: 0.45rem; border: 0.0625rem dashed rgba(155,130,255,0.55); border-radius: 0.7rem; padding: 0.7rem; }
@@ -1340,22 +1348,26 @@ footer, header, hgroup, main, menu, nav, section {
           </div>
         </div>
       </div>
-      <p class="dim autoshow fade-up" style="margin-top:0.6rem; font-size:1.02rem">이 JSON은 어디로 가나 — <b style="color:#fff">구조가 정해져 있으니, 받아쓰는 쪽을 만들 수 있습니다</b> <span class="mono tiny faint">(가상 시나리오)</span></p>
-      <div class="grid-3 autoshow fade-up" style="margin-top:0.4rem">
-        <div class="card">
-          <div class="pill">활용 ① 스크립트가 받아서</div>
-          <h3>마감 체크 자동화</h3>
-          <p>구조가 같으니 스크립트가 바로 읽습니다 — <span class="mono">action_items</span>에서 <span class="mono">due</span>가 지난 항목만 골라 매일 아침 알림.</p>
+      <p class="dim autoshow fade-up" style="margin-top:0.6rem; font-size:1.02rem">이 JSON은 어디로 가나 — 예를 들어, <b style="color:#fff">매주 쌓인 회의 JSON을 스크립트가 받아 주간 리포트를 자동 조립</b>합니다 <span class="mono tiny faint">(가상 시나리오)</span></p>
+      <div class="autoshow fade-up" style="display:flex; align-items:center; gap:0.9rem; margin-top:0.45rem">
+        <div style="flex:0 0 17.5rem; display:flex; flex-direction:column; gap:0.35rem">
+          <div class="wr-file mono">1021-weekly-sync.json</div>
+          <div class="wr-file mono src">1024-weekly-sync.json <span style="font-family:var(--sans); font-size:0.72rem; color:var(--accent-2)">← 방금 그 출력</span></div>
+          <div class="wr-file mono">1027-design-review.json</div>
+          <p class="mono tiny faint" style="margin:0.2rem 0 0">회의마다 하나씩 쌓임 — 전부 같은 구조</p>
         </div>
-        <div class="card">
-          <div class="pill">활용 ② 문서가 받아서</div>
-          <h3>주간 리포트 조립</h3>
-          <p>매주 쌓인 <span class="mono">output.json</span>을 모아 결정·액션 현황표로 — 사람이 다시 옮겨 적는 일이 없습니다.</p>
-        </div>
-        <div class="card">
-          <div class="pill green">활용 ③ 시스템에 등록</div>
-          <h3>캘린더·이슈 트래커로</h3>
-          <p><span class="mono">next_meeting</span>은 캘린더에, 액션은 트래커에 — 단, 시스템에 닿으려면 <b class="accent2">연결</b>이 필요합니다. 그게 다음 장, <b class="accent2">MCP</b>.</p>
+        <span class="flow-arrow" style="flex:none">→</span>
+        <div class="term" style="flex:1">
+          <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">weekly-report.md — 스크립트가 조립한 액션 현황</span></div>
+          <div class="term-body" style="padding:0.5rem 0.9rem">
+            <table class="wr-table">
+              <tr><th>담당</th><th>할 일</th><th>기한</th><th>출처</th></tr>
+              <tr><td>세영</td><td>테스트 플랜 갱신</td><td>10-23</td><td>1021 sync</td></tr>
+              <tr class="hl"><td>지훈</td><td>토큰 갱신 수정</td><td>10-25</td><td>1024 sync</td></tr>
+              <tr class="hl"><td>민아</td><td>대시보드 2안 반영</td><td>10-28</td><td>1024 sync</td></tr>
+              <tr><td>지훈</td><td>리뷰 지적 반영</td><td>10-30</td><td>1027 review</td></tr>
+            </table>
+          </div>
         </div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:0.6rem">달라진 것 — 골라내기·옮겨 적기는 <b class="accent">skill이</b>, 사람은 <b>확인만</b> · <b>누가 시켜도 같은 방식.</b> <span class="dim">설계·검증에선 이 자리에 스펙 문서·검증 로그가 들어갑니다.</span></p>
