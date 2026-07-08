@@ -496,6 +496,13 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .ex1-cap { animation: ex1In 0.4s ease 4.6s both; }
 
     /* 25장 데모 2 — 주간 리포트 조립 시나리오 */
+    /* 25장 SKILL.md 해부 — frontmatter/본문 존 */
+    .sk25 .term-body { font-size: 0.8rem; line-height: 1.6; }
+    .skmd-zone { position: relative; border: 0.0625rem dashed rgba(255,224,138,0.45); border-radius: 0.55rem; padding: 0.7rem 0.75rem 0.45rem; margin-top: 0.62rem; white-space: normal !important; }
+    .skmd-zone.md { border-color: rgba(43,234,208,0.4); }
+    .skmd-tag { position: absolute; top: -0.68rem; left: 0.7rem; padding: 0 0.45rem; background: #0B0E1A; font-family: var(--sans); font-weight: 700; font-size: 0.68rem; color: #FFE08A; }
+    .skmd-zone.md .skmd-tag { color: var(--accent-2); }
+
     /* 21장 두 공백 → skill·MCP 대응 배너 */
     .hole-fix { margin-top: 0.85rem; padding: 0.6rem 0.9rem 0.7rem; border-radius: 0.7rem; border: 0.09375rem solid; text-align: center; }
     .hole-fix .hf-label { display: block; font-size: 0.72rem; letter-spacing: 0.05em; color: var(--fg-soft); margin-bottom: 0.18rem; }
@@ -1369,31 +1376,62 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">skill · 구조와 동작</span></div>
       <h2>skill의 구조 — 폴더 하나, 필요할 때만 펼치기</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">방금 그 skill을 폴더째 열어 보면 — <b style="color:#fff">구조는 폴더 하나, 동작은 필요할 때만.</b> <span class="dim">(OpenCode 기준 경로)</span></p>
-      <div class="grid-2" style="margin-top:0.9rem; align-items:start">
+      <p class="dim autoshow fade-up" style="font-size:1.1rem">방금 그 skill을 폴더째 열어 보면 — <b style="color:#fff">겉은 폴더 하나, 속은 SKILL.md 두 부분.</b> <span class="dim">(OpenCode 기준 경로)</span></p>
+      <div class="grid-2 sk25" style="margin-top:0.6rem; align-items:start; grid-template-columns:0.92fr 1.08fr">
         <div class="autoshow fade-left">
           <div class="phead">구조 — 폴더 하나 = skill 하나</div>
           <div class="term">
             <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">.opencode/skills/meeting-notes/ — skill 폴더</span></div>
             <div class="term-body" style="white-space:pre"><span class="t-hl">.opencode/skills/meeting-notes/</span>
-├─ <span class="t-key">SKILL.md</span>              <span class="t-out">← 이름·설명 + 절차 본문 (필수)</span>
+├─ <span class="t-key">SKILL.md</span>              <span class="t-out">← 오른쪽 실물 (필수)</span>
 └─ <span class="t-key">references/</span>           <span class="t-out">← 참조 자료 (선택)</span>
    ├─ <span class="t-key">checklist.md</span>
    └─ <span class="t-key">output-template.json</span></div>
           </div>
-          <p class="mono tiny faint" style="margin-top:0.5rem">SKILL.md 하나면 시작 — 나머지는 필요해질 때 더하면 됩니다.</p>
+          <div class="phead" style="margin-top:0.75rem">만드는 법 — 세 걸음이 전부</div>
+          <div class="runs">
+            <div class="run"><div class="rh"><span>①</span></div><code>폴더를 만든다 — .opencode/skills/이름/</code></div>
+            <div class="run"><div class="rh"><span>②</span></div><code>frontmatter 두 줄 — name·description</code></div>
+            <div class="run"><div class="rh"><span>③</span></div><code>본문에 절차를 우리말 번호 목록으로</code></div>
+          </div>
         </div>
         <div class="autoshow fade-right">
-          <div class="phead">동작 원리 — 필요할 때만 펼치기 (progressive disclosure)</div>
-          <div class="runs">
-            <div class="run"><div class="rh"><span>① 평소</span></div><code>이름·설명만 상주 — 컨텍스트를 거의 쓰지 않음</code></div>
-            <div class="run"><div class="rh"><span>② 작업과 맞으면</span></div><code>SKILL.md 본문을 불러와 절차를 따름</code></div>
-            <div class="run"><div class="rh"><span>③ 더 필요하면</span></div><code>본문이 가리키는 references/ 파일을 그때만 로드</code></div>
+          <div class="phead">SKILL.md 해부 — YAML frontmatter + Markdown 본문</div>
+          <div class="term">
+            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">.opencode/skills/meeting-notes/SKILL.md — 데모 2의 그 파일</span></div>
+            <div class="term-body" style="padding:0.55rem 0.8rem 0.7rem">
+              <div class="skmd-zone fm">
+                <span class="skmd-tag">① YAML frontmatter — 무엇이고, 언제 쓰는지 (필수)</span>
+                <div style="white-space:pre-wrap"><span class="t-out">---</span>
+<span class="t-key">name:</span> <span class="t-str">meeting-notes</span>   <span class="t-out">← 폴더명과 일치</span>
+<span class="t-key">description:</span> <span class="t-str">회의 메모를 표준 JSON으로 구조화한다</span>
+<span class="t-out">  ↳ 모델이 이 설명을 보고, 맞는 작업에서 스스로 불러온다</span>
+<span class="t-out">---</span></div>
+              </div>
+              <div class="skmd-zone md">
+                <span class="skmd-tag">② Markdown 본문 — 절차를 우리말로 (자유 형식)</span>
+                <div style="white-space:pre-wrap"><span class="t-hl">## 절차</span>
+1. 메모에서 <span class="t-key">제목·날짜·참석자</span>를 찾는다
+2. 결정된 사항은 <span class="t-key">decisions</span> 목록으로
+3. "누가, 무엇을, 언제까지"는 <span class="t-key">action_items</span> 로
+4. 날짜는 <span class="t-key">YYYY-MM-DD</span> 형식으로 통일한다
+5. 다음 회의 일정이 있으면 <span class="t-key">next_meeting</span> 에 넣는다</div>
+              </div>
+            </div>
           </div>
-          <p class="mono tiny faint" style="margin-top:0.5rem">// 공식 비유: 목차 → 챕터 → 부록이 있는 매뉴얼</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.0rem">구조와 동작은 이게 전부입니다 — skill은 여기까지. <b>다음은 공백 ②, 연결입니다.</b></p>
+      <div class="autoshow fade-up" style="margin-top:0.65rem">
+        <div class="phead">동작 — 필요할 때만 펼치기 (progressive disclosure)</div>
+        <div class="flow-lane" style="margin-top:0.3rem">
+          <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>① 평소</span><span class="tiny" style="font-weight:400">이름·설명만 상주 — 컨텍스트 절약</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step ai" style="flex-direction:column; gap:0.12rem"><span>② 작업과 맞으면</span><span class="tiny" style="font-weight:400">SKILL.md 본문을 불러와 절차대로</span></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>③ 더 필요하면</span><span class="tiny" style="font-weight:400">references/ 파일을 그때만 로드</span></div>
+        </div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:0.65rem">공식 비유 — <b class="accent">목차 → 챕터 → 부록이 있는 매뉴얼.</b> skill은 여기까지 — <b>다음은 공백 ②, 연결입니다.</b></p>
     </section>
 
     <!-- 26 · MCP 개념 -->
