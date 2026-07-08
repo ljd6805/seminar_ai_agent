@@ -496,12 +496,15 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .ex1-cap { animation: ex1In 0.4s ease 4.6s both; }
 
     /* 25장 데모 2 — 주간 리포트 조립 시나리오 */
-    /* 21장 두 구멍 → skill·MCP 대응 */
-    .hole-fix { display: flex; flex-direction: column; align-items: center; gap: 0.35rem; margin-top: 0.75rem; }
-    .hole-fix .hf-arrow { color: var(--fg-soft); font-size: 0.78rem; }
-    .hf-chip { font-weight: 800; font-size: 1.08rem; padding: 0.42rem 1.2rem; border-radius: 62.4375rem; border: 0.0625rem solid; }
-    .hf-chip.sk { color: var(--accent); border-color: rgba(155,130,255,0.65); background: rgba(155,130,255,0.12); }
-    .hf-chip.mc { color: var(--accent-2); border-color: rgba(43,234,208,0.6); background: rgba(43,234,208,0.10); }
+    /* 21장 두 공백 → skill·MCP 대응 배너 */
+    .hole-fix { margin-top: 0.85rem; padding: 0.6rem 0.9rem 0.7rem; border-radius: 0.7rem; border: 0.09375rem solid; text-align: center; }
+    .hole-fix .hf-label { display: block; font-size: 0.72rem; letter-spacing: 0.05em; color: var(--fg-soft); margin-bottom: 0.18rem; }
+    .hole-fix .hf-name { font-size: 1.5rem; font-weight: 800; line-height: 1.2; }
+    .hole-fix .hf-desc { display: block; margin-top: 0.1rem; font-size: 0.88rem; color: var(--fg-soft); }
+    .hole-fix.sk { border-color: rgba(155,130,255,0.6); background: rgba(155,130,255,0.10); }
+    .hole-fix.sk .hf-name { color: var(--accent); }
+    .hole-fix.mc { border-color: rgba(43,234,208,0.55); background: rgba(43,234,208,0.08); }
+    .hole-fix.mc .hf-name { color: var(--accent-2); }
     .d2 .term-body { padding: 0.55rem 0.9rem; line-height: 1.6; font-size: 0.86rem; }
     .wr-file { font-size: 0.78rem; border: 0.0625rem solid rgba(255,255,255,0.14); border-radius: 0.5rem; padding: 0.38rem 0.75rem; background: rgba(255,255,255,0.03); }
     .wr-file.src { border-color: rgba(43,234,208,0.7); background: rgba(43,234,208,0.08); }
@@ -1218,23 +1221,23 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="dim autoshow fade-up" style="font-size:1.2rem; margin-top:1.0rem">skill · MCP — 두 단어를 오늘 여기서 끝냅니다.</p>
     </section>
 
-    <!-- 21 · 맨몸 모델의 한계 -->
+    <!-- 21 · 기본 모델의 한계 -->
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 왜 확장이 필요한가</span></div>
-      <h2>맨몸 모델에게 없는 두 가지</h2>
+      <h2>기본 모델에게 없는 두 가지</h2>
       <p class="dim autoshow fade-up" style="font-size:1.12rem">모델 자체는 똑똑하지만 — <b style="color:#fff">우리 회사에 대해선 백지</b>입니다.</p>
       <div class="grid-2" style="margin-top:0.9rem">
         <div class="card autoshow fade-up">
-          <div class="pill neutral">구멍 ① 절차</div>
+          <div class="pill neutral">공백 ① 절차</div>
           <h3>우리 절차를 모른다</h3>
           <p>팀마다 다른 리뷰 규칙·문서 형식·노하우 — 매번 처음부터 설명해야 합니다.</p>
-          <div class="hole-fix"><span class="hf-arrow">↓ 이 구멍을 메우는 확장 요소</span><span class="hf-chip sk">skill — 절차를 적어 넣는다</span></div>
+          <div class="hole-fix sk"><span class="hf-label">이 공백을 채우는 확장 요소</span><span class="hf-name">skill</span><span class="hf-desc">절차를 적어 넣는다</span></div>
         </div>
         <div class="card autoshow fade-up">
-          <div class="pill neutral">구멍 ② 연결</div>
+          <div class="pill neutral">공백 ② 연결</div>
           <h3>우리 시스템에 못 닿는다</h3>
           <p>사내 문서고·이슈 트래커·DB — 학습에 없고(컨텍스트는 유한), 조회할 손도 없습니다.</p>
-          <div class="hole-fix"><span class="hf-arrow">↓ 이 구멍을 메우는 확장 요소</span><span class="hf-chip mc">MCP — 시스템에 이어 준다</span></div>
+          <div class="hole-fix mc"><span class="hf-label">이 공백을 채우는 확장 요소</span><span class="hf-name">MCP</span><span class="hf-desc">시스템에 이어 준다</span></div>
         </div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">절차는 skill</b>, <b class="accent2">연결은 MCP</b> — 이 대응만 기억하면 됩니다. 하나씩, 데모와 함께 봅니다.</p>
