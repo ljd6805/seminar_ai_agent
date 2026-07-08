@@ -395,6 +395,67 @@ footer, header, hgroup, main, menu, nav, section {
     .t-out { color: #C9D0E4; }
     .t-hl  { color: #FFE08A; }
 
+    /* 기초 애니메이션 — 4장 다음 말 예측 · 10장 agent 등식/루프 (CSS 무한 루프, JS 없음) */
+    @keyframes llmBar { 0%, 8% { width: 0; } 25%, 90% { width: var(--w); } 98%, 100% { width: 0; } }
+    @keyframes llmPick {
+      0%, 32% { border-color: rgba(255,255,255,0.14); background: transparent; }
+      42%, 90% { border-color: rgba(43,234,208,0.8); background: rgba(43,234,208,0.09); }
+      98%, 100% { border-color: rgba(255,255,255,0.14); background: transparent; }
+    }
+    @keyframes llmWord {
+      0%, 46% { opacity: 0; transform: translateY(0.35rem); }
+      56%, 93% { opacity: 1; transform: none; }
+      99%, 100% { opacity: 0; }
+    }
+    @keyframes llmCap { 0%, 58% { opacity: 0.15; } 70%, 94% { opacity: 1; } 100% { opacity: 0.15; } }
+    @keyframes llmCursor { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.12; } }
+    .llm-line { font-family: var(--sans); }
+    .llm-word { color: var(--accent-2); display: inline-block; margin-left: 0.35rem; animation: llmWord 7s ease-in-out infinite; }
+    .llm-cursor { color: var(--accent); margin-left: 0.12rem; font-weight: 400; animation: llmCursor 1.1s steps(1) infinite; }
+    .llm-cands { display: flex; flex-direction: column; gap: 0.42rem; }
+    .llm-cand {
+      display: flex; align-items: center; gap: 0.7rem;
+      border: 0.0625rem solid rgba(255,255,255,0.14); border-radius: 0.55rem;
+      padding: 0.26rem 0.75rem;
+    }
+    .llm-cand.pick { animation: llmPick 7s ease-in-out infinite; }
+    .llm-cand .lc-w { width: 5.6rem; font-family: var(--sans); font-weight: 700; font-size: 0.95rem; }
+    .llm-cand .lc-bar { flex: 1; height: 0.4rem; background: rgba(255,255,255,0.08); border-radius: 62.4375rem; overflow: hidden; }
+    .llm-cand .lc-bar i { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, var(--accent), var(--accent-2)); animation: llmBar 7s ease-in-out infinite; }
+    .llm-cand .lc-p { width: 3rem; text-align: right; font-size: 0.78rem; color: var(--fg-soft); }
+    .llm-cap { margin: 0.85rem 0 0; font-family: var(--sans); font-size: 0.95rem; color: var(--fg-soft); animation: llmCap 7s ease-in-out infinite; }
+
+    .agent-eq { display: flex; align-items: stretch; justify-content: center; gap: 0.55rem; }
+    .eq-item {
+      flex: 1; max-width: 13rem;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.22rem;
+      padding: 0.72rem 0.6rem;
+      border: 0.0625rem solid rgba(255,255,255,0.14); border-radius: 0.8rem;
+      background: rgba(255,255,255,0.03);
+    }
+    .eq-item b { font-size: 1.18rem; }
+    .eq-item .eq-sub { font-size: 0.78rem; color: var(--fg-soft); text-align: center; word-break: keep-all; }
+    .eq-op { align-self: center; font-size: 1.4rem; font-weight: 800; color: var(--fg-soft); }
+    .eq-item.eq-agent { border-color: rgba(155,130,255,0.65); background: rgba(155,130,255,0.10); }
+    @keyframes agPulse {
+      0%, 30% { border-color: var(--accent-2); background: rgba(43,234,208,0.10); transform: scale(1.04); }
+      37%, 96% { border-color: rgba(255,255,255,0.14); background: rgba(255,255,255,0.03); transform: none; }
+      100% { border-color: var(--accent-2); background: rgba(43,234,208,0.10); transform: scale(1.04); }
+    }
+    .eq-item.ph1, .ac-node.ph1 { animation: agPulse 5.1s ease-in-out infinite; }
+    .eq-item.ph2, .ac-node.ph2 { animation: agPulse 5.1s ease-in-out infinite 1.7s; }
+    .eq-item.ph3, .ac-node.ph3 { animation: agPulse 5.1s ease-in-out infinite 3.4s; }
+    .ac-lane { display: flex; align-items: center; gap: 0.5rem; margin-top: 1.05rem; }
+    .ac-node {
+      flex: 1; text-align: center; padding: 0.6rem 0.4rem;
+      border: 0.0625rem solid rgba(255,255,255,0.14); border-radius: 0.75rem;
+      background: rgba(255,255,255,0.03); font-weight: 700; font-size: 0.95rem;
+    }
+    .ac-node.edge { flex: 0.75; border-style: dashed; color: var(--fg-soft); font-weight: 600; }
+    .ac-arrow { color: var(--fg-soft); font-weight: 800; }
+    @keyframes agReturn { 0%, 64% { opacity: 0.3; } 74%, 93% { opacity: 1; } 100% { opacity: 0.3; } }
+    .ac-return { margin: 0.4rem 0 0; text-align: center; font-size: 0.82rem; color: var(--accent-4); animation: agReturn 5.1s ease-in-out infinite; }
+
     /* flow lane */
     .flow-lane { display: flex; align-items: stretch; gap: 0.45rem; }
     .flow-step {
@@ -655,22 +716,21 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="도입">
       <div><span class="chip">도입 · 기초 ① LLM</span></div>
       <h2>LLM — 다음 말을 예측하는 두뇌</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">LLM(Large Language Model, 대규모 언어 모델) — ChatGPT도, agent도 <b style="color:#fff">속은 전부 이것</b>입니다.</p>
-      <div class="grid-2" style="margin-top:0.9rem">
-        <div class="card autoshow fade-left">
-          <div class="pill neutral">LLM이 하는 일</div>
-          <h3>다음 말을 예측한다</h3>
-          <p>방대한 글로 학습해, 주어진 글 뒤에 <b style="color:#fff">"다음에 올 말"을 확률로 예측</b>합니다. 계산도 검색도 아닌 <b class="accent">예측</b> — 그래서 유창하지만, 틀릴 수도 있습니다.</p>
-          <p class="mono tiny faint">프롬프트(지시문)를 주면 → 이어질 답을 만들어냅니다.</p>
-        </div>
-        <div class="card mint autoshow fade-right">
-          <div class="pill green">AI agent와의 차이</div>
-          <h3>agent = LLM + 도구 + 루프</h3>
-          <p>LLM 혼자는 <b style="color:#fff">말만</b> 합니다 — 질문 한 번, 답 한 번. 여기에 <b class="accent2">도구</b>(파일 읽기·명령 실행)와 <b class="accent2">루프</b>(결과 확인 → 다음 행동)가 붙으면 AI agent.</p>
-          <p class="mono tiny faint">두뇌는 같습니다 — 손과 반복이 붙었을 뿐.</p>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">LLM(Large Language Model, 대규모 언어 모델)이 하는 일은 단 하나 — <b style="color:#fff">주어진 글 뒤에 올 "다음 말"을 확률로 예측</b>하는 것입니다.</p>
+      <div class="term autoshow fade-up" style="margin-top:0.9rem">
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">입력(프롬프트) → 다음 말 예측 · 자동 반복 재생</span></div>
+        <div class="term-body" style="padding:1.05rem 1.3rem">
+          <p class="llm-line" style="margin:0 0 0.8rem; font-size:1.3rem; font-weight:800">오늘 회의는 오후 세 시에<span class="llm-word">시작합니다</span><span class="llm-cursor">▍</span></p>
+          <div class="llm-cands">
+            <div class="llm-cand pick"><span class="lc-w">시작합니다</span><span class="lc-bar"><i style="--w:62%"></i></span><span class="lc-p">62%</span></div>
+            <div class="llm-cand"><span class="lc-w">열립니다</span><span class="lc-bar"><i style="--w:21%"></i></span><span class="lc-p">21%</span></div>
+            <div class="llm-cand"><span class="lc-w">모입니다</span><span class="lc-bar"><i style="--w:11%"></i></span><span class="lc-p">11%</span></div>
+            <div class="llm-cand"><span class="lc-w">고양이</span><span class="lc-bar"><i style="--w:2%"></i></span><span class="lc-p">0.1%</span></div>
+          </div>
+          <p class="llm-cap">후보마다 확률을 매겨 가장 그럴듯한 말을 붙이고 → 그 뒤의 말을 또 예측 — <b style="color:#fff">이 반복이 곧 답</b>이 됩니다.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">agent의 능력도 한계도 결국 <b class="accent">두뇌인 LLM의 성질</b>에서 옵니다 — 이어서 그 성질 셋: <b style="color:#fff">컨텍스트 · 토큰 · 환각.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">계산도 검색도 아닌 예측</b> — 그래서 유창하지만, 틀릴 수도 있습니다. 이어서 이 두뇌의 성질 셋: <b style="color:#fff">컨텍스트 · 토큰 · 환각.</b></p>
     </section>
 
     <!-- 5 · 기초 ② 컨텍스트 -->
@@ -795,19 +855,30 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">도입 · 정의</span></div>
       <h2>AI agent란?</h2>
       <p class="autoshow fade-up" style="font-size:1.22rem"><b>방금 보신 것처럼 — 목표를 주면 필요한 도구를 스스로 선택하고, 여러 단계를 거쳐 작업을 완수하는 AI입니다.</b> <span class="dim">한 번의 질문·답변이 아니라, 결과를 확인하고 고치며 끝까지 진행합니다.</span></p>
-      <div class="grid-2" style="margin-top:1.1rem">
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">기존 방식</div>
-          <h3>내가 한 단계씩</h3>
-          <p>파일 열고 · 찾고 · 고치고 — 매 단계를 사람이 지시.</p>
-        </div>
-        <div class="card mint autoshow fade-up">
-          <div class="pill green">agent 방식</div>
-          <h3 class="accent2">의도를 말하면</h3>
-          <p>"이걸 이렇게 해줘" → 필요한 도구를 스스로 선택해 실행하고, 결과를 확인·수정.</p>
-        </div>
+      <div class="agent-eq autoshow fade-up" style="margin-top:1.1rem">
+        <div class="eq-item ph1"><b>LLM</b><span class="eq-sub">두뇌 — 무엇을 할지 정한다</span></div>
+        <div class="eq-op">+</div>
+        <div class="eq-item ph2"><b>도구</b><span class="eq-sub">손 — 파일·명령을 실행한다</span></div>
+        <div class="eq-op">+</div>
+        <div class="eq-item ph3"><b>루프 ↻</b><span class="eq-sub">반복 — 될 때까지 확인한다</span></div>
+        <div class="eq-op">=</div>
+        <div class="eq-item eq-agent"><b class="grad">AI agent</b><span class="eq-sub">스스로 일을 완수</span></div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.2rem">핵심 세 가지 — <b class="accent">도구 사용</b> · <b class="accent">다단계 진행</b> · <b class="accent">결과 확인</b></p>
+      <div class="autoshow fade-up">
+        <div class="ac-lane">
+          <div class="ac-node edge">목표</div>
+          <span class="ac-arrow">→</span>
+          <div class="ac-node ph1">계획 <span class="dim">— LLM</span></div>
+          <span class="ac-arrow">→</span>
+          <div class="ac-node ph2">실행 <span class="dim">— 도구</span></div>
+          <span class="ac-arrow">→</span>
+          <div class="ac-node ph3">확인 <span class="dim">— 루프</span></div>
+          <span class="ac-arrow">→</span>
+          <div class="ac-node edge">작업물</div>
+        </div>
+        <p class="ac-return">확인에서 미흡하면 → 다시 계획으로 ↻ 될 때까지</p>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">핵심 세 가지 — <b class="accent">도구 사용</b> · <b class="accent">다단계 진행</b> · <b class="accent">결과 확인</b></p>
     </section>
 
     <!-- 11 · 챗봇 vs agent -->
