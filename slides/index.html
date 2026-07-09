@@ -908,7 +908,7 @@ footer, header, hgroup, main, menu, nav, section {
         <li class="show"><span class="ix">도입</span><span class="lb">AI agent란 — 어디서 왔고, 무엇이고, 왜 지금인가</span></li>
         <li class="show"><span class="ix">본문 1</span><span class="lb">우리 환경 — 데이터는 어디로 가는가</span></li>
         <li class="show"><span class="ix">본문 2</span><span class="lb">확장 요소 — skill · MCP</span></li>
-        <li class="show"><span class="ix">본문 3</span><span class="lb">harness — 믿고 쓰는 틀</span></li>
+        <li class="show"><span class="ix">본문 3</span><span class="lb">harness — 형식과 실행을 통제하는 틀</span></li>
         <li class="show"><span class="ix">마무리</span><span class="lb">이번 주, 첫걸음</span></li>
       </ul>
       <p class="note autoshow fade-up" style="margin-top:1.1rem">낯선 단어가 나와도 괜찮습니다 — <b class="accent">나오는 자리에서 전부 풀어서</b> 가고, 부록에 용어집도 있습니다.</p>
@@ -920,13 +920,13 @@ footer, header, hgroup, main, menu, nav, section {
       <h2>AI는 어떻게 agent가 되었나</h2>
       <p class="dim" style="font-size:1.1rem">규칙을 사람이 다 짜던 시절부터 스스로 도구를 골라 일하는 단계까지 — <b style="color:#fff">앞의 넷이 "말하는 AI"를, 뒤의 셋이 "일하는 AI"를</b> 만들었습니다.</p>
       <div class="timeline">
-        <div class="tline autoshow fade-left"><p><span class="yr">2012</span><span class="tn">AlexNet</span> <span class="td">— 규칙 대신 <b>데이터로 학습</b>이 통한 첫 순간 (GPU)</span></p></div>
+        <div class="tline autoshow fade-left"><p><span class="yr">2012</span><span class="tn">AlexNet</span> <span class="td">— GPU 딥러닝이 <b>대규모 이미지 인식에서 실용성을 증명</b>한 상징적 사건</span></p></div>
         <div class="tline autoshow fade-left"><p><span class="yr">2017</span><span class="tn">Transformer</span> <span class="td">— <b>문맥을 통째로 보는 구조</b>(self-attention)로 대규모 학습 — LLM의 뼈대</span></p></div>
         <div class="tline autoshow fade-left"><p><span class="yr">2020</span><span class="tn">GPT-3</span> <span class="td">— <b>예시 몇 개만으로</b> 재학습 없이(few-shot) — 프롬프트로 지시</span></p></div>
         <div class="tline autoshow fade-left"><p><span class="yr">2022</span><span class="tn">ChatGPT</span> <span class="td">— <b>사람 피드백</b>(RLHF)으로 지시를 잘 따름 — 대화로 대중화</span></p></div>
-        <div class="tline autoshow fade-left"><p><span class="yr">2023</span><span class="tn">function calling</span> <span class="td">— 모델이 <b>외부 도구를 호출</b>하는 표준 방법 — 말에서 행동으로</span></p></div>
-        <div class="tline autoshow fade-left"><p><span class="yr">2024</span><span class="tn">MCP</span> <span class="td">— <b>도구 연결의 공용 표준</b> — 어떤 도구든 같은 방식으로 꽂아 쓰게</span></p></div>
-        <div class="tline green autoshow fade-left"><p><span class="yr">2024–25</span><span class="tn accent2">agent loop</span> <span class="td">— 계획 → 실행 → 결과 확인을 <b>스스로 도는 루프</b> = AI agent</span></p></div>
+        <div class="tline autoshow fade-left"><p><span class="yr">2023</span><span class="tn">function calling</span> <span class="td">— 모델이 <b>외부 도구를 호출</b>하게 만든 대표 API 패턴 — 말에서 행동으로</span></p></div>
+        <div class="tline autoshow fade-left"><p><span class="yr">2024</span><span class="tn">MCP</span> <span class="td">— AI와 외부 도구를 잇는 <b>공용 규격으로 확산 중</b> — 연결의 재사용 가능성이 커짐</span></p></div>
+        <div class="tline green autoshow fade-left"><p><span class="yr">2024–25</span><span class="tn accent2">agent loop</span> <span class="td">— 계획 → 실행 → 결과 확인을 <b>정해진 한도 안에서 반복하는 루프</b> = AI agent</span></p></div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:0.8rem">뒤의 셋이 갖춰진 게 <b class="accent2">불과 지난 2~3년</b> — "왜 지금"의 답이 여기 있습니다. <span class="dim">본격적으로 보기 전에, 이 AI의 속을 잠깐 들여다봅니다 — 딱 네 단어.</span></p>
     </section>
@@ -946,11 +946,11 @@ footer, header, hgroup, main, menu, nav, section {
             <div class="llm-cand"><span class="lc-w">모입니다</span><span class="lc-bar"><i style="--w:11%"></i></span><span class="lc-p">11%</span></div>
             <div class="llm-cand"><span class="lc-w">고양이</span><span class="lc-bar"><i style="--w:2%"></i></span><span class="lc-p">0.1%</span></div>
           </div>
-          <p class="llm-cap">후보마다 확률을 매겨 가장 그럴듯한 말을 붙이고 → 그 뒤의 말을 또 예측 — <b style="color:#fff">이 반복이 곧 답</b>이 됩니다.</p>
+          <p class="llm-cap">후보마다 확률을 매겨 가장 그럴듯한 말을 붙이고 → 그 뒤의 말을 또 예측 — <b style="color:#fff">이 반복이 곧 답</b>이 됩니다. <span class="dim">엄밀히는 "다음 말"이 아니라 "다음 토큰" 예측 — 오늘은 이해를 돕기 위해 "다음 말"로 부릅니다.</span></p>
         </div>
       </div>
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">계산도 검색도 아닌 예측</b> — 그래서 유창하지만, 틀릴 수도 있습니다. 이어서 이 두뇌의 성질 셋: <b style="color:#fff">컨텍스트 · 토큰 · 환각.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">계산도 검색도 아닌 예측</b> — 그래서 유창하지만, 답이 항상 사실이라는 뜻은 아닙니다. 업무에 쓸 땐 근거 확인·검증이 따라붙습니다. 이어서 이 두뇌의 성질 셋: <b style="color:#fff">컨텍스트 · 토큰 · 환각.</b></p>
     </section>
 
     <!-- 5 · 기초 ② 컨텍스트 -->
@@ -970,11 +970,11 @@ footer, header, hgroup, main, menu, nav, section {
             <span class="ctx-chip x6">도구 실행 결과</span>
           </div>
           <div class="ctx-gauge"><span>사용량</span><span class="cg-bar"><i></i></span><span>한도</span></div>
-          <p class="sim-cap ctx-cap">가득 차 갈수록 <b style="color:#fff">앞의 내용부터 흐려집니다</b> — 긴 작업이 갈수록 산으로 가는 흔한 이유.</p>
+          <p class="sim-cap ctx-cap">한도를 넘으면 <b style="color:#fff">일부 내용이 잘리거나 요약될 수 있고</b>, 길어질수록 관련 정보를 정확히 집어내기 어려워집니다 — 긴 작업이 갈수록 산으로 가는 흔한 이유.</p>
         </div>
       </div>
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">그래서 컨텍스트 관리가 곧 실력입니다 — <b class="accent">필요한 것(사내 스펙·로그)을 골라 넣고, 불필요한 것은 빼기.</b> 뒤에 나올 skill의 "필요할 때만 로드"가 바로 이 기법입니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">그래서 컨텍스트 관리가 곧 실력입니다 — <b class="accent">필요한 절차·자료만 골라 넣고, 불필요한 것은 빼기.</b> 뒤에 나올 skill이 바로 이 기법 — 작업 지침을 재사용 가능한 형태로 정리해, 컨텍스트를 낭비하지 않는 방법입니다.</p>
     </section>
 
     <!-- 6 · 기초 ③ 토큰 -->
@@ -991,14 +991,14 @@ footer, header, hgroup, main, menu, nav, section {
         </div>
       </div>
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">오늘은 이 정도면 충분합니다 — <b class="accent">아껴 쓰는 도구가 따로 있을 정도로 관리 대상</b>이라는 것만 기억하세요(부록의 "Token 절약"이 그것).</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">실무 요령 한 줄 — 수십 MB regression log 전체를 넣기보다, <b class="accent">fail 주변 로그와 summary만 잘라 넣는 쪽이 효과적</b>입니다. "많이 넣기"보다 "필요한 정보 잘 고르기".</p>
     </section>
 
     <!-- 7 · 기초 ④ 환각 -->
     <section data-sec="도입">
       <div><span class="chip">도입 · 기초 ④ 환각</span></div>
       <h2>환각 — 그럴듯한 오답</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">모르는 것도 아는 것처럼 유창하게 답하는 현상(hallucination) — 버그가 아니라 <b style="color:#fff">예측 기계의 태생적 성질</b>입니다.</p>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">모델은 모른다고 멈추기보다, <b style="color:#fff">문맥상 그럴듯한 답을 만들어내는 쪽으로 기울 수 있습니다</b>(hallucination) — 버그가 아니라 예측 방식에서 오는 한계입니다.</p>
       <div class="panel sim autoshow fade-up" style="margin-top:0.9rem">
         <div class="phead">구성된 예시 장면 · 진입 시 1회 재생</div>
         <div class="chat">
@@ -1009,7 +1009,7 @@ footer, header, hgroup, main, menu, nav, section {
         <p class="sim-cap hal-cap">"다음 말 예측"은 사실 확인이 아니라서, 빈 곳을 <b style="color:#fff">그럴듯한 말로 채웁니다</b> — 문장이 유창해서 눈에 잘 안 띄는 것이 진짜 위험.</p>
       </div>
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">다루는 법 — <b class="accent">근거(파일·로그)를 주면 줄고, 결과는 사람이 확인.</b> 형식을 기계로 거르는 틀은 본문 3(harness)에서. 오늘의 태도는 "쓰지 말자"가 아니라 <b class="accent">"알고 쓰자"</b> — 이제, 백문이 불여일견.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">유창함은 신뢰성과 다릅니다.</b> 핵심은 모델을 무작정 믿는 게 아니라 <b class="accent">근거 · 도구 · 검증 절차로 감싸는 것</b> — 근거(파일·로그)를 주면 줄고, 결과는 사람이 확인, 형식은 틀로 거릅니다(본문 3 harness). 오늘의 태도는 <b class="accent">"알고 쓰자"</b> — 이제, 백문이 불여일견.</p>
     </section>
 
     <!-- 8 · 데모 1 -->
@@ -1074,15 +1074,15 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="도입">
       <div><span class="chip">도입 · 정의</span></div>
       <h2>AI agent란?</h2>
-      <p class="autoshow fade-up" style="font-size:1.22rem"><b>방금 보신 것처럼 — 목표를 주면 필요한 도구를 스스로 선택하고, 여러 단계를 거쳐 작업을 완수하는 AI입니다.</b> <span class="dim">한 번의 질문·답변이 아니라, 결과를 확인하고 고치며 끝까지 진행합니다.</span></p>
+      <p class="autoshow fade-up" style="font-size:1.22rem"><b>방금 보신 것처럼 — 정해진 권한과 한도 안에서, 목표를 이해하고 · 계획하고 · 도구를 쓰고 · 결과를 확인하는 과정을 반복하는 AI입니다.</b> <span class="dim">한 번의 질문·답변이 아니라, 결과를 확인하고 고치며 작업을 완수합니다.</span></p>
       <div class="agent-eq sim autoshow fade-up" style="margin-top:1.1rem">
         <div class="eq-item ph1"><b>LLM</b><span class="eq-sub">두뇌 — 무엇을 할지 정한다</span></div>
         <div class="eq-op">+</div>
         <div class="eq-item ph2"><b>도구</b><span class="eq-sub">손 — 파일·명령을 실행한다</span></div>
         <div class="eq-op">+</div>
-        <div class="eq-item ph3"><b>루프 ↻</b><span class="eq-sub">반복 — 될 때까지 확인한다</span></div>
+        <div class="eq-item ph3"><b>루프 ↻</b><span class="eq-sub">반복 — 확인하고 다시 시도한다</span></div>
         <div class="eq-op">=</div>
-        <div class="eq-item eq-agent"><b class="grad">AI agent</b><span class="eq-sub">스스로 일을 완수</span></div>
+        <div class="eq-item eq-agent"><b class="grad">AI agent</b><span class="eq-sub">맡긴 일을 완수하는 실행자</span></div>
       </div>
       <div class="sim autoshow fade-up">
         <div class="ac-lane">
@@ -1096,10 +1096,10 @@ footer, header, hgroup, main, menu, nav, section {
           <span class="ac-arrow">→</span>
           <div class="ac-node edge">작업물</div>
         </div>
-        <p class="ac-return">확인에서 미흡하면 → 다시 계획으로 ↻ 될 때까지</p>
+        <p class="ac-return">미흡하면 → 제한된 범위 안에서 다시 계획으로 ↻ (재시도 한도 내)</p>
       </div>
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">핵심 세 가지 — <b class="accent">도구 사용</b> · <b class="accent">다단계 진행</b> · <b class="accent">결과 확인</b></p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">핵심 세 가지 — <b class="accent">도구 사용</b> · <b class="accent">다단계 진행</b> · <b class="accent">결과 확인</b> — 마법이 아니라, <b style="color:#fff">권한과 한도 안의 자동화 실행 흐름</b>입니다.</p>
     </section>
 
     <!-- 11 · 챗봇 vs agent -->
@@ -1117,7 +1117,7 @@ footer, header, hgroup, main, menu, nav, section {
             <div class="flow-arrow">→</div>
             <div class="flow-step me">답변 읽기</div>
           </div>
-          <p style="margin-top:0.85rem">한 번에 끝 — 결과는 <b style="color:#fff">말</b>로만. 적용·확인·반복은 전부 사람 몫.</p>
+          <p style="margin-top:0.85rem">묻고 답하기엔 이걸로 충분합니다 — 결과는 <b style="color:#fff">말</b>로. 적용·확인·반복은 사람 몫.</p>
         </div>
         <div class="card mint autoshow fade-up">
           <div class="pill green">agent — 맡기고 확인하기</div>
@@ -1128,17 +1128,17 @@ footer, header, hgroup, main, menu, nav, section {
             <div class="flow-arrow">→</div>
             <div class="flow-step me">결과 검토</div>
           </div>
-          <p style="margin-top:0.85rem">될 때까지 스스로 돕니다 — 결과는 <b class="accent2">완성된 작업물</b>(파일·코드·문서)로.</p>
+          <p style="margin-top:0.85rem">정해진 한도 안에서 확인·재시도를 반복합니다 — 결과는 <b class="accent2">완성된 작업물</b>(파일·코드·문서)로.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">같은 모델이라도 <b class="accent">도구 + 루프</b>를 붙이면 agent — 그 "붙이는 방법"이 오늘 본문의 전부입니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">단순 질의응답엔 챗봇으로 충분 — <b class="accent">질문에 답하면 챗봇, 목표를 받아 도구를 쓰며 진행하면 agent</b>에 가깝습니다. 그 "도구+루프 붙이는 방법"이 오늘 본문의 전부입니다.</p>
     </section>
 
     <!-- 12 · 왜 지금 -->
     <section data-sec="도입">
       <div><span class="chip">도입 · 왜 지금</span></div>
       <h2>왜 하필 지금인가</h2>
-      <p class="autoshow fade-up" style="font-size:1.22rem"><span class="dim">모델이 외부 도구를 다루게 된 2023, 연결이 표준이 된 2024 —</span> <b>agent가 실무에 들어올 조건은 최근에야 갖춰졌습니다.</b> <span class="dim">그리고 우리에겐 이미 사내 LLM이 있습니다.</span></p>
+      <p class="autoshow fade-up" style="font-size:1.22rem"><span class="dim">모델이 외부 도구를 다루게 된 2023, 연결 규격이 확산된 2024 —</span> <b>agent가 실무에 들어올 조건은 최근에야 갖춰졌습니다.</b> <span class="dim">그리고 우리에겐 이미 사내 LLM이 있습니다.</span></p>
       <div class="grid-2" style="margin-top:1.1rem">
         <div class="card autoshow fade-up">
           <div class="pill neutral">지금까지</div>
@@ -1214,20 +1214,20 @@ footer, header, hgroup, main, menu, nav, section {
     <!-- 15 · 무엇을 맡기나 -->
     <section data-sec="도입">
       <div><span class="chip">도입 · 무엇을 맡기나</span></div>
-      <h2>어떤 일부터 맡기나 — 기준 세 가지</h2>
+      <h2>처음에는 — 내가 바로 검증할 수 있는 일부터</h2>
       <div class="grid-2" style="margin-top:1.0rem">
         <div class="card mint autoshow fade-up">
           <div class="pill green">맡기기 좋은 일</div>
           <h3 class="accent2">확인이 쉬운 반복</h3>
-          <p>결과가 맞는지 <b style="color:#fff">보면 바로 아는</b> 일 · 형식이 정해진 반복 일 · 틀려도 <b style="color:#fff">되돌리기 쉬운</b> 일.<br><span class="dim">예: 로그 요약, 문서 구조화, 형식 변환.</span></p>
+          <p>결과가 맞는지 <b style="color:#fff">보면 바로 아는</b> 일 · 형식이 정해진 반복 일 · 틀려도 <b style="color:#fff">되돌리기 쉬운</b> 일.<br><span class="dim">예: regression 실패 분류 · spec 변경점 요약 · review comment 정리 · register table 변환 · 회의록 action item 추출.</span></p>
         </div>
         <div class="card autoshow fade-up">
           <div class="pill neutral">아직 사람이</div>
           <h3>판단이 무거운 일</h3>
-          <p>맞는지 판단하기 어려운 일 · 한 번의 실수가 비싼 일 · <b style="color:#fff">민감 데이터가 얽힌 일.</b><br><span class="dim">예: 설계 결정, 사인오프, 외부 공유 판단.</span></p>
+          <p>맞는지 판단하기 어려운 일 · 한 번의 실수가 비싼 일 · <b style="color:#fff">민감 데이터가 얽힌 일.</b><br><span class="dim">예: sign-off · architecture 결정 · RTL 의미 변경 · root cause 확정 · 보안·고객 커뮤니케이션.</span></p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.2rem">기준 한 줄 — <b class="accent">"결과를 내가 바로 확인할 수 있는가."</b> <span class="dim">그리고 마지막 항목, 민감 데이터 — 이건 어디서 쓰느냐의 문제입니다.</span> <b class="accent2">먼저 우리 환경부터.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:1.2rem">AI가 잘하는 건 <b class="accent">초안 · 분류 · 변환 · 요약</b> — 최종 판단은 사람. 기준 한 줄 — <b class="accent">"결과를 내가 바로 확인할 수 있는가."</b> <span class="dim">그리고 민감 데이터 — 이건 어디서 쓰느냐의 문제입니다.</span> <b class="accent2">먼저 우리 환경부터.</b></p>
     </section>
 
     <!-- 16 · 간지 — 본문 1 -->
@@ -1266,7 +1266,7 @@ footer, header, hgroup, main, menu, nav, section {
           </div>
         </div>
       </div>
-      <div class="quote autoshow fade-up" style="margin-top:1.15rem">두 경로는 <b>격리</b>되어 있고, 무엇을 보낼지는 <b>사용자가 관리</b>합니다 — 민감·설계 데이터는 <b>사내에서</b>, 판단이 서지 않으면 <b>보안 검토 먼저.</b></div>
+      <div class="quote autoshow fade-up" style="margin-top:1.15rem">두 경로는 <b>격리</b>되어 있고, 무엇을 보낼지는 <b>사용자가 관리</b>합니다 — 민감·설계 데이터는 <b>사내에서</b>, 사내라도 <b>내 접근 권한 안에서만</b>, 판단이 서지 않으면 <b>보안 검토 먼저.</b></div>
     </section>
 
     <!-- 18 · 사내 도구 셋 -->
@@ -1301,16 +1301,16 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="grid-2" style="margin-top:1.0rem">
         <div class="card mint autoshow fade-up">
           <div class="pill green">사내 경로라면</div>
-          <h3 class="accent2">업무 자료 그대로</h3>
-          <p>설계·검증 데이터를 포함한 업무 자료 — <b style="color:#fff">사내에 머무니</b> 업무에 활용합니다. 단, 원래의 접근 권한·프로젝트 경계는 그대로 지켜서.</p>
+          <h3 class="accent2">권한 안의 업무 자료만</h3>
+          <p>사내 경로라도 <b style="color:#fff">내가 접근 권한을 가진 자료만</b> — 프로젝트 경계와 need-to-know 기준은 AI를 쓸 때도 그대로입니다.</p>
         </div>
         <div class="card amber autoshow fade-up">
           <div class="pill amber">사외 경로라면 (도입 시)</div>
           <h3 class="accent4">보내기 전에 멈춤</h3>
-          <p>RTL·스펙·미공개 일정·고객 정보는 <b style="color:#fff">밖으로 보내지 않습니다.</b> 공개된 표준 문서, 일반 기술 질문 수준까지만.</p>
+          <p>RTL · 미공개 spec · 고객 정보 · 프로젝트 일정 · 내부 이슈·로그 원문 · 내부 경로·서버명·계정은 <b style="color:#fff">밖으로 보내지 않습니다.</b> 일반 기술 질문 수준까지만.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.2rem">위는 감을 잡기 위한 예 — <b class="accent3">정확한 기준은 팀 보안 규정이 우선</b>입니다. 판단이 서지 않으면 <b class="accent2">보안 검토 먼저.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:1.2rem">실무 체크 한 줄 — <b class="accent">"이 데이터를 외부 메일로 보내도 되는가?" 아니오라면, 사외 AI에도 넣지 않습니다.</b> 위는 감을 잡기 위한 예 — <b class="accent3">정확한 기준은 팀 보안 규정이 우선</b>, 판단이 서지 않으면 <b class="accent2">보안 검토 먼저.</b></p>
     </section>
 
     <!-- 20 · OpenCode 설치 -->
@@ -1409,7 +1409,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">.opencode/skills/meeting-notes/SKILL.md</span></div>
         <div class="term-body" style="white-space:pre-wrap"><span class="t-out">---</span>
 <span class="t-key">name:</span> <span class="t-str">meeting-notes</span>
-<span class="t-key">description:</span> <span class="t-str">회의 메모를 표준 JSON으로 구조화한다</span>
+<span class="t-key">description:</span> <span class="t-str">회의 메모를 정해진 JSON 형식으로 구조화한다</span>
 <span class="t-out">---</span>
 <span class="t-hl">## 절차</span>
 1. 메모에서 <span class="t-key">제목·날짜·참석자</span>를 찾는다
@@ -1478,10 +1478,10 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="card mint autoshow fade-up">
           <div class="pill green">skill이 있으면</div>
           <h3 class="accent2">한 번 적고 계속</h3>
-          <p>절차를 한 번 파일로 — 이후엔 방금 본 것처럼 <b style="color:#fff">"회의 메모 정리해줘"</b> 한 줄이면 모델이 알아서 그 절차대로.</p>
+          <p>절차를 한 번 파일로 — 이후엔 방금 본 것처럼 <b style="color:#fff">"회의 메모 정리해줘"</b> 한 줄이면 모델이 그 절차를 그대로 따릅니다.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">비유 — <b class="accent">잘 쓰는 사람의 매뉴얼을 팀 서랍에 넣어두는 것.</b> 개인의 노하우가 팀의 절차가 됩니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">한마디로 <b class="accent">매번 프롬프트를 길게 쓰지 않기 위한 팀 작업 매뉴얼</b> — 개인의 노하우가 팀의 절차가 됩니다. 좋은 skill이 정하는 것: <span class="dim">언제 쓰나 · 기대 입력 · 작업 순서 · 출력 형식 · 하지 말 것 · 검증 방법.</span></p>
     </section>
 
     <!-- 26 · skill 구조·동작 -->
@@ -1516,7 +1516,7 @@ footer, header, hgroup, main, menu, nav, section {
                 <span class="skmd-tag">① YAML frontmatter — 무엇이고, 언제 쓰는지 (필수)</span>
                 <div style="white-space:pre-wrap"><span class="t-out">---</span>
 <span class="t-key">name:</span> <span class="t-str">meeting-notes</span>   <span class="t-out">← 폴더명과 일치</span>
-<span class="t-key">description:</span> <span class="t-str">회의 메모를 표준 JSON으로 구조화한다</span>
+<span class="t-key">description:</span> <span class="t-str">회의 메모를 정해진 JSON 형식으로 구조화한다</span>
 <span class="t-out">  ↳ 모델이 이 설명을 보고, 맞는 작업에서 스스로 불러온다</span>
 <span class="t-out">---</span></div>
               </div>
@@ -1543,7 +1543,7 @@ footer, header, hgroup, main, menu, nav, section {
           <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>③ 더 필요하면</span><span class="tiny" style="font-weight:400">references/ 파일을 그때만 로드</span></div>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:0.65rem">공식 비유 — <b class="accent">목차 → 챕터 → 부록이 있는 매뉴얼.</b> skill은 여기까지 — <b>다음은 공백 ②, 연결입니다.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:0.65rem">공식 비유 — <b class="accent">목차 → 챕터 → 부록이 있는 매뉴얼.</b> 이 규격, <b>우리 일로 그대로 옮겨 봅니다.</b></p>
     </section>
 
     <!-- 27 · 데모 3a — MCP가 없으면 -->
@@ -1615,27 +1615,27 @@ footer, header, hgroup, main, menu, nav, section {
 <span class="t-key">막힘 (1)</span>      INFRA-7 — 담당 팀 회신 대기</div>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:0.8rem">사람이 하던 <b>로그인 → 검색 → 복사 → 붙여넣기</b>가 사라졌습니다 — 조회는 agent가, 사람은 결과 확인만. <b class="accent2">어떻게 가능한지, 규격부터 봅니다.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:0.8rem">사람이 하던 <b>로그인 → 검색 → 복사 → 붙여넣기</b>가 사라졌습니다 — 단, 자동화된 건 <b style="color:#fff">조회까지.</b> 우선순위 판단·의사결정은 여전히 사람이 확인합니다. <b class="accent2">어떻게 가능한지, 규격부터 봅니다.</b></p>
     </section>
 
     <!-- 29 · MCP 개념 -->
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP</span></div>
       <h2>MCP — 도구를 꽂는 공용 규격</h2>
-      <p class="autoshow fade-up" style="font-size:1.15rem"><span class="dim">방금 그 연결을 가능하게 한 규격 —</span> MCP(Model Context Protocol)는 AI를 외부 도구·데이터에 잇는 <b>개방형 표준</b>입니다. <span class="dim">공식 문서의 비유로 <b style="color:#fff">"AI용 USB-C".</b></span></p>
+      <p class="autoshow fade-up" style="font-size:1.15rem"><span class="dim">방금 그 연결을 가능하게 한 규격 —</span> MCP(Model Context Protocol)는 AI application과 외부 도구·시스템을 잇는 <b>공용 규격</b>입니다. <span class="dim">공식 문서의 비유로 <b style="color:#fff">"AI용 USB-C".</b></span></p>
       <div class="grid-2" style="margin-top:1.0rem">
         <div class="card autoshow fade-up">
-          <div class="pill neutral">표준이 없으면</div>
+          <div class="pill neutral">공용 규격이 없으면</div>
           <h3>도구마다 제각각</h3>
           <p>도구 N개 × AI N개 — 조합마다 연결을 따로 만들어야. 기기마다 충전기가 다르던 시절과 같습니다.</p>
         </div>
         <div class="card mint autoshow fade-up">
           <div class="pill green">MCP가 있으면</div>
-          <h3 class="accent2">한 번 만들어 어디서나</h3>
-          <p>규격에 맞춘 MCP 서버 하나면 — <b style="color:#fff">어떤 AI 클라이언트에서든</b> 같은 방식으로 꽂아 씁니다.</p>
+          <h3 class="accent2">한 번 만들어 재사용</h3>
+          <p>규격에 맞춘 MCP 서버 하나면 — <b style="color:#fff">지원하는 클라이언트에서는</b> 같은 서버를 재사용하기 쉬워집니다.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">발표사(Anthropic)만의 것이 아니라 <b class="accent2">OpenAI·Google도 채택한 공용 규격</b> — 표준이라 배워둘 가치가 있습니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">발표사(Anthropic)만의 것이 아니라 <b class="accent2">OpenAI·Google도 채택해 확산 중인 공용 규격</b>입니다. 기억할 것 — <b class="accent">MCP는 agent에게 손을 달아주는 것이지, 판단력을 보장하는 것이 아닙니다.</b></p>
     </section>
 
     <!-- 30 · MCP 구조·동작 -->
@@ -1672,7 +1672,7 @@ footer, header, hgroup, main, menu, nav, section {
   }
 }</div>
           </div>
-          <p class="mono tiny faint" style="margin-top:0.45rem">이 항목 하나로 연결 끝 — 서버의 tool들이 자동으로 목록에 들어옵니다.</p>
+          <p class="mono tiny faint" style="margin-top:0.45rem">항목 하나로 등록 끝 — 서버의 tool들이 목록에 들어옵니다. 단, 인증·권한·네트워크·보안 정책은 별도로 설계해야 합니다.</p>
         </div>
       </div>
       <div class="autoshow fade-up" style="margin-top:0.7rem">
@@ -1717,7 +1717,7 @@ footer, header, hgroup, main, menu, nav, section {
     <!-- 32 · 간지 — 본문 3 -->
     <section data-sec="본문 3 · harness">
       <div class="autoshow fade-up"><span class="chip">본문 3</span></div>
-      <h1 class="autoshow fade-up" style="font-size:3.6rem">harness<br><span class="grad">믿고 쓸 수 있게 만드는 틀</span></h1>
+      <h1 class="autoshow fade-up" style="font-size:3.6rem">harness<br><span class="grad">형식과 실행을 통제하는 틀</span></h1>
       <p class="dim autoshow fade-up" style="font-size:1.2rem; margin-top:1.0rem">잘 되는 걸 봤으니 — 이제 "언제 돌려도 형식이 지켜지게".</p>
     </section>
 
@@ -1753,7 +1753,7 @@ footer, header, hgroup, main, menu, nav, section {
         <span class="flow-arrow">+</span>
         <div class="flow-step neutral">검증·재시도</div>
         <span class="flow-arrow">=</span>
-        <div class="flow-step ai">검증되고 재현되는 실행</div>
+        <div class="flow-step ai">형식이 검증된 실행</div>
       </div>
       <div class="quote autoshow fade-up" style="margin-top:1.3rem">공식 용어입니다 — Claude Code 문서는 스스로를 <b>"agentic harness"</b>, 모델에 도구·컨텍스트·실행 환경을 붙이는 틀이라고 설명합니다.</div>
     </section>
@@ -1772,7 +1772,7 @@ footer, header, hgroup, main, menu, nav, section {
             <div class="flow-arrow">→</div>
             <div class="flow-step ai" style="flex-direction:column; gap:0.15rem"><span>assertion·checker</span><span class="tiny" style="font-weight:400">규칙 검사</span></div>
           </div>
-          <p class="mono tiny faint" style="margin-top:0.6rem">불합격 → 리포트 → 수정 후 재실행</p>
+          <p class="mono tiny faint" style="margin-top:0.6rem">불합격 → 리포트 → 수정 후 재실행 · 최종 spec 해석은 엔지니어가</p>
         </div>
         <div class="panel autoshow fade-right">
           <div class="phead">agentic harness — 대상: 모델의 출력</div>
@@ -1783,7 +1783,7 @@ footer, header, hgroup, main, menu, nav, section {
             <div class="flow-arrow">→</div>
             <div class="flow-step ai" style="flex-direction:column; gap:0.15rem"><span>스키마 검증</span><span class="tiny" style="font-weight:400">형식 검사</span></div>
           </div>
-          <p class="mono tiny faint" style="margin-top:0.6rem">불합격 → 원인 되먹임 → 자동 재시도</p>
+          <p class="mono tiny faint" style="margin-top:0.6rem">불합격 → 원인 되먹임 → 자동 재시도 · 최종 의미·업무 판단은 사람이</p>
         </div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:1.1rem">DUT ↔ 모델 · sequence ↔ 입력·절차 · assertion ↔ 스키마 — <b class="accent">구조가 같고, 대상만 칩에서 모델로.</b> 이 개념, 우리 팀엔 이미 익숙합니다.</p>
@@ -1807,7 +1807,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="card mint autoshow fade-up">
           <div class="pill green">통과</div>
           <h3 class="accent2">→ 출력</h3>
-          <p>스키마를 만족한 결과만 다음 단계로.</p>
+          <p>스키마를 만족한 결과만 다음 단계로 — 누락 필드를 잡고, 다음 자동화의 파싱 실패를 줄입니다.</p>
         </div>
         <div class="card amber autoshow fade-up">
           <div class="pill amber">실패</div>
@@ -1815,7 +1815,7 @@ footer, header, hgroup, main, menu, nav, section {
           <p>실패 원인을 되먹여 다시 생성(한도 내) — 출력을 스키마 쪽으로 수렴시킵니다.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">스키마 = 출력이 지켜야 할 형식 규격 — <b class="accent">assertion처럼 형식을 지키는 게이트.</b> 내용의 정합은 별도 검사가 필요합니다(그 자리를 지금은 사람이 맡습니다).</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">스키마는 모양을 검증합니다 — JSON이 맞는지 보는 것이지, 내용이 참인지 보는 것이 아닙니다.</b> 근거 없는 내용도 올바른 JSON 형식일 수 있습니다 — assertion이 interface violation을 잡아도 spec 해석은 별도 리뷰가 필요한 것과 같습니다. <b style="color:#fff">의미 검증은 지금 사람 몫.</b></p>
     </section>
 
     <!-- 37 · 장단점 -->
@@ -1826,7 +1826,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="card mint autoshow fade-up">
           <div class="pill green">얻는 것</div>
           <h3 class="accent2">일관된 품질 · 재현성</h3>
-          <p>품질 — 정의한 검증을 통과한 결과만 출력. 재현성 — 몇 번을 실행해도 동일한 구조.</p>
+          <p>품질 — 정의한 검증을 통과한 결과만 출력. 재현성 — 매번 같은 답이 아니라, <b style="color:#fff">매번 같은 검증 절차와 같은 출력 구조를 통과</b>한다는 뜻.</p>
         </div>
         <div class="card autoshow fade-up">
           <div class="pill neutral">치르는 것</div>
@@ -1834,7 +1834,7 @@ footer, header, hgroup, main, menu, nav, section {
           <p>틀을 처음 설계하는 비용, 그리고 작업이 바뀌면 틀도 손봐야 하는 관리 비용.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.2rem">이 비용, <b class="accent">언제 치를 가치가 있을까요</b> — 판단 기준 한 장 보고, 눈으로 확인합니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.2rem">LLM 출력은 확률적일 수 있으므로 — 자동화에선 <b style="color:#fff">구조 · 검증 · 로그 · 승인 절차</b>가 중요합니다. 이 비용, <b class="accent">언제 치를 가치가 있을까요.</b></p>
     </section>
 
     <!-- 38 · 언제 쓰나 -->
@@ -1853,7 +1853,7 @@ footer, header, hgroup, main, menu, nav, section {
           <p>반복 실행하고, 출력 형식이 정해져 있고, 결과가 <b style="color:#fff">다음 프로그램의 입력</b>이 되는 일 — 파이프라인.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.2rem">기준 한 줄 — 출력이 <b class="accent">사람에게 가면 agent 그대로, 프로그램에게 가면 harness.</b> 다음 장, 같은 작업을 <b>있을 때/없을 때</b>로 나란히 봅니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.2rem">기준 한 줄 — 출력이 <b class="accent">사람에게 가면 agent 그대로, 프로그램에게 가면 harness.</b> 그리고 어디까지 맡길지에도 <b>안전한 단계</b>가 있습니다.</p>
     </section>
 
     <!-- 39 · 데모 4 — harness 유무 -->
@@ -1928,14 +1928,14 @@ footer, header, hgroup, main, menu, nav, section {
           <p>새 언어·자격증이 아니라 <b style="color:#fff">일을 정의하는 연습</b> — 오늘 본 것만으로 시작할 수 있습니다.</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">그럼, 정말 마지막 — <b class="accent2">자리로 돌아가 뭘 하면 되는지.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">마지막으로 — <b class="accent2">부탁하는 요령 하나, 그리고 자리로 돌아가 할 일.</b></p>
     </section>
 
     <!-- 42 · 첫걸음 CTA -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 첫걸음 · CTA</span></div>
       <h2>그래서, 어떻게 시작하나</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.15rem">거창한 계획이 아니라, <b style="color:#fff">딱 하나</b>부터 시작합니다.</p>
+      <p class="dim autoshow fade-up" style="font-size:1.15rem">거창한 계획이 아니라 — <b style="color:#fff">이번 주, 내가 바로 검증할 수 있는 작은 작업 딱 하나</b>부터.</p>
       <div class="grid-3" style="margin-top:0.9rem">
         <div class="card mint autoshow fade-up">
           <div class="pill green">어디서</div>
@@ -1945,7 +1945,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="card mint autoshow fade-up">
           <div class="pill green">무엇을</div>
           <h3 class="accent2">작은 작업 하나</h3>
-          <p>결과가 맞는지 <b>스스로 바로 판단할 수 있는</b> 것 — 스펙 문서 구조화, 로그 요약.</p>
+          <p>결과가 맞는지 <b>스스로 바로 판단할 수 있는</b> 것 — 회의록 action item 추출, regression 실패 분류, spec 변경점 요약.</p>
         </div>
         <div class="card mint autoshow fade-up">
           <div class="pill green">어떻게</div>
@@ -1955,10 +1955,13 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
       <div class="term autoshow fade-up" style="margin-top:0.9rem">
         <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">첫 프롬프트 — 이대로 시작해도 됩니다</span></div>
-        <div class="term-body" style="white-space:pre-wrap"><span class="t-key">&gt;</span> <span class="t-str">이 회의 메모를 읽고, 결정사항과 액션아이템(담당·기한)을 표로 정리해줘.
-  확실하지 않은 부분은 비워 두지 말고 "?"로 표시해줘.</span></div>
+        <div class="term-body" style="white-space:pre-wrap"><span class="t-key">&gt;</span> <span class="t-str">이 회의 메모에서 결정사항과 액션아이템(담당·기한)을 표로 정리해줘.
+  확실하지 않은 부분은 비워 두지 말고 "?"로 표시해줘.</span>
+
+<span class="t-key">&gt;</span> <span class="t-str">이 regression log에서 fail case를 error signature 기준으로 묶어줘.
+  그룹마다 근거 로그 라인 2개를 붙이고, 원인이 불확실하면 unknown으로 표시해줘.</span></div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.0rem">애매하면 <b class="accent2">보안 먼저.</b> 오늘의 첫걸음은 <b class="accent4">사내에서 딱 하나.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:1.0rem">첫 목표는 자동화가 아니라 — <b class="accent">내가 검증 가능한 반복 작업 하나를 줄이는 것.</b> 애매하면 <b class="accent2">보안 먼저</b>, 첫걸음은 <b class="accent4">사내에서 딱 하나.</b></p>
     </section>
 
     <!-- 43 · Q&A · 클로징 -->
@@ -2010,10 +2013,10 @@ footer, header, hgroup, main, menu, nav, section {
         </div>
         <div class="autoshow fade-up" style="display:flex; flex-direction:column; gap:0.55rem">
           <p style="margin:0; font-size:0.95rem"><b class="accent">skill</b> — 재사용할 절차·지식을 SKILL.md 파일로 정리한 것. 모델이 스스로 불러 따른다.</p>
-          <p style="margin:0; font-size:0.95rem"><b class="accent2">MCP</b> — AI를 외부 도구·데이터에 잇는 개방형 표준(Model Context Protocol). "AI용 USB-C".</p>
+          <p style="margin:0; font-size:0.95rem"><b class="accent2">MCP</b> — AI와 외부 도구·시스템을 잇는 공용 규격(Model Context Protocol). "AI용 USB-C".</p>
           <p style="margin:0; font-size:0.95rem"><b class="accent2">MCP 서버</b> — 규격에 맞춰 도구·데이터를 노출하는 쪽. AI 클라이언트가 골라 호출한다.</p>
-          <p style="margin:0; font-size:0.95rem"><b class="accent3">harness</b> — 확장 요소를 순서·규칙으로 묶고, 출력을 검증·재시도하는 실행 틀.</p>
-          <p style="margin:0; font-size:0.95rem"><b class="accent3">스키마</b> — 출력이 지켜야 할 형식 규격. assertion처럼 형식을 지키는 게이트.</p>
+          <p style="margin:0; font-size:0.95rem"><b class="accent3">harness</b> — 입력·절차·검증·재시도를 묶어 모델 사용을 통제하는 실행 틀. 내용의 진실성 보장은 아님.</p>
+          <p style="margin:0; font-size:0.95rem"><b class="accent3">스키마</b> — 출력이 지켜야 할 형식 규격. assertion처럼 형식을 지키는 게이트 — 내용 검증은 별도.</p>
         </div>
       </div>
     </section>
