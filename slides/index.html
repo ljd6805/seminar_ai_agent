@@ -1445,6 +1445,13 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="grid-2 sk25" style="margin-top:0.6rem; align-items:start">
         <div class="autoshow fade-left">
           <div class="pill amber" style="margin-bottom:0.4rem">MCP가 없으면 — 트래커에 못 닿는다</div>
+          <div class="flow-lane" style="margin:0 0 0.55rem">
+            <div class="flow-step neutral">이슈 트래커</div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step" style="flex-direction:column; gap:0.12rem; border-color:rgba(255,159,124,0.65); background:rgba(255,159,124,0.08)"><span>사람이 다리</span><span class="tiny" style="font-weight:400">로그인·검색·복사 — 매번</span></div>
+            <span class="flow-arrow">→</span>
+            <div class="flow-step neutral">agent</div>
+          </div>
           <div class="term" style="border-color:rgba(255,159,124,0.4)">
             <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — 조회는 결국 사람 몫</span></div>
             <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent > 이슈 트래커에 접근할 수 없습니다 —</span>
@@ -1456,6 +1463,13 @@ footer, header, hgroup, main, menu, nav, section {
         </div>
         <div class="autoshow fade-right">
           <div class="pill green" style="margin-bottom:0.4rem">MCP로 연결하면 — 조회는 agent가</div>
+          <div class="flow-lane" style="margin:0 0 0.55rem">
+            <div class="flow-step neutral">이슈 트래커</div>
+            <span class="flow-arrow">⇄</span>
+            <div class="flow-step ai" style="flex-direction:column; gap:0.12rem"><span>MCP 서버가 다리</span><span class="tiny" style="font-weight:400">tool 호출로 자동 조회</span></div>
+            <span class="flow-arrow">⇄</span>
+            <div class="flow-step neutral">agent</div>
+          </div>
           <div class="term">
             <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — tool 호출이 일어나는 순간</span></div>
             <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent → tool 호출: issue_search(담당자=나, 기간=이번 주)</span>
