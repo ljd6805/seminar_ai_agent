@@ -1434,58 +1434,66 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.65rem">공식 비유 — <b class="accent">목차 → 챕터 → 부록이 있는 매뉴얼.</b> skill은 여기까지 — <b>다음은 공백 ②, 연결입니다.</b></p>
     </section>
 
-    <!-- 26 · 데모 3 — MCP 유무 대조 -->
+    <!-- 26 · 데모 3a — MCP가 없으면 -->
     <section data-sec="본문 2 · 확장 요소">
-      <div><span class="chip">본문 2 · 데모 3 · MCP 연결</span></div>
-      <h2>같은 부탁, MCP가 없을 때와 있을 때</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.1rem"><b class="accent2" style="font-weight:700">공백 ② 연결</b>을 채우면 무엇이 달라지나 — "못 닿는다"던 그 이슈 트래커로, 같은 부탁을 해 봅니다. <span class="mono tiny faint">(구성된 예시 장면)</span></p>
+      <div><span class="chip">본문 2 · 데모 3 · MCP 연결 ① 없을 때</span></div>
+      <h2>MCP가 없으면 — 조회는 결국 사람 몫</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.1rem"><b class="accent2" style="font-weight:700">공백 ② 연결</b>이 비어 있으면 무슨 일이 벌어지나 — "못 닿는다"던 그 이슈 트래커로 부탁해 봅니다. <span class="mono tiny faint">(구성된 예시 장면)</span></p>
       <div class="card autoshow fade-up" style="margin-top:0.55rem; padding:0.6rem 1rem">
         <p class="mono" style="margin:0; font-size:0.92rem"><span class="t-key">사람 ></span> <span class="t-str">이번 주 내가 맡은 이슈, 상태별로 정리해줘.</span></p>
       </div>
-      <div class="grid-2 sk25" style="margin-top:0.6rem; align-items:start">
-        <div class="autoshow fade-left">
-          <div class="pill amber" style="margin-bottom:0.4rem">MCP가 없으면 — 트래커에 못 닿는다</div>
-          <div class="flow-lane" style="margin:0 0 0.55rem">
-            <div class="flow-step neutral">이슈 트래커</div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-step" style="flex-direction:column; gap:0.12rem; border-color:rgba(255,159,124,0.65); background:rgba(255,159,124,0.08)"><span>연결 = 사람</span><span class="tiny" style="font-weight:400">로그인·검색·복사 — 매번</span></div>
-            <span class="flow-arrow">→</span>
-            <div class="flow-step neutral">agent</div>
-          </div>
-          <div class="term" style="border-color:rgba(255,159,124,0.4)">
-            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — 조회는 결국 사람 몫</span></div>
-            <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent > 이슈 트래커에 접근할 수 없습니다 —</span>
-<span class="t-out">        목록을 복사해 붙여넣어 주시면 정리하겠습니다.</span>
+      <div class="flow-lane autoshow fade-up" style="margin-top:0.6rem">
+        <div class="flow-step neutral">이슈 트래커</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step" style="flex-direction:column; gap:0.12rem; border-color:rgba(255,159,124,0.65); background:rgba(255,159,124,0.08)"><span>연결 = 사람</span><span class="tiny" style="font-weight:400">로그인·검색·복사·붙여넣기 — 매번</span></div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-step neutral">agent</div>
+      </div>
+      <div class="term sk25 autoshow fade-up" style="margin-top:0.6rem; border-color:rgba(255,159,124,0.4)">
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — 조회는 결국 사람 몫</span></div>
+        <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent > 이슈 트래커에 접근할 수 없습니다 — 목록을 복사해 붙여넣어 주시면 정리하겠습니다.</span>
 
-<span class="t-key">사람의 일</span>  로그인 → 검색 → 복사 → 붙여넣기
-<span class="t-out">          다음 주에도, 그 다음 주에도 — 매번 반복</span></div>
-          </div>
-        </div>
-        <div class="autoshow fade-right">
-          <div class="pill green" style="margin-bottom:0.4rem">MCP로 연결하면 — 조회는 agent가</div>
-          <div class="flow-lane" style="margin:0 0 0.55rem">
-            <div class="flow-step neutral">이슈 트래커</div>
-            <span class="flow-arrow">⇄</span>
-            <div class="flow-step ai" style="flex-direction:column; gap:0.12rem"><span>연결 = MCP 서버</span><span class="tiny" style="font-weight:400">tool 호출로 자동 조회</span></div>
-            <span class="flow-arrow">⇄</span>
-            <div class="flow-step neutral">agent</div>
-          </div>
-          <div class="term">
-            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — tool 호출이 일어나는 순간</span></div>
-            <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent → tool 호출: issue_search(담당자=나, 기간=이번 주)</span>
+<span class="t-key">사람 ></span> <span class="t-out">(트래커 로그인 → 담당자 필터 → 이번 주 검색 → 6건 복사 → 붙여넣기)</span> <span class="t-str">UI-142 진행 중, API-88 리뷰 대기, …</span>
+
+<span class="t-hl">agent > 붙여주신 6건을 상태별로 정리했습니다 →</span></div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:0.8rem">정리는 해 주지만 — <b>가져오는 일은 전부 사람 손.</b> 다음 주에도, 그 다음 주에도 같은 복붙입니다. <span class="dim">정리(어떻게)는 skill로 채웠는데, <b class="accent2">가져오기(어디까지)를 맡길 수는 없을까?</b></span></p>
+    </section>
+
+    <!-- 27 · 데모 3b — MCP로 연결하면 -->
+    <section data-sec="본문 2 · 확장 요소">
+      <div><span class="chip">본문 2 · 데모 3 · MCP 연결 ② 있을 때</span></div>
+      <h2>MCP로 연결하면 — 조회는 agent가 합니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.1rem">같은 부탁을, 이번엔 <b style="color:#fff">이슈 트래커 MCP 서버를 연결해 두고</b> 해 봅니다. <span class="mono tiny faint">(구성된 예시 장면 — 이슈 ID는 가상)</span></p>
+      <div class="card autoshow fade-up" style="margin-top:0.55rem; padding:0.6rem 1rem">
+        <p class="mono" style="margin:0; font-size:0.92rem"><span class="t-key">사람 ></span> <span class="t-str">이번 주 내가 맡은 이슈, 상태별로 정리해줘.</span> <span class="t-out">— 아까와 똑같이, 이 한 줄뿐</span></p>
+      </div>
+      <div class="flow-lane autoshow fade-up" style="margin-top:0.6rem">
+        <div class="flow-step neutral">이슈 트래커</div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-step ai" style="flex-direction:column; gap:0.12rem"><span>연결 = MCP 서버</span><span class="tiny" style="font-weight:400">tool 호출로 자동 조회</span></div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-step neutral">agent</div>
+      </div>
+      <div class="grid-2 sk25" style="margin-top:0.6rem; align-items:start">
+        <div class="term autoshow fade-left">
+          <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — tool 호출이 일어나는 순간</span></div>
+          <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent → tool 호출: issue_search(담당자=나, 기간=이번 주)</span>
 <span class="t-out">서버  ← 결과 6건 수신</span>
 
-<span class="t-hl">agent > 6건을 상태별로 정리했습니다 →</span>
-<span class="t-key">진행 중 (2)</span>   UI-142 · UI-155
-<span class="t-key">리뷰 대기 (3)</span> API-88 · API-91 · DOC-12
+<span class="t-hl">agent > 6건을 상태별로 정리했습니다 →</span></div>
+        </div>
+        <div class="term autoshow fade-right">
+          <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">정리 결과</span></div>
+          <div class="term-body" style="white-space:pre"><span class="t-key">진행 중 (2)</span>   UI-142 로그인 화면 · UI-155 설정 페이지
+<span class="t-key">리뷰 대기 (3)</span> API-88 토큰 갱신 · API-91 · DOC-12
 <span class="t-key">막힘 (1)</span>      INFRA-7 — 담당 팀 회신 대기</div>
-          </div>
         </div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:0.8rem">사람이 하던 <b>로그인 → 검색 → 복사 → 붙여넣기</b>가 사라졌습니다 — 조회는 agent가, 사람은 결과 확인만. <b class="accent2">어떻게 가능한지, 규격부터 봅니다.</b></p>
     </section>
 
-    <!-- 27 · MCP 개념 -->
+    <!-- 28 · MCP 개념 -->
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP</span></div>
       <h2>MCP — 도구를 꽂는 공용 규격</h2>
@@ -1505,7 +1513,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">발표사(Anthropic)만의 것이 아니라 <b class="accent2">OpenAI·Google도 채택한 공용 규격</b> — 표준이라 배워둘 가치가 있습니다.</p>
     </section>
 
-    <!-- 28 · MCP 구조·동작 -->
+    <!-- 29 · MCP 구조·동작 -->
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP · 구조와 동작</span></div>
       <h2>MCP의 구조 — 연결한 뒤, 골라서 호출</h2>
@@ -1553,7 +1561,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.7rem">①→②→③ — 데모 3에서 본 그 장면의 순서입니다. <span class="dim"><b class="accent">skill</b>은 "어떻게 할지", <b class="accent2">MCP</b>는 "어디까지 닿을지" — 이로써 <b style="color:#fff">두 공백이 모두 채워졌습니다.</b></span></p>
     </section>
 
-    <!-- 29 · 도구 지도 + 설치·주의 -->
+    <!-- 30 · 도구 지도 + 설치·주의 -->
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 골라 쓰기 · 설치</span></div>
       <h2>골라 쓰면 됩니다 — 설치는 간단, 주의는 하나</h2>
@@ -1579,14 +1587,14 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="border-top:0; padding-top:0.15rem">주의는 하나 — 일부 MCP 서버·도구는 <b class="accent3">외부로 연결</b>됩니다. 설계 자산이 나갈 수 있으니 <b class="accent2">애매하면 보안 먼저</b>(본문 1의 원칙).</p>
     </section>
 
-    <!-- 30 · 간지 — 본문 3 -->
+    <!-- 31 · 간지 — 본문 3 -->
     <section data-sec="본문 3 · harness">
       <div class="autoshow fade-up"><span class="chip">본문 3</span></div>
       <h1 class="autoshow fade-up" style="font-size:3.6rem">harness<br><span class="grad">믿고 쓸 수 있게 만드는 틀</span></h1>
       <p class="dim autoshow fade-up" style="font-size:1.2rem; margin-top:1.0rem">잘 되는 걸 봤으니 — 이제 "언제 돌려도 형식이 지켜지게".</p>
     </section>
 
-    <!-- 31 · 실패의 현실 -->
+    <!-- 32 · 실패의 현실 -->
     <section data-sec="본문 3 · harness">
       <div><span class="chip">본문 3 · 정직한 전제</span></div>
       <h2>그런데 — 이 출력, 매번 믿을 수 있나</h2>
@@ -1606,7 +1614,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.2rem">매번 사람이 다 확인하면 자동화의 의미가 없다 — <b class="accent">확인 자체를 틀에 넣을 수는 없을까?</b> 그 틀이 harness입니다.</p>
     </section>
 
-    <!-- 32 · harness란 -->
+    <!-- 33 · harness란 -->
     <section data-sec="본문 3 · harness">
       <div><span class="chip">본문 3 · 틀로 감싸 제대로</span></div>
       <h2>harness — 모델을 감싸는 실행 틀</h2>
@@ -1623,7 +1631,7 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="quote autoshow fade-up" style="margin-top:1.3rem">공식 용어입니다 — Claude Code 문서는 스스로를 <b>"agentic harness"</b>, 모델에 도구·컨텍스트·실행 환경을 붙이는 틀이라고 설명합니다.</div>
     </section>
 
-    <!-- 33 · UVM 나란히 -->
+    <!-- 34 · UVM 나란히 -->
     <section data-sec="본문 3 · harness">
       <div><span class="chip">본문 3 · 익숙한 그림</span></div>
       <h2>사실, 여러분이 매일 쓰는 구조입니다</h2>
@@ -1654,7 +1662,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">DUT ↔ 모델 · sequence ↔ 입력·절차 · assertion ↔ 스키마 — <b class="accent">구조가 같고, 대상만 칩에서 모델로.</b> 이 개념, 우리 팀엔 이미 익숙합니다.</p>
     </section>
 
-    <!-- 34 · 스키마 게이트 -->
+    <!-- 35 · 스키마 게이트 -->
     <section data-sec="본문 3 · harness">
       <div><span class="chip">본문 3 · 작동 방식</span></div>
       <h2>어떻게 돌아가나 — 스키마 게이트</h2>
@@ -1683,7 +1691,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">스키마 = 출력이 지켜야 할 형식 규격 — <b class="accent">assertion처럼 형식을 지키는 게이트.</b> 내용의 정합은 별도 검사가 필요합니다(그 자리를 지금은 사람이 맡습니다).</p>
     </section>
 
-    <!-- 35 · 장단점 -->
+    <!-- 36 · 장단점 -->
     <section data-sec="본문 3 · harness">
       <div><span class="chip">본문 3 · 장점과 단점</span></div>
       <h2>무엇을 얻고, 무엇을 치르나</h2>
@@ -1702,7 +1710,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.2rem">이 비용, <b class="accent">언제 치를 가치가 있을까요</b> — 판단 기준 한 장 보고, 눈으로 확인합니다.</p>
     </section>
 
-    <!-- 36 · 언제 쓰나 -->
+    <!-- 37 · 언제 쓰나 -->
     <section data-sec="본문 3 · harness">
       <div><span class="chip">본문 3 · 판단 기준</span></div>
       <h2>harness는 언제 필요한가</h2>
@@ -1721,7 +1729,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.2rem">기준 한 줄 — 출력이 <b class="accent">사람에게 가면 맨 agent, 프로그램에게 가면 harness.</b> 다음 장, 같은 작업을 <b>있을 때/없을 때</b>로 나란히 봅니다.</p>
     </section>
 
-    <!-- 37 · 데모 4 — harness 유무 -->
+    <!-- 38 · 데모 4 — harness 유무 -->
     <section data-sec="본문 3 · harness">
       <div><span class="chip">본문 3 · 데모 4 · harness 유무</span> <span class="pill neutral">품질+재현성</span></div>
       <h2>같은 작업, harness가 있을 때와 없을 때</h2>
@@ -1748,7 +1756,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note fragment fade-up" style="margin-top:1.1rem"><b class="accent2">품질</b> — 검증을 통과한 출력만 나간다 &nbsp;·&nbsp; <b class="accent2">재현성</b> — 세 번 모두 같은 구조</p>
     </section>
 
-    <!-- 38 · 오늘 지나온 길 (회고) -->
+    <!-- 39 · 오늘 지나온 길 (회고) -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 회고</span></div>
       <h2>오늘 지나온 길 — 세 가지만 가져가세요</h2>
@@ -1772,7 +1780,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="fragment fade-up" style="font-size:1.75rem; font-weight:800; margin-top:1.3rem">뼈대는 이 세 줄이 전부입니다 — <span class="grad">어디서 · 무엇으로 · 어떻게.</span> 남은 건 써 보는 것.</p>
     </section>
 
-    <!-- 39 · FAQ -->
+    <!-- 40 · FAQ -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 자주 나오는 질문</span></div>
       <h2>세 가지 질문에 미리 답합니다</h2>
@@ -1796,7 +1804,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">그럼, 정말 마지막 — <b class="accent2">자리로 돌아가 뭘 하면 되는지.</b></p>
     </section>
 
-    <!-- 40 · 첫걸음 CTA -->
+    <!-- 41 · 첫걸음 CTA -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 첫걸음 · CTA</span></div>
       <h2>그래서, 어떻게 시작하나</h2>
@@ -1826,7 +1834,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem">애매하면 <b class="accent2">보안 먼저.</b> 오늘의 첫걸음은 <b class="accent4">사내에서 딱 하나.</b></p>
     </section>
 
-    <!-- 41 · Q&A · 클로징 -->
+    <!-- 42 · Q&A · 클로징 -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · Q&amp;A</span></div>
       <p style="font-size:2.1rem; font-weight:800; line-height:1.5; margin-top:0.8rem; word-break:keep-all">이제 AI agent의 <span class="accent2">원리를 아는 여러분</span>입니다 —<br>이번 주, 사내 LLM에서 <span class="accent4">작은 작업 하나</span>로<br>첫 대화를 시작해 보세요.</p>
@@ -1836,7 +1844,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 42 · 부록 — 도구 목록 -->
+    <!-- 43 · 부록 — 도구 목록 -->
     <section data-sec="부록">
       <div><span class="chip">부록 · 확장 요소 후보 · 자가학습용</span></div>
       <h2>부록 — 확장 요소 후보</h2>
@@ -1861,7 +1869,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.2rem">설치 전 원칙은 본문 1과 같습니다 — <b class="accent2">애매하면 보안 먼저.</b></p>
     </section>
 
-    <!-- 43 · 부록 — 용어집 -->
+    <!-- 44 · 부록 — 용어집 -->
     <section data-sec="부록">
       <div><span class="chip">부록 · 용어집</span></div>
       <h2>부록 — 오늘 나온 용어</h2>
