@@ -69,7 +69,7 @@
 ## 본문 2 — 확장 요소: skill · MCP (21~31장, 약 28분) — v1.3: plugin 제외, "개념→구조·동작→데모" 배열
 
 1. **기본 모델의 한계** (22장) — **두 공백**: 절차(우리 절차 모름)·연결(시스템에 못 닿음) — 카드마다 "이 공백을 채우는 확장 요소" skill/MCP 대칭 배너로 대응 시각화 → "절차는 skill, 연결은 MCP"
-2. **skill** (23–26장, show→tell) — **데모 2 먼저**: ① 업무 정의(사람의 일 3단계 + 정의 박스, 23장) → ② skill 저장(`.opencode/skills/meeting-notes/SKILL.md`)·실행(메모→JSON)·활용(주간 리포트 조립, 24장) → 개념(없으면/있으면 + 매뉴얼 비유, 25장) → 구조·동작(OpenCode 규격 파일트리 + 만드는 법 세 걸음 + SKILL.md 해부(YAML frontmatter/Markdown 본문 존) + progressive disclosure flow, 26장)
+2. **skill** (23–26장, show→tell) — **데모 2 먼저**: ① 업무 정의(사람의 일 3단계 + 정의 박스, 23장) → ② skill 저장(`.opencode/skills/meeting-notes/SKILL.md`)·실행(opencode 프롬프트 한 줄 → skill 자동 로드 → JSON, 20장 셸 콜백)·활용(주간 리포트 조립, 24장) → 개념(없으면/있으면 + 매뉴얼 비유, 25장) → 구조·동작(OpenCode 규격 파일트리 + 만드는 법 세 걸음 + SKILL.md 해부(YAML frontmatter/Markdown 본문 존) + progressive disclosure flow, 26장)
 3. **MCP** (27–30장, show→tell) — **데모 3 먼저 (Ex5, 2장)**: 없을 때(연결=사람 다이어그램, 수동 복붙 — "가져오기를 맡길 수는 없을까?", 27장) / 있을 때(연결=MCP 서버, tool 호출 jira_search→상태별 정리, 구성된 예시 라벨, 28장) → 개념(N×N → USB-C, OpenAI·Google 채택, 29장) → 구조·동작(client–server + opencode.json 연결 설정 실물(jira, 주소 가상) + 동작 flow ①②③ = "데모 3의 그 순서", "두 공백 모두 채워짐" 마무리, 30장)
 4. **도구 지도 + 설치·주의** (31장) — 3칸 지도 × 예 1개, 설치 한 줄, 주의 한 줄(일부 MCP 서버·도구는 외부 연결 → 보안 콜백)
 
