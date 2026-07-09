@@ -1578,11 +1578,13 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="dim autoshow fade-up" style="font-size:1.1rem">규격이라 해도 그림은 단순합니다 — <b style="color:#fff">한쪽엔 AI, 한쪽엔 도구, 사이에 공용 말.</b> <span class="dim">연결도 설정 한 항목이면 끝.</span></p>
       <div class="grid-2 sk25" style="margin-top:0.7rem; align-items:start">
         <div class="autoshow fade-left">
-          <div class="phead">구조 — client · server</div>
+          <div class="phead">구조 — client · server (데모 3의 세 정거장 그대로)</div>
           <div class="flow-lane" style="margin-top:0.3rem">
-            <div class="flow-step me" style="flex-direction:column; gap:0.15rem"><span>AI 클라이언트</span><span class="tiny" style="font-weight:400">모델이 있는 쪽</span></div>
+            <div class="flow-step neutral" style="flex-direction:column; gap:0.15rem"><span>도구·데이터</span><span class="tiny" style="font-weight:400">예: Jira</span></div>
             <span class="flow-arrow">⇄</span>
-            <div class="flow-step ai" style="flex-direction:column; gap:0.15rem"><span>MCP 서버</span><span class="tiny" style="font-weight:400">도구·데이터가 있는 쪽</span></div>
+            <div class="flow-step ai" style="flex-direction:column; gap:0.15rem"><span>MCP 서버</span><span class="tiny" style="font-weight:400">공용 규격으로 통역</span></div>
+            <span class="flow-arrow">⇄</span>
+            <div class="flow-step me" style="flex-direction:column; gap:0.15rem"><span>AI 클라이언트</span><span class="tiny" style="font-weight:400">모델·agent가 있는 쪽</span></div>
           </div>
           <p style="font-size:0.98rem; margin-top:0.8rem" class="dim">서버가 노출하는 세 가지:</p>
           <div class="pills" style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.4rem">
@@ -1611,7 +1613,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="flow-lane" style="margin-top:0.3rem">
           <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>① 연결</span><span class="tiny" style="font-weight:400">서버 접속 — 쓸 수 있는 tool 목록 교환</span></div>
           <span class="flow-arrow">→</span>
-          <div class="flow-step ai" style="flex-direction:column; gap:0.12rem"><span>② 선택·호출</span><span class="tiny" style="font-weight:400">모델이 필요한 tool을 골라 호출</span></div>
+          <div class="flow-step ai" style="flex-direction:column; gap:0.12rem"><span>② 선택·호출</span><span class="tiny" style="font-weight:400">필요한 tool을 골라 호출 — 데모의 jira_search</span></div>
           <span class="flow-arrow">→</span>
           <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>③ 결과 수신</span><span class="tiny" style="font-weight:400">응답을 받아 다음 판단에 사용</span></div>
         </div>
