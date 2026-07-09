@@ -1288,7 +1288,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="card autoshow fade-up">
           <div class="pill neutral">공백 ② 연결</div>
           <h3>우리 시스템에 못 닿는다</h3>
-          <p>사내 문서고·이슈 트래커·DB — 학습에 없고(컨텍스트는 유한), 조회할 손도 없습니다.</p>
+          <p>사내 문서고·Jira·DB — 학습에 없고(컨텍스트는 유한), 조회할 손도 없습니다.</p>
           <div class="hole-fix mc"><span class="hf-label">이 공백을 채우는 확장 요소</span><span class="hf-name">MCP</span><span class="hf-desc">시스템에 이어 준다</span></div>
         </div>
       </div>
@@ -1483,13 +1483,13 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 데모 3 · MCP 연결 ① 없을 때</span></div>
       <h2>정리는 맡겼는데 — 가져오는 건 아직 사람 손</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.1rem"><b class="accent2" style="font-weight:700">공백 ② 연결</b>이 비어 있으면 무슨 일이 벌어지나 — "못 닿는다"던 그 이슈 트래커로 부탁해 봅니다. <span class="mono tiny faint">(구성된 예시 장면)</span></p>
+      <p class="dim autoshow fade-up" style="font-size:1.1rem"><b class="accent2" style="font-weight:700">공백 ② 연결</b>이 비어 있으면 무슨 일이 벌어지나 — "못 닿는다"던 그 Jira로 부탁해 봅니다. <span class="mono tiny faint">(구성된 예시 장면)</span></p>
       <div class="card autoshow fade-up" style="margin-top:0.55rem; padding:0.6rem 1rem">
         <p class="mono" style="margin:0; font-size:0.92rem"><span class="t-key">사람 ></span> <span class="t-str">이번 주 내가 맡은 이슈, 상태별로 정리해줘.</span></p>
       </div>
       <div class="mcp-scene sim autoshow fade-up" style="margin-top:0.6rem">
         <div class="ms-track">
-          <div class="ms-st">이슈 트래커<span class="ms-sub">자료가 있는 곳</span></div>
+          <div class="ms-st">Jira<span class="ms-sub">이슈가 있는 곳</span></div>
           <div class="ms-st human">연결 = 사람<span class="ms-sub">직접 오가며 나른다</span></div>
           <div class="ms-st">agent<span class="ms-sub">받은 것만 정리</span></div>
           <i class="ms-dot m26"></i>
@@ -1502,9 +1502,9 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
       <div class="term sk25 autoshow fade-up" style="margin-top:0.6rem; border-color:rgba(255,159,124,0.4)">
         <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — 조회는 결국 사람 몫</span></div>
-        <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent > 이슈 트래커에 접근할 수 없습니다 — 목록을 복사해 붙여넣어 주시면 정리하겠습니다.</span>
+        <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent > Jira에 접근할 수 없습니다 — 목록을 복사해 붙여넣어 주시면 정리하겠습니다.</span>
 
-<span class="t-key">사람 ></span> <span class="t-out">(트래커 로그인 → 담당자 필터 → 이번 주 검색 → 6건 복사 → 붙여넣기)</span> <span class="t-str">UI-142 진행 중, API-88 리뷰 대기, …</span>
+<span class="t-key">사람 ></span> <span class="t-out">(Jira 로그인 → 담당자 필터 → 이번 주 검색 → 6건 복사 → 붙여넣기)</span> <span class="t-str">UI-142 진행 중, API-88 리뷰 대기, …</span>
 
 <span class="t-hl">agent > 붙여주신 6건을 상태별로 정리했습니다 →</span></div>
       </div>
@@ -1515,20 +1515,20 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 데모 3 · MCP 연결 ② 있을 때</span></div>
       <h2>연결해 두면 — 조회까지 agent가 합니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.1rem">같은 부탁을, 이번엔 <b style="color:#fff">이슈 트래커 MCP 서버를 연결해 두고</b> 해 봅니다. <span class="mono tiny faint">(구성된 예시 장면 — 이슈 ID는 가상)</span></p>
+      <p class="dim autoshow fade-up" style="font-size:1.1rem">같은 부탁을, 이번엔 <b style="color:#fff">Jira MCP 서버를 연결해 두고</b> 해 봅니다. <span class="mono tiny faint">(구성된 예시 장면 — 이슈 ID는 가상)</span></p>
       <div class="card autoshow fade-up" style="margin-top:0.55rem; padding:0.6rem 1rem">
         <p class="mono" style="margin:0; font-size:0.92rem"><span class="t-key">사람 ></span> <span class="t-str">이번 주 내가 맡은 이슈, 상태별로 정리해줘.</span> <span class="t-out">— 아까와 똑같이, 이 한 줄뿐</span></p>
       </div>
       <div class="mcp-scene sim autoshow fade-up" style="margin-top:0.6rem">
         <div class="ms-track">
-          <div class="ms-st">이슈 트래커<span class="ms-sub">자료가 있는 곳</span></div>
+          <div class="ms-st">Jira<span class="ms-sub">이슈가 있는 곳</span></div>
           <div class="ms-st mcp">연결 = MCP 서버<span class="ms-sub">tool 호출 통로</span></div>
           <div class="ms-st ag27">agent<span class="ms-sub">직접 조회해 정리</span></div>
           <i class="ms-dot m27req"></i>
           <i class="ms-dot m27res"></i>
         </div>
         <div class="ms-steps">
-          <span class="ms-chip mono t1">issue_search 호출 →</span><span class="ms-chip mono t2">← 결과 6건 수신</span>
+          <span class="ms-chip mono t1">jira_search 호출 →</span><span class="ms-chip mono t2">← 결과 6건 수신</span>
           <span class="ms-chip t3" style="margin-left:auto">사람은 결과 확인만</span>
         </div>
       </div>
@@ -1536,7 +1536,7 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="grid-2 sk25" style="margin-top:0.6rem; align-items:start">
         <div class="term autoshow fade-left">
           <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — tool 호출이 일어나는 순간</span></div>
-          <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent → tool 호출: issue_search(담당자=나, 기간=이번 주)</span>
+          <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent → tool 호출: jira_search(담당자=나, 기간=이번 주)</span>
 <span class="t-out">서버  ← 결과 6건 수신</span>
 
 <span class="t-hl">agent > 6건을 상태별로 정리했습니다 →</span></div>
@@ -1595,9 +1595,9 @@ footer, header, hgroup, main, menu, nav, section {
             <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">opencode.json — MCP 서버 등록</span></div>
             <div class="term-body" style="white-space:pre-wrap">{
   <span class="t-key">"mcp"</span>: {
-    <span class="t-key">"issue-tracker"</span>: {   <span class="t-out">← 데모 3의 그 서버</span>
+    <span class="t-key">"jira"</span>: {   <span class="t-out">← 데모 3의 그 서버</span>
       <span class="t-key">"type"</span>: <span class="t-str">"remote"</span>,
-      <span class="t-key">"url"</span>: <span class="t-str">"https://issues.example.com/mcp"</span>,
+      <span class="t-key">"url"</span>: <span class="t-str">"https://jira.example.com/mcp"</span>,
       <span class="t-key">"enabled"</span>: <span class="t-hl">true</span>
     }
   }
