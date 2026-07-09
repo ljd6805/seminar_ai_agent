@@ -1434,11 +1434,48 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.65rem">공식 비유 — <b class="accent">목차 → 챕터 → 부록이 있는 매뉴얼.</b> skill은 여기까지 — <b>다음은 공백 ②, 연결입니다.</b></p>
     </section>
 
-    <!-- 26 · MCP 개념 -->
+    <!-- 26 · 데모 3 — MCP 유무 대조 -->
+    <section data-sec="본문 2 · 확장 요소">
+      <div><span class="chip">본문 2 · 데모 3 · MCP 연결</span></div>
+      <h2>같은 부탁, MCP가 없을 때와 있을 때</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.1rem"><b class="accent2" style="font-weight:700">공백 ② 연결</b>을 채우면 무엇이 달라지나 — "못 닿는다"던 그 이슈 트래커로, 같은 부탁을 해 봅니다. <span class="mono tiny faint">(구성된 예시 장면)</span></p>
+      <div class="card autoshow fade-up" style="margin-top:0.55rem; padding:0.6rem 1rem">
+        <p class="mono" style="margin:0; font-size:0.92rem"><span class="t-key">사람 ></span> <span class="t-str">이번 주 내가 맡은 이슈, 상태별로 정리해줘.</span></p>
+      </div>
+      <div class="grid-2 sk25" style="margin-top:0.6rem; align-items:start">
+        <div class="autoshow fade-left">
+          <div class="pill amber" style="margin-bottom:0.4rem">MCP가 없으면 — 트래커에 못 닿는다</div>
+          <div class="term" style="border-color:rgba(255,159,124,0.4)">
+            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — 조회는 결국 사람 몫</span></div>
+            <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent > 이슈 트래커에 접근할 수 없습니다 —</span>
+<span class="t-out">        목록을 복사해 붙여넣어 주시면 정리하겠습니다.</span>
+
+<span class="t-key">사람의 일</span>  로그인 → 검색 → 복사 → 붙여넣기
+<span class="t-out">          다음 주에도, 그 다음 주에도 — 매번 반복</span></div>
+          </div>
+        </div>
+        <div class="autoshow fade-right">
+          <div class="pill green" style="margin-bottom:0.4rem">MCP로 연결하면 — 조회는 agent가</div>
+          <div class="term">
+            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — tool 호출이 일어나는 순간</span></div>
+            <div class="term-body" style="white-space:pre-wrap"><span class="t-out">agent → tool 호출: issue_search(담당자=나, 기간=이번 주)</span>
+<span class="t-out">서버  ← 결과 6건 수신</span>
+
+<span class="t-hl">agent > 6건을 상태별로 정리했습니다 →</span>
+<span class="t-key">진행 중 (2)</span>   UI-142 · UI-155
+<span class="t-key">리뷰 대기 (3)</span> API-88 · API-91 · DOC-12
+<span class="t-key">막힘 (1)</span>      INFRA-7 — 담당 팀 회신 대기</div>
+          </div>
+        </div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:0.8rem">사람이 하던 <b>로그인 → 검색 → 복사 → 붙여넣기</b>가 사라졌습니다 — 조회는 agent가, 사람은 결과 확인만. <b class="accent2">어떻게 가능한지, 규격부터 봅니다.</b></p>
+    </section>
+
+    <!-- 27 · MCP 개념 -->
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP</span></div>
       <h2>MCP — 도구를 꽂는 공용 규격</h2>
-      <p class="autoshow fade-up" style="font-size:1.15rem"><span class="dim">이번엔 <b class="accent2" style="font-weight:700">공백 ② 연결</b>을 채우는 요소 —</span> MCP(Model Context Protocol)는 AI를 외부 도구·데이터에 잇는 <b>개방형 표준</b>입니다. <span class="dim">공식 문서의 비유로 <b style="color:#fff">"AI용 USB-C".</b></span></p>
+      <p class="autoshow fade-up" style="font-size:1.15rem"><span class="dim">방금 그 연결을 가능하게 한 규격 —</span> MCP(Model Context Protocol)는 AI를 외부 도구·데이터에 잇는 <b>개방형 표준</b>입니다. <span class="dim">공식 문서의 비유로 <b style="color:#fff">"AI용 USB-C".</b></span></p>
       <div class="grid-2" style="margin-top:1.0rem">
         <div class="card autoshow fade-up">
           <div class="pill neutral">표준이 없으면</div>
@@ -1454,7 +1491,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">발표사(Anthropic)만의 것이 아니라 <b class="accent2">OpenAI·Google도 채택한 공용 규격</b> — 표준이라 배워둘 가치가 있습니다.</p>
     </section>
 
-    <!-- 27 · MCP 구조·동작 -->
+    <!-- 28 · MCP 구조·동작 -->
     <section data-sec="본문 2 · 확장 요소">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP · 구조와 동작</span></div>
       <h2>MCP의 구조 — 연결한 뒤, 골라서 호출</h2>
@@ -1478,7 +1515,7 @@ footer, header, hgroup, main, menu, nav, section {
             <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">opencode.json — MCP 서버 등록</span></div>
             <div class="term-body" style="white-space:pre-wrap">{
   <span class="t-key">"mcp"</span>: {
-    <span class="t-key">"issue-tracker"</span>: {   <span class="t-out">← 다음 장 데모의 그 서버</span>
+    <span class="t-key">"issue-tracker"</span>: {   <span class="t-out">← 데모 3의 그 서버</span>
       <span class="t-key">"type"</span>: <span class="t-str">"remote"</span>,
       <span class="t-key">"url"</span>: <span class="t-str">"https://issues.example.com/mcp"</span>,
       <span class="t-key">"enabled"</span>: <span class="t-hl">true</span>
@@ -1499,32 +1536,7 @@ footer, header, hgroup, main, menu, nav, section {
           <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>③ 결과 수신</span><span class="tiny" style="font-weight:400">응답을 받아 다음 판단에 사용</span></div>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:0.7rem">이 세 단계가 실제로 어떤 모습인지 — <b>다음 장에서 눈으로 봅니다.</b></p>
-    </section>
-
-    <!-- 28 · 데모 3 — MCP 연결 -->
-    <section data-sec="본문 2 · 확장 요소">
-      <div><span class="chip">본문 2 · 데모 3 · MCP 연결</span></div>
-      <h2>연결해 두면 — 조회는 agent가 합니다</h2>
-      <p class="mono tiny faint autoshow fade-up" style="margin:0.1rem 0 0">구성된 예시 장면입니다 — "못 닿는다"던 그 이슈 트래커에, MCP 서버를 연결해 둔 상태.</p>
-      <div class="grid-2" style="margin-top:0.5rem; align-items:start">
-        <div class="term autoshow fade-left">
-          <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">대화 — tool 호출이 일어나는 순간</span></div>
-          <div class="term-body" style="white-space:pre-wrap"><span class="t-key">사람 ></span> <span class="t-str">이번 주 내가 맡은 이슈, 상태별로 정리해줘.</span>
-
-<span class="t-out">agent → tool 호출: issue_search(담당자=나, 기간=이번 주)</span>
-<span class="t-out">서버  ← 결과 6건 수신</span>
-
-<span class="t-hl">agent > 6건을 상태별로 정리했습니다 →</span></div>
-        </div>
-        <div class="term autoshow fade-right">
-          <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">정리 결과</span></div>
-          <div class="term-body" style="white-space:pre"><span class="t-key">진행 중 (2)</span>   UI-142 로그인 화면 · UI-155 설정 페이지
-<span class="t-key">리뷰 대기 (3)</span> API-88 토큰 갱신 · API-91 · DOC-12
-<span class="t-key">막힘 (1)</span>      INFRA-7 — 담당 팀 회신 대기</div>
-        </div>
-      </div>
-      <p class="note autoshow fade-up" style="margin-top:1.0rem">사람이 하던 <b>로그인 → 검색 → 복사 → 붙여넣기</b>가 사라졌습니다 — 조회는 MCP로 agent가, 사람은 결과 확인. <span class="dim"><b class="accent">skill</b>이 "어떻게 할지"라면 <b class="accent2">MCP</b>는 "어디까지 닿을지" — 이로써 <b style="color:#fff">두 공백이 모두 채워졌습니다.</b></span></p>
+      <p class="note autoshow fade-up" style="margin-top:0.7rem">①→②→③ — 데모 3에서 본 그 장면의 순서입니다. <span class="dim"><b class="accent">skill</b>은 "어떻게 할지", <b class="accent2">MCP</b>는 "어디까지 닿을지" — 이로써 <b style="color:#fff">두 공백이 모두 채워졌습니다.</b></span></p>
     </section>
 
     <!-- 29 · 도구 지도 + 설치·주의 -->
