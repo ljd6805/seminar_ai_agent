@@ -503,22 +503,36 @@ footer, header, hgroup, main, menu, nav, section {
     .skmd-tag { position: absolute; top: -0.68rem; left: 0.7rem; padding: 0 0.45rem; background: #0B0E1A; font-family: var(--sans); font-weight: 700; font-size: 0.68rem; color: #FFE08A; }
     .skmd-zone.md .skmd-tag { color: var(--accent-2); }
 
-    /* 20장 OpenCode 설치 터미널 (진입 시 1회) */
+    /* 20장 OpenCode 설치 터미널 (진입 시 1회, PC 셸 룩) */
     .ty { display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; width: 0; }
     .oc-line { opacity: 0; }
+    .shell { background: #0C0F16; border-color: #2A2F3A; border-radius: 0.45rem; }
+    .shell .term-bar { background: #1A1E27; border-bottom-color: #2A2F3A; }
+    .shell .term-bar .term-title { color: #9AA4B2; letter-spacing: 0.02em; margin-left: 0; }
+    .shell .win-btns { margin-left: auto; display: flex; align-items: center; gap: 0.55rem; color: #6B7484; font-size: 0.8rem; }
+    .shell .win-btns .wb-sq { width: 0.55rem; height: 0.55rem; border: 0.09rem solid #6B7484; display: inline-block; }
+    .shell .term-body { color: #C9D1D9; font-size: 0.88rem; }
+    .sh-user { color: #3FB950; font-weight: 700; }
+    .sh-path { color: #58A6FF; }
+    .sh-cmd { color: #E6EDF3; }
+    .sh-dim { color: #8B949E; }
+    .sh-ok { color: #3FB950; }
     @keyframes ocIn { to { opacity: 1; } }
-    @keyframes ocTy1 { to { width: 45ch; } }
-    @keyframes ocTy2 { to { width: 15ch; } }
-    @keyframes ocTy3 { to { width: 8ch; } }
-    section.present .ty1 { animation: ocTy1 1.6s steps(45, end) 0.4s forwards; }
-    section.present .oc1 { animation: ocIn 0.3s ease 2.3s forwards; }
-    section.present .oc2 { animation: ocIn 0.3s ease 3.0s forwards; }
-    section.present .oc3 { animation: ocIn 0.01s ease 3.7s forwards; }
-    section.present .ty2 { animation: ocTy2 0.7s steps(15, end) 3.9s forwards; }
-    section.present .oc4 { animation: ocIn 0.01s ease 4.9s forwards; }
-    section.present .ty3 { animation: ocTy3 0.5s steps(8, end) 5.1s forwards; }
-    section.present .oc5 { animation: ocIn 0.35s ease 5.9s forwards; }
-    section.present .oc6 { animation: ocIn 0.35s ease 6.4s forwards; }
+    @keyframes ocTy1a { to { width: 32em; } }
+    @keyframes ocTy1b { to { width: 15.2em; } }
+    @keyframes ocTy2 { to { width: 9.2em; } }
+    @keyframes ocTy3 { to { width: 6.2em; } }
+    section.present .ty1a { animation: ocTy1a 0.85s steps(51, end) 0.3s forwards; }
+    section.present .oc0 { animation: ocIn 0.01s ease 1.15s forwards; }
+    section.present .ty1b { animation: ocTy1b 0.45s steps(23, end) 1.2s forwards; }
+    section.present .oc1 { animation: ocIn 0.25s ease 2.0s forwards; }
+    section.present .oc2 { animation: ocIn 0.25s ease 2.5s forwards; }
+    section.present .oc3 { animation: ocIn 0.01s ease 3.0s forwards; }
+    section.present .ty2 { animation: ocTy2 0.35s steps(13, end) 3.1s forwards; }
+    section.present .oc4 { animation: ocIn 0.01s ease 3.6s forwards; }
+    section.present .ty3 { animation: ocTy3 0.3s steps(8, end) 3.7s forwards; }
+    section.present .oc5 { animation: ocIn 0.3s ease 4.2s forwards; }
+    section.present .oc6 { animation: ocIn 0.3s ease 4.6s forwards; }
 
     /* 26·27장 데모 3 — 데이터 여정 애니메이션 (진입 시 1회) */
     .mcp-scene { border: 0.0625rem solid rgba(255,255,255,0.1); border-radius: 0.9rem; background: rgba(255,255,255,0.02); padding: 0.45rem 1.1rem 0.7rem; }
@@ -1288,20 +1302,21 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">본문 1 · 설치</span></div>
       <h2>OpenCode 설치 — 터미널 한 줄이면 끝</h2>
       <p class="dim autoshow fade-up" style="font-size:1.12rem">앞에서 본 사내 도구 셋 중 <b style="color:#fff">OpenCode(터미널)</b> — 리눅스에서 이렇게 시작합니다. <span class="mono tiny faint">(구성된 예시 화면 · 진입 시 1회 재생)</span></p>
-      <div class="term sim autoshow fade-up" style="margin-top:0.8rem">
-        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">terminal — 설치 · 실행</span></div>
-        <div class="term-body" style="line-height:2.0; padding:1.0rem 1.2rem">
-          <div><span class="t-key">$</span> <span class="ty ty1 t-str">curl -fsSL https://opencode.ai/install | bash</span></div>
-          <div class="oc-line oc1"><span class="t-out">  내려받기 → 설치 …</span></div>
-          <div class="oc-line oc2"><span class="t-out">  ✓ opencode 설치 완료 — PATH에 추가됨</span></div>
-          <div class="oc-line oc3"><span class="t-key">$</span> <span class="ty ty2 t-str">cd ~/my-project</span></div>
-          <div class="oc-line oc4"><span class="t-key">$</span> <span class="ty ty3 t-str">opencode</span></div>
-          <div class="oc-line oc5"><span class="t-hl">█ opencode</span> <span class="t-out">— 터미널 안에서 대화가 시작됩니다</span></div>
+      <div class="term shell sim autoshow fade-up" style="margin-top:0.8rem">
+        <div class="term-bar"><span class="term-title">user@ds-linux: ~ — bash</span><span class="win-btns"><span>–</span><span class="wb-sq"></span><span>×</span></span></div>
+        <div class="term-body" style="line-height:1.9; padding:0.9rem 1.2rem">
+          <div><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="ty ty1a sh-cmd">curl -fsSL http://______.______/repository/______/\</span></div>
+          <div class="oc-line oc0"><span class="sh-dim">></span> <span class="ty ty1b sh-cmd">opencode/install | bash</span></div>
+          <div class="oc-line oc1"><span class="sh-dim">  내려받기 → 설치 …</span></div>
+          <div class="oc-line oc2"><span class="sh-ok">  ✓ opencode 설치 완료 — PATH에 추가됨</span></div>
+          <div class="oc-line oc3"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="ty ty2 sh-cmd">cd my-project</span></div>
+          <div class="oc-line oc4"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~/my-project</span><span class="sh-dim">$</span> <span class="ty ty3 sh-cmd">opencode</span></div>
+          <div class="oc-line oc5"><span class="t-hl">█ opencode</span> <span class="sh-dim">— 터미널 안에서 대화가 시작됩니다</span></div>
           <div class="oc-line oc6">무엇을 도와드릴까요? <span class="llm-cursor">▍</span></div>
         </div>
       </div>
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:0.9rem">설치는 한 줄, 실행은 <b class="accent">opencode</b> 한 마디. <span class="dim">사내 서버 연결 등 세부 설정은 팀 안내(______)를 따르세요.</span> 이제 — 이 agent에게 능력을 더하는 법으로 갑니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem">설치는 한 줄, 실행은 <b class="accent">opencode</b> 한 마디. <span class="dim">설치 주소·사내 서버 설정은 사내 안내 페이지(______)를 참고하세요.</span> 이제 — 이 agent에게 능력을 더하는 법으로 갑니다.</p>
     </section>
 
     <!-- 21 · 간지 — 본문 2 -->
