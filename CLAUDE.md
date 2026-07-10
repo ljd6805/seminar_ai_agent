@@ -5,7 +5,7 @@
 
 ## 지금 무엇을 하는 중인가
 
-- **(2026-07-10) 90분 발표 · 54장 체제(v1.8)** — v1.7(53장, 심층 리뷰 반영) → **v1.8 관통 시나리오 재구성(54장 = 본편 40 + 부록 14)**: **Regression Triage Agent 단일 시나리오**로 데모 1(prompt)→2(Skill)→3(MCP)→4(Harness)를 관통(데모 2·3·4 소재를 회의 메모→regression triage로 교체, 회의 메모는 부록 47장으로), 데모 1을 4장으로 전진 배치(발표 5분 내)+5장 훅 질문, 신규 3장(3장 계층 트리 재작업 · 12 Agent 도입 4원칙 · 38 설계 템플릿 9칸), 부록 이동 11장(역사·왜지금·왜우리·재배치·토큰·설치·Skill기준·MCP구조·Harness장단점·FAQ·도구지도), 병합 1건(구 20+21→16 점검), 구 29장(triage skill)은 20·22장에 흡수 삭제. 문구 보수화 2차(환각=구조적 실패 모드 · 컨텍스트=구성에 따라 · Skill 로드=클라이언트마다 · L0~L5=세미나용 예시 · harness 판단=5질문 체크 · 외부 데이터="조건이 다를 수 있다"), 격리 장에 오해 교정 2("사내망 접속≠사내 처리")+면책 각주, 설치 예시 안전화(curl|bash 폐기→HTTPS·버전 고정·checksum), **표기 변경: 본문 텍스트 Agent·Skill·Harness 대문자 통일(경로·SKILL.md·명령어는 원형)**, 레이어 배지 CSS 신설(DEMO/READ/APPENDIX — `section[data-layer]::after`), 출처·확인일 각주 3곳. 이후 단계: 사용자 렌더 리뷰 → 리허설.
+- **(2026-07-10) 90분 발표 · 54장 체제(v1.8)** — v1.7(53장, 심층 리뷰 반영) → **v1.8 관통 시나리오 재구성(54장 = 본편 40 + 부록 14)**: **Regression Triage Agent 단일 시나리오**로 데모 1(prompt)→2(Skill)→3(MCP)→4(Harness)를 관통(데모 2·3·4 소재를 회의 메모→regression triage로 교체, 회의 메모는 부록 47장으로), 데모 1을 4장으로 전진 배치(발표 5분 내)+5장 훅 질문, 신규 3장(3장 4요소 정리 재작업 · 12 Agent 도입 4원칙 · 38 설계 템플릿 9칸), 부록 이동 11장(역사·왜지금·왜우리·재배치·토큰·설치·Skill기준·MCP구조·Harness장단점·FAQ·도구지도), 병합 1건(구 20+21→16 점검), 구 29장(triage skill)은 20·22장에 흡수 삭제. 문구 보수화 2차(환각=구조적 실패 모드 · 컨텍스트=구성에 따라 · Skill 로드=클라이언트마다 · L0~L5=세미나용 예시 · harness 판단=5질문 체크 · 외부 데이터="조건이 다를 수 있다"), 격리 장에 오해 교정 2("사내망 접속≠사내 처리")+면책 각주, 설치 예시 안전화(curl|bash 폐기→HTTPS·버전 고정·checksum), **표기 변경: 본문 텍스트 Agent·Skill·Harness 대문자 통일(경로·SKILL.md·명령어는 원형)**, 레이어 배지 CSS 신설(DEMO/READ/APPENDIX — `section[data-layer]::after`), 출처·확인일 각주 3곳. 이후 단계: 사용자 렌더 리뷰 → 리허설.
 - 디자인: `slides/index.html`은 reveal.js 5.1.0 기반 단일 파일. 폰트는 base64 내장(Wanted Sans Variable + JetBrains Mono, 둘 다 OFL) — 외부 의존 0, 오프라인 완전 동작. 파일 크기 ~2MB(폰트 내장분). 선명도용 설정: 캔버스 2560×1600 + 루트 32px, 본문 text-shadow 없음, **reveal 스케일을 transform 대신 CSS zoom으로 패치**(minified 소스 내 layout 분기 수정 — 오버뷰 때만 transform 폴백. reveal 업그레이드 시 재적용 필요). **새 CSS는 px 말고 rem으로**(px는 캔버스 배율만큼 축소돼 보임). 비주얼 컨셉은 [geniuskey/vibe-coding-202607](https://github.com/geniuskey/vibe-coding-202607) 이식(글래스 카드·네뷸라 배경·grad 텍스트·autoshow 스태거·ESC 오버뷰).
 - 인터랙션: 대부분 장은 `.autoshow`(진입 시 자동 스태거), **fragment 없음**(장 넘김 1회 = 1장). **데모는 전부 정적**(오토플레이 없음 — 커스텀 JS는 hero 배경·섹션 푸터 sync·simReplay만). 예외(진입 시 1회 재생+↻, v1.8 번호): **4장(데모1 `ex1*`)·6장(정의 등식·루프)·8~10장(LLM·컨텍스트·환각)·20장(데모2b opencode 세션 `skTy`/`sk-line`)·23~24장(데모3 데이터 여정 `m26Dot`/`m27Req`/`m27Res`)·45장(부록 토큰)·46장(부록 설치 — v1.8에서 타이핑 제거, `oc-line` 스태거만)**. `section.present` 게이트 + fill forwards/both. 무한 루프 없음.
 - 브라우저 렌더 확인: MCP playwright는 `file:` 차단 → `python3 -m http.server 8765` 로 서빙 후 접속. **편집 후엔 캐시 회피를 위해 `?v=N` 쿼리로 재로드**(해시만 바꾸면 재로드 안 됨). **애니메이션 대기는 Bash sleep 말고 playwright의 wait(browser_wait_for) 사용.** 스크린샷은 cwd(repo 루트)에 저장되니 리뷰 후 삭제. print 확인은 `?view=print`.
@@ -23,7 +23,7 @@
 ## 전체 흐름 (v1.8, 54장 · 90분)
 
 ```
-도입(12)   1 표지 · 2 목차 · 3 오늘의 결론(핵심 메시지+계층 트리) · 4 데모1(prompt만, 원인불명 3건) · 5 해부+훅 질문
+도입(12)   1 표지 · 2 목차 · 3 오늘의 결론(핵심 메시지+4요소 동등 4행) · 4 데모1(prompt만, 원인불명 3건) · 5 해부+훅 질문
            · 6 정의 · 7 챗봇 vs Agent · 8 LLM · 9 컨텍스트(+토큰 요령) · 10 환각 · 11 무엇을 맡기나 · 12 4원칙
 본문 1(4)  13 간지 · 14 격리(+오해 교정 2·면책) · 15 사내 도구 셋 · 16 사용 전 3문장 점검(구 20+21 병합)
 본문 2(10) 17 간지(Regression Triage Agent) · 18 1단계 prompt(두 공백) · 19–20 데모2(triage 정의→SKILL.md→실행)
