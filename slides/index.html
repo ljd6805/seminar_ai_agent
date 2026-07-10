@@ -1059,6 +1059,26 @@ footer, header, hgroup, main, menu, nav, section {
     section[data-layer="APPENDIX"] .card:hover { transform: none; box-shadow: none; border-color: rgba(190,200,224,0.35); }
     section[data-layer="APPENDIX"] .term, section[data-layer="READ"] .term { box-shadow: none; }
 
+    /* 31장 — Harness 구성요소를 경계 사방에 배치 */
+    .mas31 { display: grid; grid-template-columns: 11.5rem 1fr 11.5rem; grid-template-rows: auto auto auto; gap: 0.55rem; align-items: center; }
+    .mas31 .m31-side {
+      font-size: 0.92rem; line-height: 1.65; color: #C9D0E4 !important;
+      border: 0.0625rem solid rgba(255,122,149,0.35); border-radius: 0.7rem;
+      padding: 0.5rem 0.85rem; background: rgba(255,122,149,0.04); word-break: keep-all;
+    }
+    .mas31 .m31-side b { color: #FFC9D4 !important; }
+    .mas31 .m31-side .sd { display: block; font-family: var(--mono); font-size: 0.7rem; color: #8A93B2 !important; letter-spacing: 0.08em; margin-bottom: 0.15rem; }
+    .m31-top { grid-column: 2; grid-row: 1; text-align: center; }
+    .m31-left { grid-column: 1; grid-row: 2; }
+    .m31-center { grid-column: 2; grid-row: 2; }
+    .m31-right { grid-column: 3; grid-row: 2; }
+    .m31-bottom { grid-column: 2; grid-row: 3; text-align: center; }
+    /* flow-step 보조 설명줄 */
+    .flow-step small { display: block; font-weight: 400; font-size: 0.78rem; color: var(--fg-soft) !important; margin-top: 0.18rem; line-height: 1.45; }
+    .flow-step { flex-direction: column; }
+    /* 코드 창 traffic-light 장식 제거 — 문서형 헤더만 */
+    .term-bar .dot { display: none; }
+
     /* layer badge — DEMO / READ / APPENDIX (CORE는 무표기) */
     .reveal .slides section[data-layer]::after {
       content: attr(data-layer); position: absolute; top: 0.5rem; right: 0;
@@ -1113,15 +1133,37 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="도입">
       <div><span class="chip">도입 · 오늘의 결론</span></div>
       <h2>결론부터 말씀드립니다</h2>
-      <div class="quote autoshow fade-up" style="margin-top:0.8rem; font-size:1.42rem; line-height:1.55">AI Agent는 사람의 판단을 <b>대체하는</b> 도구가 아니라,<br>판단 전에 필요한 <b class="grad">반복 작업을 줄이는</b> 도구입니다.</div>
-      <p class="dim autoshow fade-up" style="font-size:1.06rem; margin-top:0.8rem">예를 들면 — <b style="color:#fff">regression 로그에서 실패만 골라 분류</b>하고, <b style="color:#fff">회의록에서 action item을 추출</b>하고, <b style="color:#fff">spec 변경점을 요약</b>하는 일. 판단은 그 다음, 사람이.</p>
-      <ul class="ol autoshow fade-up" style="margin-top:0.6rem; flex:none">
-        <li class="show"><span class="ix">Agent</span><span class="lb">목표를 받아 <b class="accent">계획하고, 도구를 사용하며, 결과를 확인한다</b></span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">어떻게 작업을 진행하는가</span></li>
-        <li class="show"><span class="ix">Skill</span><span class="lb"><b class="accent">Skill</b>은 반복할 작업의 절차와 기준을 알려준다</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">어떤 절차로 일하는가</span></li>
-        <li class="show"><span class="ix">MCP</span><span class="lb"><b class="accent2">MCP</b>는 필요한 데이터와 시스템에 연결한다</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">어떤 시스템과 연결되는가</span></li>
-        <li class="show"><span class="ix">Harness</span><span class="lb"><b class="accent3">Harness</b>는 실행 권한 · 검증 · 실패 처리를 규칙으로 통제한다</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">어떻게 실행을 통제하는가</span></li>
-      </ul>
-      <p class="note autoshow fade-up" style="margin-top:0.8rem">오늘의 목표는 <b class="accent">이번 주에 검증 가능한 반복 업무 하나에 적용해 보는 것</b>입니다.</p>
+      <div class="quote autoshow fade-up" style="margin-top:0.7rem; font-size:1.42rem; line-height:1.55">AI Agent는 사람의 판단을 <b>대체하는</b> 도구가 아니라,<br>판단 전에 필요한 <b class="grad">반복 작업을 줄이는</b> 도구입니다.</div>
+      <p class="dim autoshow fade-up" style="font-size:1.05rem; margin-top:0.9rem">오늘 다룰 네 요소는 아래 그림 하나로 연결됩니다 — 이 그림이 조금씩 완성되는 과정을 따라갑니다.</p>
+      <div class="mas autoshow fade-up" style="margin-top:0.7rem">
+        <div class="mas-core">
+          <span class="mas-hlabel">Harness — 실행 권한·검증·실패 처리를 규칙으로 통제</span>
+          <div class="mas-row">
+            <div class="mas-node n-skill" data-id="system-skill">Skill<small>반복 작업의 절차와 기준</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>목표를 받아 계획 · 도구 사용 · 결과 확인 ↻</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-mcp" data-id="system-mcp">MCP<small>데이터·시스템 연결 포트</small></div>
+          </div>
+          <div class="mas-outrow">
+            <div class="mas-node" style="flex:0.55">출력<small>JSON · 표</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-gate" data-id="system-schema">스키마 검증<small>형식 게이트</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>쓰기·공유 전</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node" style="flex:0.8">후속 작업<small>리포트 · 자동화</small></div>
+          </div>
+          <div class="mas-ctl"><span>권한</span><span>재시도</span><span>로그</span><span>승인</span><span>중단 규칙</span></div>
+        </div>
+        <div class="mas-ext" data-id="system-external-tools">
+          <span class="mas-extlabel">외부 시스템</span>
+          <div class="mas-extnode">Jira</div>
+          <div class="mas-extnode">문서고 · DB</div>
+          <div class="mas-extnode">도구 · shell</div>
+        </div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:0.7rem">오늘의 목표는 <b class="accent">이번 주에 검증 가능한 반복 업무 하나에 적용해 보는 것</b>입니다.</p>
     </section>
 
     <!-- 4 · 데모 1 — regression 로그 분류 -->
@@ -1461,21 +1503,27 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">본문 2 · 1단계 prompt — 왜 이대로는 안 되나</span></div>
       <h2>기본 모델에게 없는 두 가지</h2>
       <p class="dim autoshow fade-up" style="font-size:1.12rem">Prompt만으로도 시연 수준의 결과는 만들 수 있습니다 — 하지만 업무에 넣으려면 <b style="color:#fff">두 가지가 비어 있습니다.</b> 기본 모델은 우리 팀의 절차와 사내 시스템 정보를 알지 못합니다.</p>
-      <div class="grid-2" style="margin-top:0.9rem">
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">공백 ① 절차</div>
-          <h3>우리 절차를 모른다</h3>
-          <p>팀마다 다른 리뷰 규칙·문서 형식·노하우 — 매번 처음부터 설명해야 합니다.</p>
-          <div class="hole-fix sk"><span class="hf-label">이 공백을 채우는 확장 요소</span><span class="hf-name">Skill</span><span class="hf-desc">절차를 적어 넣는다</span></div>
+      <div class="mas autoshow fade-up" data-stage="pre" style="margin-top:1.0rem">
+        <div class="mas-core">
+          <div class="mas-row">
+            <div class="mas-node hole" data-id="system-skill">절차 없음<small>공백 ① — 팀의 리뷰 규칙·문서 형식·노하우를 모른다. 매번 처음부터 설명해야 한다</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>계획 · 실행 · 확인은 이미 가능</small></div>
+            <span class="mas-arr" style="opacity:0.35">⇢</span>
+            <div class="mas-node hole" data-id="system-mcp">시스템 연결 없음<small>공백 ② — 사내 문서·Jira·DB를 직접 조회할 연결과 권한이 없다</small></div>
+          </div>
         </div>
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">공백 ② 연결</div>
-          <h3>우리 시스템에 못 닿는다</h3>
-          <p>사내 문서·Jira·DB — 최신 정보를 직접 조회할 연결과 권한이 없습니다.</p>
-          <div class="hole-fix mc"><span class="hf-label">이 공백을 채우는 확장 요소</span><span class="hf-name">MCP</span><span class="hf-desc">시스템과 연결한다</span></div>
+        <div class="mas-ext" style="opacity:0.35" data-id="system-external-tools">
+          <span class="mas-extlabel">닿지 못하는 곳</span>
+          <div class="mas-extnode">Jira</div>
+          <div class="mas-extnode">문서고 · DB</div>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">절차는 Skill</b>, <b class="accent2">시스템 연결은 MCP</b>입니다.</p>
+      <div class="autoshow fade-up" style="display:flex; gap:1.0rem; margin-top:0.9rem">
+        <div class="hole-fix sk" style="flex:1; margin-top:0"><span class="hf-label">공백 ①을 채우는 확장 요소</span><span class="hf-name">Skill</span><span class="hf-desc">절차를 적어 넣는다</span></div>
+        <div class="hole-fix mc" style="flex:1; margin-top:0"><span class="hf-label">공백 ②를 채우는 확장 요소</span><span class="hf-name">MCP</span><span class="hf-desc">시스템과 연결한다</span></div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem"><b class="accent">절차는 Skill</b>, <b class="accent2">시스템 연결은 MCP</b>입니다.</p>
     </section>
 
     <!-- 19 · 데모 2a — 업무 정의 -->
@@ -1777,6 +1825,10 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="autoshow fade-up"><span class="chip">본문 3</span></div>
       <h1 class="autoshow fade-up" style="font-size:3.6rem">Harness<br><span class="grad">실행을 검증하고 통제하는 구조</span></h1>
       <p class="dim autoshow fade-up" style="font-size:1.2rem; margin-top:1.0rem">4단계 — 출력 형식, 실행 권한, 실패 처리와 승인 규칙을 정합니다.</p>
+      <div class="mas-core autoshow fade-up" style="margin-top:2.0rem; max-width:52rem; min-height:6.5rem; justify-content:center">
+        <span class="mas-hlabel">Harness — Agent 실행을 감싸는 경계</span>
+        <p class="dim" style="margin:0; text-align:center; font-size:1.05rem; font-family:var(--mono)">권한 · 검증 · 재시도 · 로그 · 승인</p>
+      </div>
     </section>
 
     <!-- 28 · 실패의 현실 -->
@@ -1809,18 +1861,35 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">본문 3 · 틀로 감싸 제대로</span></div>
       <h2>Harness — 모델을 감싸는 실행 틀</h2>
       <p class="autoshow fade-up" style="font-size:1.22rem"><b>이 자료에서 Harness는 — Agent 실행을 감싸는 권한 · 검증 · 재시도 · 로그 · 승인 구조를 뜻합니다.</b> <span class="accent2">검증 환경의 testbench·harness와 비슷한 관점</span>이며, 대상이 칩이 아니라 Agent 실행이라는 점이 다릅니다.</p>
-      <div class="flow-lane autoshow fade-up" style="margin-top:1.3rem">
-        <div class="flow-step neutral">입력·권한</div>
-        <span class="flow-arrow">+</span>
-        <div class="flow-step neutral">실행 순서</div>
-        <span class="flow-arrow">+</span>
-        <div class="flow-step neutral">검증·재시도</div>
-        <span class="flow-arrow">+</span>
-        <div class="flow-step neutral">로그·승인</div>
-        <span class="flow-arrow">=</span>
-        <div class="flow-step ai">통제 가능한 Agent 실행</div>
+      <div class="mas autoshow fade-up" style="margin-top:1.1rem">
+        <div class="mas-core">
+          <span class="mas-hlabel">Harness — 통제 가능한 Agent 실행</span>
+          <div class="mas-row">
+            <div class="mas-node n-skill" data-id="system-skill">Skill<small>절차 — 본문 2</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>계획 · 실행 · 확인 ↻</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-mcp" data-id="system-mcp">MCP<small>연결 — 본문 2</small></div>
+          </div>
+          <div class="mas-outrow">
+            <div class="mas-node" style="flex:0.55">출력<small>JSON · 표</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-gate" data-id="system-schema">스키마 검증<small>실패 → 한도 내 재시도</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>쓰기·공유·상태 변경 전</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node" style="flex:0.8">후속 작업<small>리포트 · 자동화</small></div>
+          </div>
+          <div class="mas-ctl"><span>입력·권한</span><span>실행 순서</span><span>검증·재시도</span><span>로그</span><span>승인·중단</span></div>
+        </div>
+        <div class="mas-ext" data-id="system-external-tools">
+          <span class="mas-extlabel">외부 시스템</span>
+          <div class="mas-extnode">Jira</div>
+          <div class="mas-extnode">문서고 · DB</div>
+          <div class="mas-extnode">도구 · shell</div>
+        </div>
       </div>
-      <div class="quote autoshow fade-up" style="margin-top:1.3rem">Harness라는 말은 제품과 문맥에 따라 범위가 다르게 쓰입니다 — <b>이 자료에서는 위와 같은 실행 통제 구조</b>를 뜻합니다.</div>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem">Harness는 Agent 옆의 네 번째 부품이 아니라 <b class="accent3">실행 전체를 감싸는 경계</b>입니다. 말의 범위는 제품·문맥에 따라 다르며, 이 자료에서는 위 실행 통제 구조를 뜻합니다.</p>
     </section>
 
     <!-- 30 · UVM 나란히 -->
@@ -1859,28 +1928,32 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">본문 3 · 무엇으로 이루어지나</span></div>
       <h2>Harness에 들어갈 수 있는 것</h2>
       <p class="dim autoshow fade-up" style="font-size:1.1rem">스키마 검증 하나가 아닙니다 — <b style="color:#fff">모델 사용을 통제하는 장치들의 묶음</b>입니다.</p>
-      <div class="grid-3" style="margin-top:0.8rem">
-        <div class="card autoshow fade-up">
-          <div class="pill">입력과 권한</div>
-          <p style="margin:0.55rem 0 0; font-size:0.98rem"><b>입력 전처리</b> — 필요한 범위만 잘라 넣기</p>
-          <p style="margin:0.45rem 0 0; font-size:0.98rem"><b>Skill 선택</b> — 어떤 절차로 일할지</p>
-          <p style="margin:0.45rem 0 0; font-size:0.98rem"><b>도구 허용 목록</b> — 호출 가능한 도구를 제한</p>
+      <div class="mas31" style="margin-top:0.8rem">
+        <div class="m31-side m31-top"><span class="sd">입력 쪽</span><b>입력 전처리</b> — 필요한 범위만 &nbsp;·&nbsp; <b>Skill 선택</b> — 어떤 절차로 &nbsp;·&nbsp; <b>도구 허용 목록</b> — 호출 가능한 도구 제한</div>
+        <div class="m31-side m31-left"><span class="sd">기록·복구</span><b>실행 로그·추적</b> — 무슨 일이 있었는지<br><b>실패 리포트</b> — 실패 시 중단 후 사람에게 이관</div>
+        <div class="m31-center">
+          <div class="mas-core" style="min-height:9rem; justify-content:center">
+            <span class="mas-hlabel">Harness</span>
+            <div class="mas-row">
+              <div class="mas-node n-skill">Skill</div>
+              <span class="mas-arr">→</span>
+              <div class="mas-node n-agent">Agent / LLM</div>
+              <span class="mas-arr">→</span>
+              <div class="mas-node n-mcp">MCP</div>
+            </div>
+            <div class="mas-outrow">
+              <div class="mas-node" style="flex:0.6">출력</div>
+              <span class="mas-arr">→</span>
+              <div class="mas-gate">스키마 검증</div>
+              <span class="mas-arr">→</span>
+              <div class="mas-node n-appr">사람 승인</div>
+            </div>
+          </div>
         </div>
-        <div class="card autoshow fade-up">
-          <div class="pill">출력과 검증</div>
-          <p style="margin:0.55rem 0 0; font-size:0.98rem"><b>출력 스키마</b> — 지켜야 할 형식 규격</p>
-          <p style="margin:0.45rem 0 0; font-size:0.98rem"><b>검증기(validator)</b> — 형식·누락 검사</p>
-          <p style="margin:0.45rem 0 0; font-size:0.98rem"><b>재시도 한도</b> — 무한 반복을 방지</p>
-          <p style="margin:0.45rem 0 0; font-size:0.98rem"><b>근거·확신도 필드(evidence·confidence)</b> — 근거와 불확실성을 출력에 남기게</p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill">운영과 승인</div>
-          <p style="margin:0.55rem 0 0; font-size:0.98rem"><b>사람 승인 단계</b> — 위험한 실행 전 사람이 승인</p>
-          <p style="margin:0.45rem 0 0; font-size:0.98rem"><b>실행 로그·추적</b> — 무슨 일이 있었는지 기록</p>
-          <p style="margin:0.45rem 0 0; font-size:0.98rem"><b>실패 리포트</b> — 왜 실패했는지 남기고, 실패 시 중단 후 사람에게 이관</p>
-          <p style="margin:0.45rem 0 0; font-size:0.98rem"><b>읽기 전용 기본 · 사전 실행(dry-run)</b> — 쓰기 전 변경 내용을 사람이 확인</p>
-        </div>
+        <div class="m31-side m31-right"><span class="sd">권한·승인</span><b>권한 최소화</b> — 필요한 범위만<br><b>사람 승인 단계</b> — 위험한 실행 전</div>
+        <div class="m31-side m31-bottom"><span class="sd">출력 쪽</span><b>출력 스키마</b> — 형식 규격 &nbsp;·&nbsp; <b>검증기</b> — 형식·누락 검사 &nbsp;·&nbsp; <b>재시도 한도</b> — 무한 반복 방지</div>
       </div>
+      <p class="dim reader-only" style="margin-top:0.6rem; font-size:0.95rem">그 밖에 — <b style="color:#fff">근거·확신도 필드(evidence·confidence)</b>로 불확실성을 출력에 남기고, <b style="color:#fff">읽기 전용 기본 · 사전 실행(dry-run)</b>으로 쓰기 전 변경 내용을 사람이 확인합니다.</p>
       <p class="note autoshow fade-up" style="margin-top:1.0rem"><b class="accent">Harness의 목적은 모델을 믿게 만드는 것이 아니라, 실행 범위와 실패 처리를 통제하고 기록하는 것입니다.</b> 내용의 정확성은 근거와 사람 검토가 별도로 필요합니다.</p>
     </section>
 
@@ -1888,29 +1961,19 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 작동 방식</span></div>
       <h2>어떻게 돌아가나 — 스키마 게이트</h2>
-      <div class="flow-lane autoshow fade-up" style="margin-top:0.9rem">
-        <div class="flow-step me">입력</div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step neutral">Agent 실행</div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step neutral"><b>스키마로 검증</b></div>
-        <span class="flow-arrow">→</span>
-        <div class="flow-step ai">통과?</div>
-      </div>
-      <p class="mono tiny faint autoshow fade-up" style="margin-top:0.5rem; text-align:right">실패 ↻ Agent 실행으로</p>
-      <div class="grid-2" style="margin-top:0.8rem">
-        <div class="card mint autoshow fade-up">
-          <div class="pill green">통과</div>
-          <h3 class="accent2">→ 출력</h3>
-          <p>스키마를 만족한 결과만 다음 단계로 — 누락 필드를 잡고, 다음 자동화의 파싱 실패를 줄입니다.</p>
+      <p class="dim autoshow fade-up" style="font-size:1.08rem">앞 그림의 <b style="color:#fff">출력 경로를 확대</b>한 장면입니다 — 게이트를 통과한 결과만 다음 단계로 갑니다.</p>
+      <div class="autoshow fade-up" style="margin-top:1.1rem">
+        <div class="flow-lane">
+          <div class="flow-step neutral" style="flex:0.8">Agent 출력<small>JSON · 표</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="mas-gate" style="flex:1; padding:0.75rem 0.7rem; font-size:1.15rem" data-id="system-schema">스키마 검증<small>필수 필드 · 형식 · 타입 검사</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step ai" style="flex:1.2">✓ 통과 — 후속 프로그램 · 사람 승인<small>같은 구조의 결과만 전달</small></div>
         </div>
-        <div class="card amber autoshow fade-up">
-          <div class="pill amber">실패</div>
-          <h3 class="accent4">↻ 재시도</h3>
-          <p>오류 내용을 전달해, 요구한 형식으로 다시 생성합니다(재시도 한도 내).</p>
-        </div>
+        <p class="mono autoshow fade-up" style="margin:0.55rem 0 0; text-align:center; font-size:0.88rem; color:#FFE9AE !important">✕ 불합격 → 오류 내용을 붙여 다시 생성 ↻ <span class="faint">(재시도 한도 내 · 한도 초과 시 중단 후 사람에게)</span></p>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">스키마는 출력 구조만 검사합니다. 올바른 JSON이라도 내용은 틀릴 수 있으므로, 근거 확인과 사람 검토는 별도입니다. <b class="accent">구조가 맞다 ≠ 판단이 맞다.</b></p>
+      <p class="autoshow fade-up center" style="font-size:1.6rem; font-weight:800; margin-top:1.5rem"><span class="accent2">구조가 맞다</span> <span style="color:#8A93B2">≠</span> <span class="accent4">판단이 맞다</span></p>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem">스키마는 출력 구조만 검사합니다 — 올바른 JSON이라도 내용은 틀릴 수 있으므로, 근거 확인과 사람 검토는 별도입니다.</p>
     </section>
 
     <!-- 33 · 언제 쓰나 -->
@@ -1978,26 +2041,38 @@ footer, header, hgroup, main, menu, nav, section {
     <!-- 36 · 회고 -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 회고</span></div>
-      <h2>오늘 지나온 길 — 세 가지만 가져가세요</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.08rem">오늘 우리는 <b style="color:#fff">하나의 로그 분류 작업을 — Skill·MCP·Harness를 더해 가며</b> 검증 가능한 업무 흐름으로 확장했습니다.</p>
-      <div class="grid-3" style="margin-top:1.0rem">
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">본문 1 · 어디서</div>
-          <h3>민감 데이터는 사내 경로로</h3>
-          <p>기준은 <b style="color:#fff">데이터의 처리·저장 위치</b> — 민감 데이터는 승인된 사내 경로에서.</p>
+      <h2>오늘 지나온 길 — 그림 하나가 완성됐습니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.08rem">하나의 로그 분류 작업에 <b class="accent">Skill</b>(절차) · <b class="accent2">MCP</b>(연결) · <b class="accent3">Harness</b>(통제)를 더해 — 3장의 그림이 채워졌습니다. 데이터는 처음부터 끝까지 <b style="color:#fff">승인된 사내 경로</b>에서.</p>
+      <div class="mas autoshow fade-up" style="margin-top:0.8rem">
+        <div class="mas-core">
+          <span class="mas-hlabel">Harness — 실행 통제 · 본문 3</span>
+          <div class="mas-row">
+            <div class="mas-node n-skill" data-id="system-skill">Skill<small>절차 — 데모 2</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>계획 · 실행 · 확인 ↻</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-mcp" data-id="system-mcp">MCP<small>연결 — 데모 3</small></div>
+          </div>
+          <div class="mas-outrow">
+            <div class="mas-node" style="flex:0.55">출력<small>JSON</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-gate" data-id="system-schema">스키마 검증<small>데모 4</small></div>
+            <span class="mas-arr">→</span>
+            <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>원인 확정 · 조치는 사람이</small></div>
+          </div>
         </div>
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">본문 2 · 무엇으로</div>
-          <h3>확장 요소 둘</h3>
-          <p>기본 모델의 <b style="color:#fff">두 공백</b> — 절차는 <b class="accent">Skill</b>로, 연결은 <b class="accent2">MCP</b>로 채웠습니다.</p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">본문 3 · 어떻게</div>
-          <h3>틀로 감싸서</h3>
-          <p><b class="accent3">Harness</b>는 실행 범위와 출력 형식을 통제하고, <b style="color:#fff">최종 원인과 조치 여부는 사람이</b> 결정합니다.</p>
+        <div class="mas-ext" data-id="system-external-tools">
+          <span class="mas-extlabel">사내 경계 안 — 본문 1</span>
+          <div class="mas-extnode">Jira</div>
+          <div class="mas-extnode">문서고 · DB</div>
         </div>
       </div>
-      <p class="autoshow fade-up" style="font-size:1.75rem; font-weight:800; margin-top:1.3rem">뼈대는 이 세 줄 — <span class="grad">어디서 · 무엇으로 · 어떻게.</span> 그리고 네 원칙 — 작게 · 구조화 · 근거 · 승인.</p>
+      <div class="ribbon mini autoshow fade-up" style="margin-top:0.9rem">
+        <div class="rb"><span class="rb-n">1</span><span class="rb-t">작게 시작한다</span></div>
+        <div class="rb"><span class="rb-n">2</span><span class="rb-t">출력을 구조화한다</span></div>
+        <div class="rb"><span class="rb-n">3</span><span class="rb-t">근거를 남긴다</span></div>
+        <div class="rb"><span class="rb-n">4</span><span class="rb-t">사람이 승인한다</span></div>
+      </div>
     </section>
 
     <!-- 37 · 좋은 요청 / 나쁜 요청 -->
