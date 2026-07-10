@@ -9,7 +9,7 @@
 | [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v1.8) |
 | [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.16) |
 | [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v1.1 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
-| [slides/index.html](slides/index.html) | 54장 슬라이드 (reveal.js 기반 단일 파일 HTML, 외부 의존 0) |
+| [slides/index.html](slides/index.html) | 54장 슬라이드 (reveal.js 기반 단일 파일 HTML, 외부 의존 0 · v1.8.1 문구 정밀화) |
 
 ## 한눈에
 
