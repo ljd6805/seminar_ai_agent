@@ -2222,9 +2222,10 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="term sim autoshow fade-up" style="margin-top:0.9rem">
         <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">텍스트 → 토큰(단어 조각) · 진입 시 1회 재생</span></div>
         <div class="term-body" style="padding:1.05rem 1.3rem">
-          <p class="llm-line" style="margin:0; font-size:1.3rem; font-weight:800"><span class="tok t1">어제</span><span class="tok t2">회의</span><span class="tok t3">메모를</span><span class="tok t4">표로</span><span class="tok t5">정리</span><span class="tok t6">해줘</span></p>
+          <p class="llm-line" style="margin:0; font-size:1.7rem; font-weight:800"><span class="tok t1">어제</span><span class="tok t2">회의</span><span class="tok t3">메모를</span><span class="tok t4">표로</span><span class="tok t5">정리</span><span class="tok t6">해줘</span></p>
           <div class="tok-meter"><span>사용량</span><span class="tm-bar"><i></i></span><span>사용량은 비용·시간에 영향</span></div>
-          <p class="sim-cap tok-cap">모델은 이 조각(토큰) 단위로 읽고 씁니다 — <b style="color:#fff">컨텍스트의 한도도 토큰으로 셉니다.</b> <span class="dim">실제 토큰 분할 방식은 모델마다 다릅니다.</span></p>
+          <p class="sim-cap tok-cap">모델은 이 조각(토큰) 단위로 읽고 씁니다 — <b style="color:#fff">컨텍스트의 한도도 토큰으로 셉니다.</b></p>
+          <p class="mono tiny faint tok-cap" style="margin:0.3rem 0 0">실제 토큰 분할 방식은 모델마다 다릅니다 — 위 분할은 설명용.</p>
         </div>
       </div>
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
@@ -2239,11 +2240,11 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="term shell sim autoshow fade-up" style="margin-top:0.8rem">
         <div class="term-bar"><span class="term-title">user@ds-linux: ~ — bash</span><span class="win-btns"><span>–</span><span class="wb-sq"></span><span>×</span></span></div>
         <div class="term-body" style="line-height:1.9; padding:0.9rem 1.2rem">
-          <div><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">curl -fsSLO https://______.______/repository/opencode/install-v1.x.sh</span></div>
-          <div class="oc-line oc0"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">curl -fsSLO https://______.______/repository/opencode/install-v1.x.sh.sha256</span></div>
-          <div class="oc-line oc1"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">sha256sum -c install-v1.x.sh.sha256</span> <span class="sh-dim">→</span> <span class="sh-ok">install-v1.x.sh: OK</span></div>
-          <div class="oc-line oc2"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">less install-v1.x.sh</span> <span class="sh-dim">← 스크립트 내용 확인</span></div>
-          <div class="oc-line oc3"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">bash install-v1.x.sh</span></div>
+          <div><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">curl -fsSLO https://______.______/repository/opencode/install-v1.x.sh</span> <span class="sh-dim">← ① 설치 스크립트 내려받기</span></div>
+          <div class="oc-line oc0"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">curl -fsSLO https://______.______/repository/opencode/install-v1.x.sh.sha256</span> <span class="sh-dim">← ② checksum 내려받기</span></div>
+          <div class="oc-line oc1"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">sha256sum -c install-v1.x.sh.sha256</span> <span class="sh-dim">← ③ 무결성 검증 →</span> <span class="sh-ok">install-v1.x.sh: OK</span></div>
+          <div class="oc-line oc2"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">less install-v1.x.sh</span> <span class="sh-dim">← ④ 스크립트 내용 확인</span></div>
+          <div class="oc-line oc3"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">bash install-v1.x.sh</span> <span class="sh-dim">← ⑤ 실행</span></div>
           <div class="oc-line oc4"><span class="sh-ok">  ✓ opencode 설치 완료 — PATH에 추가됨</span></div>
           <div class="oc-line oc5"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">opencode</span> <span class="sh-dim">— 실행하면 터미널에서 대화가 시작됩니다</span></div>
           <div class="oc-line oc6">무엇을 도와드릴까요? <span class="llm-cursor">▍</span></div>
@@ -2303,31 +2304,33 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem"><b class="accent">AI에게 맡길 때는 작업 기준과 검증 방법을 더 명확히 정의해야 합니다.</b></p>
     </section>
 
-    <!-- 49 · 부록 — MCP 구조·동작 -->
+    <!-- 49 · 부록 — MCP 구조 ① 구조와 제공 요소 -->
     <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · MCP 구조와 동작</span></div>
-      <h2>MCP의 구조 — 연결한 뒤, 골라서 호출</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.1rem">구성은 단순합니다 — <b style="color:#fff">한쪽에는 AI 클라이언트, 다른 쪽에는 도구와 데이터, 그 사이에 공통 규약.</b> <span class="dim">클라이언트 설정에 서버 정보를 등록해 연결을 시작합니다.</span></p>
-      <div class="grid-2 sk25" style="margin-top:0.7rem; align-items:start">
-        <div class="autoshow fade-left">
-          <div class="phead">구조 — client · server (데모 3의 세 정거장 그대로)</div>
-          <div class="flow-lane" style="margin-top:0.3rem">
-            <div class="flow-step neutral" style="flex-direction:column; gap:0.15rem"><span>도구·데이터</span><span class="tiny" style="font-weight:400">예: Jira</span></div>
-            <span class="flow-arrow">⇄</span>
-            <div class="flow-step ai" style="flex-direction:column; gap:0.15rem"><span>MCP 서버</span><span class="tiny" style="font-weight:400">공용 규격으로 통역</span></div>
-            <span class="flow-arrow">⇄</span>
-            <div class="flow-step me" style="flex-direction:column; gap:0.15rem"><span>AI 클라이언트</span><span class="tiny" style="font-weight:400">모델·Agent가 있는 쪽</span></div>
-          </div>
-          <p style="font-size:0.98rem; margin-top:0.8rem" class="dim">서버가 노출하는 세 가지:</p>
-          <div class="pills" style="display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.4rem">
-            <span class="pill green">tools · 도구</span><span class="pill green">resources · 데이터</span><span class="pill green">prompts · 프롬프트 템플릿</span>
-          </div>
-        </div>
-        <div class="autoshow fade-right">
-          <div class="phead">연결 설정 예시 — OpenCode 기준 (주소는 가상)</div>
-          <div class="term">
-            <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">opencode.json — MCP 서버 등록</span></div>
-            <div class="term-body" style="white-space:pre-wrap">{
+      <div><span class="chip">부록 · MCP 구조 ① 구조와 제공 요소</span></div>
+      <h2>MCP의 구조 — 클라이언트 · 서버 · 제공 요소</h2>
+      <p class="dim" style="font-size:1.1rem">구성은 단순합니다 — <b style="color:#fff">한쪽에는 AI 클라이언트, 다른 쪽에는 도구와 데이터, 그 사이에 공통 규약.</b></p>
+      <div class="flow-lane" style="margin-top:1.3rem">
+        <div class="flow-step neutral"><span>도구·데이터</span><small>예: Jira — 이슈가 있는 곳</small></div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-step ai"><span>MCP 서버</span><small>공용 규격으로 통역 — 데모 3의 연결 통로</small></div>
+        <span class="flow-arrow">⇄</span>
+        <div class="flow-step me"><span>AI 클라이언트</span><small>모델·Agent가 있는 쪽 — OpenCode 등</small></div>
+      </div>
+      <p style="font-size:1.0rem; margin-top:1.3rem" class="dim">서버가 클라이언트에 노출하는 세 가지:</p>
+      <div class="pills" style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem">
+        <span class="pill green">tools · 도구</span><span class="pill green">resources · 데이터</span><span class="pill green">prompts · 프롬프트 템플릿</span>
+      </div>
+      <p class="note" style="margin-top:1.3rem"><b class="accent">Skill</b>은 절차를, <b class="accent2">MCP</b>는 연결을 담당합니다. <span class="mono tiny faint">출처: MCP 공식 문서(modelcontextprotocol.io) · 확인일 2026-07</span></p>
+    </section>
+
+    <!-- 50 · 부록 — MCP 구조 ② 연결 설정과 호출 흐름 -->
+    <section data-layer="APPENDIX" data-sec="부록">
+      <div><span class="chip">부록 · MCP 구조 ② 연결 설정과 호출 흐름</span></div>
+      <h2>연결 설정과 호출 흐름</h2>
+      <p class="dim" style="font-size:1.1rem">클라이언트 설정에 서버 정보를 등록해 연결을 시작합니다. <span class="dim">(OpenCode 기준 · 주소는 가상)</span></p>
+      <div class="term" style="margin-top:0.8rem; max-width:36rem">
+        <div class="term-bar"><span class="term-title">opencode.json — MCP 서버 등록</span></div>
+        <div class="term-body" style="white-space:pre-wrap; font-size:1.0rem">{
   <span class="t-key">"mcp"</span>: {
     <span class="t-key">"jira"</span>: {   <span class="t-out">← 데모 3의 그 서버</span>
       <span class="t-key">"type"</span>: <span class="t-str">"remote"</span>,
@@ -2336,24 +2339,21 @@ footer, header, hgroup, main, menu, nav, section {
     }
   }
 }</div>
-          </div>
-          <p class="mono tiny faint" style="margin-top:0.45rem">서버 등록은 설정에서 시작하지만, 인증·권한·네트워크 정책은 별도로 구성해야 합니다.</p>
-        </div>
       </div>
-      <div class="autoshow fade-up" style="margin-top:0.7rem">
+      <div style="margin-top:1.0rem">
         <div class="phead">동작 — 연결하고, 골라 호출</div>
         <div class="flow-lane" style="margin-top:0.3rem">
-          <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>① 연결</span><span class="tiny" style="font-weight:400">서버 접속 — 사용 가능한 도구 목록 교환</span></div>
+          <div class="flow-step neutral"><span>① 연결</span><small>서버 접속 — 사용 가능한 도구 목록 교환</small></div>
           <span class="flow-arrow">→</span>
-          <div class="flow-step ai" style="flex-direction:column; gap:0.12rem"><span>② 선택·호출</span><span class="tiny" style="font-weight:400">필요한 도구를 골라 호출 — 예: jira_search</span></div>
+          <div class="flow-step ai"><span>② 선택 · 호출</span><small>필요한 도구를 골라 호출 — 예: jira_search</small></div>
           <span class="flow-arrow">→</span>
-          <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>③ 결과 수신</span><span class="tiny" style="font-weight:400">응답을 받아 다음 판단에 사용</span></div>
+          <div class="flow-step neutral"><span>③ 결과 수신</span><small>응답을 받아 다음 판단에 사용</small></div>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:0.7rem">①→②→③ — 데모 3의 Jira 조회가 이 순서로 일어납니다. <span class="dim"><b class="accent">Skill</b>은 절차를, <b class="accent2">MCP</b>는 연결을 담당합니다.</span></p>
+      <p class="note" style="margin-top:0.9rem">서버 등록은 설정에서 시작하지만, <b class="accent">인증 · 권한 · 네트워크 정책은 별도로 구성</b>해야 합니다.</p>
     </section>
 
-    <!-- 50 · 부록 — harness 장단점 -->
+    <!-- 51 · 부록 — harness 장단점 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · Harness 장단점</span></div>
       <h2>무엇을 얻고, 무엇을 치르나</h2>
@@ -2372,7 +2372,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.2rem">Harness 도입 여부는 <b style="color:#fff">작업의 반복성, 실패 영향, 자동 연결 여부</b>를 기준으로 결정합니다.</p>
     </section>
 
-    <!-- 51 · 부록 — FAQ -->
+    <!-- 52 · 부록 — FAQ -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · FAQ</span></div>
       <h2>세 가지 질문에 미리 답합니다</h2>
@@ -2395,48 +2395,22 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 52 · 부록 — 도구 지도 -->
+    <!-- 53 · 부록 — 확장 도구 후보 -->
     <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · 도구 지도</span></div>
-      <h2>확장 도구 — 설치 전 검토가 필요합니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">이미 만들어진 확장 요소도 많습니다 — <b style="color:#fff">유용하지만, 설치 전 검토가 필요합니다.</b> 종류마다 예 하나씩만 봅니다.</p>
-      <div class="grid-3" style="margin-top:0.9rem">
-        <div class="card autoshow fade-up">
-          <div class="pill">Context 확장</div>
-          <h3>맥락을 넓힌다</h3>
-          <p>긴 작업·기억을 이어가게 — 도입에서 본 <b style="color:#fff">컨텍스트 한도</b>를 보완. <span class="accent2">예: claude-mem</span></p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill">웹·브라우저</div>
-          <h3>웹을 다룬다</h3>
-          <p>브라우저 자동화·웹 자료 수집. <span class="accent2">예: playwright</span></p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill">Token 절약</div>
-          <h3>비용을 줄인다</h3>
-          <p>불필요한 <b style="color:#fff">토큰(=비용)</b> 소모를 줄인다. <span class="accent2">예: 사내 검토 후 확정</span></p>
-        </div>
-      </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">설치 전 <b class="accent">출처 · 요구 권한 · 외부 통신 여부 · 데이터 처리 위치 · 유지보수 상태</b>를 확인합니다. 전체 후보는 <b class="accent4">다음 장</b>에.</p>
-      <p class="note autoshow fade-up" style="border-top:0; padding-top:0.15rem">주의는 하나 — 일부 MCP 서버·도구는 <b class="accent3">외부로 연결</b>됩니다. 설계 자산이 나갈 수 있으니 <b class="accent2">애매하면 보안 먼저</b>(본문 1의 원칙).</p>
-    </section>
-
-    <!-- 53 · 부록 — 도구 후보 목록 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · 확장 요소 후보 · 자가학습용</span></div>
-      <h2>부록 — 확장 요소 후보</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">발표에서는 다루지 않습니다. 출처를 확인하기 어려운 후보는 제외했으며, 사내 승인 여부 확인이 우선입니다.</p>
-      <div class="panel autoshow fade-up" style="margin-top:0.9rem">
+      <div><span class="chip">부록 · 확장 도구 후보 · 자가학습용</span></div>
+      <h2>확장 도구 후보 — 설치 전 검토가 필요합니다</h2>
+      <p class="dim" style="font-size:1.08rem">이미 만들어진 확장 요소도 많습니다 — 발표에서는 다루지 않으며, <b style="color:#fff">출처를 확인하기 어려운 후보는 제외</b>했습니다.</p>
+      <div class="panel" style="margin-top:0.8rem">
         <table class="risk-table">
-          <tr><th>이름</th><th>유형</th><th>주요 용도</th><th>외부 통신</th><th>확인일</th></tr>
-          <tr><td>playwright</td><td>MCP 서버</td><td>브라우저 자동화 · 웹 화면 확인</td><td>있음 — 웹 접속</td><td>2026-07</td></tr>
-          <tr><td>firecrawl</td><td>MCP 서버</td><td>웹 문서 수집·정리</td><td>있음 — 외부 API</td><td>2026-07</td></tr>
-          <tr><td>claude-mem</td><td>플러그인</td><td>세션 기록 · 컨텍스트 메모리</td><td>주로 로컬</td><td>2026-07</td></tr>
-          <tr><td>superpowers</td><td>플러그인 (Skill 모음)</td><td>작업 절차 Skill 모음</td><td>주로 로컬</td><td>2026-07</td></tr>
+          <tr><th>이름</th><th>유형</th><th>주요 용도</th><th>외부 통신</th><th>요구 권한</th><th>출처</th><th>확인일</th></tr>
+          <tr><td>playwright</td><td>MCP 서버</td><td>브라우저 자동화 · 웹 화면 확인</td><td>있음 — 웹 접속</td><td>브라우저 실행</td><td>Microsoft 공식</td><td>2026-07</td></tr>
+          <tr><td>firecrawl</td><td>MCP 서버</td><td>웹 문서 수집·정리</td><td>있음 — 외부 API</td><td>외부 API 키</td><td>Firecrawl 공식</td><td>2026-07</td></tr>
+          <tr><td>claude-mem</td><td>플러그인</td><td>세션 기록 · 컨텍스트 메모리</td><td>주로 로컬</td><td>로컬 파일 접근</td><td>커뮤니티(공개 저장소)</td><td>2026-07</td></tr>
+          <tr><td>superpowers</td><td>플러그인 (Skill 모음)</td><td>작업 절차 Skill 모음</td><td>주로 로컬</td><td>로컬 파일 접근</td><td>커뮤니티(공개 저장소)</td><td>2026-07</td></tr>
         </table>
       </div>
-      <p class="mono tiny faint autoshow fade-up" style="margin-top:0.5rem">요구 권한 · 데이터 처리 위치 · 사내 승인 여부는 설치 전 확인 (______)</p>
-      <p class="note autoshow fade-up" style="margin-top:1.2rem">사내 승인 여부와 출처를 확인한 후보부터 검토하세요 — <b class="accent2">애매하면 보안 검토가 우선입니다.</b></p>
+      <p class="mono tiny faint" style="margin-top:0.5rem">유형 예 — 컨텍스트 확장 · 웹/브라우저 · 작업 절차 모음. 그 밖의 유형(토큰 절약 등)은 사내 검토 후 추가. 사내 승인 여부·데이터 처리 위치는 설치 전 확인 (______)</p>
+      <p class="note" style="margin-top:1.0rem">설치 전 <b class="accent">출처 · 요구 권한 · 외부 통신 여부 · 유지보수 상태</b>를 확인합니다. 일부 도구는 <b class="accent3">외부로 연결</b>되어 설계 자산이 나갈 수 있습니다 — <b class="accent2">애매하면 보안 검토 우선</b>(본문 1의 원칙).</p>
     </section>
 
     <!-- 54 · 부록 — 용어집 -->
