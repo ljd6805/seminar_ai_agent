@@ -5,6 +5,8 @@
 
 ## 지금 무엇을 하는 중인가
 
+- **(2026-07-10) v1.9 디자인 전면 점검** — 문구 불변, 시각 구조 재설계. **Master Visual(.mas)**: Harness 코랄 점선 경계가 Skill(청보라)→Agent/LLM(보라)→MCP(민트) + 출력→스키마 게이트→사람 승인(앰버) 경로를 감싸고 외부 시스템(Jira·문서고·DB)은 경계 밖 — 3·18(공백 hole)·27(경계만)·29·31(구성요소 사방 grid)·32(게이트 확대)·36(완성)에 재사용(auto-animate는 비인접 장이라 미사용, 동일 레이아웃 재사용으로 연속성 확보). 전역: 움직이는 배경 = `data-hero` 장(1·13·17·27·40)만(body.bg-live 게이팅), glow 30~50%↓, CORE 일반 장 chip=조용한 라벨(`.section-opener`·data-layer 장만 강조 chip), fade-left/right=단순 fade, grid·runs 자식 동시 표시, READ/APPENDIX 스태거 제거, term traffic-light 제거, minScale 0.12(모바일). **발표 모드 `?mode=presentation`**: 초기화 전 READ/APPENDIX DOM 제거(37장) + body.presentation으로 `.reader-only` 숨김(20장 주간 리포트·26장 전체 표·31장 부가·39장 둘째 프롬프트). 유형 전환: 5 과정형·12 리본·15 환경 지도·16 결정 흐름(dtree)·21 저장 흐름·25 연결 구조·26 READ→CORE(위험 3종)·28 파이프라인+실패 callout·33 스펙트럼·34 계단(ladder)·37 모호=중립 회색·39 3묶음·40 pill 삭제. 부록: 49 MCP 구조 2장 분할, 구 52+53 병합(7열 표) — **총 54장 유지**(부록 번호: 51 장단점 · 52 FAQ · 53 도구 후보).
+
 - **(2026-07-10) v1.8.1 문구 정밀화(전 장 카피 에디팅)** — 사용자 제공 편집 지침 반영: 하단 note는 결론·주의 1~2문장으로 축약(다음 장 예고 전면 삭제), 지시어 구체화("그 장면"·"그 Jira"·"이 출력" 등), 과장·단정 완화(표지 "오늘부터 작게 시작"·"맡긴 일을 완수"→"목표를 향해 진행"·"공식 용어 agentic harness" 주장 삭제→"제품·문맥에 따라 범위가 다름"), 용어 한국어화(tool→도구·schema→스키마·human approval gate→사람 승인 단계·dry-run→사전 실행 등, 필드명·제품명은 영어 유지), **데모 4 대조 축 = "형식 일관성·검증 가능성"으로 정정**(품질·재현성 표현 폐기 — 스키마 검증 유무 대조임을 라벨에 명시), 실패의 현실에 실패 ③ "예상하지 않은 행동" 추가(grid-3), L0~L5 재정의(L3 읽기 전용 조회 · L4 변경안+승인 · L5 제한된 자동 실행+모니터링·중단·복구), 설치 데모 checksum 다운로드→검증→내용 확인→실행 순서로 일관화, 예시 라벨 "설명을 위해 구성한 예시"로 통일, 부록 도구 후보를 표(이름·유형·용도·외부 통신·확인일)로 교체(출처 불명 후보 삭제: ralph loop·caveman·ponytail·yagni·frontend design), 3장 Harness 줄 = "실행 권한·검증·실패 처리를 규칙으로 통제".
 - **(2026-07-10) 90분 발표 · 54장 체제(v1.8)** — v1.7(53장, 심층 리뷰 반영) → **v1.8 관통 시나리오 재구성(54장 = 본편 40 + 부록 14)**: **Regression Triage Agent 단일 시나리오**로 데모 1(prompt)→2(Skill)→3(MCP)→4(Harness)를 관통(데모 2·3·4 소재를 회의 메모→regression triage로 교체, 회의 메모는 부록 47장으로), 데모 1을 4장으로 전진 배치(발표 5분 내, 5장 훅 질문은 발표자 멘트로), 신규 3장(3장 4요소 정리 재작업 · 12 Agent 도입 4원칙 · 38 설계 템플릿 9칸), 부록 이동 11장(역사·왜지금·왜우리·재배치·토큰·설치·Skill기준·MCP구조·Harness장단점·FAQ·도구지도), 병합 1건(구 20+21→16 점검), 구 29장(triage skill)은 20·22장에 흡수 삭제. 문구 보수화 2차(환각=구조적 실패 모드 · 컨텍스트=구성에 따라 · Skill 로드=클라이언트마다 · L0~L5=세미나용 예시 · harness 판단=5질문 체크 · 외부 데이터="조건이 다를 수 있다"), 격리 장에 오해 교정 2("사내망 접속≠사내 처리")+면책 각주, 설치 예시 안전화(curl|bash 폐기→HTTPS·버전 고정·checksum), **표기 변경: 본문 텍스트 Agent·Skill·Harness 대문자 통일(경로·SKILL.md·명령어는 원형)**, 레이어 배지 CSS 신설(DEMO/READ/APPENDIX — `section[data-layer]::after`), 출처·확인일 각주 3곳. 이후 단계: 사용자 렌더 리뷰 → 리허설.
 - 디자인: `slides/index.html`은 reveal.js 5.1.0 기반 단일 파일. 폰트는 base64 내장(Wanted Sans Variable + JetBrains Mono, 둘 다 OFL) — 외부 의존 0, 오프라인 완전 동작. 파일 크기 ~2MB(폰트 내장분). 선명도용 설정: 캔버스 2560×1600 + 루트 32px, 본문 text-shadow 없음, **reveal 스케일을 transform 대신 CSS zoom으로 패치**(minified 소스 내 layout 분기 수정 — 오버뷰 때만 transform 폴백. reveal 업그레이드 시 재적용 필요). **새 CSS는 px 말고 rem으로**(px는 캔버스 배율만큼 축소돼 보임). 비주얼 컨셉은 [geniuskey/vibe-coding-202607](https://github.com/geniuskey/vibe-coding-202607) 이식(글래스 카드·네뷸라 배경·grad 텍스트·autoshow 스태거·ESC 오버뷰).
@@ -33,7 +35,7 @@
            · 33 언제 쓰나(5질문) · 34 L0~L5(세미나용 예시) · 35 데모4(triage, 유무 대조)
 마무리(5)  36 회고 · 37 좋은/나쁜 요청 · 38 설계 템플릿 9칸 · 39 첫 실험 CTA(절차 5단계) · 40 Q&A
 부록(14)   41 역사 · 42 왜 지금 · 43 왜 우리 · 44 재배치 · 45 토큰 · 46 OpenCode 설치(안전 절차) · 47 회의 메모 Skill
-           · 48 Skill 기준 · 49 MCP 구조 · 50 Harness 장단점 · 51 FAQ · 52 도구 지도 · 53 도구 후보 · 54 용어집
+           · 48 Skill 기준 · 49 MCP 구조① · 50 MCP 구조② · 51 Harness 장단점 · 52 FAQ · 53 확장 도구 후보(표) · 54 용어집
 ```
 
 ## 확정된 결정

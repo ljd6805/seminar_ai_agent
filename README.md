@@ -9,7 +9,7 @@
 | [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v1.8) |
 | [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.16) |
 | [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v1.1 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
-| [slides/index.html](slides/index.html) | 54장 슬라이드 (reveal.js 기반 단일 파일 HTML, 외부 의존 0 · v1.8.1 문구 정밀화) |
+| [slides/index.html](slides/index.html) | 54장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
 
 ## 한눈에
 
@@ -33,7 +33,7 @@
         · 자율성 단계 L0~L5 · 데모4(유무 대조)
 마무리  회고 → 좋은/나쁜 요청 → 설계 템플릿 9칸 → 첫 실험 CTA → Q&A
 부록    역사 · 왜 지금 · 왜 우리 · 재배치 · 토큰 · OpenCode 설치 · 회의 메모 Skill · Skill 기준
-        · MCP 구조 · Harness 장단점 · FAQ · 도구 지도 · 도구 후보 · 용어집 (발표 시 넘기지 않음)
+        · MCP 구조 ①② · Harness 장단점 · FAQ · 확장 도구 후보(표) · 용어집 (발표 시 넘기지 않음)
 ```
 
 ## 진행 상태
