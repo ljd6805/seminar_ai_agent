@@ -202,11 +202,17 @@ footer, header, hgroup, main, menu, nav, section {
       border: 0.0625rem solid rgba(155, 130, 255, 0.8);
       margin-bottom: 1.1rem;
     }
-    /* 강조 chip은 표지·간지(.section-opener)·DEMO/READ/APPENDIX만 — 일반 CORE 장은 조용한 라벨 */
+    /* 강조 chip은 표지·간지(.section-opener)·DEMO/READ/APPENDIX만 — 일반 CORE 장은 kicker(주제 라벨) */
+    /* v2.3.1: 조용한 회색 0.76rem → 그라디언트 대시 + 보라 1.02rem — 제목(답)보다 주제(질문)가 먼저 읽히도록 */
     section:not(.section-opener):not([data-layer]) .chip {
       background: transparent; border-color: transparent; padding: 0;
-      color: #8A93B2 !important; font-size: .76rem; letter-spacing: 0.14em;
-      margin-bottom: 0.6rem;
+      color: #B7A5FF !important; font-size: 1.02rem; letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    section:not(.section-opener):not([data-layer]) .chip::before {
+      content: ''; display: inline-block; width: 1.6rem; height: 0.14em;
+      background: linear-gradient(90deg, #7C5CFF, #2BEAD0); border-radius: 62.4375rem;
+      vertical-align: 0.22em; margin-right: 0.55rem;
     }
 
     /* pills */
