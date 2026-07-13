@@ -957,22 +957,16 @@ footer, header, hgroup, main, menu, nav, section {
     .mas-drop::after { content: ''; position: absolute; left: 13%; top: 0.8rem; bottom: -0.1rem; border-left: 0.11rem solid rgba(155,130,255,0.55); }
     .mas-droplabel { position: absolute; left: 54%; top: 0.3rem; font-family: var(--mono); font-size: 0.68rem; font-weight: 700; color: #B7A5FF !important; white-space: nowrap; }
     .mas-droptip { position: absolute; left: 13%; bottom: -0.4rem; transform: translateX(-50%); color: rgba(155,130,255,0.85) !important; font-size: 0.66rem; line-height: 1; }
-    /* --- 3장 전용 variant (.mas-ov): 단계형 grid — Agent와 출력의 중심축 일치, 다른 장 영향 없음 --- */
-    .mas-ov-core { display: grid; grid-template-columns: 4.7rem 0.85fr 5.6rem 13.8rem 8.8rem 1.35fr; grid-template-rows: auto 2.7rem auto auto; column-gap: 0.6rem; row-gap: 0; align-items: stretch; }
-    .mas-ov-stage { align-self: center; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.02em; color: #B7C0DA !important; word-break: keep-all; }
-    .ovs1 { grid-area: 1 / 1; }
-    .ov-skill { grid-area: 1 / 2; }
-    .ov-c1 { grid-area: 1 / 3; }
-    .ov-agent { grid-area: 1 / 4; }
-    .ov-c2 { grid-area: 1 / 5; }
-    .ov-mcp { grid-area: 1 / 6; position: relative; }
-    .mas-ov-bridge { grid-area: 2 / 4; position: relative; }
-    .ovs2 { grid-area: 3 / 1; }
-    .mas-ov-ctlrow { grid-area: 3 / 4 / 4 / 7; display: flex; align-items: center; gap: 0.45rem; padding-left: 3.3rem; }
-    .mas-ov-core .mas-ctl { grid-area: 4 / 1 / 5 / 7; margin-top: 0.9rem; }
-    .mas-ov .ov-skill, .mas-ov .ov-agent, .mas-ov .ov-mcp { font-size: 1.14rem; }
+    /* --- 3장 전용 variant (.mas-ov): 중앙축형 T 구성 — Agent = 가로 중심, 다른 장 영향 없음 --- */
+    .mas-ov { align-items: flex-start; }
+    .mas-ov-core { padding: 1.3rem 1.2rem 1.4rem; }
+    .mas-ov-slabel { display: block; width: fit-content; font-size: 0.85rem; font-weight: 800; letter-spacing: 0.02em; color: #B7C0DA !important; margin-bottom: 0.5rem; }
+    /* 상단 작업 수행: Skill—Agent—MCP 좌우 대칭 (연결 열 동일 폭, Agent 중앙) */
+    .mas-ov-workflow { display: grid; grid-template-columns: 1fr 7.2rem 1.35fr 7.2rem 1fr; column-gap: 0.55rem; align-items: stretch; }
+    .mas-ov .ov-agent { font-size: 1.2rem; }
+    .mas-ov .ov-skill, .mas-ov .ov-mcp { font-size: 1.08rem; }
     /* 관계 연결선: 한 줄 라벨(.cl) + 선(.cline) — 선 스타일로 관계 구분 */
-    .mas-ov-conn { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; }
+    .mas-ov-conn { align-self: center; display: flex; flex-direction: column; align-items: center; gap: 0.3rem; min-width: 0; }
     .mas-ov-conn .cl { font-size: 0.78rem; font-weight: 700; line-height: 1.3; color: #A9B4D8 !important; white-space: nowrap; }
     .mas-ov-conn .cline { position: relative; display: block; align-self: stretch; height: 0; }
     .ov-c1 .cl { color: #C4D2FF !important; }
@@ -981,24 +975,29 @@ footer, header, hgroup, main, menu, nav, section {
     .ov-c2 .cline { border-top: 0.095rem solid rgba(190,200,224,0.55); }
     .ov-c2 .cline::before { content: '◂'; position: absolute; left: -0.3rem; top: 50%; transform: translateY(-50%); color: rgba(190,200,224,0.85) !important; font-size: 0.72rem; line-height: 1; }
     .ov-c2 .cline::after { content: '▸'; position: absolute; right: -0.3rem; top: 50%; transform: translateY(-50%); color: rgba(190,200,224,0.85) !important; font-size: 0.72rem; line-height: 1; }
-    .ov-c3 { flex: 0 0 4.6rem; }
+    .ov-c3 { flex: 0 0 4.8rem; }
     .ov-c3 .cl { color: #FFE9AE !important; }
     .ov-c3 .cline { border-top: 0.095rem solid rgba(255,212,107,0.6); }
     .ov-c3 .cline::after { content: '▸'; position: absolute; right: -0.3rem; top: 50%; transform: translateY(-50%); color: rgba(255,212,107,0.85) !important; font-size: 0.72rem; line-height: 1; }
-    /* Agent → 출력: 수직 직결 — 이 그림의 중심 전환 */
-    .mas-ov-bridge::before { content: ''; position: absolute; left: 50%; top: -0.05rem; bottom: 0.55rem; border-left: 0.15rem solid rgba(155,130,255,0.85); }
-    .mas-ov-bridge::after { content: '▼'; position: absolute; left: 50%; bottom: -0.05rem; transform: translateX(-50%); color: #B7A5FF !important; font-size: 0.8rem; line-height: 1; }
-    .mas-ov-bridge span { position: absolute; left: calc(50% + 0.8rem); top: 45%; transform: translateY(-50%); font-size: 0.82rem; font-weight: 800; color: #C9B8FF !important; white-space: nowrap; }
-    /* 결과 통제 행(2순위): 위 행보다 한 단계 작게 */
-    .ov-out { flex: 0 0 7.2rem; box-sizing: border-box; }
-    .ov-next { flex: 1; }
-    .mas-ov-ctlrow .mas-node, .mas-ov-ctlrow .mas-gate { font-size: 0.98rem; }
-    .mas-ov-ctlrow .mas-node small, .mas-ov-ctlrow .mas-gate small { font-size: 0.72rem; }
-    .mas-ov-ctlrow .mas-gate { padding: 0.42rem 0.7rem; }
-    /* MCP ⇄ 외부 시스템: Harness 경계를 통과하는 연결 */
-    .ov-mcp::after { content: ''; position: absolute; left: 100%; top: 50%; width: 3.6rem; border-top: 0.09rem dashed rgba(43,234,208,0.65); }
-    .ov-mcp::before { content: '⇄'; position: absolute; left: calc(100% + 1.2rem); top: calc(50% - 1.05rem); color: rgba(43,234,208,0.9) !important; font-size: 0.78rem; line-height: 1; }
-    .mas-ov .mas-ext { justify-content: flex-start; padding-top: 1.1rem; }
+    /* 수직 브리지: 대칭 grid라 Agent 중심 = core 가로 중심(50%) — 꺾임 없는 직선 */
+    .mas-ov-bridge { position: relative; height: 2.6rem; margin: 0.1rem 0; }
+    .mas-ov-bridge::before { content: ''; position: absolute; left: 50%; top: -0.1rem; bottom: 0.5rem; border-left: 0.15rem solid rgba(155,130,255,0.85); }
+    .mas-ov-bridge::after { content: '▼'; position: absolute; left: 50%; bottom: 0; transform: translateX(-50%); color: #B7A5FF !important; font-size: 0.8rem; line-height: 1; }
+    .mas-ov-bridge span { position: absolute; left: calc(50% + 0.7rem); top: 42%; transform: translateY(-50%); font-size: 0.82rem; font-weight: 800; color: #C9B8FF !important; white-space: nowrap; }
+    /* 하단 결과 통제: 그룹 전체를 fit-content + margin auto로 중앙 정렬 (수동 보정 없음) */
+    .mas-ov-control { width: fit-content; margin: 0 auto; }
+    .mas-ov-ctlflow { display: flex; align-items: center; gap: 0.45rem; }
+    .mas-ov-ctlflow .mas-node, .mas-ov-ctlflow .mas-gate { flex: none; box-sizing: border-box; min-width: 6.8rem; font-size: 0.95rem; padding: 0.4rem 0.7rem; background: rgba(255,255,255,0.02); }
+    .mas-ov-ctlflow .mas-node small, .mas-ov-ctlflow .mas-gate small { font-size: 0.72rem; }
+    .mas-ov-ctlflow .mas-gate { border-width: 0.1rem; }
+    /* 외부 시스템: 단일 경량 노드 + 명시적 커넥터 (Harness 경계 통과) */
+    .mas-ov-extlink { flex: none; align-self: flex-start; margin-top: 4.05rem; width: 1.4rem; text-align: center; color: rgba(43,234,208,0.9) !important; font-size: 0.95rem; font-weight: 800; line-height: 1; position: relative; }
+    .mas-ov-extlink::before, .mas-ov-extlink::after { content: ''; position: absolute; top: 50%; border-top: 0.09rem dashed rgba(43,234,208,0.5); }
+    .mas-ov-extlink::before { right: 100%; width: 2.3rem; }
+    .mas-ov-extlink::after { left: 100%; width: 1.0rem; }
+    .mas-ov-external { flex: 0 0 10.2rem; margin-top: 3.05rem; text-align: center; border: 0.0625rem solid rgba(190,200,224,0.28); border-radius: 0.6rem; padding: 0.5rem 0.5rem 0.55rem; background: rgba(11,14,26,0.45); }
+    .mas-ov-external .ext-t { display: block; font-size: 0.92rem; font-weight: 700; color: #C7CEE0 !important; }
+    .mas-ov-external .ext-d { display: block; font-size: 0.72rem; color: #8A93B2 !important; margin-top: 0.2rem; }
     /* 결함 callout (18장 두 공백 등) */
     .mas-callout {
       font-size: 0.85rem; font-weight: 700; color: #FFD46B !important;
@@ -1203,30 +1202,34 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="mas mas-ov autoshow fade-up" style="margin-top:0.7rem">
         <div class="mas-core mas-ov-core">
           <span class="mas-hlabel">Harness — 실행 권한·검증·실패 처리를 규칙으로 통제</span>
-          <span class="mas-ov-stage ovs1">① 작업 수행</span>
-          <div class="mas-node n-skill ov-skill" data-id="system-skill">Skill<small>반복 작업의 절차와 기준</small></div>
-          <div class="mas-ov-conn ov-c1"><span class="cl">방법·규칙</span><span class="cline"></span></div>
-          <div class="mas-node n-agent ov-agent" data-id="system-agent">Agent / LLM<small>목표를 받아 계획 · 도구 사용 · 결과 확인 ↻</small></div>
-          <div class="mas-ov-conn ov-c2"><span class="cl">도구 호출 · 결과 수신</span><span class="cline"></span></div>
-          <div class="mas-node n-mcp ov-mcp" data-id="system-mcp">MCP<small>데이터·시스템 연결 포트</small></div>
-          <div class="mas-ov-bridge"><span>작업 결과</span></div>
-          <span class="mas-ov-stage ovs2">② 결과 통제</span>
-          <div class="mas-ov-ctlrow">
-            <div class="mas-node ov-out">출력<small>JSON · 표</small></div>
-            <span class="mas-arr">→</span>
-            <div class="mas-gate" data-id="system-schema">스키마 검증<small>형식 게이트</small></div>
-            <span class="mas-arr">→</span>
-            <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>쓰기·공유 전</small></div>
-            <div class="mas-ov-conn ov-c3"><span class="cl">승인 후 실행</span><span class="cline"></span></div>
-            <div class="mas-node ov-next">후속 작업<small>리포트 · 반영</small></div>
+          <div class="mas-ov-work">
+            <span class="mas-ov-slabel">① 작업 수행</span>
+            <div class="mas-ov-workflow">
+              <div class="mas-node n-skill ov-skill" data-id="system-skill">Skill<small>반복 작업의 절차와 기준</small></div>
+              <div class="mas-ov-conn ov-c1"><span class="cl">방법·규칙</span><span class="cline"></span></div>
+              <div class="mas-node n-agent ov-agent" data-id="system-agent">Agent / LLM<small>목표를 받아 계획 · 도구 사용 · 결과 확인 ↻</small></div>
+              <div class="mas-ov-conn ov-c2"><span class="cl">도구 호출 · 결과 수신</span><span class="cline"></span></div>
+              <div class="mas-node n-mcp ov-mcp" data-id="system-mcp">MCP<small>데이터·시스템 연결 포트</small></div>
+            </div>
           </div>
-          <div class="mas-ctl"><span>권한</span><span>재시도</span><span>로그</span><span>승인</span><span>중단 규칙</span></div>
+          <div class="mas-ov-bridge"><span>작업 결과</span></div>
+          <div class="mas-ov-control">
+            <span class="mas-ov-slabel">② 결과 통제</span>
+            <div class="mas-ov-ctlflow">
+              <div class="mas-node ov-out">출력<small>JSON · 표</small></div>
+              <span class="mas-arr">→</span>
+              <div class="mas-gate" data-id="system-schema">스키마 검증<small>형식 게이트</small></div>
+              <span class="mas-arr">→</span>
+              <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>쓰기·공유 전</small></div>
+              <div class="mas-ov-conn ov-c3"><span class="cl">승인 후 실행</span><span class="cline"></span></div>
+              <div class="mas-node ov-next">후속 작업<small>리포트 · 반영</small></div>
+            </div>
+          </div>
         </div>
-        <div class="mas-ext" data-id="system-external-tools">
-          <span class="mas-extlabel">외부 시스템</span>
-          <div class="mas-extnode">Jira</div>
-          <div class="mas-extnode">문서고 · DB</div>
-          <div class="mas-extnode">도구 · shell</div>
+        <div class="mas-ov-extlink">⇄</div>
+        <div class="mas-ov-external" data-id="system-external-tools">
+          <span class="ext-t">외부 시스템</span>
+          <span class="ext-d">Jira · 문서고 · DB · 도구</span>
         </div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:0.7rem">오늘의 목표는 <b class="accent">이번 주에 검증 가능한 반복 업무 하나에 적용해 보는 것</b>입니다.</p>
