@@ -723,6 +723,28 @@ footer, header, hgroup, main, menu, nav, section {
     }
     .flow-arrow { color: #8A93B2 !important; font-weight: 800; align-self: center; }
 
+    /* 7장 LLM vs AI Agent (.lva): 좌우 동일 LLM 노드 + Agent 포함 구조 — 다른 장 영향 없음 */
+    .lva { align-items: stretch; }
+    .lva .card { display: flex; flex-direction: column; }
+    .lva-flow { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.28rem; margin-top: 0.85rem; }
+    .lva-io { text-align: center; min-width: 14rem; padding: 0.42rem 1.0rem; border: 0.0625rem solid rgba(190,200,224,0.4); border-radius: 0.65rem; background: rgba(11,14,26,0.55); font-weight: 700; font-size: 1.0rem; color: #D6DCEC !important; }
+    .lva-io small, .lva-llm small, .lva-part small { display: block; font-weight: 500; font-size: 0.74rem; color: #8A93B2 !important; margin-top: 0.12rem; word-break: keep-all; }
+    .lva-down { color: #8A93B2 !important; font-weight: 800; font-size: 0.9rem; line-height: 1; }
+    /* LLM 노드: 좌·우(Agent 내부) 동일 컴포넌트 — 색·형태·크기·패딩 동일 */
+    .lva-llm { text-align: center; padding: 0.5rem 0.9rem; border: 0.09rem solid rgba(155,130,255,0.7); border-radius: 0.7rem; background: rgba(155,130,255,0.12); font-weight: 800; font-size: 1.05rem; color: #B7A5FF !important; }
+    .lva-llm small { color: rgba(183,165,255,0.85) !important; }
+    .lva-flow > .lva-llm { min-width: 14rem; }
+    /* Agent 컨테이너: LLM + 도구 + 실행 루프를 포함 (6장 등식과 같은 색 언어) */
+    .lva-agentbox { position: relative; width: 100%; border: 0.09rem solid rgba(155,130,255,0.55); border-radius: 0.9rem; padding: 1.0rem 0.65rem 0.65rem; background: rgba(155,130,255,0.05); }
+    .lva-boxlabel { position: absolute; top: -0.66rem; left: 0.9rem; font-family: var(--mono); font-size: 0.74rem; font-weight: 700; letter-spacing: 0.05em; color: #C9B8FF !important; background: var(--bg-0); padding: 0 0.4rem; }
+    .lva-parts { display: flex; align-items: stretch; justify-content: center; gap: 0.38rem; }
+    .lva-parts .lva-llm, .lva-part { flex: 1; min-width: 0; }
+    .lva-plus { align-self: center; font-size: 1.1rem; font-weight: 800; color: var(--fg-soft) !important; }
+    .lva-part { text-align: center; padding: 0.5rem 0.5rem; border-radius: 0.7rem; font-weight: 800; font-size: 1.05rem; border: 0.0625rem solid; }
+    .lva-part.t2 { border-color: rgba(43,234,208,0.55); background: rgba(43,234,208,0.08); color: #7FE8D8 !important; }
+    .lva-part.t3 { border-color: rgba(255,212,107,0.55); background: rgba(255,212,107,0.07); color: #FFD46B !important; }
+    .lva-foot { text-align: center; margin: 0.7rem 0 0; font-family: var(--mono); font-size: 0.76rem; color: #8A93B2 !important; }
+
     /* demo-3 run rows */
     .runs { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.2rem; }
     .run {
@@ -1312,103 +1334,48 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">이 반복은 <b class="accent">정해진 권한 · 횟수 · 시간 한도</b> 안에서 이루어집니다. Agent가 결과를 최종 확정하는 것은 아닙니다 — <b class="accent4">불확실한 판단은 사람에게</b> 남깁니다.</p>
     </section>
 
-    <!-- 7 · 챗봇 vs agent -->
+    <!-- 7 · LLM은 모델, AI Agent는 실행 시스템 -->
     <section data-sec="도입">
-      <div><span class="chip">도입 · 구분</span></div>
-      <h2>챗봇과 Agent — 무엇이 다른가</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">차이는 모델이 아니라 <b style="color:#fff">실행 구조</b>에 있습니다.</p>
-      <div class="grid-2" style="margin-top:1.0rem">
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">챗봇 — 묻고 답하기</div>
-          <div class="flow-lane" style="margin-top:0.8rem">
-            <div class="flow-step me">질문</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step neutral">LLM</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step me">답변 읽기</div>
+      <div><span class="chip">도입 · LLM과 AI Agent</span></div>
+      <h2>LLM은 모델, AI Agent는 실행 시스템입니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.1rem">Agent는 LLM과 경쟁하는 다른 모델이 아니라, <b style="color:#fff">LLM에 도구와 실행 루프를 결합한 시스템</b>입니다 — 같은 요청 <b class="accent">"자동 테스트 실패를 정리해줘"</b>를 두 구조에 넣어 보면:</p>
+      <div class="grid-2 lva" style="margin-top:0.8rem">
+        <div class="card autoshow fade-left">
+          <div class="pill neutral">LLM — 입력된 문맥에서 응답 생성</div>
+          <div class="lva-flow">
+            <div class="lva-io">입력<small>프롬프트 · 붙여 넣은 로그</small></div>
+            <span class="lva-down">↓</span>
+            <div class="lva-llm">LLM<small>다음에 올 말을 생성</small></div>
+            <span class="lva-down">↓</span>
+            <div class="lva-io">텍스트 응답<small>분류 제안이 담긴 답변</small></div>
           </div>
-          <p style="margin-top:0.85rem">결과는 주로 <b style="color:#fff">답변</b>으로 끝나며, 적용과 후속 확인은 사람이 수행합니다.</p>
+          <p class="lva-foot">자료 제공과 후속 반영은 별도 — 사람·주변 시스템의 몫</p>
         </div>
-        <div class="card mint autoshow fade-up">
-          <div class="pill green">Agent — 맡기고 확인하기</div>
-          <div class="flow-lane" style="margin-top:0.8rem">
-            <div class="flow-step me">목표</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step ai">계획·실행·확인 ↻</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step me">결과 검토</div>
+        <div class="card mint autoshow fade-right">
+          <div class="pill green">AI Agent — LLM을 포함한 작업 실행 구조</div>
+          <div class="lva-flow">
+            <div class="lva-io">목표<small>목표 · 접근 가능한 자료</small></div>
+            <span class="lva-down">↓</span>
+            <div class="lva-agentbox">
+              <span class="lva-boxlabel">AI Agent</span>
+              <div class="lva-parts">
+                <div class="lva-llm">LLM<small>다음에 올 말을 생성</small></div>
+                <span class="lva-plus">+</span>
+                <div class="lva-part t2">허용된 도구<small>읽기 · 쓰기 · 조회</small></div>
+                <span class="lva-plus">+</span>
+                <div class="lva-part t3">실행 루프 ↻<small>계획→실행→확인·보완</small></div>
+              </div>
+            </div>
+            <span class="lva-down">↓</span>
+            <div class="lva-io">작업 결과<small>분류표 파일 · 실행 로그</small></div>
           </div>
-          <p style="margin-top:0.85rem">정해진 한도 안에서 확인·재시도를 반복하며, 결과는 <b class="accent2">파일·코드·문서 같은 작업물</b>로 남습니다.</p>
+          <p class="lva-foot">정해진 권한과 한도 안에서</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">챗봇은 질문에 답하고, Agent는 목표를 받아 도구를 사용하고 결과를 확인하며 작업을 진행합니다.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem">차이는 모델의 "똑똑함"이 아니라 <b class="accent">도구와 실행 루프가 결합된 구조</b>입니다. <b class="accent4">Agent도 사실성을 자동으로 보장하지는 않습니다.</b></p>
     </section>
 
-    <!-- 8 · 기초 ① LLM -->
-    <section data-sec="도입">
-      <div><span class="chip">도입 · 기초 ① LLM</span></div>
-      <h2>LLM — 다음에 올 말을 예측하는 두뇌</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">LLM(Large Language Model, 대규모 언어 모델)의 기본 동작은 — <b style="color:#fff">주어진 글 뒤에 올 "다음 말"을 확률로 예측</b>하는 것입니다. <span class="dim">Agent는 여기에 도구 사용 · 반복 실행 · 검증을 결합합니다.</span></p>
-      <div class="term sim autoshow fade-up" style="margin-top:0.9rem">
-        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">입력(프롬프트) → 다음 말 예측 · 진입 시 1회 재생</span></div>
-        <div class="term-body" style="padding:1.05rem 1.3rem">
-          <p class="llm-line" style="margin:0 0 0.8rem; font-size:1.3rem; font-weight:800">오늘 회의는 오후 세 시에<span class="llm-word">시작합니다</span><span class="llm-cursor">▍</span></p>
-          <div class="llm-cands">
-            <div class="llm-cand pick"><span class="lc-w">시작합니다</span><span class="lc-bar"><i style="--w:62%"></i></span><span class="lc-p">62%</span></div>
-            <div class="llm-cand"><span class="lc-w">열립니다</span><span class="lc-bar"><i style="--w:21%"></i></span><span class="lc-p">21%</span></div>
-            <div class="llm-cand"><span class="lc-w">모입니다</span><span class="lc-bar"><i style="--w:11%"></i></span><span class="lc-p">11%</span></div>
-            <div class="llm-cand"><span class="lc-w">고양이</span><span class="lc-bar"><i style="--w:2%"></i></span><span class="lc-p">2%</span></div>
-          </div>
-          <p class="llm-cap">후보마다 확률을 매겨 가장 그럴듯한 말을 붙이고 → 그 뒤의 말을 또 예측 — <b style="color:#fff">이 과정을 반복하며 문장이 생성됩니다.</b> <span class="dim">엄밀히는 "다음 말"이 아니라 "다음 토큰" 예측 — 오늘은 이해를 돕기 위해 "다음 말"로 부릅니다.</span></p>
-        </div>
-      </div>
-      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">LLM의 기본 동작은 검색이나 사실 확인이 아니라 <b class="accent">다음 토큰의 예측</b>입니다. 따라서 유창한 답도 별도 검증이 필요합니다.</p>
-    </section>
-
-    <!-- 9 · 기초 ② 컨텍스트 -->
-    <section data-sec="도입">
-      <div><span class="chip">도입 · 기초 ② 컨텍스트</span></div>
-      <h2>컨텍스트 — 모델의 작업 기억</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">한 번의 작업에서 모델이 참고하는 모든 것이 담기는 공간(context) — <b style="color:#fff">넣어준 것만 알고, 담을 수 있는 양엔 한도가 있습니다.</b></p>
-      <div class="term sim autoshow fade-up" style="margin-top:0.9rem">
-        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">context window — 작업 기억이 차오르는 과정 · 진입 시 1회 재생</span></div>
-        <div class="term-body" style="padding:1.05rem 1.3rem">
-          <div class="ctx-win">
-            <span class="ctx-chip x1">지시</span>
-            <span class="ctx-chip x2">어제 대화</span>
-            <span class="ctx-chip x3">회의 메모</span>
-            <span class="ctx-chip x4">스펙 문서</span>
-            <span class="ctx-chip x5">로그 파일</span>
-            <span class="ctx-chip x6">도구 실행 결과</span>
-          </div>
-          <div class="ctx-gauge"><span>사용량</span><span class="cg-bar"><i></i></span><span>한도</span></div>
-          <p class="sim-cap ctx-cap">한도를 넘으면 — 구성에 따라 <b style="color:#fff">일부가 제거·요약되거나 요청이 실패할 수 있습니다.</b> 작업이 길어질수록 관련 정보를 놓치거나 앞선 지시의 영향이 약해질 수 있습니다.</p>
-        </div>
-      </div>
-      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">따라서 <b class="accent">필요한 절차와 자료만 제공하고, 불필요한 내용은 줄여야 합니다.</b> Skill은 반복 절차를 필요할 때 불러오는 한 가지 방법입니다. <span class="dim">수십 MB 로그 전체보다 실패 지점 주변 로그와 요약 정보를 제공하는 것이 효과적입니다.</span></p>
-    </section>
-
-    <!-- 10 · 기초 ③ 환각 -->
-    <section data-sec="도입">
-      <div><span class="chip">도입 · 기초 ③ 환각</span></div>
-      <h2>환각 — 그럴듯한 오답</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">모델은 모른다고 멈추기보다, <b style="color:#fff">문맥상 그럴듯한 답을 만들어내는 쪽으로 기울 수 있습니다</b>(hallucination) — 확률적 생성 과정에서 구조적으로 나타날 수 있는 실패 모드입니다.</p>
-      <div class="panel sim autoshow fade-up" style="margin-top:0.9rem">
-        <div class="phead">설명을 위해 구성한 예시 · 진입 시 1회 재생</div>
-        <div class="chat">
-          <div class="bubble user hal-q"><span class="who">사람</span>지난 회의, 몇 층 회의실이었죠? <span class="dim">(회의실 정보는 준 적 없음)</span></div>
-          <div class="bubble ai hal-a"><span class="who">모델</span>3층 대회의실이었습니다. <span class="hal-stamp">지어낸 답</span></div>
-          <div class="bubble ai hal-fix"><span class="who">모델 + 근거</span>회의 메모를 함께 주면 — "메모에 회의실 정보는 없습니다."</div>
-        </div>
-        <p class="sim-cap hal-cap">"다음 말 예측"은 사실 확인이 아니라서, <b style="color:#fff">근거가 없는 부분도 그럴듯하게 생성할 수 있습니다</b> — 문장이 유창해서 눈에 잘 띄지 않습니다.</p>
-      </div>
-      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">유창함과 신뢰성은 다릅니다.</b> 근거가 없는 내용은 "확인 불가"로 남기게 하고, 중요한 결과는 사람이 확인해야 합니다.</p>
-    </section>
-
-    <!-- 11 · 무엇을 맡기나 -->
+    <!-- 8 · 무엇을 맡기나 -->
     <section data-sec="도입">
       <div><span class="chip">도입 · 무엇을 맡기나</span></div>
       <h2>처음에는 — 내가 바로 검증할 수 있는 일부터</h2>
@@ -1416,7 +1383,7 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="card mint autoshow fade-up">
           <div class="pill green">맡기기 좋은 일</div>
           <h3 class="accent2">검증하기 쉬운 반복 작업</h3>
-          <p>결과를 <b style="color:#fff">빠르게 직접 검증할 수 있는</b> 일 · 형식이 정해진 반복 일 · 틀려도 <b style="color:#fff">되돌리기 쉬운</b> 일.<br><span class="dim">예: regression 실패 분류 · spec 변경점 요약 · review comment 정리 · register table 변환 · 회의록 action item 추출.</span></p>
+          <p>결과를 <b style="color:#fff">빠르게 직접 검증할 수 있는</b> 일 · 형식이 정해진 반복 일 · 틀려도 <b style="color:#fff">되돌리기 쉬운</b> 일.<br><span class="dim">예: 자동 테스트 실패 1차 분류 · spec 변경점 요약 · review comment 정리 · register table 변환 · 회의록 action item 추출.</span></p>
         </div>
         <div class="card autoshow fade-up">
           <div class="pill neutral">사람 판단이 필요한 일</div>
@@ -1427,7 +1394,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.2rem">AI가 잘하는 건 <b class="accent">초안 · 분류 · 변환 · 요약</b>이고, 최종 판단은 사람이 합니다. 첫 과제의 기준은 하나 — <b class="accent">결과를 내가 직접 빠르게 검증할 수 있는가.</b></p>
     </section>
 
-    <!-- 12 · agent 도입 4원칙 -->
+    <!-- 9 · agent 도입 4원칙 -->
     <section data-sec="도입">
       <div><span class="chip">도입 · Agent 도입 4원칙</span></div>
       <h2>오늘 계속 만날 네 가지 원칙</h2>
@@ -1444,14 +1411,14 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:2.0rem"><b class="accent">작게 · 구조화 · 근거 · 승인</b> — 이후 모든 사례에 이 네 기준을 적용합니다.</p>
     </section>
 
-    <!-- 13 · 간지 — 본문 1 -->
+    <!-- 10 · 간지 — 본문 1 -->
     <section class="section-opener" data-hero data-sec="본문 1 · 데이터 경계">
       <div class="autoshow fade-up"><span class="chip">본문 1</span></div>
       <h1 class="autoshow fade-up" style="font-size:3.6rem">우리 환경<br><span class="grad">데이터는 어디로 가는가</span></h1>
       <p class="dim autoshow fade-up" style="font-size:1.2rem; margin-top:1.0rem">사내 경로와 사외 경로 — 데이터의 처리·저장 위치로 구분합니다.</p>
     </section>
 
-    <!-- 14 · 우리 환경 = 데이터 경계 -->
+    <!-- 11 · 우리 환경 = 데이터 경계 -->
     <section data-sec="본문 1 · 데이터 경계">
       <div><span class="chip">본문 1 · 우리 환경부터</span></div>
       <h2>우리 환경 — 데이터는 어디로 가는가</h2>
@@ -1486,7 +1453,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 15 · 사내 도구 셋 -->
+    <!-- 12 · 사내 도구 셋 -->
     <section data-sec="본문 1 · 데이터 경계">
       <div><span class="chip">본문 1 · 사내 도구</span></div>
       <h2>지금 바로 쓸 수 있는 세 가지</h2>
@@ -1499,7 +1466,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">셋 다 <b class="accent2">지금 사용 가능</b> — 익숙한 개발 환경에서 하나를 선택해 시작하면 됩니다. <span class="mono faint">접속 안내: ______ (사내 포털) · 설치 절차는 부록에</span></p>
     </section>
 
-    <!-- 16 · 사용 전 3문장 점검 -->
+    <!-- 13 · 사용 전 3문장 점검 -->
     <section data-sec="본문 1 · 데이터 경계">
       <div><span class="chip">본문 1 · 사용 전 점검</span></div>
       <h2>사용 전 세 가지 점검</h2>
@@ -1524,14 +1491,14 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">실무 기준 — <b class="accent">"외부 메일로 전송해도 되는 수준의 정보인가."</b> 최종 판단은 회사 보안정책과 프로젝트 규정을 따릅니다.</p>
     </section>
 
-    <!-- 17 · 간지 — 본문 2 · Regression Triage Agent -->
+    <!-- 14 · 간지 — 본문 2 · Regression Triage Agent -->
     <section class="section-opener" data-hero data-sec="본문 2 · Regression Triage Agent">
       <div class="autoshow fade-up"><span class="chip">본문 2</span></div>
       <h1 class="autoshow fade-up" style="font-size:3.6rem">Regression Triage Agent<br><span class="grad">Prompt에서 Skill과 MCP로 확장하기</span></h1>
       <p class="dim autoshow fade-up" style="font-size:1.2rem; margin-top:1.0rem">데모의 로그 분류 업무에 절차, 시스템 연결, 검증 규칙을 차례로 추가합니다.</p>
     </section>
 
-    <!-- 18 · 1단계 prompt — 두 공백 -->
+    <!-- 15 · 1단계 prompt — 두 공백 -->
     <section data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 1단계 prompt — 왜 이대로는 안 되나</span></div>
       <h2>기본 모델에게 없는 두 가지</h2>
@@ -1561,7 +1528,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem"><b class="accent">절차는 Skill</b>, <b class="accent2">시스템 연결은 MCP</b>입니다.</p>
     </section>
 
-    <!-- 19 · 데모 2a — 업무 정의 -->
+    <!-- 16 · 데모 2a — 업무 정의 -->
     <section data-layer="DEMO" data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 2단계 Skill · 데모 2 ① 업무 정의</span></div>
       <h2>먼저 — 손으로 하던 분류를 그대로 적어 봅니다</h2>
@@ -1595,7 +1562,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem"><b class="accent">검증 가능한 절차로 정의할 수 있는 일부터 맡깁니다.</b> "원인이 불확실하면 unknown으로 두고 추정하지 않는다"는 규칙은 근거 없는 생성을 줄이는 데 도움이 됩니다.</p>
     </section>
 
-    <!-- 20 · 데모 2b — skill 저장 → 실행 -->
+    <!-- 17 · 데모 2b — skill 저장 → 실행 -->
     <section data-layer="DEMO" data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 2단계 Skill · 데모 2 ② 저장 → 실행·활용</span> <span class="pill green">원칙 ② 출력 구조화</span></div>
       <h2>정의를 SKILL.md로 저장하면 — 같은 절차를 재사용할 수 있습니다</h2>
@@ -1663,7 +1630,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 21 · skill 개념 -->
+    <!-- 18 · skill 개념 -->
     <section data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill</span></div>
       <h2>Skill — 반복 절차를 파일로 정의해 재사용한다</h2>
@@ -1679,7 +1646,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">반복해서 쓰던 긴 프롬프트를 <b class="accent">팀의 작업 절차</b>로 만든 것입니다.</p>
     </section>
 
-    <!-- 22 · skill 구조·동작 -->
+    <!-- 19 · skill 구조·동작 -->
     <section data-layer="READ" data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill · 구조와 동작</span></div>
       <h2>Skill의 구조 — 폴더 하나, 필요할 때만 펼치기</h2>
@@ -1738,10 +1705,10 @@ footer, header, hgroup, main, menu, nav, section {
           <div class="flow-step neutral" style="flex-direction:column; gap:0.12rem"><span>③ 더 필요하면</span><span class="tiny" style="font-weight:400">references/ 파일을 그때만 로드</span></div>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:0.65rem">이해를 돕는 비유로는 <b class="accent">목차 → 본문 → 참고자료가 있는 매뉴얼</b>과 같습니다. <span class="mono tiny faint">구조는 OpenCode 문서 기준 · 확인일 2026-07</span></p>
+      <p class="note autoshow fade-up" style="margin-top:0.65rem">이해를 돕는 비유로는 <b class="accent">목차 → 본문 → 참고자료가 있는 매뉴얼</b>과 같습니다. 필요할 때만 본문과 참조 자료를 불러오는 이유 중 하나는 — <b class="accent">모델이 한 번에 참고할 수 있는 범위(컨텍스트)가 유한하기 때문</b>입니다. <span class="mono tiny faint">구조는 OpenCode 문서 기준 · 확인일 2026-07 · 컨텍스트는 부록 LLM 기초 참조</span></p>
     </section>
 
-    <!-- 23 · 데모 3a — MCP 없을 때 -->
+    <!-- 20 · 데모 3a — MCP 없을 때 -->
     <section data-layer="DEMO" data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 3단계 MCP · 데모 3 ① 없을 때</span></div>
       <h2>분류는 맡겼는데 — 과거 이슈 대조는 아직 사람 손</h2>
@@ -1773,7 +1740,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">대조는 해 주지만, 검색·복사·전달은 여전히 사람이 합니다. <b class="accent2">Jira 조회까지 Agent에 맡기려면 무엇이 필요할까요?</b></p>
     </section>
 
-    <!-- 24 · 데모 3b — MCP로 연결 -->
+    <!-- 21 · 데모 3b — MCP로 연결 -->
     <section data-layer="DEMO" data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 3단계 MCP · 데모 3 ② 있을 때</span></div>
       <h2>연결해 두면 — 조회·대조까지 Agent가 합니다</h2>
@@ -1813,7 +1780,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">사람이 하던 조회 단계가 줄었고, 원인 확정과 티켓 갱신은 사람이 합니다. <b class="accent2">이 연결을 가능하게 하는 공용 규격이 MCP입니다.</b></p>
     </section>
 
-    <!-- 25 · MCP 개념 -->
+    <!-- 22 · MCP 개념 -->
     <section data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP</span></div>
       <h2>MCP — 도구를 꽂는 공용 규격</h2>
@@ -1830,7 +1797,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">MCP는 <b class="accent2">개방형 규격</b>이며, <b class="accent">연결 방식을 표준화할 뿐 Agent의 판단 품질을 보장하지 않습니다.</b></p>
     </section>
 
-    <!-- 26 · MCP 통제 -->
+    <!-- 23 · MCP 통제 -->
     <section data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP · 통제</span></div>
       <h2>연결이 쉬워지는 만큼 — 통제도 중요합니다</h2>
@@ -1853,7 +1820,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem">Skill로 작업 절차를 정의했고, MCP로 Jira 조회를 연결했습니다. <b style="color:#fff">남은 질문은 하나 — Agent가 만든 결과를 자동화 파이프라인에 넣어도 될까요?</b></p>
     </section>
 
-    <!-- 27 · 간지 — 본문 3 -->
+    <!-- 24 · 간지 — 본문 3 -->
     <section class="section-opener" data-hero data-sec="본문 3 · Harness · 통제">
       <div class="autoshow fade-up"><span class="chip">본문 3</span></div>
       <h1 class="autoshow fade-up" style="font-size:3.6rem">Harness<br><span class="grad">실행을 검증하고 통제하는 구조</span></h1>
@@ -1864,7 +1831,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 28 · 실패의 현실 -->
+    <!-- 25 · 실패의 현실 -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 정직한 전제</span></div>
       <h2>그런데 — 이 출력, 매번 믿을 수 있나</h2>
@@ -1872,14 +1839,14 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="failmap autoshow fade-up">
         <div class="fm-callouts">
           <div style="flex:0.62"></div>
-          <div class="fm-co"><span class="co-t">실패 ① 그럴듯한 오답</span><span class="co-d">내용이 틀려도 문장은 유창(환각) — 눈에 잘 띄지 않는다</span><span class="co-pin">↓</span></div>
+          <div class="fm-co"><span class="co-t">실패 ① 그럴듯한 오답</span><span class="co-d">사실과 다른 내용도 문장은 유창하게 생성(환각) — 눈에 잘 띄지 않는다</span><span class="co-pin">↓</span></div>
           <div class="fm-co"><span class="co-t">실패 ③ 예상하지 않은 행동</span><span class="co-d">불필요한 도구 호출 · 허용 범위 밖 시도 · 실패 후 잘못된 진행</span><span class="co-pin">↓</span></div>
           <div class="fm-co"><span class="co-t">실패 ② 들쭉날쭉한 형식</span><span class="co-d">같은 요청에도 구조가 달라진다 — 프로그램이 받는 순간 문제</span><span class="co-pin">↓</span></div>
         </div>
         <div class="flow-lane">
           <div class="flow-step me" style="flex:0.62">입력</div>
           <span class="flow-arrow">→</span>
-          <div class="flow-step neutral">Agent / LLM<small>내용 생성</small></div>
+          <div class="flow-step neutral">LLM 응답<small>내용 생성</small></div>
           <span class="flow-arrow">→</span>
           <div class="flow-step neutral">도구 호출<small>파일 · 시스템 접근</small></div>
           <span class="flow-arrow">→</span>
@@ -1889,7 +1856,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.4rem">실패는 출력 형식만이 아니라 <b style="color:#fff">실행 구간 곳곳에서</b> 생깁니다. 이를 실행 규칙으로 다루는 구조가 <b class="accent">Harness</b>입니다.</p>
     </section>
 
-    <!-- 29 · harness란 -->
+    <!-- 26 · harness란 -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 틀로 감싸 제대로</span></div>
       <h2>Harness — 모델을 감싸는 실행 틀</h2>
@@ -1931,7 +1898,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">Harness는 Agent 옆의 네 번째 부품이 아니라 <b class="accent3">실행 전체를 감싸는 경계</b>입니다. 말의 범위는 제품·문맥에 따라 다르며, 이 자료에서는 위 실행 통제 구조를 뜻합니다.</p>
     </section>
 
-    <!-- 30 · UVM 나란히 -->
+    <!-- 27 · UVM 나란히 -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 익숙한 그림</span></div>
       <h2>설계·검증에서 익숙한 구조와 닮아 있습니다</h2>
@@ -1962,7 +1929,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">DUT ↔ 모델 · sequence ↔ 입력·절차 · assertion ↔ 스키마 — <b class="accent">검증 사고방식은 비슷하고, 통제 대상이 칩에서 Agent 실행으로 바뀝니다.</b> 완전히 낯선 개념은 아닙니다.</p>
     </section>
 
-    <!-- 31 · harness 구성 요소 -->
+    <!-- 28 · harness 구성 요소 -->
     <section data-layer="READ" data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 무엇으로 이루어지나</span></div>
       <h2>Harness에 들어갈 수 있는 것</h2>
@@ -1997,7 +1964,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem"><b class="accent">Harness의 목적은 모델을 믿게 만드는 것이 아니라, 실행 범위와 실패 처리를 통제하고 기록하는 것입니다.</b> 내용의 정확성은 근거와 사람 검토가 별도로 필요합니다.</p>
     </section>
 
-    <!-- 32 · 스키마 게이트 -->
+    <!-- 29 · 스키마 게이트 -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 작동 방식</span></div>
       <h2>어떻게 돌아가나 — 스키마 게이트</h2>
@@ -2016,7 +1983,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">스키마는 출력 구조만 검사합니다 — 올바른 JSON이라도 내용은 틀릴 수 있으므로, 근거 확인과 사람 검토는 별도입니다.</p>
     </section>
 
-    <!-- 33 · 언제 쓰나 -->
+    <!-- 30 · 언제 쓰나 -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 판단 기준</span></div>
       <h2>Harness는 언제 필요한가</h2>
@@ -2032,7 +1999,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.6rem">판단 기준 다섯 — <b class="accent">자동 입력되나 · 영향이 큰가 · 되돌리기 어렵나 · 반복되나 · 쓰기 권한을 쓰나.</b> 해당 항목이 많을수록 강한 통제가 필요합니다.</p>
     </section>
 
-    <!-- 34 · 자율성 단계 예시 L0~L5 -->
+    <!-- 31 · 자율성 단계 예시 L0~L5 -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 단계적으로</span></div>
       <h2>AI 업무 적용 단계 예시</h2>
@@ -2049,7 +2016,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">처음에는 L1~L2에서 정확도와 검증 방법을 확인한 뒤, 권한을 단계적으로 늘립니다.</b></p>
     </section>
 
-    <!-- 35 · 데모 4 — harness 유무 -->
+    <!-- 32 · 데모 4 — harness 유무 -->
     <section data-layer="DEMO" data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 데모 4 · 스키마 검증 유무</span> <span class="pill neutral">형식 일관성</span></div>
       <h2>같은 작업, 스키마 검증이 있을 때와 없을 때</h2>
@@ -2076,7 +2043,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent2">형식 일관성</b> — 통과한 결과는 같은 구조를 가집니다 &nbsp;·&nbsp; <b class="accent2">검증 가능성</b> — 같은 검사 규칙을 반복 적용합니다. 내용의 정확성은 여전히 근거와 사람 검토가 필요합니다.</p>
     </section>
 
-    <!-- 36 · 회고 -->
+    <!-- 33 · 회고 -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 회고</span></div>
       <h2>오늘 지나온 길 — 그림 하나가 완성됐습니다</h2>
@@ -2123,7 +2090,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 37 · 좋은 요청 / 나쁜 요청 -->
+    <!-- 34 · 좋은 요청 / 나쁜 요청 -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 요청하는 법</span></div>
       <h2>좋은 요청은 결과 검증이 쉽습니다</h2>
@@ -2139,7 +2106,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">요청 작성의 세 기준 — <b class="accent">작게 · 구체적으로 · 검증 가능하게.</b></p>
     </section>
 
-    <!-- 38 · 설계 템플릿 -->
+    <!-- 35 · 설계 템플릿 -->
     <section data-layer="READ" data-sec="마무리">
       <div><span class="chip">마무리 · 일 맡기기 설계 템플릿</span></div>
       <h2>맡기기 전에 — 아홉 칸만 채워 보세요</h2>
@@ -2158,7 +2125,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.6rem">이 아홉 항목은 <b class="accent">Skill 초안</b>이 되고, 승인과 실패 처리 항목은 <b class="accent3">Harness 요구사항</b>이 됩니다.</p>
     </section>
 
-    <!-- 39 · 첫 실험 CTA -->
+    <!-- 36 · 첫 실험 CTA -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 첫걸음 · CTA</span></div>
       <h2>그래서, 어떻게 시작하나</h2>
@@ -2183,7 +2150,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem">첫 목표는 <b class="accent">반복 업무 하나에서 실제 효용과 오류 유형을 확인하는 것</b>입니다. 민감 데이터는 <b class="accent2">승인된 사내 경로에서만</b> 사용합니다.</p>
     </section>
 
-    <!-- 40 · Q&A · 클로징 -->
+    <!-- 37 · Q&A · 클로징 -->
     <section class="section-opener" data-hero data-sec="마무리">
       <div><span class="chip">마무리 · Q&amp;A</span></div>
       <p style="font-size:2.1rem; font-weight:800; line-height:1.5; margin-top:0.8rem; word-break:keep-all">오늘로 AI Agent를 시작할 <span class="accent2">최소한의 기준</span>은 갖췄습니다 —<br>이번 주, 사내 환경에서 <span class="accent4">검증 가능한 작업 하나</span>로<br>첫 실험을 시작해 보세요.</p>
@@ -2191,7 +2158,89 @@ footer, header, hgroup, main, menu, nav, section {
 
     </section>
 
-    <!-- 41 · 부록 — 역사 -->
+    <!-- 38 · 부록 — LLM 기초 ① 다음 토큰 -->
+    <section data-layer="APPENDIX" data-sec="부록">
+      <div><span class="chip">부록 · LLM 기초 ①</span></div>
+      <h2>LLM은 다음 토큰을 예측합니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">LLM(Large Language Model, 대규모 언어 모델)의 기본 동작은 — <b style="color:#fff">주어진 글 뒤에 올 "다음 말"을 확률로 예측</b>하는 것입니다. <span class="dim">Agent는 여기에 도구 사용 · 반복 실행 · 검증을 결합합니다.</span></p>
+      <div class="term sim autoshow fade-up" style="margin-top:0.9rem">
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">입력(프롬프트) → 다음 말 예측 · 진입 시 1회 재생</span></div>
+        <div class="term-body" style="padding:1.05rem 1.3rem">
+          <p class="llm-line" style="margin:0 0 0.8rem; font-size:1.3rem; font-weight:800">오늘 회의는 오후 세 시에<span class="llm-word">시작합니다</span><span class="llm-cursor">▍</span></p>
+          <div class="llm-cands">
+            <div class="llm-cand pick"><span class="lc-w">시작합니다</span><span class="lc-bar"><i style="--w:62%"></i></span><span class="lc-p">62%</span></div>
+            <div class="llm-cand"><span class="lc-w">열립니다</span><span class="lc-bar"><i style="--w:21%"></i></span><span class="lc-p">21%</span></div>
+            <div class="llm-cand"><span class="lc-w">모입니다</span><span class="lc-bar"><i style="--w:11%"></i></span><span class="lc-p">11%</span></div>
+            <div class="llm-cand"><span class="lc-w">고양이</span><span class="lc-bar"><i style="--w:2%"></i></span><span class="lc-p">2%</span></div>
+          </div>
+          <p class="llm-cap">후보마다 확률을 매겨 가장 그럴듯한 말을 붙이고 → 그 뒤의 말을 또 예측 — <b style="color:#fff">이 과정을 반복하며 문장이 생성됩니다.</b> <span class="dim">엄밀히는 "다음 말"이 아니라 "다음 토큰" 예측 — 오늘은 이해를 돕기 위해 "다음 말"로 부릅니다.</span></p>
+        </div>
+      </div>
+      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">LLM의 기본 동작은 검색이나 사실 확인이 아니라 <b class="accent">다음 토큰의 예측</b>입니다. 따라서 유창한 답도 별도 검증이 필요합니다.</p>
+    </section>
+
+    <!-- 39 · 부록 — LLM 기초 ② 컨텍스트 -->
+    <section data-layer="APPENDIX" data-sec="부록">
+      <div><span class="chip">부록 · LLM 기초 ②</span></div>
+      <h2>LLM이 한 번에 참고할 수 있는 범위에는 한도가 있습니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">한 번의 작업에서 모델이 참고하는 모든 것이 담기는 공간(context) — <b style="color:#fff">넣어준 것만 알고, 담을 수 있는 양엔 한도가 있습니다.</b></p>
+      <div class="term sim autoshow fade-up" style="margin-top:0.9rem">
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">context window — 작업 기억이 차오르는 과정 · 진입 시 1회 재생</span></div>
+        <div class="term-body" style="padding:1.05rem 1.3rem">
+          <div class="ctx-win">
+            <span class="ctx-chip x1">지시</span>
+            <span class="ctx-chip x2">어제 대화</span>
+            <span class="ctx-chip x3">회의 메모</span>
+            <span class="ctx-chip x4">스펙 문서</span>
+            <span class="ctx-chip x5">로그 파일</span>
+            <span class="ctx-chip x6">도구 실행 결과</span>
+          </div>
+          <div class="ctx-gauge"><span>사용량</span><span class="cg-bar"><i></i></span><span>한도</span></div>
+          <p class="sim-cap ctx-cap">한도를 넘으면 — 구성에 따라 <b style="color:#fff">일부가 제거·요약되거나 요청이 실패할 수 있습니다.</b> 작업이 길어질수록 관련 정보를 놓치거나 앞선 지시의 영향이 약해질 수 있습니다.</p>
+        </div>
+      </div>
+      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">따라서 <b class="accent">필요한 절차와 자료만 제공하고, 불필요한 내용은 줄여야 합니다.</b> Skill은 반복 절차를 필요할 때 불러오는 한 가지 방법입니다. <span class="dim">수십 MB 로그 전체보다 실패 지점 주변 로그와 요약 정보를 제공하는 것이 효과적입니다.</span></p>
+    </section>
+
+    <!-- 40 · 부록 — LLM 기초 ③ 토큰 -->
+    <section data-layer="APPENDIX" data-sec="부록">
+      <div><span class="chip">부록 · LLM 기초 ③</span></div>
+      <h2>토큰은 입력과 출력을 나누어 세는 단위입니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem"><b style="color:#fff">전기 사용량의 kWh처럼, 모델의 입출력 사용량을 세는 단위</b>입니다.</p>
+      <div class="term sim autoshow fade-up" style="margin-top:0.9rem">
+        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">텍스트 → 토큰(단어 조각) · 진입 시 1회 재생</span></div>
+        <div class="term-body" style="padding:1.05rem 1.3rem">
+          <p class="llm-line" style="margin:0; font-size:1.7rem; font-weight:800"><span class="tok t1">어제</span><span class="tok t2">회의</span><span class="tok t3">메모를</span><span class="tok t4">표로</span><span class="tok t5">정리</span><span class="tok t6">해줘</span></p>
+          <div class="tok-meter"><span>사용량</span><span class="tm-bar"><i></i></span><span>사용량은 비용·시간에 영향</span></div>
+          <p class="sim-cap tok-cap">모델은 이 조각(토큰) 단위로 읽고 씁니다 — <b style="color:#fff">컨텍스트의 한도도 토큰으로 셉니다.</b></p>
+          <p class="mono tiny faint tok-cap" style="margin:0.3rem 0 0">실제 토큰 분할 방식은 모델마다 다릅니다 — 위 분할은 설명용.</p>
+        </div>
+      </div>
+      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">토큰 사용량은 비용과 처리 시간에 영향을 줍니다. 수십 MB regression log 전체보다 <b class="accent">실패 지점 주변 로그와 요약 정보만 제공하는 쪽이 효과적</b>입니다.</p>
+    </section>
+
+    <!-- 41 · 부록 — LLM 기초 ④ 환각 -->
+    <section data-layer="APPENDIX" data-sec="부록">
+      <div><span class="chip">부록 · LLM 기초 ④</span></div>
+      <h2>유창함은 사실성의 증거가 아닙니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">모델은 모른다고 멈추기보다, <b style="color:#fff">문맥상 그럴듯한 답을 만들어내는 쪽으로 기울 수 있습니다</b>(hallucination) — 확률적 생성 과정에서 구조적으로 나타날 수 있는 실패 모드입니다.</p>
+      <div class="panel sim autoshow fade-up" style="margin-top:0.9rem">
+        <div class="phead">설명을 위해 구성한 예시 · 진입 시 1회 재생</div>
+        <div class="chat">
+          <div class="bubble user hal-q"><span class="who">사람</span>지난 회의, 몇 층 회의실이었죠? <span class="dim">(회의실 정보는 준 적 없음)</span></div>
+          <div class="bubble ai hal-a"><span class="who">모델</span>3층 대회의실이었습니다. <span class="hal-stamp">지어낸 답</span></div>
+          <div class="bubble ai hal-fix"><span class="who">모델 + 근거</span>회의 메모를 함께 주면 — "메모에 회의실 정보는 없습니다."</div>
+        </div>
+        <p class="sim-cap hal-cap">"다음 말 예측"은 사실 확인이 아니라서, <b style="color:#fff">근거가 없는 부분도 그럴듯하게 생성할 수 있습니다</b> — 문장이 유창해서 눈에 잘 띄지 않습니다.</p>
+      </div>
+      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">유창함과 신뢰성은 다릅니다.</b> 근거가 없는 내용은 "확인 불가"로 남기게 하고, 중요한 결과는 사람이 확인해야 합니다.</p>
+    </section>
+
+    <!-- 42 · 부록 — 역사 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 역사</span></div>
       <h2>AI는 어떻게 Agent가 되었나</h2>
@@ -2208,7 +2257,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">도구를 사용하는 Agent형 제품이 실무에 빠르게 확산된 것은 <b class="accent2">최근 몇 년</b>입니다.</p>
     </section>
 
-    <!-- 42 · 부록 — 왜 지금 -->
+    <!-- 43 · 부록 — 왜 지금 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 왜 지금</span></div>
       <h2>왜 하필 지금인가</h2>
@@ -2228,7 +2277,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.2rem">설계·검증 업무에도 <b class="accent2">반복적이고 검증 가능한 적용 후보</b>가 많습니다.</p>
     </section>
 
-    <!-- 43 · 부록 — 왜 우리 -->
+    <!-- 44 · 부록 — 왜 우리 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 왜 우리</span></div>
       <h2>설계·검증의 하루 — 반복은 어디에 숨어 있나</h2>
@@ -2253,7 +2302,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">공통점 — <b class="accent">규칙이 분명하고 검증 가능한 반복 작업.</b> Agent 적용을 먼저 검토하기 좋은 후보입니다.</p>
     </section>
 
-    <!-- 44 · 부록 — 일의 재배치 -->
+    <!-- 45 · 부록 — 일의 재배치 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 일의 재배치</span></div>
       <h2>어떻게 달라지나 — 일의 재배치</h2>
@@ -2283,24 +2332,6 @@ footer, header, hgroup, main, menu, nav, section {
         </div>
       </div>
       <div class="quote autoshow fade-up" style="margin-top:1.15rem">핵심은 반복 실행을 Agent에 맡기고, <b>사람의 시간을 작업 정의와 판단에 사용하는 것</b>입니다.</div>
-    </section>
-
-    <!-- 45 · 부록 — 토큰 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · 기초 보충 — 토큰</span></div>
-      <h2>토큰 — 사용량의 단위</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem"><b style="color:#fff">전기 사용량의 kWh처럼, 모델의 입출력 사용량을 세는 단위</b>입니다.</p>
-      <div class="term sim autoshow fade-up" style="margin-top:0.9rem">
-        <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">텍스트 → 토큰(단어 조각) · 진입 시 1회 재생</span></div>
-        <div class="term-body" style="padding:1.05rem 1.3rem">
-          <p class="llm-line" style="margin:0; font-size:1.7rem; font-weight:800"><span class="tok t1">어제</span><span class="tok t2">회의</span><span class="tok t3">메모를</span><span class="tok t4">표로</span><span class="tok t5">정리</span><span class="tok t6">해줘</span></p>
-          <div class="tok-meter"><span>사용량</span><span class="tm-bar"><i></i></span><span>사용량은 비용·시간에 영향</span></div>
-          <p class="sim-cap tok-cap">모델은 이 조각(토큰) 단위로 읽고 씁니다 — <b style="color:#fff">컨텍스트의 한도도 토큰으로 셉니다.</b></p>
-          <p class="mono tiny faint tok-cap" style="margin:0.3rem 0 0">실제 토큰 분할 방식은 모델마다 다릅니다 — 위 분할은 설명용.</p>
-        </div>
-      </div>
-      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">토큰 사용량은 비용과 처리 시간에 영향을 줍니다. 수십 MB regression log 전체보다 <b class="accent">실패 지점 주변 로그와 요약 정보만 제공하는 쪽이 효과적</b>입니다.</p>
     </section>
 
     <!-- 46 · 부록 — OpenCode 설치 -->
@@ -2664,7 +2695,7 @@ footer, header, hgroup, main, menu, nav, section {
     Reveal.on('ready', sync);
   })();
 
-  // ====== 기초 4~7장: ↻ 다시 재생 (애니메이션 리셋 후 재시작) ======
+  // ====== 데모·기초 장 공용: ↻ 다시 재생 (애니메이션 리셋 후 재시작) ======
   window.simReplay = function (btn) {
     var sec = btn.closest('section');
     if (!sec) return;
