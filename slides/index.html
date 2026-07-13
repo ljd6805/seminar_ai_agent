@@ -773,11 +773,35 @@ footer, header, hgroup, main, menu, nav, section {
     .rs-ex { border: 0.0625rem solid rgba(190,200,224,0.2); border-radius: 0.6rem; padding: 0.45rem 0.8rem; background: rgba(255,255,255,0.015); }
     .rs-ext { display: block; font-family: var(--mono); font-size: 0.72rem; font-weight: 700; color: #8A93B2 !important; }
     .rs-exd { display: block; font-size: 0.88rem; color: #B7C0DA !important; margin-top: 0.15rem; }
-    /* 10장: 4원칙 리본 아래 되돌아가는 루프 화살표 */
-    .rs-loop { position: relative; height: 1.8rem; margin-top: 0.55rem; }
-    .rs-loopline { position: absolute; left: 9%; right: 9%; top: 1.0rem; border-top: 0.08rem dashed rgba(190,200,224,0.4); }
-    .rs-loopline::before { content: '◂'; position: absolute; left: -0.35rem; top: 50%; transform: translateY(-50%); color: rgba(190,200,224,0.7) !important; font-size: 0.7rem; line-height: 1; }
-    .rs-looplabel { position: absolute; left: 0; right: 0; top: 0; text-align: center; font-family: var(--mono); font-size: 0.72rem; color: #A9B4D8 !important; }
+    /* 10장 검증 루프 (.vl): 닫힌 순환 ①→②→③→④ + 사람 승인 분기(수정 점선 ④→② / 승인·확대 실선 ④→①) */
+    .vl { position: relative; display: grid; grid-template-columns: 1fr 9rem 1fr; grid-template-rows: 5.4rem 5.6rem 5.4rem; column-gap: 0.6rem; row-gap: 0.55rem; max-width: 58rem; margin-left: auto; margin-right: auto; }
+    .vl-step { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.18rem; border: 0.0625rem solid rgba(255,255,255,0.16); border-radius: 0.8rem; background: rgba(255,255,255,0.03); padding: 0.5rem 0.8rem; }
+    .vl-n { font-family: var(--mono); font-size: 0.8rem; font-weight: 700; color: #7FE8D8 !important; }
+    .vl-t { font-size: 1.12rem; font-weight: 800; }
+    .vl-d { font-size: 0.82rem; color: var(--fg-soft) !important; word-break: keep-all; text-align: center; }
+    .vl-step.appr { border-color: rgba(255,212,107,0.6); border-width: 0.09rem; background: rgba(255,212,107,0.07); }
+    .vl-step.appr .vl-t { color: #FFE9AE !important; }
+    .vl-step.appr .vl-n { color: #FFD46B !important; }
+    /* 진행 화살표(중립): 상단 ▸ · 우측 ▾ · 하단 ◂ */
+    .vl-harrow { align-self: center; position: relative; height: 0; border-top: 0.09rem solid rgba(190,200,224,0.5); }
+    .vl-harrow.fwd::after { content: '▸'; position: absolute; right: -0.3rem; top: 50%; transform: translateY(-50%); color: rgba(190,200,224,0.85) !important; font-size: 0.8rem; line-height: 1; }
+    .vl-harrow.back::before { content: '◂'; position: absolute; left: -0.3rem; top: 50%; transform: translateY(-50%); color: rgba(190,200,224,0.85) !important; font-size: 0.8rem; line-height: 1; }
+    .vl-varrow { justify-self: center; position: relative; width: 0; border-left: 0.09rem solid rgba(190,200,224,0.5); }
+    .vl-varrow.down::after { content: '▾'; position: absolute; bottom: -0.35rem; left: 50%; transform: translateX(-50%); color: rgba(190,200,224,0.85) !important; font-size: 0.8rem; line-height: 1; }
+    /* 승인·확대 경로 ④→①: 앰버 실선 상행 — 진행선보다 선명 */
+    .vl-expand { display: flex; align-items: center; justify-content: center; gap: 0.55rem; }
+    .vl-exline { position: relative; display: block; width: 0; height: 100%; border-left: 0.13rem solid rgba(255,212,107,0.75); }
+    .vl-exline::after { content: '▴'; position: absolute; top: -0.35rem; left: 50%; transform: translateX(-50%); color: rgba(255,212,107,0.9) !important; font-size: 0.8rem; line-height: 1; }
+    .vl-exlabel { font-family: var(--mono); font-size: 0.72rem; font-weight: 700; line-height: 1.5; color: #FFE9AE !important; }
+    /* 중앙 메시지: 정확히 중앙, 카드보다 약한 계층 */
+    .vl-center { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); white-space: nowrap; font-size: 0.92rem; font-weight: 700; color: #A9B4D8 !important; background: var(--bg-0); padding: 0.15rem 0.65rem; border-radius: 62.4375rem; border: 0.0625rem solid rgba(190,200,224,0.22); }
+    /* 수정 경로 ④→②: 약한 점선 엘보(같은 범위 재실행) */
+    .vl-revise { position: absolute; inset: 0; pointer-events: none; }
+    .vl-rv1 { position: absolute; left: 32%; top: 40%; height: 29%; border-left: 0.08rem dashed rgba(190,200,224,0.45); }
+    .vl-rh  { position: absolute; left: 32%; width: 34%; top: 40%; border-top: 0.08rem dashed rgba(190,200,224,0.45); }
+    .vl-rv2 { position: absolute; left: 66%; top: 32%; height: 8%; border-left: 0.08rem dashed rgba(190,200,224,0.45); }
+    .vl-rv2::after { content: '▴'; position: absolute; top: -0.3rem; left: -0.35rem; color: rgba(190,200,224,0.6) !important; font-size: 0.7rem; line-height: 1; }
+    .vl-rlabel { position: absolute; left: 33.5%; top: 35.8%; font-family: var(--mono); font-size: 0.7rem; color: #8A93B2 !important; }
 
     /* demo-3 run rows */
     .runs { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.2rem; }
@@ -1463,18 +1487,22 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="도입">
       <div><span class="chip">도입 · Agent 도입 4원칙</span></div>
       <h2>좋은 협업은 작은 검증 루프를 반복합니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">나눈 역할은 <b style="color:#fff">이 순서로 주고받습니다</b> — 이후 장에서 이 네 원칙이 배지로 다시 표시됩니다.</p>
-      <div class="ribbon autoshow fade-up" style="margin-top:1.7rem">
-        <div class="rb"><span class="rb-n">1</span><span class="rb-t">작게 시작한다</span><span class="rb-d">검증 가능한 반복 업무 하나 선택 — 권한도 범위도 작게</span></div>
-        <span class="rb-arr">→</span>
-        <div class="rb"><span class="rb-n">2</span><span class="rb-t">출력을 구조화한다</span><span class="rb-d">표 · JSON · 체크리스트 — 형식을 정해야 검증이 가능해진다</span></div>
-        <span class="rb-arr">→</span>
-        <div class="rb"><span class="rb-n">3</span><span class="rb-t">근거를 남긴다</span><span class="rb-d">로그 · 문서 · 코드 위치와 대조 — 근거가 없으면 unknown</span></div>
-        <span class="rb-arr">→</span>
-        <div class="rb"><span class="rb-n">4</span><span class="rb-t">사람이 승인한다</span><span class="rb-d">반영 · 수정 · 확대 결정 — 되돌리기 어려운 행동 전에 반드시</span></div>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">업무 전체를 한 번에 넘기지 않고, <b style="color:#fff">확인 가능한 결과를 한 바퀴씩 주고받습니다.</b></p>
+      <div class="vl autoshow fade-up" style="margin-top:1.0rem">
+        <div class="vl-step"><span class="vl-n">①</span><span class="vl-t">작게 시작</span><span class="vl-d">검증 가능한 업무 하나</span></div>
+        <div class="vl-harrow fwd"></div>
+        <div class="vl-step"><span class="vl-n">②</span><span class="vl-t">출력 구조화</span><span class="vl-d">표 · JSON · 체크리스트</span></div>
+        <div class="vl-expand"><span class="vl-exline"></span><span class="vl-exlabel">승인 후<br>다음 작은 범위</span></div>
+        <div></div>
+        <div class="vl-varrow down"></div>
+        <div class="vl-step appr"><span class="vl-n">④</span><span class="vl-t">사람 승인</span><span class="vl-d">수정 · 반영 · 확대 결정</span></div>
+        <div class="vl-harrow back"></div>
+        <div class="vl-step"><span class="vl-n">③</span><span class="vl-t">근거 확인</span><span class="vl-d">로그 · 문서 · 코드와 대조</span></div>
+        <span class="vl-center">한 바퀴씩 확인하며 확대</span>
+        <div class="vl-revise"><span class="vl-rv1"></span><span class="vl-rh"></span><span class="vl-rv2"></span><span class="vl-rlabel">수정 필요</span></div>
       </div>
-      <div class="rs-loop autoshow fade-up"><span class="rs-looplabel">↺ 승인 후, 사람이 결정한 범위 안에서 유지 · 수정 · 확대 — 다음 반복으로</span><span class="rs-loopline"></span></div>
-      <p class="note autoshow fade-up" style="margin-top:1.2rem">이 네 가지는 안전을 보장하는 공식이 아니라, <b class="accent">결과를 검증할 수 있게 만드는 시작 조건</b>입니다.</p>
+      <p class="mono tiny faint center autoshow fade-up" style="margin-top:0.55rem">정식 원칙 — 작게 시작한다 · 출력을 구조화한다 · 근거를 남긴다 · 사람이 승인한다 — 이후 장에서 배지로 다시 표시됩니다</p>
+      <p class="note autoshow fade-up" style="margin-top:0.75rem">같은 일을 무한히 반복하는 것이 아니라, <b class="accent">수정하거나 확인된 범위만 조금씩 넓힙니다.</b> 이 네 가지가 안전을 보장하는 것은 아닙니다.</p>
     </section>
 
     <!-- 11 · 간지 — 본문 1 -->
