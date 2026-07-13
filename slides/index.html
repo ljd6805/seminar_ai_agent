@@ -948,6 +948,15 @@ footer, header, hgroup, main, menu, nav, section {
     .mas[data-stage="pre"] .mas-hlabel, .mas[data-stage="pre"] .mas-ctl, .mas[data-stage="pre"] .mas-outrow { display: none; }
     .mas .dimmed { opacity: 0.35; }
     .mas .lit { box-shadow: 0 0 0.7rem rgba(155,130,255,0.22); }
+    /* 연결 문법(v1.9.1): 행 역할 라벨 · 화살표 의미 라벨 · Agent→출력 세로 연결 */
+    .mas-role { flex: none; align-self: center; width: 2.7rem; font-family: var(--mono); font-size: 0.7rem; font-weight: 700; line-height: 1.5; letter-spacing: 0.04em; color: #8A93B2 !important; word-break: keep-all; }
+    .mas-arr { text-align: center; }
+    .mas-arr small { display: block; font-size: 0.62rem; font-weight: 600; line-height: 1.35; color: #8A93B2 !important; margin-top: 0.1rem; white-space: nowrap; }
+    .mas-drop { position: relative; height: 1.5rem; margin: -0.5rem 0 -0.4rem; }
+    .mas-drop::before { content: ''; position: absolute; left: 13%; right: 48%; top: 0; height: 0.8rem; border-right: 0.11rem solid rgba(155,130,255,0.55); border-bottom: 0.11rem solid rgba(155,130,255,0.55); border-bottom-right-radius: 0.5rem; }
+    .mas-drop::after { content: ''; position: absolute; left: 13%; top: 0.8rem; bottom: -0.1rem; border-left: 0.11rem solid rgba(155,130,255,0.55); }
+    .mas-droplabel { position: absolute; left: 54%; top: 0.3rem; font-family: var(--mono); font-size: 0.68rem; font-weight: 700; color: #B7A5FF !important; white-space: nowrap; }
+    .mas-droptip { position: absolute; left: 13%; bottom: -0.4rem; transform: translateX(-50%); color: rgba(155,130,255,0.85) !important; font-size: 0.66rem; line-height: 1; }
     /* 결함 callout (18장 두 공백 등) */
     .mas-callout {
       font-size: 0.85rem; font-weight: 700; color: #FFD46B !important;
@@ -1153,20 +1162,23 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="mas-core">
           <span class="mas-hlabel">Harness — 실행 권한·검증·실패 처리를 규칙으로 통제</span>
           <div class="mas-row">
+            <span class="mas-role">작업 수행</span>
             <div class="mas-node n-skill" data-id="system-skill">Skill<small>반복 작업의 절차와 기준</small></div>
-            <span class="mas-arr">→</span>
+            <span class="mas-arr">→<small>방법·규칙<br>제공</small></span>
             <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>목표를 받아 계획 · 도구 사용 · 결과 확인 ↻</small></div>
-            <span class="mas-arr">→</span>
+            <span class="mas-arr">⇄<small>도구 호출<br>결과 수신</small></span>
             <div class="mas-node n-mcp" data-id="system-mcp">MCP<small>데이터·시스템 연결 포트</small></div>
           </div>
+          <div class="mas-drop"><span class="mas-droplabel">작업 결과</span><span class="mas-droptip">▾</span></div>
           <div class="mas-outrow">
+            <span class="mas-role">결과 통제</span>
             <div class="mas-node" style="flex:0.55">출력<small>JSON · 표</small></div>
             <span class="mas-arr">→</span>
             <div class="mas-gate" data-id="system-schema">스키마 검증<small>형식 게이트</small></div>
             <span class="mas-arr">→</span>
             <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>쓰기·공유 전</small></div>
-            <span class="mas-arr">→</span>
-            <div class="mas-node" style="flex:0.8">후속 작업<small>리포트 · 자동화</small></div>
+            <span class="mas-arr">→<small>승인 후<br>실행</small></span>
+            <div class="mas-node" style="flex:0.8">후속 작업<small>리포트 · 필요 시 MCP로 반영</small></div>
           </div>
           <div class="mas-ctl"><span>권한</span><span>재시도</span><span>로그</span><span>승인</span><span>중단 규칙</span></div>
         </div>
@@ -1487,6 +1499,7 @@ footer, header, hgroup, main, menu, nav, section {
       <div class="mas autoshow fade-up" data-stage="pre" style="margin-top:1.0rem">
         <div class="mas-core">
           <div class="mas-row">
+            <span class="mas-role">작업 수행</span>
             <div class="mas-node hole" data-id="system-skill">절차 없음<small>공백 ① — 팀의 리뷰 규칙·문서 형식·노하우를 모른다. 매번 처음부터 설명해야 한다</small></div>
             <span class="mas-arr">→</span>
             <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>계획 · 실행 · 확인은 이미 가능</small></div>
@@ -1844,19 +1857,22 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="mas-core">
           <span class="mas-hlabel">Harness — 통제 가능한 Agent 실행</span>
           <div class="mas-row">
+            <span class="mas-role">작업 수행</span>
             <div class="mas-node n-skill" data-id="system-skill">Skill<small>절차 — 본문 2</small></div>
-            <span class="mas-arr">→</span>
+            <span class="mas-arr">→<small>방법·규칙<br>제공</small></span>
             <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>계획 · 실행 · 확인 ↻</small></div>
-            <span class="mas-arr">→</span>
+            <span class="mas-arr">⇄<small>도구 호출<br>결과 수신</small></span>
             <div class="mas-node n-mcp" data-id="system-mcp">MCP<small>연결 — 본문 2</small></div>
           </div>
+          <div class="mas-drop"><span class="mas-droplabel">작업 결과</span><span class="mas-droptip">▾</span></div>
           <div class="mas-outrow">
+            <span class="mas-role">결과 통제</span>
             <div class="mas-node" style="flex:0.55">출력<small>JSON · 표</small></div>
             <span class="mas-arr">→</span>
             <div class="mas-gate" data-id="system-schema">스키마 검증<small>실패 → 한도 내 재시도</small></div>
             <span class="mas-arr">→</span>
             <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>쓰기·공유·상태 변경 전</small></div>
-            <span class="mas-arr">→</span>
+            <span class="mas-arr">→<small>승인 후<br>실행</small></span>
             <div class="mas-node" style="flex:0.8">후속 작업<small>리포트 · 자동화</small></div>
           </div>
           <div class="mas-ctl"><span>입력·권한</span><span>실행 순서</span><span>검증·재시도</span><span>로그</span><span>승인·중단</span></div>
@@ -1917,9 +1933,10 @@ footer, header, hgroup, main, menu, nav, section {
               <div class="mas-node n-skill">Skill</div>
               <span class="mas-arr">→</span>
               <div class="mas-node n-agent">Agent / LLM</div>
-              <span class="mas-arr">→</span>
+              <span class="mas-arr">⇄</span>
               <div class="mas-node n-mcp">MCP</div>
             </div>
+            <div class="mas-drop"><span class="mas-droplabel">작업 결과</span><span class="mas-droptip">▾</span></div>
             <div class="mas-outrow">
               <div class="mas-node" style="flex:0.6">출력</div>
               <span class="mas-arr">→</span>
@@ -2024,18 +2041,23 @@ footer, header, hgroup, main, menu, nav, section {
         <div class="mas-core">
           <span class="mas-hlabel">Harness — 실행 통제 · 본문 3</span>
           <div class="mas-row">
+            <span class="mas-role">작업 수행</span>
             <div class="mas-node n-skill" data-id="system-skill">Skill<small>절차 — 데모 2</small></div>
-            <span class="mas-arr">→</span>
+            <span class="mas-arr">→<small>방법·규칙<br>제공</small></span>
             <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>계획 · 실행 · 확인 ↻</small></div>
-            <span class="mas-arr">→</span>
+            <span class="mas-arr">⇄<small>도구 호출<br>결과 수신</small></span>
             <div class="mas-node n-mcp" data-id="system-mcp">MCP<small>연결 — 데모 3</small></div>
           </div>
+          <div class="mas-drop"><span class="mas-droplabel">작업 결과</span><span class="mas-droptip">▾</span></div>
           <div class="mas-outrow">
+            <span class="mas-role">결과 통제</span>
             <div class="mas-node" style="flex:0.55">출력<small>JSON</small></div>
             <span class="mas-arr">→</span>
             <div class="mas-gate" data-id="system-schema">스키마 검증<small>데모 4</small></div>
             <span class="mas-arr">→</span>
             <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>원인 확정 · 조치는 사람이</small></div>
+            <span class="mas-arr">→<small>승인 후<br>실행</small></span>
+            <div class="mas-node" style="flex:0.8">후속 작업<small>리포트 · 필요 시 MCP로 반영</small></div>
           </div>
         </div>
         <div class="mas-ext" data-id="system-external-tools">
