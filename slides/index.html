@@ -950,14 +950,12 @@ footer, header, hgroup, main, menu, nav, section {
     .mas .lit { box-shadow: 0 0 0.7rem rgba(155,130,255,0.22); }
     /* 연결 문법(v1.9.1): 행 역할 라벨 · 화살표 의미 라벨 · Agent→출력 세로 연결 */
     .mas-role { flex: none; align-self: center; width: 2.7rem; font-family: var(--mono); font-size: 0.7rem; font-weight: 700; line-height: 1.5; letter-spacing: 0.04em; color: #8A93B2 !important; word-break: keep-all; }
-    .mas-arr { text-align: center; }
-    .mas-arr small { display: block; font-size: 0.62rem; font-weight: 600; line-height: 1.35; color: #8A93B2 !important; margin-top: 0.1rem; white-space: nowrap; }
     .mas-drop { position: relative; height: 1.5rem; margin: -0.5rem 0 -0.4rem; }
     .mas-drop::before { content: ''; position: absolute; left: 13%; right: 48%; top: 0; height: 0.8rem; border-right: 0.11rem solid rgba(155,130,255,0.55); border-bottom: 0.11rem solid rgba(155,130,255,0.55); border-bottom-right-radius: 0.5rem; }
     .mas-drop::after { content: ''; position: absolute; left: 13%; top: 0.8rem; bottom: -0.1rem; border-left: 0.11rem solid rgba(155,130,255,0.55); }
     .mas-droplabel { position: absolute; left: 54%; top: 0.3rem; font-family: var(--mono); font-size: 0.68rem; font-weight: 700; color: #B7A5FF !important; white-space: nowrap; }
     .mas-droptip { position: absolute; left: 13%; bottom: -0.4rem; transform: translateX(-50%); color: rgba(155,130,255,0.85) !important; font-size: 0.66rem; line-height: 1; }
-    /* --- 3장 전용 variant (.mas-ov): Harness 전체 통제 + 중앙축형 Agent 실행 — 다른 장 영향 없음 --- */
+    /* --- 3·29·36장 공용 variant (.mas-ov): Harness 전체 통제 + 중앙축형 Agent 실행 (18·31장은 축약형 유지) --- */
     .mas-ov { align-items: flex-start; }
     .mas-ov-core { padding: 1.5rem 1.2rem 1.4rem; }
     /* Harness 헤더 2계층: 주제어 강 + 설명 약 · 범위 pill 3개는 경계 상단 우측 */
@@ -1902,35 +1900,38 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">본문 3 · 틀로 감싸 제대로</span></div>
       <h2>Harness — 모델을 감싸는 실행 틀</h2>
       <p class="autoshow fade-up" style="font-size:1.22rem"><b>이 자료에서 Harness는 — Agent 실행을 감싸는 권한 · 검증 · 재시도 · 로그 · 승인 구조를 뜻합니다.</b> <span class="accent2">검증 환경의 testbench·harness와 비슷한 관점</span>이며, 대상이 칩이 아니라 Agent 실행이라는 점이 다릅니다.</p>
-      <div class="mas autoshow fade-up" style="margin-top:1.1rem">
-        <div class="mas-core">
-          <span class="mas-hlabel">Harness — 통제 가능한 Agent 실행</span>
-          <div class="mas-row">
-            <span class="mas-role">작업 수행</span>
-            <div class="mas-node n-skill" data-id="system-skill">Skill<small>절차 — 본문 2</small></div>
-            <span class="mas-arr">→<small>방법·규칙<br>제공</small></span>
-            <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>계획 · 실행 · 확인 ↻</small></div>
-            <span class="mas-arr">⇄<small>도구 호출<br>결과 수신</small></span>
-            <div class="mas-node n-mcp" data-id="system-mcp">MCP<small>연결 — 본문 2</small></div>
+      <div class="mas mas-ov autoshow fade-up" style="margin-top:1.1rem">
+        <div class="mas-core mas-ov-core">
+          <span class="mas-hlabel mas-ov-hlabel"><b>Harness</b><i>통제 가능한 Agent 실행</i></span>
+          <span class="mas-ov-scope"><span>권한·도구 제한</span><span>로그·재시도·중단</span><span>출력 검증·사람 승인</span></span>
+          <div class="mas-ov-work">
+            <span class="mas-ov-slabel">작업 실행</span>
+            <div class="mas-ov-workflow">
+              <div class="mas-node n-skill ov-skill" data-id="system-skill">Skill<small>절차 — 본문 2</small></div>
+              <div class="mas-ov-conn ov-c1"><span class="cl">방법·기준</span><span class="cline"></span></div>
+              <div class="mas-node n-agent ov-agent" data-id="system-agent">AI Agent<small>LLM 기반 · 계획 · 실행 · 확인 ↻</small></div>
+              <div class="mas-ov-conn ov-c2"><span class="cl">도구 호출 · 결과 수신</span><span class="cline"></span></div>
+              <div class="mas-node n-mcp ov-mcp" data-id="system-mcp">MCP<small>연결 — 본문 2</small></div>
+            </div>
           </div>
-          <div class="mas-drop"><span class="mas-droplabel">작업 결과</span><span class="mas-droptip">▾</span></div>
-          <div class="mas-outrow">
-            <span class="mas-role">결과 통제</span>
-            <div class="mas-node" style="flex:0.55">출력<small>JSON · 표</small></div>
-            <span class="mas-arr">→</span>
-            <div class="mas-gate" data-id="system-schema">스키마 검증<small>실패 → 한도 내 재시도</small></div>
-            <span class="mas-arr">→</span>
-            <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>쓰기·공유·상태 변경 전</small></div>
-            <span class="mas-arr">→<small>승인 후<br>실행</small></span>
-            <div class="mas-node" style="flex:0.8">후속 작업<small>리포트 · 자동화</small></div>
+          <div class="mas-ov-bridge"><span>작업 결과</span></div>
+          <div class="mas-ov-control">
+            <span class="mas-ov-slabel">결과 검증·승인</span>
+            <div class="mas-ov-ctlflow">
+              <div class="mas-node ov-out">출력<small>JSON · 표</small></div>
+              <span class="mas-arr">→</span>
+              <div class="mas-gate" data-id="system-schema">스키마 검증<small>실패 → 한도 내 재시도</small></div>
+              <span class="mas-arr">→</span>
+              <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>쓰기·공유·상태 변경 전</small></div>
+              <div class="mas-ov-conn ov-c3"><span class="cl">승인 후 실행</span><span class="cline"></span></div>
+              <div class="mas-node ov-next">후속 작업<small>리포트 · 자동화</small></div>
+            </div>
           </div>
-          <div class="mas-ctl"><span>입력·권한</span><span>실행 순서</span><span>검증·재시도</span><span>로그</span><span>승인·중단</span></div>
         </div>
-        <div class="mas-ext" data-id="system-external-tools">
-          <span class="mas-extlabel">외부 시스템</span>
-          <div class="mas-extnode">Jira</div>
-          <div class="mas-extnode">문서고 · DB</div>
-          <div class="mas-extnode">도구 · shell</div>
+        <div class="mas-ov-extlink">⇄</div>
+        <div class="mas-ov-external" data-id="system-external-tools">
+          <span class="ext-t">외부 시스템</span>
+          <span class="ext-d">Jira · 문서 · DB</span>
         </div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:0.9rem">Harness는 Agent 옆의 네 번째 부품이 아니라 <b class="accent3">실행 전체를 감싸는 경계</b>입니다. 말의 범위는 제품·문맥에 따라 다르며, 이 자료에서는 위 실행 통제 구조를 뜻합니다.</p>
@@ -2086,33 +2087,38 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">마무리 · 회고</span></div>
       <h2>오늘 지나온 길 — 그림 하나가 완성됐습니다</h2>
       <p class="dim autoshow fade-up" style="font-size:1.08rem">하나의 로그 분류 작업에 <b class="accent">Skill</b>(절차) · <b class="accent2">MCP</b>(연결) · <b class="accent3">Harness</b>(통제)를 더해 — 3장의 그림이 채워졌습니다. 데이터는 처음부터 끝까지 <b style="color:#fff">승인된 사내 경로</b>에서.</p>
-      <div class="mas autoshow fade-up" style="margin-top:0.8rem">
-        <div class="mas-core">
-          <span class="mas-hlabel">Harness — 실행 통제 · 본문 3</span>
-          <div class="mas-row">
-            <span class="mas-role">작업 수행</span>
-            <div class="mas-node n-skill" data-id="system-skill">Skill<small>절차 — 데모 2</small></div>
-            <span class="mas-arr">→<small>방법·규칙<br>제공</small></span>
-            <div class="mas-node n-agent" data-id="system-agent">Agent / LLM<small>계획 · 실행 · 확인 ↻</small></div>
-            <span class="mas-arr">⇄<small>도구 호출<br>결과 수신</small></span>
-            <div class="mas-node n-mcp" data-id="system-mcp">MCP<small>연결 — 데모 3</small></div>
+      <div class="mas mas-ov autoshow fade-up" style="margin-top:0.8rem">
+        <div class="mas-core mas-ov-core">
+          <span class="mas-hlabel mas-ov-hlabel"><b>Harness</b><i>실행 통제 · 본문 3</i></span>
+          <span class="mas-ov-scope"><span>권한·도구 제한</span><span>로그·재시도·중단</span><span>출력 검증·사람 승인</span></span>
+          <div class="mas-ov-work">
+            <span class="mas-ov-slabel">작업 실행</span>
+            <div class="mas-ov-workflow">
+              <div class="mas-node n-skill ov-skill" data-id="system-skill">Skill<small>절차 — 데모 2</small></div>
+              <div class="mas-ov-conn ov-c1"><span class="cl">방법·기준</span><span class="cline"></span></div>
+              <div class="mas-node n-agent ov-agent" data-id="system-agent">AI Agent<small>LLM 기반 · 계획 · 실행 · 확인 ↻</small></div>
+              <div class="mas-ov-conn ov-c2"><span class="cl">도구 호출 · 결과 수신</span><span class="cline"></span></div>
+              <div class="mas-node n-mcp ov-mcp" data-id="system-mcp">MCP<small>연결 — 데모 3</small></div>
+            </div>
           </div>
-          <div class="mas-drop"><span class="mas-droplabel">작업 결과</span><span class="mas-droptip">▾</span></div>
-          <div class="mas-outrow">
-            <span class="mas-role">결과 통제</span>
-            <div class="mas-node" style="flex:0.55">출력<small>JSON</small></div>
-            <span class="mas-arr">→</span>
-            <div class="mas-gate" data-id="system-schema">스키마 검증<small>데모 4</small></div>
-            <span class="mas-arr">→</span>
-            <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>원인 확정 · 조치는 사람이</small></div>
-            <span class="mas-arr">→<small>승인 후<br>실행</small></span>
-            <div class="mas-node" style="flex:0.8">후속 작업<small>리포트 · 필요 시 MCP로 반영</small></div>
+          <div class="mas-ov-bridge"><span>작업 결과</span></div>
+          <div class="mas-ov-control">
+            <span class="mas-ov-slabel">결과 검증·승인</span>
+            <div class="mas-ov-ctlflow">
+              <div class="mas-node ov-out">출력<small>JSON</small></div>
+              <span class="mas-arr">→</span>
+              <div class="mas-gate" data-id="system-schema">스키마 검증<small>데모 4</small></div>
+              <span class="mas-arr">→</span>
+              <div class="mas-node n-appr" data-id="system-approval">사람 승인<small>원인 확정 · 조치는 사람이</small></div>
+              <div class="mas-ov-conn ov-c3"><span class="cl">승인 후 실행</span><span class="cline"></span></div>
+              <div class="mas-node ov-next">후속 작업<small>리포트 · 반영</small></div>
+            </div>
           </div>
         </div>
-        <div class="mas-ext" data-id="system-external-tools">
-          <span class="mas-extlabel">사내 경계 안 — 본문 1</span>
-          <div class="mas-extnode">Jira</div>
-          <div class="mas-extnode">문서고 · DB</div>
+        <div class="mas-ov-extlink">⇄</div>
+        <div class="mas-ov-external" data-id="system-external-tools">
+          <span class="ext-t">외부 시스템</span>
+          <span class="ext-d">사내 경계 안 — 본문 1</span>
         </div>
       </div>
       <div class="ribbon mini autoshow fade-up" style="margin-top:0.9rem">
