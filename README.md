@@ -6,10 +6,10 @@
 
 | 문서 | 내용 |
 |------|------|
-| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.0) |
-| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.19) |
-| [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v1.3 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
-| [slides/index.html](slides/index.html) | 54장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
+| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.1) |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.20) |
+| [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v1.4 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
+| [slides/index.html](slides/index.html) | 55장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
 
 ## 한눈에
 
@@ -21,11 +21,11 @@
 - **4요소**: Agent(생각·실행) · Skill(방법·규칙) · MCP(연결) · Harness(실수해도 안전하게) · **4원칙**: 작게 시작 · 출력 구조화 · 근거 남기기 · 사람 승인
 - **자료 형태**: reveal.js 단일 파일 HTML — 키보드 네비게이션, 진입 시 자동 스태거(fragment 없음), ESC 오버뷰, DEMO/READ/APPENDIX 레이어 배지
 
-### 전체 흐름 (54장 = 본편 37 + 부록 17 · 발표 모드 34장)
+### 전체 흐름 (55장 = 본편 38 + 부록 17 · 발표 모드 35장)
 
 ```
-도입    표지 · 목차 · 오늘의 결론(4요소) · 데모1(prompt만)+해부 · 정의
-        · LLM은 모델, AI Agent는 실행 시스템 · 무엇을 맡기나 · Agent 도입 4원칙
+도입    표지 · 목차 · 오늘의 결론(4요소) · 데모1(prompt만)+해부 · 정의 · LLM은 모델, AI Agent는 실행 시스템
+        · 왜 달라지는가(중간 실행 단계) · 역할 분담(사람→Agent→사람) · 4원칙 검증 루프
 본문 1  간지 · 데이터 경계 다이어그램(오해 교정) · 사내 도구 셋 · 사용 전 3문장 점검
 본문 2  간지 · 1단계 prompt(두 공백) · 데모2(triage SKILL.md→실행) · Skill(개념·구조)
         · 데모3(Jira 대조, 없을 때→있을 때) · MCP(개념·통제)
