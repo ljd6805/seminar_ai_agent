@@ -766,10 +766,15 @@ footer, header, hgroup, main, menu, nav, section {
     .rs-trio .rs-role { display: flex; flex-direction: column; justify-content: center; padding: 1.1rem 0.7rem; font-size: 1.2rem; }
     .rs-trio .rs-role small { font-size: 0.95rem; margin-top: 0.32rem; }
     .rs-trio .rs-role .tiny2 { font-size: 0.74rem; margin-top: 0.35rem; }
-    .rs-fb { position: relative; height: 1.75rem; margin-top: 0.3rem; }
-    .rs-fbline { position: absolute; left: 52%; right: 16%; top: 0.95rem; border-top: 0.08rem dashed rgba(255,212,107,0.55); }
-    .rs-fbline::before { content: '◂'; position: absolute; left: -0.35rem; top: 50%; transform: translateY(-50%); color: rgba(255,212,107,0.8) !important; font-size: 0.7rem; line-height: 1; }
-    .rs-fblabel { position: absolute; left: 52%; right: 16%; top: 0; text-align: center; font-family: var(--mono); font-size: 0.7rem; color: rgba(255,233,174,0.75) !important; }
+    /* 8장 시간의 이동 (.why-move): 반복→Agent / 사람 시간→판단 — 협업 레일(9장 소유)과 중복 없는 WHY 표현 */
+    .why-move { margin-top: 0.15rem; }
+    .wm-row { display: flex; align-items: stretch; gap: 0.7rem; margin-top: 0.45rem; }
+    .wm-src { flex: 0 0 11rem; display: flex; align-items: center; justify-content: center; text-align: center; font-weight: 700; font-size: 0.95rem; color: #B7C0DA !important; border: 0.0625rem solid rgba(190,200,224,0.35); border-radius: 62.4375rem; padding: 0.3rem 0.6rem; background: rgba(255,255,255,0.02); }
+    .wm-arr { align-self: center; color: #8A93B2 !important; font-weight: 800; }
+    .wm-dst { flex: 1; text-align: center; font-weight: 800; font-size: 1.02rem; border: 0.0625rem solid; border-radius: 0.7rem; padding: 0.4rem 0.8rem; }
+    .wm-dst small { display: block; font-weight: 500; font-size: 0.74rem; color: #8A93B2 !important; margin-top: 0.1rem; word-break: keep-all; }
+    .wm-dst.agent { border-color: rgba(155,130,255,0.6); background: rgba(155,130,255,0.08); color: #C9B8FF !important; }
+    .wm-dst.human { border-color: rgba(255,212,107,0.55); background: rgba(255,212,107,0.07); color: #FFE9AE !important; }
     .rs-ex { border: 0.0625rem solid rgba(190,200,224,0.2); border-radius: 0.6rem; padding: 0.45rem 0.8rem; background: rgba(255,255,255,0.015); }
     .rs-ext { display: block; font-family: var(--mono); font-size: 0.72rem; font-weight: 700; color: #8A93B2 !important; }
     .rs-exd { display: block; font-size: 0.88rem; color: #B7C0DA !important; margin-top: 0.15rem; }
@@ -1433,11 +1438,11 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">차이는 모델의 "똑똑함"이 아니라 <b class="accent">도구와 실행 루프가 결합된 구조</b>입니다. <b class="accent4">Agent도 사실성을 자동으로 보장하지는 않습니다.</b></p>
     </section>
 
-    <!-- 8 · 왜 일하는 방식이 달라지는가 (WHY) -->
+    <!-- 8 · 왜 쓰나 — 반복에 묶인 시간을 판단으로 (WHY) -->
     <section data-sec="도입">
-      <div><span class="chip">도입 · 왜 달라지는가</span></div>
-      <h2>Agent는 업무의 중간 실행 단계를 나눠 맡을 수 있습니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.1rem">Agent가 사람보다 더 똑똑해서가 아닙니다 — <b style="color:#fff">도구와 실행 루프로 탐색·정리·분류·초안 같은 중간 작업 단계를 진행할 수 있기 때문</b>에, 업무 전체가 아니라 <b class="accent">일을 나누는 방식부터</b> 달라집니다.</p>
+      <div><span class="chip">도입 · 왜 쓰나</span></div>
+      <h2>반복에 묶인 시간을, 판단으로 옮기기 위해서입니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.1rem">Agent가 사람보다 더 똑똑해서가 아닙니다 — <b style="color:#fff">도구와 실행 루프로 중간 반복 단계를 맡길 수 있게 되면서</b>, 사람의 시간을 <b class="accent">목표·기준과 검증·판단</b>에 쓸 수 있기 때문입니다.</p>
       <div class="autoshow fade-up" style="margin-top:1.0rem">
         <span class="rs-rowlabel">기존 · 사람이 전체 흐름을 직접 수행</span>
         <div class="rs-rail">
@@ -1449,19 +1454,21 @@ footer, header, hgroup, main, menu, nav, section {
           <div class="rs-mini">판단·승인</div>
         </div>
       </div>
-      <div class="rs-shift autoshow fade-up"><span>가운데 세 단계를 나누어 맡기면 ↓</span></div>
-      <div class="autoshow fade-up">
-        <span class="rs-rowlabel">Agent와 협업 · 중간 실행 단계를 나누어 수행</span>
-        <div class="rs-rail">
-          <div class="rs-role human" style="flex:1">사람<small>목표 · 기준 설정</small></div>
-          <span class="rs-arr">→</span>
-          <div class="rs-role agent" style="flex:1.6">AI Agent<small>탐색 · 정리 · 분류 · 초안</small><small class="tiny2">정해진 권한과 한도 안에서</small></div>
-          <span class="rs-arr">→</span>
-          <div class="rs-role human" style="flex:1.15">사람<small>근거 확인 · 수정 · 판단 · 승인</small></div>
+      <div class="rs-shift autoshow fade-up"><span>반복 실행 구간(점선)이 판단·설계의 시간을 밀어냅니다 — 이 구간을 맡기면 ↓</span></div>
+      <div class="why-move autoshow fade-up">
+        <span class="rs-rowlabel">Agent 도입 후 · 시간의 이동</span>
+        <div class="wm-row">
+          <span class="wm-src">반복 실행</span>
+          <span class="wm-arr">→</span>
+          <div class="wm-dst agent">AI Agent가 수행<small>위 레일의 점선 세 단계 · 권한·한도 안</small></div>
         </div>
-        <p class="rs-foot">사람은 필요할 때 중간 결과를 확인하고 방향을 수정합니다 — 처음과 끝에만 있는 구조가 아닙니다.</p>
+        <div class="wm-row">
+          <span class="wm-src">사람의 시간</span>
+          <span class="wm-arr">→</span>
+          <div class="wm-dst human">목표 · 기준 / 검증 · 판단<small>무엇을 시킬지 · 무엇을 믿을지</small></div>
+        </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.0rem">변화의 핵심은 사람을 빼는 것이 아니라, <b class="accent">사람이 모든 중간 단계를 직접 하지 않아도 되는 것</b>입니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.0rem">판단을 <b>대체하는</b> 도구가 아니라, <b class="accent">판단 전에 필요한 반복 작업을 줄이는</b> 도구 — 오늘의 결론(3장)이 업무 흐름에서 뜻하는 것입니다.</p>
     </section>
 
     <!-- 9 · 역할 분담 — 사람 · Agent · 사람 (구 무엇을 맡기나 재구성) -->
@@ -1475,7 +1482,7 @@ footer, header, hgroup, main, menu, nav, section {
         <span class="rs-arr" style="font-size:1.1rem">→</span>
         <div class="rs-role human" style="flex:1">사람<small>근거 확인 · 수정 · 판단 · 승인</small><small class="tiny2">반영 여부는 사람이 결정한다</small></div>
       </div>
-      <div class="rs-fb autoshow fade-up"><span class="rs-fblabel">수정 요청 — Agent는 범위 안에서 보완</span><span class="rs-fbline"></span></div>
+      <p class="rs-foot autoshow fade-up">사람은 필요할 때 중간 결과를 확인하고 방향을 수정합니다 — 처음과 끝에만 있는 구조가 아닙니다.</p>
       <div class="grid-2 autoshow fade-up" style="margin-top:0.75rem; gap:0.7rem">
         <div class="rs-ex"><span class="rs-ext">Agent에 맡기기 좋은 중간 작업</span><span class="rs-exd">자동 테스트 실패 1차 분류 · spec 변경점 요약 · 형식 변환 · 초안</span></div>
         <div class="rs-ex"><span class="rs-ext">사람에게 남길 판단</span><span class="rs-exd">sign-off · architecture 결정 · RTL 의미 변경 · root cause 확정</span></div>
