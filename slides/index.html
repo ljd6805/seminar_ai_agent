@@ -1407,7 +1407,7 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="도입">
       <div><span class="chip">도입 · LLM과 AI Agent</span></div>
       <h2>LLM은 모델, AI Agent는 실행 시스템입니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.1rem">Agent는 LLM과 경쟁하는 다른 모델이 아니라, <b style="color:#fff">LLM에 도구와 실행 루프를 결합한 시스템</b>입니다 — 같은 요청 <b class="accent">"자동 테스트 실패를 정리해줘"</b>를 두 구조에 넣어 보면:</p>
+      <p class="dim autoshow fade-up" style="font-size:1.1rem">Agent는 LLM과 경쟁하는 다른 모델이 아니라, <b style="color:#fff">LLM에 허용된 도구와 행동–관찰 루프를 결합한 실행 시스템</b>입니다 — 같은 요청 <b class="accent">"자동 테스트 실패를 정리해줘"</b>를 두 구조에 넣어 보면:</p>
       <div class="grid-2 lva" style="margin-top:0.8rem">
         <div class="card autoshow fade-left">
           <div class="pill neutral">LLM — 입력된 문맥에서 응답 생성</div>
@@ -1432,16 +1432,16 @@ footer, header, hgroup, main, menu, nav, section {
                 <span class="lva-plus">+</span>
                 <div class="lva-part t2">허용된 도구<small>읽기 · 쓰기 · 조회</small></div>
                 <span class="lva-plus">+</span>
-                <div class="lva-part t3">실행 루프 ↻<small>계획→실행→확인·보완</small></div>
+                <div class="lva-part t3">행동–관찰 루프 ↻<small>행동 결정→도구 실행→결과 관찰</small></div>
               </div>
             </div>
             <span class="lva-down">↓</span>
             <div class="lva-io">작업 결과<small>분류표 파일 · 실행 로그</small></div>
           </div>
-          <p class="lva-foot">정해진 권한과 한도 안에서</p>
+          <p class="lva-foot">정해진 범위 안에서 작업을 이어감</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:0.9rem">차이는 모델의 "똑똑함"이 아니라 <b class="accent">도구와 실행 루프가 결합된 구조</b>입니다. <b class="accent4">Agent도 사실성을 자동으로 보장하지는 않습니다.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem">차이는 모델의 "똑똑함"이 아니라, <b class="accent">같은 LLM을 도구와 행동–관찰 루프 안에서 사용하는 구조</b>입니다. <b class="accent4">Agent도 사실성을 자동으로 보장하지는 않습니다.</b></p>
     </section>
 
     <!-- 8 · 왜 쓰나 — 반복에 묶인 시간을 판단으로 (WHY) -->
