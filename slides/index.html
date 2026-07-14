@@ -1374,33 +1374,33 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="도입">
       <div><span class="chip">도입 · 정의</span></div>
       <h2>AI Agent란?</h2>
-      <p class="autoshow fade-up" style="font-size:1.22rem"><b>AI Agent는 정해진 권한과 한도 안에서 목표를 받아 작업을 계획하고, 도구를 사용해 실행하며, 결과를 확인·보완하는 과정을 반복하는 AI 시스템입니다.</b></p>
+      <p class="autoshow fade-up" style="font-size:1.22rem"><b>AI Agent는 정해진 범위 안에서 목표를 받아 다음 행동을 결정하고, 도구 실행 결과를 관찰하며 작업을 이어 가는 AI 시스템입니다.</b></p>
       <p class="mono tiny faint autoshow fade-up" style="margin:0.9rem 0 0">AI Agent의 기본 구조</p>
       <div class="agent-eq sim autoshow fade-up" style="margin-top:0.4rem">
         <div class="eq-item ph1"><b>LLM</b><span class="eq-sub">생성 · 추론</span></div>
         <div class="eq-op">+</div>
         <div class="eq-item ph2"><b>도구</b><span class="eq-sub">읽기 · 쓰기 · 조회</span></div>
         <div class="eq-op">+</div>
-        <div class="eq-item ph3"><b>실행 루프 ↻</b><span class="eq-sub">확인 · 보완 · 반복</span></div>
+        <div class="eq-item ph3"><b>행동–관찰 루프 ↻</b><span class="eq-sub">결정 · 실행 · 결과 관찰</span></div>
         <div class="eq-op">=</div>
-        <div class="eq-item eq-agent"><b class="grad">AI Agent</b><span class="eq-sub">목표를 향해 작업을 진행하는 실행자</span></div>
+        <div class="eq-item eq-agent"><b class="grad">AI Agent</b><span class="eq-sub">목표를 향해 작업을 이어 가는 실행 시스템</span></div>
       </div>
       <div class="sim autoshow fade-up">
         <div class="ac-lane">
           <div class="ac-node edge">목표</div>
           <span class="ac-arrow">→</span>
-          <div class="ac-node ph1">계획 <span class="dim" style="color:#B7A5FF !important">— LLM</span></div>
+          <div class="ac-node ph1">다음 행동 결정 <span class="dim" style="color:#B7A5FF !important">— LLM</span></div>
           <span class="ac-arrow">→</span>
-          <div class="ac-node ph2">실행 <span class="dim" style="color:#7FE8D8 !important">— 도구</span></div>
+          <div class="ac-node ph2">도구 실행 <span class="dim" style="color:#7FE8D8 !important">— 도구</span></div>
           <span class="ac-arrow">→</span>
-          <div class="ac-node ph3">확인·보완 <span class="dim" style="color:#FFD46B !important">— 루프</span></div>
+          <div class="ac-node ph3">결과 관찰 <span class="dim" style="color:#FFD46B !important">— 루프</span></div>
           <span class="ac-arrow">→</span>
           <div class="ac-node edge">작업물</div>
         </div>
-        <p class="ac-return">검증을 통과하지 못하면, 재시도 한도 안에서 다시 계획합니다 ↻</p>
+        <p class="ac-return">도구 결과를 관찰한 뒤, 다음 행동이 필요하면 다시 결정합니다 ↻</p>
       </div>
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">이 반복은 <b class="accent">정해진 권한 · 횟수 · 시간 한도</b> 안에서 이루어집니다. Agent가 결과를 최종 확정하는 것은 아닙니다 — <b class="accent4">불확실한 판단은 사람에게</b> 남깁니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:1.1rem">Agent가 결과를 <b class="accent">관찰</b>한다고 해서 정확성을 검증한 것은 아닙니다 — 작업물의 근거 확인과 최종 판단은 <b class="accent4">사람이</b> 합니다.</p>
     </section>
 
     <!-- 7 · LLM은 모델, AI Agent는 실행 시스템 -->
