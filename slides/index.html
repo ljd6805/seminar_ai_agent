@@ -813,6 +813,23 @@ footer, header, hgroup, main, menu, nav, section {
     .vl-rv2 { position: absolute; left: 66%; top: 32%; height: 8%; border-left: 0.08rem dashed rgba(190,200,224,0.45); }
     .vl-rv2::after { content: '▴'; position: absolute; top: -0.3rem; left: -0.35rem; color: rgba(190,200,224,0.6) !important; font-size: 0.7rem; line-height: 1; }
     .vl-rlabel { position: absolute; left: 33.5%; top: 35.8%; font-family: var(--mono); font-size: 0.7rem; color: #8A93B2 !important; }
+    /* 10장 검증 루프 — 진입 시 1회 순차 재생: ①▸②▾③◂④(강조) → 수정 분기 → 확대 분기 → 중앙.
+       순환(무한 회전) 애니 아님 — 재시작은 ↻ 버튼 = 사람의 결정 (v2.2 의도 유지) */
+    .vl .vl-step, .vl .vl-harrow, .vl .vl-varrow, .vl .vl-expand, .vl .vl-revise, .vl .vl-center { opacity: 0; }
+    @keyframes vlStepIn { from { opacity: 0; transform: translateY(0.35rem); } to { opacity: 1; transform: none; } }
+    @keyframes vlFadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes vlApprIn { 0% { opacity: 0; transform: translateY(0.35rem); } 55% { opacity: 1; transform: scale(1.05); } 100% { opacity: 1; transform: none; } }
+    @keyframes vlCenterIn { from { opacity: 0; transform: translate(-50%,-50%) scale(0.92); } to { opacity: 1; transform: translate(-50%,-50%); } }
+    section.present .vl .vs1 { animation: vlStepIn 0.4s ease 0.3s both; }
+    section.present .vl .vl-harrow.fwd { animation: vlFadeIn 0.3s ease 0.75s both; }
+    section.present .vl .vs2 { animation: vlStepIn 0.4s ease 1.0s both; }
+    section.present .vl .vl-varrow.down { animation: vlFadeIn 0.3s ease 1.45s both; }
+    section.present .vl .vs3 { animation: vlStepIn 0.4s ease 1.7s both; }
+    section.present .vl .vl-harrow.back { animation: vlFadeIn 0.3s ease 2.15s both; }
+    section.present .vl .vs4 { animation: vlApprIn 0.55s ease 2.45s both; }
+    section.present .vl .vl-revise { animation: vlFadeIn 0.5s ease 3.15s both; }
+    section.present .vl .vl-expand { animation: vlFadeIn 0.5s ease 3.75s both; }
+    section.present .vl .vl-center { animation: vlCenterIn 0.45s ease 4.35s both; }
 
     /* demo-3 run rows */
     .runs { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.2rem; }
@@ -1501,19 +1518,20 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">도입 · Agent 도입 4원칙</span></div>
       <h2>좋은 협업은 작은 검증 루프를 반복합니다</h2>
       <p class="dim autoshow fade-up" style="font-size:1.12rem">업무 전체를 한 번에 넘기지 않고, <b style="color:#fff">확인 가능한 결과를 한 바퀴씩 주고받습니다.</b></p>
-      <div class="vl autoshow fade-up" style="margin-top:1.0rem">
-        <div class="vl-step"><span class="vl-n">①</span><span class="vl-t">작게 시작</span><span class="vl-d">검증 가능한 업무 하나</span></div>
+      <div class="vl sim" style="margin-top:1.0rem">
+        <div class="vl-step vs1"><span class="vl-n">①</span><span class="vl-t">작게 시작</span><span class="vl-d">검증 가능한 업무 하나</span></div>
         <div class="vl-harrow fwd"></div>
-        <div class="vl-step"><span class="vl-n">②</span><span class="vl-t">출력 구조화</span><span class="vl-d">표 · JSON · 체크리스트</span></div>
+        <div class="vl-step vs2"><span class="vl-n">②</span><span class="vl-t">출력 구조화</span><span class="vl-d">표 · JSON · 체크리스트</span></div>
         <div class="vl-expand"><span class="vl-exline"></span><span class="vl-exlabel">승인 후<br>다음 작은 범위</span></div>
         <div></div>
         <div class="vl-varrow down"></div>
-        <div class="vl-step appr"><span class="vl-n">④</span><span class="vl-t">사람 승인</span><span class="vl-d">수정 · 반영 · 확대 결정</span></div>
+        <div class="vl-step appr vs4"><span class="vl-n">④</span><span class="vl-t">사람 승인</span><span class="vl-d">수정 · 반영 · 확대 결정</span></div>
         <div class="vl-harrow back"></div>
-        <div class="vl-step"><span class="vl-n">③</span><span class="vl-t">근거 확인</span><span class="vl-d">로그 · 문서 · 코드와 대조</span></div>
+        <div class="vl-step vs3"><span class="vl-n">③</span><span class="vl-t">근거 확인</span><span class="vl-d">로그 · 문서 · 코드와 대조</span></div>
         <span class="vl-center">한 바퀴씩 확인하며 확대</span>
         <div class="vl-revise"><span class="vl-rv1"></span><span class="vl-rh"></span><span class="vl-rv2"></span><span class="vl-rlabel">수정 필요</span></div>
       </div>
+      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
       <p class="mono tiny faint center autoshow fade-up" style="margin-top:0.55rem">정식 원칙 — 작게 시작한다 · 출력을 구조화한다 · 근거를 남긴다 · 사람이 승인한다 — 이후 장에서 배지로 다시 표시됩니다</p>
       <p class="note autoshow fade-up" style="margin-top:0.75rem">같은 일을 무한히 반복하는 것이 아니라, <b class="accent">수정하거나 확인된 범위만 조금씩 넓힙니다.</b> 이 네 가지가 안전을 보장하는 것은 아닙니다.</p>
     </section>
