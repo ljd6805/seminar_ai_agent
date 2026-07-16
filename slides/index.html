@@ -1303,16 +1303,16 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="dim autoshow fade-up" style="font-size:1.05rem; margin-top:0.9rem">오늘 다룰 네 요소는 아래 그림 하나로 연결됩니다 — 이 그림이 조금씩 완성되는 과정을 따라갑니다.</p>
       <div class="mas mas-ov autoshow fade-up" style="margin-top:0.7rem">
         <div class="mas-core mas-ov-core">
-          <span class="mas-hlabel mas-ov-hlabel"><b>Harness</b><i>Agent 실행 전·중·후 전체를 통제</i></span>
-          <span class="mas-ov-scope"><span>권한·도구 제한</span><span>로그·재시도·중단</span><span>출력 검증·사람 승인</span></span>
+          <span class="mas-hlabel mas-ov-hlabel"><b>Harness</b><i>권한·검증·로그·승인으로 실행을 통제하는 구조</i></span>
+          <span class="mas-ov-scope"><span>Agent 실행 전 · 중 · 후 전체에 적용</span></span>
           <div class="mas-ov-work">
             <span class="mas-ov-slabel">작업 실행</span>
             <div class="mas-ov-workflow">
-              <div class="mas-node n-skill ov-skill" data-id="system-skill">Skill<small>절차 · 기준</small></div>
+              <div class="mas-node n-skill ov-skill" data-id="system-skill">Skill<small>반복 업무의 절차와 기준을 담은 <b>작업 매뉴얼</b></small></div>
               <div class="mas-ov-conn ov-c1"><span class="cl">방법·기준</span><span class="cline"></span></div>
-              <div class="mas-node n-agent ov-agent" data-id="system-agent">AI Agent<small>LLM 기반 · 계획 · 도구 사용 · 확인 ↻</small></div>
+              <div class="mas-node n-agent ov-agent" data-id="system-agent">AI Agent<small>목표를 향해 도구를 사용하며 작업을 이어가는 <b>실행 시스템</b></small><small class="faint" style="font-size:0.66rem; margin-top:0.05rem">LLM 기반 · 계획 · 도구 사용 · 확인 ↻</small></div>
               <div class="mas-ov-conn ov-c2"><span class="cl">도구 호출 · 결과 수신</span><span class="cline"></span></div>
-              <div class="mas-node n-mcp ov-mcp" data-id="system-mcp">MCP<small>데이터 · 도구 연결</small></div>
+              <div class="mas-node n-mcp ov-mcp" data-id="system-mcp">MCP<small>Agent와 데이터·도구를 연결하는 <b>공용 규격</b></small></div>
             </div>
           </div>
           <div class="mas-ov-bridge"><span>작업 결과</span></div>
@@ -1909,7 +1909,7 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="본문 2 · Regression Triage Agent">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP</span></div>
       <h2>MCP — 도구를 꽂는 공용 규격</h2>
-      <p class="autoshow fade-up" style="font-size:1.22rem; margin-top:0.4rem"><b>MCP(Model Context Protocol)는 AI 애플리케이션과 외부 도구·시스템을 잇는 공용 규격입니다.</b></p>
+      <p class="autoshow fade-up" style="font-size:1.22rem; margin-top:0.4rem"><b>MCP(Model Context Protocol)는 Agent와 데이터·도구를 연결하는 공용 규격입니다.</b></p>
       <div class="mcp-scene autoshow fade-up" style="margin-top:1.5rem">
         <div class="ms-track">
           <div class="ms-st" style="border-color:rgba(155,130,255,0.6)">AI 클라이언트<span class="ms-sub">OpenCode 등 — Agent가 있는 쪽</span></div>
@@ -2639,7 +2639,7 @@ footer, header, hgroup, main, menu, nav, section {
         </div>
         <div class="autoshow fade-up" style="display:flex; flex-direction:column; gap:0.55rem">
           <p style="margin:0; font-size:0.95rem"><b class="accent">Skill</b> — 재사용할 절차와 지식을 SKILL.md로 정리한 것. 지원하는 클라이언트가 Agent에 제공하고, 필요할 때 로드된다.</p>
-          <p style="margin:0; font-size:0.95rem"><b class="accent2">MCP</b> — AI와 외부 도구·시스템을 잇는 공용 규격(Model Context Protocol). "AI용 USB-C".</p>
+          <p style="margin:0; font-size:0.95rem"><b class="accent2">MCP</b> — Agent와 데이터·도구를 연결하는 공용 규격(Model Context Protocol). "AI용 USB-C".</p>
           <p style="margin:0; font-size:0.95rem"><b class="accent2">MCP 서버</b> — 규격에 맞춰 도구·데이터를 노출하는 쪽. AI 클라이언트가 골라 호출한다.</p>
           <p style="margin:0; font-size:0.95rem"><b class="accent3">Harness</b> — 권한·검증·재시도·로그·승인을 묶어 Agent 실행을 통제하는 구조. 결과의 의미적 정확성은 별도 검증이 필요하다.</p>
           <p style="margin:0; font-size:0.95rem"><b class="accent3">스키마</b> — 출력 구조와 필수 필드를 검사하는 규칙. 내용의 정확성은 검사하지 않는다.</p>
