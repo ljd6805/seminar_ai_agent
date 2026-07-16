@@ -572,52 +572,47 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .skj7 { animation: ocIn 0.2s ease 4.5s forwards; }
     section.present .skl4 { animation: ocIn 0.3s ease 5.0s forwards; }
 
-    /* 21장 Skill 실행 과정 — 진입 시 1회 순차 재생(~7.4s) + ↻.
-       v2.4.1: 레이아웃 = 읽기 순서 — 7단계 카드 그리드(1~3 / 4~6 / 7+요약), DOM 순서 = 의미 순서 = 재생 순서(sx1~sx8).
-       번호는 카드 제목 앞 원형 배지(.sx-n 1.9rem)로 크게 — 순서가 먼저 읽히게. */
-    .sx-grid { display: grid; gap: 0.6rem 0.7rem; margin-top: 0.6rem; align-items: stretch; }
-    .sx-grid.r1 { grid-template-columns: minmax(0,0.85fr) minmax(0,1.1fr) minmax(0,1.25fr); }
-    .sx-grid.r2 { grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); }
-    .sx-grid.r3 { grid-template-columns: minmax(0,1fr) minmax(0,1.9fr); align-items: center; }
-    .sx-card { border: 0.0625rem solid rgba(255,255,255,0.16); border-radius: 0.8rem; background: rgba(255,255,255,0.03); padding: 0.55rem 0.75rem 0.6rem; }
-    .sx-t { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.4rem; font-weight: 800; font-size: 0.98rem; color: #fff !important; line-height: 1.22; }
-    .sx-n { flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 800; font-size: 1.08rem; color: #FFD46B !important; background: var(--bg-0); border: 0.125rem solid rgba(255,212,107,0.8); box-shadow: 0 0 0.55rem rgba(255,212,107,0.22); }
-    .sx-t .sx-tt { display: flex; flex-direction: column; }
-    .sx-t small { display: block; font-weight: 600; font-size: 0.7rem; color: #FFD46B !important; margin-top: 0.1rem; letter-spacing: 0.01em; }
-    .sx-q { font-family: var(--mono); font-size: 0.9rem; color: #E6EDF3 !important; word-break: keep-all; }
-    .sx-cand { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.5rem; font-family: var(--mono); font-size: 0.78rem; padding: 0.2rem 0.45rem 0.25rem; border-radius: 0.4rem; color: #8A93B2 !important; }
-    .sx-cand b { font-weight: 600; color: #8A93B2 !important; white-space: nowrap; }
-    .sx-cand i { font-style: normal; font-size: 0.7rem; flex-basis: 100%; word-break: keep-all; }
-    .sx-cand.pick { border: 0.0625rem solid rgba(155,130,255,0.6); background: rgba(155,130,255,0.09); }
-    .sx-cand.pick b { color: #DCD2FF !important; }
-    .sx-cand.pick i { color: #A9B4D8 !important; }
-    .sx-cand .sxp { margin-left: auto; font-family: var(--sans); font-size: 0.7rem; font-weight: 700; color: #B7A5FF !important; white-space: nowrap; }
-    .sx-file { font-family: var(--mono); font-size: 0.72rem; color: #C4D2FF !important; margin-bottom: 0.25rem; }
-    .sx-steps { margin: 0.15rem 0 0; padding-left: 1.25rem; font-size: 0.82rem; line-height: 1.5; color: #E6EDF3 !important; }
-    .sx-steps li::marker { color: var(--accent-2); }
-    .sx-refcond { margin-top: 0.4rem; border: 0.0625rem dashed rgba(143,168,255,0.6); border-radius: 0.45rem; padding: 0.28rem 0.5rem; font-size: 0.76rem; color: #C4D2FF !important; }
-    .sx-refcond b { font-family: var(--mono); font-weight: 600; color: #8FA8FF !important; }
-    .sx-skip { margin-top: 0.35rem; font-family: var(--mono); font-size: 0.66rem; color: #8A93B2 !important; opacity: 0.6; }
-    .sx-ref { border-color: rgba(143,168,255,0.55); background: rgba(143,168,255,0.05); }
-    .sx-row { font-family: var(--mono); font-size: 0.78rem; line-height: 1.58; color: #A9B4D8 !important; }
-    .sx-row b { font-weight: 600; color: #E6EDF3 !important; }
-    .sx-row .ok { color: #5BFFE0 !important; }
-    .sx-row .unk { color: #FFD46B !important; }
-    .sx-sum { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem 0.4rem; font-family: var(--mono); font-size: 0.7rem; color: #8A93B2 !important; }
-    .sx-sum span { border: 0.0625rem solid rgba(255,255,255,0.16); border-radius: 62.4375rem; padding: 0.1rem 0.55rem; background: var(--bg-0); color: #C7CEE0 !important; white-space: nowrap; }
-    .sx-sum span.last { border-color: rgba(255,212,107,0.55); color: #FFE9AE !important; }
-    .sx .sx1, .sx .sx2, .sx .sx3, .sx .sx4, .sx .sx5, .sx .sx6, .sx .sx7, .sx .sx8, .sx .sxp { opacity: 0; }
-    @keyframes sxIn { from { opacity: 0; transform: translateY(0.35rem); } to { opacity: 1; transform: none; } }
-    @keyframes sxPick { 0% { opacity: 0; } 60% { opacity: 1; transform: scale(1.06); } 100% { opacity: 1; transform: none; } }
-    section.present .sx .sx1 { animation: sxIn 0.45s ease 0.3s both; }
-    section.present .sx .sx2 { animation: sxIn 0.45s ease 1.0s both; }
-    section.present .sx .sxp { animation: sxPick 0.5s ease 1.5s both; }
-    section.present .sx .sx3 { animation: sxIn 0.45s ease 2.2s both; }
-    section.present .sx .sx4 { animation: sxIn 0.45s ease 3.3s both; }
-    section.present .sx .sx5 { animation: sxIn 0.45s ease 4.3s both; }
-    section.present .sx .sx6 { animation: sxIn 0.45s ease 5.3s both; }
-    section.present .sx .sx7 { animation: sxIn 0.45s ease 6.2s both; }
-    section.present .sx .sx8 { animation: sxIn 0.45s ease 6.9s both; }
+    /* 21장 Skill 실행 과정 — v2.4.3: 쉘 세션 + 화살표 + 스크립트 상자.
+       좌 opencode 쉘 라인이 순차 등장(18장과 같은 ocIn 문법), 우 스크립트 상자 2개(SKILL.md·references)는
+       흐리게 존재하다가(opacity 0.38 = 아직 안 읽음) 해당 시점에 화살표와 함께 켜짐(sxtOn) — "필요한 만큼만 읽기"의 시각화. */
+    .sxt { display: grid; grid-template-columns: minmax(0,1.16fr) minmax(0,1fr); gap: 0.9rem; margin-top: 0.7rem; align-items: start; }
+    .sxt-sh .term-body { font-size: 0.8rem; line-height: 1.78; padding: 0.6rem 1rem; }
+    .sxt-l { opacity: 0; }
+    .sxt-n { display: inline-block; min-width: 1.3rem; font-weight: 800; color: #FFD46B !important; }
+    .sxt-l b { font-weight: 700; color: #E6EDF3 !important; }
+    .sxt-l .ok { color: #5BFFE0 !important; }
+    .sxt-l .unk { color: #FFD46B !important; }
+    .sxt-sub { padding-left: 1.3rem; }
+    .sxt-right { display: flex; flex-direction: column; gap: 0.6rem; }
+    .sxt-row { display: flex; align-items: center; gap: 0.4rem; }
+    .sxt-arr { flex: none; width: 4.6rem; text-align: center; opacity: 0; color: #8FA8FF !important; }
+    .sxt-arr b { display: block; font-size: 1.45rem; font-weight: 800; line-height: 1; color: #8FA8FF !important; }
+    .sxt-arr small { display: block; font-family: var(--mono); font-size: 0.62rem; font-weight: 700; margin-top: 0.15rem; color: #8FA8FF !important; white-space: nowrap; }
+    .sxt-box { flex: 1; min-width: 0; opacity: 0.38; }
+    .sxt-box .term-body { font-size: 0.78rem; line-height: 1.55; padding: 0.5rem 0.8rem; }
+    .sxt-steps { margin: 0.1rem 0 0; padding-left: 1.25rem; color: #E6EDF3 !important; }
+    .sxt-steps li { font-size: 0.82rem; line-height: 1.55; }
+    .sxt-steps li::marker { color: var(--accent-2); }
+    .sxt-cond { margin-top: 0.4rem; border: 0.0625rem dashed rgba(143,168,255,0.6); border-radius: 0.45rem; padding: 0.28rem 0.5rem; font-size: 0.74rem; color: #C4D2FF !important; }
+    .sxt-cond b { font-family: var(--mono); font-weight: 600; color: #8FA8FF !important; }
+    .sxt-skip { font-family: var(--mono); font-size: 0.66rem; color: #8A93B2 !important; opacity: 0.6; margin-left: 3.8rem; }
+    @keyframes sxtTy { to { width: 23em; } }
+    @keyframes sxtOn { from { opacity: 0.38; } to { opacity: 1; box-shadow: 0 0 0.9rem rgba(143,168,255,0.26); } }
+    section.present .sxt .sxty { animation: sxtTy 0.85s steps(24, end) 0.3s forwards; }
+    section.present .sxt .l1 { animation: ocIn 0.01s ease 0.3s forwards; }
+    section.present .sxt .l2 { animation: ocIn 0.3s ease 1.5s forwards; }
+    section.present .sxt .l3 { animation: ocIn 0.3s ease 2.1s forwards; }
+    section.present .sxt .l4 { animation: ocIn 0.3s ease 2.8s forwards; }
+    section.present .sxt .a1 { animation: ocIn 0.4s ease 3.0s forwards; }
+    section.present .sxt .b1 { animation: sxtOn 0.5s ease 3.0s both; }
+    section.present .sxt .l5 { animation: ocIn 0.3s ease 3.9s forwards; }
+    section.present .sxt .l6 { animation: ocIn 0.3s ease 4.7s forwards; }
+    section.present .sxt .l7 { animation: ocIn 0.3s ease 5.4s forwards; }
+    section.present .sxt .a2 { animation: ocIn 0.4s ease 5.6s forwards; }
+    section.present .sxt .b2 { animation: sxtOn 0.5s ease 5.6s both; }
+    section.present .sxt .l8 { animation: ocIn 0.3s ease 6.1s forwards; }
+    section.present .sxt .l9 { animation: ocIn 0.3s ease 6.7s forwards; }
+    section.present .sxt .l10 { animation: ocIn 0.35s ease 7.2s forwards; }
 
     /* 22장 Skill 만드는 법 — 정적(autoshow만).
        v2.4.2: 방법 헤더 = 원형 번호 배지(.mk-n — 21장 .sx-n과 같은 문법, ①앰버=사람 직접 / ②보라=Agent와 함께)
@@ -1917,56 +1912,46 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill · 실행 과정</span> <span class="pill amber">원칙 ③ 근거를 남긴다</span></div>
       <h2>Skill은 필요한 만큼만 읽고 실행합니다</h2>
       <p class="dim autoshow fade-up" style="font-size:1.08rem">이름과 설명으로 찾고, 본문을 읽고, <b style="color:#fff">필요할 때만 참조 자료를 추가로 읽습니다.</b> <span class="mono tiny faint">설명을 위해 구성한 예시</span></p>
-      <div class="sx sim">
-        <div class="sx-grid r1">
-          <div class="sx-card sx1">
-            <span class="sx-t"><span class="sx-n">1</span><span class="sx-tt">사용자 요청</span></span>
-            <div class="sx-q">"logs/0708 regression 실패를 분류해줘"</div>
-          </div>
-          <div class="sx-card sx2">
-            <span class="sx-t"><span class="sx-n">2</span><span class="sx-tt">Skill 선택 — name · description으로<small>모든 Skill의 본문을 읽는 것이 아님</small></span></span>
-            <div class="sx-cand pick"><b>regression-failure-triage</b><i>Regression 실패를 로그 근거로 분류할 때 사용한다</i><span class="sxp">✓ 설명이 작업과 일치</span></div>
-            <div class="sx-cand"><b>meeting-notes</b><i>회의 메모를 결정·할 일로 구조화한다</i></div>
-            <div class="sx-cand"><b>spec-change-summary</b><i>spec 변경점을 요약한다</i></div>
-          </div>
-          <div class="sx-card sx3">
-            <span class="sx-t"><span class="sx-n">3</span><span class="sx-tt">선택된 SKILL.md 본문 로드<small>데모 2의 "Skill 로드" 한 줄이 이 단계</small></span></span>
-            <div class="sx-file">…/regression-failure-triage/SKILL.md</div>
-            <ol class="sx-steps">
-              <li>실패 항목을 추출한다.</li>
-              <li>증상과 signature로 분류한다.</li>
-              <li>각 분류에 evidence를 남긴다.</li>
-              <li>근거가 부족하면 unknown으로 남긴다.</li>
-            </ol>
-            <div class="sx-refcond">## 참조 자료 — 분류가 불확실하면 <b>references/signature-patterns.md</b>를 읽는다.</div>
-            <div class="sx-skip">scripts/ · assets/ — 이번 실행에서는 사용하지 않음</div>
+      <div class="sxt sim">
+        <div class="term shell sxt-sh">
+          <div class="term-bar"><span class="term-title">user@ds-linux: ~/my-project — opencode</span><span class="win-btns"><span>–</span><span class="wb-sq"></span><span>×</span></span></div>
+          <div class="term-body">
+            <div class="sxt-l l1"><span class="sh-ok">></span> <span class="ty sxty sh-cmd">logs/0708 regression 실패를 분류해줘</span></div>
+            <div class="sxt-l l2"><span class="sxt-n">①</span><span class="sh-dim">사용 가능한 Skill의 name·description 확인 — 본문은 아직 읽지 않음</span></div>
+            <div class="sxt-l l3"><span class="sxt-n">②</span><span class="sh-dim"><b>regression-failure-triage</b> 선택 — 설명이 작업과 일치</span></div>
+            <div class="sxt-l l4"><span class="sxt-n">③</span><span class="sh-dim">선택된 SKILL.md 본문 로드 — 절차 4단계 확인</span></div>
+            <div class="sxt-l l5"><span class="sxt-n">④</span><span class="sh-dim"><b>ASSERT_DMA_LEN</b> → <span class="ok">assertion</span> · evidence 기록 — reference 없이 완료</span></div>
+            <div class="sxt-l l6"><span class="sxt-n">⑤</span><span class="sh-dim"><b>FLEXLM checkout failed</b> → 분류 불확실 — <span class="unk">unknown 후보</span></span></div>
+            <div class="sxt-l l7"><span class="sxt-n">⑥</span><span class="sh-dim">참조 조건 충족 — references/signature-patterns.md 추가 로드</span></div>
+            <div class="sxt-l l8 sxt-sub"><span class="sh-dim">↳ 대조 결과 → category <span class="ok">env</span> · evidence: 매칭 로그 라인</span></div>
+            <div class="sxt-l l9"><span class="sxt-n">⑦</span><span class="sh-dim"><b>NEW_FATAL_SIGNATURE</b> → reference에도 일치 없음 → <span class="unk">unknown</span></span></div>
+            <div class="sxt-l l10"><span class="sh-ok">✓ 완료</span> <span class="sh-dim">— 근거 포함 출력(category · evidence · next_action) · unknown은 사람 확인</span></div>
           </div>
         </div>
-        <div class="sx-grid r2">
-          <div class="sx-card sx4">
-            <span class="sx-t"><span class="sx-n">4</span><span class="sx-tt">기본 절차 실행<small>충분하면 reference를 읽지 않음</small></span></span>
-            <div class="sx-row">절차 1·2 → <b>ASSERT_DMA_LEN</b>을 <span class="ok">assertion</span>으로 분류</div>
-            <div class="sx-row">절차 3 → 매칭 로그 라인을 <b>evidence</b>로 포함 — 완료</div>
+        <div class="sxt-right">
+          <div class="sxt-row">
+            <div class="sxt-arr a1"><b>→</b><small>③ 본문 로드</small></div>
+            <div class="term sxt-box b1">
+              <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">…/regression-failure-triage/SKILL.md</span></div>
+              <div class="term-body">
+                <ol class="sxt-steps">
+                  <li>실패 항목을 추출한다.</li>
+                  <li>증상과 signature로 분류한다.</li>
+                  <li>각 분류에 evidence를 남긴다.</li>
+                  <li>근거가 부족하면 unknown으로 남긴다.</li>
+                </ol>
+                <div class="sxt-cond">## 참조 자료 — 분류가 불확실하면 <b>references/signature-patterns.md</b>를 읽는다.</div>
+              </div>
+            </div>
           </div>
-          <div class="sx-card sx5">
-            <span class="sx-t"><span class="sx-n">5</span><span class="sx-tt">참조 조건 발생<small>SKILL.md의 조건 문장에 해당</small></span></span>
-            <div class="sx-row"><b>FLEXLM checkout failed</b> → <span class="unk">unknown 후보</span></div>
-            <div class="sx-row">→ "분류가 불확실하면" 조건 충족 → 참조 파일 추가 로드 결정</div>
+          <div class="sxt-row">
+            <div class="sxt-arr a2"><b>→</b><small>⑥ 조건 충족 시</small></div>
+            <div class="term sxt-box b2">
+              <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">references/signature-patterns.md</span></div>
+              <div class="term-body"><b style="color:#E6EDF3">FLEXLM checkout failed</b> → category: <span style="color:#5BFFE0">env</span> · evidence: 매칭 로그 라인을 포함</div>
+            </div>
           </div>
-          <div class="sx-card sx-ref sx6">
-            <span class="sx-t"><span class="sx-n">6</span><span class="sx-tt">reference 적용<small>파일 속 규칙이 결과에 반영</small></span></span>
-            <div class="sx-file">references/signature-patterns.md — "FLEXLM checkout failed → env"</div>
-            <div class="sx-row"><span class="unk">unknown 후보</span> → 대조 → category <span class="ok">env</span> · evidence: 매칭 로그 라인</div>
-          </div>
-        </div>
-        <div class="sx-grid r3">
-          <div class="sx-card sx7">
-            <span class="sx-t"><span class="sx-n">7</span><span class="sx-tt">근거 없으면 unknown<small>reference에도 일치 없음 — 추정하지 않음</small></span></span>
-            <div class="sx-row"><b>NEW_FATAL_SIGNATURE</b> → <span class="unk">unknown</span> · 사람 확인</div>
-          </div>
-          <div class="sx-sum sx8">
-            <span>name · description</span>→<span>Skill 선택</span>→<span>본문 로드</span>→<span>기본 절차 실행</span>→<span>필요할 때 reference 추가</span>→<span class="last">근거 포함 출력(category · evidence · next_action) 또는 unknown</span>
-          </div>
+          <div class="sxt-skip">scripts/ · assets/ — 이번 실행에서는 읽지 않음</div>
         </div>
       </div>
       <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
