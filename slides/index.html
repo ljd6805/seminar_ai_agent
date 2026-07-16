@@ -622,7 +622,9 @@ footer, header, hgroup, main, menu, nav, section {
     /* 22장 Skill 만드는 법 — 정적(autoshow만).
        v2.4.2: 방법 헤더 = 원형 번호 배지(.mk-n — 21장 .sx-n과 같은 문법, ①앰버=사람 직접 / ②보라=Agent와 함께)
        + 중앙 "또는" 점선 구분선(.mk-div)으로 두 방법이 대안 관계임을 표기 */
-    .mk-h { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.55rem; font-weight: 800; font-size: 1.06rem; color: #fff !important; line-height: 1.22; }
+    .mk-h { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.6rem; padding-bottom: 0.5rem; font-weight: 800; font-size: 1.06rem; color: #fff !important; line-height: 1.22; }
+    .mk-h.h1 { border-bottom: 0.0625rem solid rgba(255,212,107,0.35); }
+    .mk-h.h2 { border-bottom: 0.0625rem solid rgba(155,130,255,0.4); }
     .mk-n { flex: none; width: 1.9rem; height: 1.9rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--mono); font-weight: 800; font-size: 1.08rem; background: var(--bg-0); }
     .mk-h.h1 .mk-n { color: #FFD46B !important; border: 0.125rem solid rgba(255,212,107,0.8); box-shadow: 0 0 0.55rem rgba(255,212,107,0.22); }
     .mk-h.h2 .mk-n { color: #DCD2FF !important; border: 0.125rem solid rgba(155,130,255,0.85); box-shadow: 0 0 0.55rem rgba(155,130,255,0.28); }
@@ -630,13 +632,15 @@ footer, header, hgroup, main, menu, nav, section {
     .mk-h small { display: block; font-weight: 600; font-size: 0.72rem; margin-top: 0.1rem; letter-spacing: 0.01em; }
     .mk-h.h1 small { color: #FFD46B !important; }
     .mk-h.h2 small { color: #B7A5FF !important; }
-    .mk-div { align-self: stretch; position: relative; width: 0; border-left: 0.0625rem dashed rgba(255,255,255,0.22); }
-    .mk-div span { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: var(--mono); font-size: 0.72rem; font-weight: 700; color: #A9B4D8 !important; background: var(--bg-0); border: 0.0625rem solid rgba(255,255,255,0.22); border-radius: 62.4375rem; padding: 0.18rem 0.62rem; white-space: nowrap; }
+    .mk-div { align-self: stretch; width: 0.14rem; border-radius: 62.4375rem; background: linear-gradient(180deg, transparent, rgba(190,200,224,0.5) 12%, rgba(190,200,224,0.5) 88%, transparent); box-shadow: 0 0 0.5rem rgba(190,200,224,0.15); }
     .mk-steps { display: flex; flex-wrap: wrap; gap: 0.25rem 0.35rem; margin-top: 0.5rem; font-family: var(--mono); font-size: 0.72rem; }
     .mk-steps span { border: 0.0625rem solid rgba(255,255,255,0.16); border-radius: 62.4375rem; padding: 0.08rem 0.5rem; color: #C7CEE0 !important; white-space: nowrap; }
-    .mk-flow { display: flex; flex-wrap: wrap; align-items: center; gap: 0.22rem 0.3rem; font-family: var(--mono); font-size: 0.72rem; color: #8A93B2 !important; margin-top: 0.3rem; }
-    .mk-flow span { border: 0.0625rem solid rgba(255,255,255,0.16); border-radius: 62.4375rem; padding: 0.08rem 0.5rem; background: rgba(255,255,255,0.02); color: #C7CEE0 !important; white-space: nowrap; }
-    .mk-flow span.hum { border-color: rgba(255,212,107,0.5); color: #FFE9AE !important; }
+    .mk-vflow { position: relative; display: flex; flex-direction: column; gap: 0.34rem; margin: 0.1rem 0 0.55rem 0.15rem; }
+    .mk-vflow::before { content: ''; position: absolute; left: 0.245rem; top: 0.55rem; bottom: 0.55rem; width: 0.0625rem; background: rgba(190,200,224,0.22); }
+    .mk-vf { position: relative; z-index: 1; display: flex; align-items: center; gap: 0.55rem; font-family: var(--mono); font-size: 0.76rem; color: #C7CEE0 !important; line-height: 1.35; }
+    .mk-vf::before { content: ''; flex: none; width: 0.55rem; height: 0.55rem; border-radius: 50%; background: var(--bg-0); border: 0.11rem solid rgba(190,200,224,0.55); box-sizing: border-box; }
+    .mk-vf.hum { color: #FFE9AE !important; font-weight: 600; }
+    .mk-vf.hum::before { border-color: rgba(255,212,107,0.9); background: rgba(255,212,107,0.18); }
     .mk-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0.22rem 1.2rem; margin-top: 0.4rem; font-size: 0.82rem; color: #A9B4D8 !important; }
     .mk-checks div::before { content: "✓ "; color: var(--accent-2); font-weight: 700; }
 
@@ -1974,7 +1978,7 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill · 만드는 법</span></div>
       <h2>Skill은 직접 쓰거나, 실제 작업에서 추출할 수 있습니다</h2>
       <p class="dim autoshow fade-up" style="font-size:1.08rem">첫 초안보다 중요한 것은 <b style="color:#fff">실제 입력으로 실행하고 고치는 과정</b>입니다.</p>
-      <div class="grid-2" style="margin-top:0.55rem; align-items:start; grid-template-columns:0.98fr 0 1.02fr; gap:1.05rem">
+      <div class="grid-2" style="margin-top:0.55rem; align-items:start; grid-template-columns:0.98fr auto 1.02fr; gap:1.05rem">
         <div class="autoshow fade-left">
           <div class="mk-h h1"><span class="mk-n">1</span><span class="mk-ht">직접 작성하기<small>파일 하나로 시작 — 사람이 바로 쓴다</small></span></div>
           <div class="term shell">
@@ -1997,10 +2001,18 @@ footer, header, hgroup, main, menu, nav, section {
           <div class="mk-steps"><span>① 반복 업무 하나</span><span>② 입력·출력</span><span>③ 실제 작업 순서</span><span>④ 금지·unknown·검증</span><span>⑤ 상세 규칙은 references/로</span><span>⑥ 실제 입력으로 실행·수정</span></div>
           <p class="mono tiny faint" style="margin-top:0.35rem">한 번에 완벽하게 적지 않아도 됩니다 — ⑥에서 계속 고칩니다</p>
         </div>
-        <div class="mk-div"><span>또는</span></div>
+        <div class="mk-div"></div>
         <div class="autoshow fade-right">
           <div class="mk-h h2"><span class="mk-n">2</span><span class="mk-ht">Agent와 함께 만들기<small>실제 작업에서 절차를 추출한다</small></span></div>
-          <div class="mk-flow"><span>실제 업무 수행</span>→<span class="hum">사람: 기준·수정·예외 제공</span>→<span>Agent: 재사용 절차 추출</span>→<span>SKILL.md · references 초안</span>→<span class="hum">사람: diff 검토</span>→<span>실제 입력으로 시험</span>→<span>수정 후 버전 관리</span></div>
+          <div class="mk-vflow">
+            <div class="mk-vf">실제 업무를 Agent와 수행</div>
+            <div class="mk-vf hum">사람 — 기준·수정·예외 제공</div>
+            <div class="mk-vf">Agent — 재사용 가능한 절차 추출</div>
+            <div class="mk-vf">SKILL.md · references 초안 생성</div>
+            <div class="mk-vf hum">사람 — diff 검토</div>
+            <div class="mk-vf">실제 입력으로 시험</div>
+            <div class="mk-vf">수정 후 버전 관리</div>
+          </div>
           <div class="term" style="margin-top:0.5rem">
             <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">요청문 예시 — 핵심 행 (전문은 발표자 노트)</span></div>
             <div class="term-body" style="white-space:pre-wrap; font-size:0.78rem; line-height:1.62; padding:0.5rem 0.8rem"><span class="sh-cmd">방금 수행한 regression triage 과정에서
@@ -2015,8 +2027,8 @@ footer, header, hgroup, main, menu, nav, section {
           <p class="mono tiny faint" style="margin-top:0.35rem">"맥락 없이 Skill 하나 만들어줘"가 아니라 — 실제 업무·입력·출력·예외·사람의 수정 내용이 재료입니다</p>
         </div>
       </div>
-      <div class="autoshow fade-up" style="margin-top:0.55rem">
-        <div class="phead">만들고 나서 — 검토 기준</div>
+      <div class="autoshow fade-up" style="margin-top:0.75rem; padding-top:0.6rem; border-top:0.0625rem solid rgba(255,255,255,0.1)">
+        <div class="phead">만들고 나서 — 검토 기준 (두 방법 공통)</div>
         <div class="mk-checks">
           <div>description만 읽어도 언제 쓸지 알 수 있는가</div>
           <div>입력과 출력이 구체적인가</div>
