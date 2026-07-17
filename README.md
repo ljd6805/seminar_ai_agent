@@ -6,10 +6,10 @@
 
 | 문서 | 내용 |
 |------|------|
-| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.5) |
-| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.25) |
-| [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v2.0 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
-| [slides/index.html](slides/index.html) | 56장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
+| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.6) |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.26) |
+| [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v2.1 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
+| [slides/index.html](slides/index.html) | 57장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
 
 ## 한눈에
 
@@ -21,7 +21,7 @@
 - **4요소**: Agent(실행 시스템) · Skill(작업 매뉴얼) · MCP(공용 규격) · Harness(통제 구조) · **4원칙**: 작게 시작 · 출력 구조화 · 근거 남기기 · 사람 승인
 - **자료 형태**: reveal.js 단일 파일 HTML — 키보드 네비게이션, 진입 시 자동 스태거(fragment 없음), ESC 오버뷰, DEMO/READ/APPENDIX 레이어 배지
 
-### 전체 흐름 (56장 = 본편 39 + 부록 17 · 발표 모드 37장)
+### 전체 흐름 (57장 = 본편 40 + 부록 17 · 발표 모드 38장)
 
 ```
 도입    표지 · 목차 · 오늘의 결론(4요소) · 데모1(prompt만)+해부 · 정의 · LLM은 모델, AI Agent는 실행 시스템
@@ -30,7 +30,7 @@
 본문 2  간지 · 1단계 prompt(두 공백) · 데모2(triage SKILL.md→실행) · Skill(개념·구조·만드는 법)
         · 데모3(Jira 대조, 없을 때→있을 때) · MCP(개념·통제)
 본문 3  간지 · 실패의 현실 · Harness란 · UVM 나란히 · 구성 요소 · 스키마 게이트 · 언제 쓰나(5질문)
-        · 자율성 단계 L0~L5 · 데모4(유무 대조)
+        · 자율성 단계 L0~L5 · 데모4 ①②(멈추는 순간 → Harness 게이트 시네마)
 마무리  회고 → 좋은/나쁜 요청 → 설계 템플릿 9칸 → 첫 실험 CTA → Q&A
 부록    LLM 기초 ①~④(다음 토큰·컨텍스트·토큰·환각) · 역사 · 왜 지금 · 왜 우리 · 재배치 · OpenCode 설치
         · 회의 메모 Skill · Skill 기준 · MCP 구조 ①② · Harness 장단점 · FAQ · 확장 도구 후보(표) · 용어집
@@ -38,9 +38,9 @@
 
 ## 진행 상태
 
-**확정** — 관통 시나리오(Regression Triage Agent) + 56장 구조(v2.5), 핵심 메시지·계층·4원칙 고정, 데모 4개(전부 구성된 예시), harness=UVM 비유+공식 근거, 문구 보수화(권한·한도·통제·세미나용 예시 명시), 표기 통일(Agent·Skill·Harness 대문자)
+**확정** — 관통 시나리오(Regression Triage Agent) + 57장 구조(v2.6), 핵심 메시지·계층·4원칙 고정, 데모 4개(전부 구성된 예시), harness=UVM 비유+공식 근거, 문구 보수화(권한·한도·통제·세미나용 예시 명시), 표기 통일(Agent·Skill·Harness 대문자)
 
-**미결** — 표지 발표자·일시, 13장 접속·48장 설치 안내, 55장 대표 도구 실값, 사내 서비스 데이터 처리 조건(보안 조직 확인), 리허설 후 미세 조정
+**미결** — 표지 발표자·일시, 13장 접속·49장 설치 안내, 56장 대표 도구 실값, 사내 서비스 데이터 처리 조건(보안 조직 확인), 리허설 후 미세 조정
 
 **보류** — 시각 표현·디자인·애니메이션 세부
 
