@@ -646,22 +646,25 @@ footer, header, hgroup, main, menu, nav, section {
     /* 34·35장 데모 4 — Harness 게이트 시네마 (진입 시 1회 + ↻) · 기본 위치 = 최종 상태(print/reduced-motion에서 완료 장면) */
     /* 34① 미니 레인 — 깨진 출력이 검사 없이 후속 스크립트로 흘러가 멈춤 */
     .g4m { border: 0.0625rem solid rgba(255,122,149,0.22); border-radius: 0.9rem; background: rgba(255,122,149,0.03); padding: 0.55rem 0.8rem 0.6rem; }
-    .g4m-track { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; padding: 1.1rem 0; }
-    .g4m-track::before { content: ""; position: absolute; left: 6%; right: 6%; top: 50%; height: 0.12rem; background: rgba(255,255,255,0.10); border-radius: 1rem; }
-    .g4m-st { position: relative; z-index: 2; width: 9.4rem; text-align: center; padding: 0.45rem 0.4rem; border-radius: 0.7rem; border: 0.0625rem solid rgba(255,255,255,0.16); background: #0E1122; font-weight: 700; font-size: 0.85rem; }
+    .g4m-track { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; padding: 2.1rem 0 1.05rem; }
+    .g4m-track::before { content: ""; position: absolute; left: 6%; right: 6%; top: calc(50% + 0.525rem); height: 0.12rem; background: rgba(255,255,255,0.10); border-radius: 1rem; }
+    .g4m-st { position: relative; z-index: 3; width: 9.4rem; text-align: center; padding: 0.45rem 0.4rem; border-radius: 0.7rem; border: 0.0625rem solid rgba(255,255,255,0.16); background: #0E1122; font-weight: 700; font-size: 0.85rem; }
     .g4m-st span { display: block; font-weight: 400; font-size: 0.66rem; color: var(--fg-soft); margin-top: 0.1rem; }
-    .g4m-st.hole { border-style: dashed; border-color: rgba(255,255,255,0.25); background: transparent; color: var(--fg-soft); font-weight: 600; }
-    .g4m-card { position: absolute; z-index: 1; top: 50%; margin-top: -0.75rem; left: 63%; font-family: var(--mono); font-size: 0.68rem; padding: 0.28rem 0.5rem; border-radius: 0.5rem; border: 0.0625rem solid rgba(255,122,149,0.55); background: #141830; color: #E5B8C2; white-space: nowrap; opacity: 0; }
+    .g4m-slot { position: absolute; z-index: 1; top: 0.12rem; left: 50%; transform: translateX(-50%); white-space: nowrap; font-size: 0.64rem; font-weight: 600; color: var(--fg-soft); padding: 0.2rem 0.7rem; border: 0.0781rem dashed rgba(255,255,255,0.28); border-radius: 0.55rem; background: rgba(255,255,255,0.02); }
+    .g4m-slot::after { content: ""; position: absolute; top: 100%; left: 50%; height: 0.45rem; border-left: 0.09rem dashed rgba(255,255,255,0.3); }
+    .g4m-card { position: absolute; z-index: 2; top: calc(50% + 0.525rem); margin-top: -0.75rem; left: 63%; font-family: var(--mono); font-size: 0.68rem; padding: 0.28rem 0.5rem; border-radius: 0.5rem; border: 0.0625rem solid rgba(255,122,149,0.55); background: #141830; color: #E5B8C2; white-space: nowrap; opacity: 0; }
     .g4m-err { margin-top: 0.1rem; font-family: var(--mono); font-size: 0.8rem; color: #FFB3C2; opacity: 0; }
     .g4m-foot { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.45rem; }
     .g4m-foot small { font-size: 0.74rem; color: var(--fg-soft); }
     .g4m-stamp { margin-left: auto; font-weight: 800; font-size: 0.88rem; color: var(--accent-4); opacity: 0; }
-    @keyframes g4mCard { 0% { left: 5%; opacity: 0; } 10% { left: 5%; opacity: 1; } 80% { left: 63%; opacity: 1; } 100% { left: 63%; opacity: 0.5; } }
+    @keyframes g4mCard { 0% { left: 5%; opacity: 0; } 8% { left: 5%; opacity: 1; } 34% { left: 40%; } 56% { left: 40%; } 88% { left: 63%; opacity: 1; } 100% { left: 63%; opacity: 0.5; } }
+    @keyframes g4mSlotPing { 0%, 100% { border-color: rgba(255,255,255,0.28); } 50% { border-color: rgba(255,255,255,0.55); color: #C7CFE8; } }
     @keyframes g4mHit { 0%, 100% { transform: none; } 30%, 70% { transform: scale(1.06); border-color: rgba(255,122,149,0.95); box-shadow: 0 0 1rem rgba(255,122,149,0.4); } }
-    section.present .g4m-card { animation: g4mCard 2.1s ease-in-out 0.4s both; }
-    section.present .g4m-st.dst { animation: g4mHit 1.0s ease 2.35s; }
-    section.present .g4m-err { animation: ocIn 0.5s ease 2.9s both; }
-    section.present .g4m-stamp { animation: msStampIn 0.5s ease 3.6s both; }
+    section.present .g4m-card { animation: g4mCard 2.4s ease-in-out 0.4s both; }
+    section.present .g4m-slot { animation: g4mSlotPing 0.7s ease 1.35s; }
+    section.present .g4m-st.dst { animation: g4mHit 1.0s ease 2.55s; }
+    section.present .g4m-err { animation: ocIn 0.5s ease 3.05s both; }
+    section.present .g4m-stamp { animation: msStampIn 0.5s ease 3.75s both; }
     /* 35② 게이트 시네마 — 코랄 경계 안 [Agent→스키마 게이트→사람 승인]→경계 밖 후속. 카드 = z1(스테이션 z2 뒤로 통과) */
     .g4-scene { position: relative; padding: 1.35rem 0.15rem 0.15rem; }
     .g4-border { position: absolute; z-index: 0; left: 0; right: 22.5%; top: 0.95rem; bottom: 0.1rem; border: 0.11rem dashed rgba(255,122,149,0.42); border-radius: 1.1rem; }
@@ -2344,7 +2347,7 @@ footer, header, hgroup, main, menu, nav, section {
           <div class="g4m sim">
             <div class="g4m-track">
               <div class="g4m-st">Run 3 출력<span>깨진 JSON</span></div>
-              <div class="g4m-st hole">검사 없음<span>게이트 자리 — 비어 있음</span></div>
+              <div class="g4m-slot">검사 없음 — 게이트 자리 비어 있음</div>
               <div class="g4m-st dst">주간 리포트 조립<span>triage JSON을 받는 스크립트</span></div>
               <div class="g4m-card">물론입니다! {…</div>
             </div>
