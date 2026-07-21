@@ -1232,32 +1232,37 @@ footer, header, hgroup, main, menu, nav, section {
     .ribbon.mini .rb .rb-n { font-size: 0.95rem; display: inline; margin-right: 0.35rem; }
     .ribbon.mini .rb .rb-t { display: inline; font-size: 1.0rem; margin: 0; }
 
-    /* --- 자율성 계단 (34장) --- */
-    .ladder { display: flex; align-items: flex-end; gap: 0.45rem; }
-    .ladder .lstep { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; }
-    .ladder .lbox {
-      border: 0.0625rem solid rgba(155,130,255,0.4); border-top-width: 0.2rem;
-      border-radius: 0.6rem 0.6rem 0.3rem 0.3rem; background: rgba(155,130,255,0.06);
-      padding: 0.5rem 0.55rem 0.55rem; text-align: center;
+    /* --- 자율성 단계 매트릭스 (33장) — 행 = L0~L5, 열 = 단계·예시 / 권한 / 영향 / 리스크·통제 --- */
+    .lvx { display: flex; flex-direction: column; gap: 0.28rem; }
+    .lv-head, .lv-row { display: grid; grid-template-columns: 12.2rem 1.02fr 0.92fr 1.62fr; column-gap: 1.0rem; align-items: center; }
+    .lv-head { font-family: var(--mono); font-size: 0.7rem; color: #8A93B2 !important; padding: 0 0.85rem; }
+    .lv-head .rk { color: #FF94AC !important; }
+    .lv-row {
+      border: 0.0625rem solid rgba(190,200,224,0.22); border-radius: 0.62rem;
+      background: rgba(11,14,26,0.62); padding: 0.42rem 0.85rem;
     }
-    .ladder .lx { display: block; font-family: var(--mono); font-size: 0.82rem; font-weight: 800; color: var(--accent) !important; }
-    .ladder .lt { display: block; font-size: 0.92rem; font-weight: 800; margin-top: 0.15rem; line-height: 1.35; word-break: keep-all; }
-    .ladder .ld { display: block; font-size: 0.74rem; color: var(--fg-soft) !important; margin-top: 0.28rem; line-height: 1.45; word-break: keep-all; }
-    /* 단계가 오를수록: 높이 ↑ · 상단 테두리 두께 ↑ · Harness 색으로 접근 */
-    .ladder .l0 .lbox { min-height: 6.2rem; }
-    .ladder .l1 .lbox { min-height: 7.6rem; }
-    .ladder .l2 .lbox { min-height: 9.0rem; }
-    .ladder .l3 .lbox { min-height: 10.4rem; border-top-width: 0.3rem; border-color: rgba(43,234,208,0.5); }
-    .ladder .l4 .lbox { min-height: 11.8rem; border-top-width: 0.38rem; border-color: rgba(255,212,107,0.55); }
-    .ladder .l5 .lbox { min-height: 13.2rem; border-top-width: 0.46rem; border-color: rgba(255,122,149,0.6); }
-    .ladder .l3 .lx { color: var(--accent-2) !important; }
-    .ladder .l4 .lx { color: var(--accent-4) !important; }
-    .ladder .l5 .lx { color: var(--accent-3) !important; }
-    .ladder-axis {
-      flex: none; display: flex; flex-direction: column; justify-content: space-between; align-items: center;
-      font-family: var(--mono); font-size: 0.7rem; color: #8A93B2 !important; padding: 0.3rem 0;
-      border-right: 0.0625rem dashed rgba(190,200,224,0.3); margin-right: 0.3rem; padding-right: 0.55rem;
-    }
+    .lv-row.r4 { border-color: rgba(255,212,107,0.38); }
+    .lv-row.r5 { border-color: rgba(255,122,149,0.5); background: rgba(255,122,149,0.05); }
+    .lv-st { display: flex; align-items: baseline; column-gap: 0.5rem; flex-wrap: wrap; }
+    .lv-st .lx { font-family: var(--mono); font-size: 0.8rem; font-weight: 800; color: var(--accent) !important; }
+    .lv-st .lt { font-size: 0.9rem; font-weight: 800; word-break: keep-all; }
+    .lv-st .ld { flex-basis: 100%; font-size: 0.7rem; color: var(--fg-soft) !important; line-height: 1.4; margin-top: 0.1rem; word-break: keep-all; }
+    .lv-row.r3 .lx { color: var(--accent-2) !important; }
+    .lv-row.r4 .lx { color: var(--accent-4) !important; }
+    .lv-row.r5 .lx { color: var(--accent-3) !important; }
+    .lv-cell { font-size: 0.82rem; line-height: 1.42; color: #C7CFE8 !important; word-break: keep-all; }
+    .lv-cell b, .lv-risk .rt b { color: #fff !important; }
+    .lv-risk { display: flex; align-items: center; gap: 0.55rem; }
+    .lvm { display: inline-flex; gap: 0.16rem; flex: none; }
+    .lvm i { width: 0.6rem; height: 0.34rem; border-radius: 0.12rem; background: rgba(190,200,224,0.15); }
+    /* 리스크 미터 — 아래 행일수록 채움 수 ↑ · 코랄 농도 ↑ */
+    .lv-row.r0 .lvm i.on { background: rgba(255,122,149,0.32); }
+    .lv-row.r1 .lvm i.on { background: rgba(255,122,149,0.44); }
+    .lv-row.r2 .lvm i.on { background: rgba(255,122,149,0.56); }
+    .lv-row.r3 .lvm i.on { background: rgba(255,122,149,0.68); }
+    .lv-row.r4 .lvm i.on { background: rgba(255,122,149,0.82); }
+    .lv-row.r5 .lvm i.on { background: rgba(255,122,149,0.95); }
+    .lv-risk .rt { font-size: 0.76rem; line-height: 1.4; color: #B9C2DA !important; word-break: keep-all; }
 
     /* --- 점검 결정 흐름 (16장) --- */
     .dtree { display: flex; flex-direction: column; gap: 0.28rem; }
@@ -2316,17 +2321,47 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 단계적으로</span></div>
       <h2>AI 업무 적용 단계 예시</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.08rem">이 자료에서 사용하는 <b style="color:#fff">실무 적용 단계 예시</b>이며, 외부 표준은 아닙니다. 단계가 올라갈수록 권한과 실패 영향 범위가 커집니다.</p>
-      <div class="ladder autoshow fade-up" style="margin-top:1.2rem">
-        <div class="ladder-axis"><span>통제 ↑</span><span>권한 ↑</span><span>영향 ↑</span></div>
-        <div class="lstep l0"><div class="lbox"><span class="lx">L0</span><span class="lt">질문 · 답변</span><span class="ld">"이 에러 무슨 뜻?"</span></div></div>
-        <div class="lstep l1"><div class="lbox"><span class="lx">L1</span><span class="lt">파일 읽기 · 요약</span><span class="ld">log 요약 — 데모 1</span></div></div>
-        <div class="lstep l2"><div class="lbox"><span class="lx">L2</span><span class="lt">구조화된 산출물</span><span class="ld">JSON · 표 — 데모 2</span></div></div>
-        <div class="lstep l3"><div class="lbox"><span class="lx">L3</span><span class="lt">외부 시스템 조회</span><span class="ld">읽기 전용 — Jira 조회(MCP) · 데모 3</span></div></div>
-        <div class="lstep l4"><div class="lbox"><span class="lx">L4</span><span class="lt">변경안 + 사람 승인</span><span class="ld">ticket · PR 초안 — 승인 후 반영</span></div></div>
-        <div class="lstep l5"><div class="lbox"><span class="lx">L5</span><span class="lt">제한된 자동 실행</span><span class="ld">모니터링 · 중단 · 복구 포함</span></div></div>
+      <p class="dim autoshow fade-up" style="font-size:1.08rem">이 자료에서 사용하는 <b style="color:#fff">실무 적용 단계 예시</b>이며, 외부 표준은 아닙니다. 단계가 올라갈수록 <b style="color:#fff">권한 · 영향 · 리스크</b>가 함께 커지고, 단계마다 필요한 <b class="accent3">통제</b>도 달라집니다.</p>
+      <div class="lvx" style="margin-top:0.85rem">
+        <div class="lv-head autoshow fade-in"><span>단계 · 예시</span><span>권한 — 새로 할 수 있는 것</span><span>영향 — 어디까지 미치나</span><span class="rk">리스크 — 그래서 필요한 통제</span></div>
+        <div class="lv-row r0 autoshow fade-up">
+          <div class="lv-st"><span class="lx">L0</span><span class="lt">질문 · 답변</span><span class="ld">"이 에러 무슨 뜻?"</span></div>
+          <div class="lv-cell">대화만 — 시스템 접근 없음</div>
+          <div class="lv-cell">내 화면 안</div>
+          <div class="lv-risk"><span class="lvm"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span><span class="rt">낮음 — 답은 참고, 판단은 사람</span></div>
+        </div>
+        <div class="lv-row r1 autoshow fade-up">
+          <div class="lv-st"><span class="lx">L1</span><span class="lt">파일 읽기 · 요약</span><span class="ld">log 요약 — 데모 1</span></div>
+          <div class="lv-cell">+ <b>로컬 파일 읽기</b></div>
+          <div class="lv-cell">내 작업 범위 안</div>
+          <div class="lv-risk"><span class="lvm"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span><span class="rt">요약이 빠뜨리거나 틀림 → <b>원본 대조</b></span></div>
+        </div>
+        <div class="lv-row r2 autoshow fade-up">
+          <div class="lv-st"><span class="lx">L2</span><span class="lt">구조화된 산출물</span><span class="ld">JSON · 표 — 데모 2</span></div>
+          <div class="lv-cell">+ <b>산출물 파일 쓰기</b></div>
+          <div class="lv-cell">후속 단계가 출력을 받아 씀</div>
+          <div class="lv-risk"><span class="lvm"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span><span class="rt">형식 · 내용 오류가 전파 → <b>스키마 검사</b></span></div>
+        </div>
+        <div class="lv-row r3 autoshow fade-up">
+          <div class="lv-st"><span class="lx">L3</span><span class="lt">외부 시스템 조회</span><span class="ld">Jira 조회(MCP) — 데모 3</span></div>
+          <div class="lv-cell">+ <b>외부 시스템 읽기</b> — 읽기 전용</div>
+          <div class="lv-cell">사내 데이터가 근거로 들어옴</div>
+          <div class="lv-risk"><span class="lvm"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i></span><span class="rt">잘못 짚은 근거가 결론에 섞임 → <b>근거 링크 확인</b></span></div>
+        </div>
+        <div class="lv-row r4 autoshow fade-up">
+          <div class="lv-st"><span class="lx">L4</span><span class="lt">변경안 + 사람 승인</span><span class="ld">ticket · PR 초안 — 승인 후 반영</span></div>
+          <div class="lv-cell">+ <b>변경안 작성</b> — 반영은 승인 후</div>
+          <div class="lv-cell">실제 시스템이 바뀜 — 승인된 것만</div>
+          <div class="lv-risk"><span class="lvm"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span><span class="rt">잘못된 변경이 나갈 뻔함 → <b>사람 승인</b>이 마지막 문</span></div>
+        </div>
+        <div class="lv-row r5 autoshow fade-up">
+          <div class="lv-st"><span class="lx">L5</span><span class="lt">제한된 자동 실행</span><span class="ld">사전에 정한 한도 안의 반복 작업</span></div>
+          <div class="lv-cell">+ <b>한도 안 자동 실행</b></div>
+          <div class="lv-cell">사람 손을 거치지 않고 바뀜</div>
+          <div class="lv-risk"><span class="lvm"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span><span class="rt">사고도 자동으로 반복 → <b>모니터링 · 중단 · 복구</b> 필수</span></div>
+        </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">처음에는 L1~L2에서 정확도와 검증 방법을 확인한 뒤, 권한을 단계적으로 늘립니다.</b></p>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem"><b class="accent">처음에는 L1~L2에서 정확도와 검증 방법을 확인한 뒤, 권한을 단계적으로 늘립니다.</b></p>
     </section>
 
     <!-- 34 · 데모 4 ① — harness 없을 때 -->
