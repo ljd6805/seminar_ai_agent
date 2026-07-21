@@ -1285,6 +1285,26 @@ footer, header, hgroup, main, menu, nav, section {
       border-radius: 0.7rem; padding: 0.5rem 1.1rem; font-weight: 800; font-size: 1.05rem; color: #A9FFF0 !important;
     }
 
+    /* --- UVM 나란히 (29장): 동형 루프 레인 — 자극→대상→검사(코랄 게이트)→사람(앰버) + ✕ 반환 루프.
+           두 레인이 같은 고정 열 템플릿을 써서 위아래 같은 자리 = 같은 역할로 읽힘 --- */
+    .uv { display: grid; grid-template-columns: 11.6rem 3.2rem 8.2rem 3.2rem 12.4rem 5.4rem 12.4rem; grid-template-rows: auto auto;
+      row-gap: 0.2rem; column-gap: 0.4rem; align-items: center; justify-content: center; margin-top: 0.55rem; }
+    .uv-node { text-align: center; font-size: 0.92rem; font-weight: 800; padding: 0.4rem 0.45rem; border-radius: 0.6rem; word-break: keep-all; line-height: 1.3;
+      border: 0.0625rem solid rgba(190,200,224,0.45); background: rgba(230,236,249,0.05); color: #D6DCEC !important; }
+    .uv-node small { display: block; font-weight: 400; font-size: 0.7rem; color: var(--fg-soft) !important; margin-top: 0.16rem; line-height: 1.35; }
+    .uv-node.gate { color: #FFB9C8 !important; border-color: rgba(255,122,149,0.6); border-left-width: 0.26rem; border-right-width: 0.26rem; background: rgba(255,122,149,0.07); }
+    .uv-node.hum { color: #FFE3A8 !important; border-color: rgba(255,212,107,0.55); background: rgba(255,212,107,0.06); }
+    .uv-arr { height: 0.0938rem; background: rgba(169,180,216,0.45); position: relative; align-self: center; }
+    .uv-arr::after { content: ""; position: absolute; right: -0.05rem; top: 50%; transform: translateY(-50%);
+      border-left: 0.4rem solid rgba(169,180,216,0.7); border-top: 0.26rem solid transparent; border-bottom: 0.26rem solid transparent; }
+    .uv-arr i { position: absolute; left: 50%; bottom: 0.3rem; transform: translateX(-50%); font-style: normal; font-family: var(--mono);
+      font-size: 0.66rem; font-weight: 700; color: #9FF5E6 !important; white-space: nowrap; }
+    .uv-ret { grid-column: 1 / 6; grid-row: 2; margin: 0 5.0rem; height: 1.55rem; position: relative; display: flex; align-items: flex-end; justify-content: center;
+      border: 0.0781rem dashed rgba(255,122,149,0.5); border-top: none; border-radius: 0 0 0.7rem 0.7rem; }
+    .uv-ret::before { content: ""; position: absolute; left: -0.31rem; top: -0.05rem;
+      border-bottom: 0.44rem solid rgba(255,122,149,0.85); border-left: 0.27rem solid transparent; border-right: 0.27rem solid transparent; }
+    .uv-ret span { font-family: var(--mono); font-size: 0.66rem; color: #C7CFE8 !important; white-space: nowrap; padding-bottom: 0.26rem; }
+
     /* --- 언제 쓰나 — 수신처 3단 (32장): 출력을 받는 쪽의 동작이 필요한 검사를 정한다 --- */
     .wh { display: flex; flex-direction: column; gap: 0.55rem; }
     .wh-row { display: grid; grid-template-columns: 11.8rem 1fr 12.6rem; column-gap: 1.0rem; align-items: center;
@@ -2233,31 +2253,35 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 익숙한 그림</span></div>
       <h2>설계·검증에서 익숙한 구조와 닮아 있습니다</h2>
-      <div class="grid-2" style="margin-top:0.8rem">
-        <div class="panel autoshow fade-left">
+      <div style="display:grid; row-gap:0.65rem; margin-top:0.8rem">
+        <div class="panel autoshow fade-up">
           <div class="phead">verification Harness — 대상: 칩 (DUT)</div>
-          <div class="flow-lane" style="margin-top:0.6rem; flex-wrap:wrap">
-            <div class="flow-step me" style="flex-direction:column; gap:0.15rem"><span>sequence</span><span class="tiny" style="font-weight:400">자극 주입</span></div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step neutral">DUT</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step ai" style="flex-direction:column; gap:0.15rem"><span>assertion·checker</span><span class="tiny" style="font-weight:400">규칙 검사</span></div>
+          <div class="uv">
+            <div class="uv-node src">sequence<small>자극 주입</small></div>
+            <span class="uv-arr"></span>
+            <div class="uv-node tgt">DUT<small>검사 대상</small></div>
+            <span class="uv-arr"></span>
+            <div class="uv-node gate">assertion·checker<small>규칙 검사</small></div>
+            <span class="uv-arr ok"><i>✓ 합격</i></span>
+            <div class="uv-node hum">엔지니어<small>최종 spec 해석 · 판정</small></div>
+            <div class="uv-ret"><span><b class="accent3">✕ 불합격</b> — 리포트 → <b class="accent4">엔지니어가 수정</b> 후 재실행</span></div>
           </div>
-          <p class="mono tiny faint" style="margin-top:0.6rem">불합격 → 리포트 → 수정 후 재실행 · 최종 spec 해석은 엔지니어가</p>
         </div>
-        <div class="panel autoshow fade-right">
+        <div class="panel autoshow fade-up">
           <div class="phead">Agent Harness — 대상: Agent 실행</div>
-          <div class="flow-lane" style="margin-top:0.6rem; flex-wrap:wrap">
-            <div class="flow-step me" style="flex-direction:column; gap:0.15rem"><span>입력·절차(Skill)</span><span class="tiny" style="font-weight:400">자극 주입</span></div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step neutral">모델</div>
-            <div class="flow-arrow">→</div>
-            <div class="flow-step ai" style="flex-direction:column; gap:0.15rem"><span>스키마 검증</span><span class="tiny" style="font-weight:400">형식 검사</span></div>
+          <div class="uv">
+            <div class="uv-node src">입력·절차(Skill)<small>자극 주입</small></div>
+            <span class="uv-arr"></span>
+            <div class="uv-node tgt">모델<small>검사 대상</small></div>
+            <span class="uv-arr"></span>
+            <div class="uv-node gate">스키마 검증<small>형식 검사</small></div>
+            <span class="uv-arr ok"><i>✓ 통과</i></span>
+            <div class="uv-node hum">사람<small>최종 의미 · 업무 판단</small></div>
+            <div class="uv-ret"><span><b class="accent3">✕ 검증 실패</b> — 오류 내용을 붙여 <b>자동 재시도</b> · 한도 내</span></div>
           </div>
-          <p class="mono tiny faint" style="margin-top:0.6rem">검증 실패 → 오류 내용을 전달해 재시도 · 최종 의미·업무 판단은 사람이</p>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">DUT ↔ 모델 · sequence ↔ 입력·절차 · assertion ↔ 스키마 — <b class="accent">검증 사고방식은 비슷하고, 통제 대상이 칩에서 Agent 실행으로 바뀝니다.</b> 완전히 낯선 개념은 아닙니다.</p>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem">두 구조 모두 <b>실패를 버리지 않고 되돌려 다시 실행</b>하고, 검사를 통과한 결과도 <b class="accent4">사람의 판단</b>을 거쳐야 끝납니다 — <b class="accent">검사는 자동으로, 최종 판단은 사람이.</b> 이 방식 그대로 대상만 칩에서 Agent 실행으로 바뀝니다.</p>
     </section>
 
     <!-- 30 · harness 구성 요소 -->
