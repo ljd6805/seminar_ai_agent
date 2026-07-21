@@ -960,6 +960,7 @@ footer, header, hgroup, main, menu, nav, section {
       font-family: var(--mono); color: #D7E1F0; font-size: 0.88rem; line-height: 1.45;
       display: block; white-space: pre-wrap; word-break: break-all;
     }
+    .run .why { display: block; margin-top: 0.32rem; font-size: 0.8rem; line-height: 1.42; color: #8A93B2; }
 
     /* cover meta */
     .meta {
@@ -2335,18 +2336,18 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="center" style="margin:0.2rem 0 0.6rem"><span class="pill neutral mono">같은 입력 — "regression 실패 분류해줘" · 3회 실행</span> <span class="mono tiny faint">(설명을 위해 구성한 예시)</span></p>
       <div class="grid-2">
         <div>
-          <div class="phead bad autoshow fade-in">스키마 검증 없이 — 출력 형식이 달라질 수 있다</div>
+          <div class="phead bad autoshow fade-in">같은 요청인데 — 세 번의 출력 형식이 전부 다릅니다</div>
           <div class="runs">
-            <div class="run bad autoshow fade-left"><div class="rh"><span>Run 1</span><span class="st">필드 누락</span></div><code>{"category":"timeout","tests":"usb_stress_t3, …"} ← evidence·next_action 없음</code></div>
-            <div class="run bad autoshow fade-left"><div class="rh"><span>Run 2</span><span class="st">스키마 불일치</span></div><code>{"유형":"timeout","건수":5,…} ← 키 이름이 매번 바뀜</code></div>
-            <div class="run bad autoshow fade-left"><div class="rh"><span>Run 3</span><span class="st">JSON 깨짐</span></div><code>물론입니다! 분류하면: {"category":…,} ← 문장이 붙고 쉼표 오류, 파싱 불가</code></div>
+            <div class="run bad autoshow fade-left"><div class="rh"><span>실행 1</span><span class="st">필드가 빠짐</span></div><code>{"category":"timeout","count":5}</code><span class="why">↳ 스크립트가 찾는 <b class="accent3">evidence·next_action</b> 필드가 없음 — 근거·다음 조치 칸을 채울 수 없습니다</span></div>
+            <div class="run bad autoshow fade-left"><div class="rh"><span>실행 2</span><span class="st">키 이름이 다름</span></div><code>{<b class="accent3">"유형"</b>:"timeout",<b class="accent3">"건수"</b>:5, …}</code><span class="why">↳ 뜻은 같아도 스크립트는 <b class="accent3">category·count</b>라는 이름만 찾습니다 — 같은 데이터를 읽지 못함</span></div>
+            <div class="run bad autoshow fade-left"><div class="rh"><span>실행 3</span><span class="st">JSON 앞에 인사말</span></div><code><b class="accent3">물론입니다! 분류 결과는 다음과 같습니다:</b> {"category":"timeout", …}</code><span class="why">↳ 내용이 다 맞아도 — JSON만 기대하는 파서는 <b class="accent3">문장 첫 글자에서 바로 실패</b>합니다</span></div>
           </div>
         </div>
         <div>
-          <div class="phead bad autoshow fade-in">그중 하나가 후속 단계로 흘러가면 —</div>
+          <div class="phead bad autoshow fade-in">이 중 실행 3이 후속 단계로 흘러가면 —</div>
           <div class="g4m sim">
             <div class="g4m-track">
-              <div class="g4m-st">Run 3 출력<span>깨진 JSON</span></div>
+              <div class="g4m-st">실행 3의 출력<span>인사말 + JSON</span></div>
               <div class="g4m-slot">검사 없음 — 게이트 자리 비어 있음</div>
               <div class="g4m-st dst">주간 리포트 조립<span>triage JSON을 받는 스크립트</span></div>
               <div class="g4m-card">물론입니다! {…</div>
