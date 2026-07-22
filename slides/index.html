@@ -1485,11 +1485,11 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.7rem">오늘의 목표는 <b class="accent">이번 주에 검증 가능한 반복 업무 하나에 AI Agent를 적용해 보는 것</b>입니다.</p>
     </section>
 
-    <!-- 4 · 데모 1 — 자동 테스트 실패 분류 (Regression Triage) -->
+    <!-- 4 · 데모 1 — 자동 테스트 실패 분류 -->
     <section data-layer="DEMO" data-sec="도입">
       <div><span class="chip">도입 · 데모 1 · prompt + 제공된 로컬 로그</span></div>
       <h2>자동 테스트 실패 12건을 분류해 보겠습니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.05rem; margin:0.3rem 0 0">반복 실행된 테스트에서 나온 실패를 <b style="color:#fff">증상과 로그 근거로 1차 분류</b>합니다. 검증팀에서는 이런 작업을 <b class="accent2">Regression Triage</b>라고 부릅니다.</p>
+      <p class="dim autoshow fade-up" style="font-size:1.05rem; margin:0.3rem 0 0">반복 실행된 테스트에서 나온 실패를 <b style="color:#fff">증상과 로그 근거로 1차 분류</b>합니다. 영어로는 <b class="accent2">regression triage</b>라고도 합니다.</p>
       <p class="mono tiny faint autoshow fade-up" style="margin:0.15rem 0 0">설명을 위해 구성한 예시 · 저장된 Skill·MCP 연결 없이 기본 파일 도구만 사용</p>
       <div class="grid-2 sim" style="margin-top:0.3rem">
         <div class="panel autoshow fade-left" style="min-height:24rem">
@@ -1763,15 +1763,15 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">실무 기준 — <b class="accent">"외부 메일로 전송해도 되는 수준의 정보인가."</b> 최종 판단은 회사 보안정책과 프로젝트 규정을 따릅니다.</p>
     </section>
 
-    <!-- 15 · 간지 — 본문 2 · Regression Triage Agent -->
-    <section class="section-opener" data-hero data-sec="본문 2 · Regression Triage Agent">
+    <!-- 15 · 간지 — 본문 2 · 테스트 실패 분류 Agent -->
+    <section class="section-opener" data-hero data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div class="autoshow fade-up"><span class="chip">본문 2</span></div>
       <h1 class="autoshow fade-up" style="font-size:3.6rem">Skill · MCP<br><span class="grad">Agent에 절차와 시스템 연결을 더하는 두 확장 요소</span></h1>
       <p class="dim autoshow fade-up" style="font-size:1.2rem; margin-top:1.0rem">데모 1의 로그 분류 예시에 절차(Skill)와 시스템 연결(MCP)을 차례로 더해 봅니다.</p>
     </section>
 
     <!-- 16 · 1단계 prompt — 두 공백 -->
-    <section data-sec="본문 2 · Regression Triage Agent">
+    <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 1단계 prompt — 왜 이대로는 안 되나</span></div>
       <h2>기본 모델에게 없는 두 가지</h2>
       <p class="dim autoshow fade-up" style="font-size:1.12rem">Prompt만으로도 시연 수준의 결과는 만들 수 있습니다. 하지만 업무에 넣으려면 <b style="color:#fff">두 가지가 비어 있습니다.</b> 기본 모델은 우리 팀의 절차와 사내 시스템 정보를 알지 못합니다.</p>
@@ -1801,7 +1801,7 @@ footer, header, hgroup, main, menu, nav, section {
     </section>
 
     <!-- 17 · 데모 2a — 업무 정의 -->
-    <section data-layer="DEMO" data-sec="본문 2 · Regression Triage Agent">
+    <section data-layer="DEMO" data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 2단계 Skill · 데모 2 ① 업무 정의</span></div>
       <h2>먼저 손으로 하던 분류 절차를 그대로 적어 봅니다</h2>
       <p class="dim autoshow fade-up" style="font-size:1.12rem"><b class="accent" style="font-weight:700">공백 ①인 절차</b>부터 채웁니다. 사람이 반복해 온 분류 기준을 <b style="color:#fff">단계별로 명시합니다.</b> 기준이 사람마다 다르다면 먼저 팀 기준을 합의해야 합니다.</p>
@@ -1835,7 +1835,7 @@ footer, header, hgroup, main, menu, nav, section {
     </section>
 
     <!-- 18 · 데모 2b — skill 저장 → 실행 -->
-    <section data-layer="DEMO" data-sec="본문 2 · Regression Triage Agent">
+    <section data-layer="DEMO" data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 2단계 Skill · 데모 2 ② 저장 → 실행·활용</span> <span class="pill green">원칙 ② 출력 구조화</span></div>
       <h2>정의를 SKILL.md로 저장하면 같은 절차를 재사용할 수 있습니다</h2>
       <div class="grid-2 d2" style="margin-top:0.4rem; align-items:start; grid-template-columns:0.94fr 1.06fr">
@@ -1903,7 +1903,7 @@ footer, header, hgroup, main, menu, nav, section {
     </section>
 
     <!-- 19 · skill 개념 -->
-    <section data-sec="본문 2 · Regression Triage Agent">
+    <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill</span></div>
       <h2>Skill은 반복 업무의 절차와 기준을 담은 작업 매뉴얼입니다</h2>
       <p class="autoshow fade-up" style="font-size:1.32rem; margin-top:0.4rem"><b>Skill은 재사용할 절차와 전문지식을 SKILL.md에 정리한 것입니다.</b></p>
@@ -1919,7 +1919,7 @@ footer, header, hgroup, main, menu, nav, section {
     </section>
 
     <!-- 20 · skill 구조 (v2.4: 구 20장을 20 구조 / 21 실행 과정 / 22 만드는 법 3장으로 분리) -->
-    <section data-sec="본문 2 · Regression Triage Agent">
+    <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill · 구조</span> <span class="pill amber">원칙 ③ 근거를 남긴다</span></div>
       <h2>Skill은 SKILL.md와 필요한 자료로 구성됩니다</h2>
       <p class="dim autoshow fade-up" style="font-size:1.1rem">핵심 절차는 <b style="color:#fff">SKILL.md</b>에, 상세 자료와 도구는 <b style="color:#fff">필요에 따라 분리</b>합니다. <span class="dim">(OpenCode 기준 경로 · 축약 예시)</span></p>
@@ -1991,7 +1991,7 @@ footer, header, hgroup, main, menu, nav, section {
     </section>
 
     <!-- 21 · skill 만드는 법 (신설 v2.4) -->
-    <section data-sec="본문 2 · Regression Triage Agent">
+    <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill · 만드는 법</span></div>
       <h2>Skill은 직접 작성하거나 실제 작업에서 추출할 수 있습니다</h2>
       <div class="grid-2" style="margin-top:0.7rem; align-items:start; grid-template-columns:0.98fr auto 1.02fr; gap:1.05rem">
@@ -2031,7 +2031,7 @@ footer, header, hgroup, main, menu, nav, section {
           </div>
           <div class="term" style="margin-top:0.5rem">
             <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">요청문 예시 — 핵심 행 (전문은 발표자 노트)</span></div>
-            <div class="term-body" style="white-space:pre-wrap; font-size:0.78rem; line-height:1.5; padding:0.45rem 0.8rem"><span class="sh-cmd">방금 수행한 regression triage 과정에서
+            <div class="term-body" style="white-space:pre-wrap; font-size:0.78rem; line-height:1.5; padding:0.45rem 0.8rem"><span class="sh-cmd">방금 수행한 테스트 실패 분류 과정에서
 재사용 가능한 절차를 Skill로 추출해줘.</span>
 <span class="sh-dim">— name·description · 입력·출력 · 실행 절차
 — 추정하지 말아야 할 조건 · evidence와 검증 방법
@@ -2059,7 +2059,7 @@ footer, header, hgroup, main, menu, nav, section {
     </section>
 
     <!-- 22 · 데모 3a — MCP 없을 때 -->
-    <section data-layer="DEMO" data-sec="본문 2 · Regression Triage Agent">
+    <section data-layer="DEMO" data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 3단계 MCP · 데모 3 ① 없을 때</span></div>
       <h2>분류는 맡겼지만, 과거 이슈 대조는 아직 사람이 합니다</h2>
       <p class="dim autoshow fade-up" style="font-size:1.1rem"><b class="accent2" style="font-weight:700">공백 ②인 연결</b>이 아직 비어 있습니다. unknown 3건이 과거 이슈와 유사한지 확인하려면 사람이 Jira를 직접 검색해야 합니다. <span class="mono tiny faint">(설명을 위해 구성한 예시)</span></p>
@@ -2091,7 +2091,7 @@ footer, header, hgroup, main, menu, nav, section {
     </section>
 
     <!-- 23 · 데모 3b — MCP로 연결 -->
-    <section data-layer="DEMO" data-sec="본문 2 · Regression Triage Agent">
+    <section data-layer="DEMO" data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 3단계 MCP · 데모 3 ② 있을 때</span></div>
       <h2>MCP로 연결하면 조회와 대조까지 Agent가 수행합니다</h2>
       <p class="dim autoshow fade-up" style="font-size:1.1rem">같은 부탁을, 이번엔 <b style="color:#fff">Jira MCP 서버를 연결해 두고</b> 해 봅니다. <span class="mono tiny faint">(설명을 위해 구성한 예시 — 이슈 ID는 가상)</span></p>
@@ -2131,7 +2131,7 @@ footer, header, hgroup, main, menu, nav, section {
     </section>
 
     <!-- 24 · MCP 개념 -->
-    <section data-sec="본문 2 · Regression Triage Agent">
+    <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP</span></div>
       <h2>MCP는 Agent와 데이터·도구를 연결하는 공용 규격입니다</h2>
       <p class="autoshow fade-up" style="font-size:1.22rem; margin-top:0.4rem">정식 이름은 <b>Model Context Protocol</b> — 데모 3의 Jira 조회를 가능하게 한 연결이 이 규격을 사용했습니다.</p>
@@ -2148,7 +2148,7 @@ footer, header, hgroup, main, menu, nav, section {
     </section>
 
     <!-- 25 · MCP 통제 -->
-    <section data-sec="본문 2 · Regression Triage Agent">
+    <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP · 통제</span></div>
       <h2>연결이 쉬워질수록 권한과 실행 범위를 더 엄격하게 통제해야 합니다</h2>
       <div class="autoshow fade-up" style="display:flex; gap:0.7rem; margin-top:1.0rem">
@@ -2560,7 +2560,7 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-layer="READ" data-sec="마무리">
       <div><span class="chip">마무리 · 일 맡기기 설계 템플릿</span></div>
       <h2>맡기기 전에 아홉 칸만 채워 보세요</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.06rem">코드가 아니라 <b style="color:#fff">글 아홉 줄</b>입니다. 오른쪽은 오늘의 Regression Triage 예시입니다.</p>
+      <p class="dim autoshow fade-up" style="font-size:1.06rem">코드가 아니라 <b style="color:#fff">글 아홉 줄</b>입니다. 오른쪽은 오늘의 테스트 실패 분류 예시입니다.</p>
       <ul class="ol autoshow fade-up" style="margin-top:0.55rem; flex:none">
         <li class="show"><span class="ix">업무</span><span class="lb">맡길 업무</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">regression 실패 1차 분류</span></li>
         <li class="show"><span class="ix">입력</span><span class="lb">제공할 입력</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">어젯밤 자동 테스트 실패 로그</span></li>
