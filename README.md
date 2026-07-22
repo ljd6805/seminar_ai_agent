@@ -7,7 +7,7 @@
 | 문서 | 내용 |
 |------|------|
 | [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.8.3) |
-| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.28.6) |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.28.7) |
 | [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v2.4 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
 | [slides/index.html](slides/index.html) | 57장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
 
@@ -26,10 +26,10 @@
 ```
 도입    표지 · 목차 · 오늘의 결론(4요소) · 데모1(prompt만)+해부 · 정의 · LLM은 모델, AI Agent는 실행 시스템
         · 왜 달라지는가(중간 실행 단계) · 역할 분담(사람→Agent→사람) · 4원칙 검증 루프
-본문 1  간지 · 데이터 경계 다이어그램(오해 교정) · 사내 도구 셋 · 사용 전 3문장 점검
-본문 2  간지 · 1단계 prompt(두 공백) · 데모2(triage SKILL.md→실행) · Skill(개념·구조·만드는 법)
+본문 1  구분 페이지 · 데이터 경계 다이어그램(오해 교정) · 사내 도구 셋 · 사용 전 3문장 점검
+본문 2  구분 페이지(Skill · MCP) · 1단계 prompt(두 공백) · 데모2(triage SKILL.md→실행) · Skill(개념·구조·만드는 법)
         · 데모3(Jira 대조, 없을 때→있을 때) · MCP(개념·통제)
-본문 3  간지 · 실패의 현실 · 데모4 ①②(멈추는 순간 → Harness 게이트 시네마) · 스키마 게이트(통과의 의미)
+본문 3  구분 페이지 · 실패의 현실 · 데모4 ①②(멈추는 순간 → Harness 게이트 시네마) · 스키마 게이트(통과의 의미)
         · Harness란 · UVM 나란히 · 구성 요소 · 언제 쓰나(받는 쪽 3단)
 마무리  회고 → 자율성 단계 L0~L5(오늘의 위치) → 좋은/나쁜 요청 → 설계 템플릿 9칸 → 첫 실험 CTA → Q&A
 부록    LLM 기초 ①~④(다음 토큰·컨텍스트·토큰·환각) · 역사 · 왜 지금 · 왜 우리 · 재배치 · OpenCode 설치
