@@ -1161,7 +1161,7 @@ footer, header, hgroup, main, menu, nav, section {
     /* 노드별 강조·감쇠 */
     .mas .dimmed { opacity: 0.35; }
     .mas .lit { box-shadow: 0 0 0.7rem rgba(155,130,255,0.22); }
-    /* --- 공용 variant (.mas-ov): Harness 전체 통제 + 중앙축형 Agent 실행 — 3·30·35 전체형, 16 pre·33 mini 축약형 --- */
+    /* --- 공용 variant (.mas-ov): Harness 전체 통제 + 중앙축형 Agent 실행 — 3·31·35 전체형, 16 pre·33 mini 축약형 --- */
     .mas-ov { align-items: flex-start; }
     .mas-ov-core { padding: 1.5rem 1.2rem 1.4rem; }
     /* Harness 헤더 2계층: 주제어 강 + 설명 약 · 범위 pill 3개는 경계 상단 우측 */
@@ -1285,7 +1285,7 @@ footer, header, hgroup, main, menu, nav, section {
       border-radius: 0.7rem; padding: 0.5rem 1.1rem; font-weight: 800; font-size: 1.05rem; color: #A9FFF0 !important;
     }
 
-    /* --- UVM 나란히 (31장): 동형 루프 레인 — 자극→대상→검사(코랄 게이트)→사람(앰버) + ✕ 반환 루프.
+    /* --- UVM 나란히 (32장): 동형 루프 레인 — 자극→대상→검사(코랄 게이트)→사람(앰버) + ✕ 반환 루프.
            두 레인이 같은 고정 열 템플릿을 써서 위아래 같은 자리 = 같은 역할로 읽힘 --- */
     .uv { display: grid; grid-template-columns: 11.6rem 3.2rem 8.2rem 3.2rem 12.4rem 5.4rem 12.4rem; grid-template-rows: auto auto;
       row-gap: 0.2rem; column-gap: 0.4rem; align-items: center; justify-content: center; margin-top: 0.55rem; }
@@ -2185,7 +2185,7 @@ footer, header, hgroup, main, menu, nav, section {
     <!-- 27 · 실패의 현실 -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 정직한 전제</span></div>
-      <h2>그런데 — 이 출력, 매번 믿을 수 있나</h2>
+      <h2>AI Agent, 매번 믿을 수 있을까요</h2>
       <p class="autoshow fade-up" style="font-size:1.15rem"><span class="dim">여기까지 보면 다 되는 것처럼 보이지만 —</span> <b>정직하게, 실패도 합니다.</b> <span class="dim">LLM의 출력은 확률적으로 생성되기 때문입니다.</span></p>
       <div class="failmap autoshow fade-up">
         <div class="fm-callouts">
@@ -2275,7 +2275,30 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.55rem"><b class="accent2">형식 일관성</b> — 통과한 결과는 같은 구조를 가집니다<br><b class="accent2">검증 가능성</b> — 같은 검사 규칙을 반복 적용합니다<br><b class="accent3">보장 범위</b> — 게이트가 확인하는 것은 구조까지, unknown 3건의 내용 판단은 여전히 <b class="accent4">사람의 몫</b>입니다</p>
     </section>
 
-    <!-- 30 · Harness란 (v2.8 이동: 구 28장) -->
+    <!-- 30 · 스키마 게이트 — 통과의 의미 (v2.8.1: 데모 직후로 — 구 31장 재작성) -->
+    <section data-sec="본문 3 · Harness · 통제">
+      <div><span class="chip">본문 3 · 통과의 의미</span></div>
+      <h2>게이트를 통과했습니다 — 보장된 것은 구조까지입니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.08rem">데모 4에서 <b style="color:#fff">검증 2차 ✓로 통과하던 순간</b>을 확대한 장면입니다 — 그 ✓가 확인해 준 범위가 어디까지인지 봅니다.</p>
+      <div class="autoshow fade-up" style="margin-top:1.1rem">
+        <div class="flow-lane">
+          <div class="flow-step neutral" style="flex:0.8">Agent 출력<small>JSON · 표</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="mas-gate" style="flex:1; padding:0.75rem 0.7rem; font-size:1.15rem" data-id="system-schema">스키마 검증<small>필수 5필드 · 형식 · 타입 검사</small></div>
+          <span class="flow-arrow">→</span>
+          <div class="flow-step ai" style="flex:1.2">✓ 통과 — 후속 프로그램 · 사람 승인<small>같은 구조의 결과만 전달</small></div>
+        </div>
+      </div>
+      <p class="center autoshow fade-up" style="margin:0.95rem 0 0"><code class="mono" style="font-size:0.86rem; border:0.0625rem solid rgba(190,200,224,0.3); border-radius:0.55rem; padding:0.4rem 0.8rem; background:rgba(11,14,26,0.6)">{"category":"unknown", "count":3, "representative_test":"…", "evidence":"nightly.log L212", "next_action":"사람 검토"}</code> <span class="mono tiny faint" style="display:block; margin-top:0.4rem">검증 2차를 통과한 출력 — 데모 4 · 구성한 예시</span></p>
+      <div class="autoshow fade-up" style="display:flex; gap:0.7rem; justify-content:center; margin-top:0.6rem; flex-wrap:wrap">
+        <span class="mono" style="font-size:0.82rem; border:0.0625rem solid rgba(43,234,208,0.5); border-radius:0.55rem; padding:0.38rem 0.7rem; color:#9FF5E6 !important">구조 ✓ — 필수 5필드 · 형식 · 타입 <span style="color:#8A93B2 !important">게이트가 검사한 범위</span></span>
+        <span class="mono" style="font-size:0.82rem; border:0.0625rem solid rgba(255,212,107,0.5); border-radius:0.55rem; padding:0.38rem 0.7rem; color:#FFE3A8 !important">내용 ? — 분류·근거가 맞는지 <span style="color:#8A93B2 !important">게이트는 검사하지 않는 범위</span></span>
+      </div>
+      <p class="autoshow fade-up center" style="font-size:1.6rem; font-weight:800; margin-top:1.15rem"><span class="accent2">구조가 맞다</span> <span style="color:#8A93B2">≠</span> <span class="accent4">판단이 맞다</span></p>
+      <p class="note autoshow fade-up" style="margin-top:0.8rem">스키마는 출력 구조만 검사합니다 — 올바른 JSON이라도 내용은 틀릴 수 있습니다. 그래서 데모 4의 마지막 단계가 게이트가 아니라 <b class="accent4">사람 승인</b>이었습니다.</p>
+    </section>
+
+    <!-- 31 · Harness란 (v2.8.1: 구 28장) -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 틀로 감싸 제대로</span></div>
       <h2>Harness — 모델을 감싸는 실행 틀</h2>
@@ -2317,7 +2340,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">Harness는 Agent 옆의 네 번째 부품이 아니라 <b class="accent3">실행 전체를 감싸는 경계</b>입니다. 말의 범위는 제품·문맥에 따라 다르며, 이 자료에서는 위 실행 통제 구조를 뜻합니다.</p>
     </section>
 
-    <!-- 31 · UVM 나란히 (v2.8 이동: 구 29장) -->
+    <!-- 32 · UVM 나란히 (v2.8.1: 구 29장) -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 익숙한 그림</span></div>
       <h2>설계·검증에서 익숙한 구조와 닮아 있습니다</h2>
@@ -2350,29 +2373,6 @@ footer, header, hgroup, main, menu, nav, section {
         </div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:0.9rem">두 구조 모두 <b>실패를 버리지 않고 되돌려 다시 실행</b>하고, 검사를 통과한 결과도 <b class="accent4">사람의 판단</b>을 거쳐야 끝납니다 — <b class="accent">검사는 자동으로, 최종 판단은 사람이.</b> 이 방식 그대로 대상만 칩에서 Agent 실행으로 바뀝니다.</p>
-    </section>
-
-    <!-- 32 · 스키마 게이트 — 통과의 의미 (v2.8 이동·재작성: 구 31장) -->
-    <section data-sec="본문 3 · Harness · 통제">
-      <div><span class="chip">본문 3 · 통과의 의미</span></div>
-      <h2>게이트를 통과했습니다 — 보장된 것은 구조까지입니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.08rem">데모 4에서 <b style="color:#fff">검증 2차 ✓로 통과하던 순간</b>을 확대한 장면입니다 — 그 ✓가 확인해 준 범위가 어디까지인지 봅니다.</p>
-      <div class="autoshow fade-up" style="margin-top:1.1rem">
-        <div class="flow-lane">
-          <div class="flow-step neutral" style="flex:0.8">Agent 출력<small>JSON · 표</small></div>
-          <span class="flow-arrow">→</span>
-          <div class="mas-gate" style="flex:1; padding:0.75rem 0.7rem; font-size:1.15rem" data-id="system-schema">스키마 검증<small>필수 5필드 · 형식 · 타입 검사</small></div>
-          <span class="flow-arrow">→</span>
-          <div class="flow-step ai" style="flex:1.2">✓ 통과 — 후속 프로그램 · 사람 승인<small>같은 구조의 결과만 전달</small></div>
-        </div>
-      </div>
-      <p class="center autoshow fade-up" style="margin:0.95rem 0 0"><code class="mono" style="font-size:0.86rem; border:0.0625rem solid rgba(190,200,224,0.3); border-radius:0.55rem; padding:0.4rem 0.8rem; background:rgba(11,14,26,0.6)">{"category":"unknown", "count":3, "representative_test":"…", "evidence":"nightly.log L212", "next_action":"사람 검토"}</code> <span class="mono tiny faint" style="display:block; margin-top:0.4rem">검증 2차를 통과한 출력 — 데모 4 · 구성한 예시</span></p>
-      <div class="autoshow fade-up" style="display:flex; gap:0.7rem; justify-content:center; margin-top:0.6rem; flex-wrap:wrap">
-        <span class="mono" style="font-size:0.82rem; border:0.0625rem solid rgba(43,234,208,0.5); border-radius:0.55rem; padding:0.38rem 0.7rem; color:#9FF5E6 !important">구조 ✓ — 필수 5필드 · 형식 · 타입 <span style="color:#8A93B2 !important">게이트가 검사한 범위</span></span>
-        <span class="mono" style="font-size:0.82rem; border:0.0625rem solid rgba(255,212,107,0.5); border-radius:0.55rem; padding:0.38rem 0.7rem; color:#FFE3A8 !important">내용 ? — 분류·근거가 맞는지 <span style="color:#8A93B2 !important">게이트는 검사하지 않는 범위</span></span>
-      </div>
-      <p class="autoshow fade-up center" style="font-size:1.6rem; font-weight:800; margin-top:1.15rem"><span class="accent2">구조가 맞다</span> <span style="color:#8A93B2">≠</span> <span class="accent4">판단이 맞다</span></p>
-      <p class="note autoshow fade-up" style="margin-top:0.8rem">스키마는 출력 구조만 검사합니다 — 올바른 JSON이라도 내용은 틀릴 수 있습니다. 그래서 데모 4의 마지막 단계가 게이트가 아니라 <b class="accent4">사람 승인</b>이었습니다.</p>
     </section>
 
     <!-- 33 · Harness 구성 요소 (v2.8 이동: 구 30장) -->
