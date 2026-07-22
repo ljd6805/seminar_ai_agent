@@ -6,9 +6,9 @@
 
 | 문서 | 내용 |
 |------|------|
-| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.8) |
-| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.28) |
-| [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v2.3 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
+| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.8.2) |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.28.2) |
+| [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v2.4 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
 | [slides/index.html](slides/index.html) | 57장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
 
 ## 한눈에
@@ -38,7 +38,7 @@
 
 ## 진행 상태
 
-**확정** — 관통 시나리오(Regression Triage Agent) + 57장 구조(v2.8 — Harness 트랙도 데모 선행), 핵심 메시지·계층·4원칙 고정, 데모 4개(전부 구성된 예시), harness=UVM 비유+공식 근거, 문구 보수화(권한·한도·통제·세미나용 예시 명시), 표기 통일(Agent·Skill·Harness 대문자)
+**확정** — 관통 시나리오(Regression Triage Agent) + 57장 구조(v2.8 — Harness 트랙도 데모 선행), 핵심 메시지·계층·4원칙 고정, 데모 4개(전부 구성된 예시), harness=UVM 비유+공식 근거, 문구 보수화(권한·한도·통제·세미나용 예시 명시), 표기 통일(Agent·Skill·Harness 대문자), 전 장 한국어 문체 정밀 교정(v2.8.2 — 정중체·질문형 제목·대시 정리·대표 정의 통일)
 
 **미결** — 표지 발표자·일시, 13장 접속·49장 설치 안내, 56장 대표 도구 실값, 사내 서비스 데이터 처리 조건(보안 조직 확인), 리허설 후 미세 조정
 
