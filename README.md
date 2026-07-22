@@ -6,9 +6,9 @@
 
 | 문서 | 내용 |
 |------|------|
-| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.7) |
-| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.27) |
-| [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v2.2 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
+| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.8) |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.28) |
+| [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v2.3 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
 | [slides/index.html](slides/index.html) | 57장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
 
 ## 한눈에
@@ -29,8 +29,8 @@
 본문 1  간지 · 데이터 경계 다이어그램(오해 교정) · 사내 도구 셋 · 사용 전 3문장 점검
 본문 2  간지 · 1단계 prompt(두 공백) · 데모2(triage SKILL.md→실행) · Skill(개념·구조·만드는 법)
         · 데모3(Jira 대조, 없을 때→있을 때) · MCP(개념·통제)
-본문 3  간지 · 실패의 현실 · Harness란 · UVM 나란히 · 구성 요소 · 스키마 게이트 · 언제 쓰나(받는 쪽 3단)
-        · 데모4 ①②(멈추는 순간 → Harness 게이트 시네마)
+본문 3  간지 · 실패의 현실 · 데모4 ①②(멈추는 순간 → Harness 게이트 시네마) · Harness란 · UVM 나란히
+        · 스키마 게이트(통과의 의미) · 구성 요소 · 언제 쓰나(받는 쪽 3단)
 마무리  회고 → 자율성 단계 L0~L5(오늘의 위치) → 좋은/나쁜 요청 → 설계 템플릿 9칸 → 첫 실험 CTA → Q&A
 부록    LLM 기초 ①~④(다음 토큰·컨텍스트·토큰·환각) · 역사 · 왜 지금 · 왜 우리 · 재배치 · OpenCode 설치
         · 회의 메모 Skill · Skill 기준 · MCP 구조 ①② · Harness 장단점 · FAQ · 확장 도구 후보(표) · 용어집
@@ -38,7 +38,7 @@
 
 ## 진행 상태
 
-**확정** — 관통 시나리오(Regression Triage Agent) + 57장 구조(v2.6), 핵심 메시지·계층·4원칙 고정, 데모 4개(전부 구성된 예시), harness=UVM 비유+공식 근거, 문구 보수화(권한·한도·통제·세미나용 예시 명시), 표기 통일(Agent·Skill·Harness 대문자)
+**확정** — 관통 시나리오(Regression Triage Agent) + 57장 구조(v2.8 — Harness 트랙도 데모 선행), 핵심 메시지·계층·4원칙 고정, 데모 4개(전부 구성된 예시), harness=UVM 비유+공식 근거, 문구 보수화(권한·한도·통제·세미나용 예시 명시), 표기 통일(Agent·Skill·Harness 대문자)
 
 **미결** — 표지 발표자·일시, 13장 접속·49장 설치 안내, 56장 대표 도구 실값, 사내 서비스 데이터 처리 조건(보안 조직 확인), 리허설 후 미세 조정
 
