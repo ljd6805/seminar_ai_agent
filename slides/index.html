@@ -1237,15 +1237,9 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .mas-ov-pre .pre-vconn .vln { animation: preVln 0.4s ease-out 0.9s both; }
     section.present .mas-ov-pre .hole-fix.sk { animation: preFixSk 0.6s ease 1.25s both; }
     section.present .mas-ov-pre .hole-fix.mc { animation: preFixMc 0.6s ease 1.25s both; }
-    /* 17·23장 구분 페이지(신설 v0.28.14) — 16장 그림 재사용: .pre-focus로 기본 진입 애니 해제, 초점 열만 재생·나머지 .dimmed */
+    /* 17·23장 구분 페이지(v0.28.15 정적) — 16장 그림 재사용: .pre-focus로 진입 애니 전부 해제(정적 이미지), 초점 열만 원래 밝기·나머지 .dimmed */
     section.present .pre-focus .pre-vconn, section.present .pre-focus .pre-vconn .vln,
     section.present .pre-focus .hole-fix.sk, section.present .pre-focus .hole-fix.mc { animation: none; }
-    section.present .pre-focus-sk .pre-vconn.sk { animation: preVconn 0.3s ease 0.55s both; }
-    section.present .pre-focus-sk .pre-vconn.sk .vln { animation: preVln 0.4s ease-out 0.55s both; }
-    section.present .pre-focus-sk .hole-fix.sk { animation: preFixSk 0.7s ease 0.9s both; }
-    section.present .pre-focus-mc .pre-vconn.mc { animation: preVconn 0.3s ease 0.55s both; }
-    section.present .pre-focus-mc .pre-vconn.mc .vln { animation: preVln 0.4s ease-out 0.55s both; }
-    section.present .pre-focus-mc .hole-fix.mc { animation: preFixMc 0.7s ease 0.9s both; }
     /* 35장 mini: 같은 문법의 축소판 (라벨·패널 생략) */
     .mas-ov-mini .mas-ov-workflow { grid-template-columns: 1fr 2.4rem 1.22fr 2.4rem 1fr; column-gap: 0.4rem; }
     .mas-ov-mini .ov-agent { font-size: 1.08rem; }
@@ -1840,9 +1834,8 @@ footer, header, hgroup, main, menu, nav, section {
     <!-- 17 · 구분 — 2단계 Skill 시작 (신설 v0.28.14: 16장 그림 재사용, Skill 열만 강조) -->
     <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 2단계 Skill</span></div>
-      <h2>먼저 공백 ① — 절차를 <b class="accent">Skill</b>로 채웁니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">방금 그림의 <b style="color:#fff">왼쪽 자리</b>부터 채웁니다. 사람이 반복해 온 분류 절차를 Agent가 쓸 수 있는 형태로 적어 넣는 단계입니다.</p>
-      <div class="mas mas-ov mas-ov-pre pre-focus pre-focus-sk autoshow fade-up" style="margin-top:1.0rem">
+      <h2>이제 <b class="accent">Skill</b>을 살펴봅니다</h2>
+      <div class="mas mas-ov mas-ov-pre pre-focus pre-focus-sk autoshow fade-up" style="margin-top:2.2rem">
         <div class="mas-core mas-ov-core">
           <div class="mas-ov-work">
             <span class="mas-ov-slabel">작업 실행</span>
@@ -1865,7 +1858,6 @@ footer, header, hgroup, main, menu, nav, section {
           </div>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:0.9rem">지금부터 데모 2와 함께 <b class="accent">Skill</b>을 살펴봅니다. 시스템 연결(MCP)은 그다음입니다.</p>
     </section>
 
     <!-- 18 · 데모 2a — 업무 정의 -->
@@ -2129,9 +2121,8 @@ footer, header, hgroup, main, menu, nav, section {
     <!-- 23 · 구분 — 3단계 MCP 시작 (신설 v0.28.14: 16장 그림 재사용, MCP 열만 강조) -->
     <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 3단계 MCP</span></div>
-      <h2>다음은 공백 ② — 시스템 연결을 <b class="accent2">MCP</b>로 채웁니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">절차는 Skill로 채웠습니다. 이제 남은 <b style="color:#fff">오른쪽 자리</b> — 닿지 못하던 Jira · 문서고 · DB에 Agent를 연결할 차례입니다.</p>
-      <div class="mas mas-ov mas-ov-pre pre-focus pre-focus-mc autoshow fade-up" style="margin-top:1.0rem">
+      <h2>이제 <b class="accent2">MCP</b>를 살펴봅니다</h2>
+      <div class="mas mas-ov mas-ov-pre pre-focus pre-focus-mc autoshow fade-up" style="margin-top:2.2rem">
         <div class="mas-core mas-ov-core">
           <div class="mas-ov-work">
             <span class="mas-ov-slabel">작업 실행</span>
@@ -2154,7 +2145,6 @@ footer, header, hgroup, main, menu, nav, section {
           </div>
         </div>
       </div>
-      <p class="note autoshow fade-up" style="margin-top:0.9rem">지금부터 데모 3과 함께 <b class="accent2">MCP</b>를 살펴봅니다. ✕로 끊겨 있던 연결이 어떻게 이어지는지가 핵심입니다.</p>
     </section>
 
     <!-- 24 · 데모 3a — MCP 없을 때 -->
