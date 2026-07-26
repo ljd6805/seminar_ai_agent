@@ -384,8 +384,10 @@ footer, header, hgroup, main, menu, nav, section {
     /* 41장 설계 템플릿 — Skill/Harness 그룹 박스 (v0.28.18) */
     .tpl-grp { border: 0.09rem solid rgba(155,130,255,0.38); border-radius: 0.8rem; padding: 0.5rem 0.65rem 0.55rem; background: rgba(155,130,255,0.05); }
     .tpl-grp.hn { border-color: rgba(255,122,149,0.42); background: rgba(255,122,149,0.05); }
+    .tpl-grp.hu { border-color: rgba(255,212,107,0.42); background: rgba(255,212,107,0.05); }
     .tpl-grp .grp-t { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.03em; color: var(--accent); margin: 0 0 0.3rem 0.25rem; }
     .tpl-grp.hn .grp-t { color: var(--accent-3); }
+    .tpl-grp.hu .grp-t { color: var(--accent-4); }
     .tpl-grp .ol { margin: 0; flex: none; gap: 0.35rem; justify-content: flex-start; }
     .tpl-grp .ol li { padding: 0.32rem 0.7rem; }
 
@@ -2708,9 +2710,12 @@ footer, header, hgroup, main, menu, nav, section {
             <li class="show"><span class="ix">실패</span><span class="lb">실패 시 처리</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">unknown 표시 후 중단·보고</span></li>
           </ul>
         </div>
-        <ul class="ol autoshow fade-up" style="margin:0; flex:none">
-          <li class="show"><span class="ix">지표</span><span class="lb">평가 지표</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">수정 횟수 · 누락 · 오분류 · 근거 없는 주장</span></li>
-        </ul>
+        <div class="tpl-grp hu autoshow fade-up">
+          <div class="grp-t">다음 결정의 근거가 되는 줄 — 평가와 판단은 사람이</div>
+          <ul class="ol">
+            <li class="show"><span class="ix">지표</span><span class="lb">평가 지표</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">수정 횟수 · 누락 · 오분류 · 근거 없는 주장</span></li>
+          </ul>
+        </div>
       </div>
     </section>
 
