@@ -1078,10 +1078,12 @@ footer, header, hgroup, main, menu, nav, section {
 
     @media print {
       .reveal .autoshow { opacity: 1 !important; animation: none !important; transform: none !important; }
+      .mas-ov-pre .pre-vconn, .mas-ov-pre .pre-vconn .vln, .mas-ov-pre .hole-fix { opacity: 1 !important; animation: none !important; transform: none !important; }
       body::before, body::after { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
       .reveal .autoshow { opacity: 1 !important; animation: none !important; transform: none !important; }
+      .mas-ov-pre .pre-vconn, .mas-ov-pre .pre-vconn .vln, .mas-ov-pre .hole-fix { opacity: 1 !important; animation: none !important; transform: none !important; }
       .grad, .hb-nebula { animation: none !important; }
     }
 
@@ -1220,12 +1222,21 @@ footer, header, hgroup, main, menu, nav, section {
     .mas-ov-pre .ext-items span { display: block; font-size: 0.8rem; color: #A9B4D8 !important; border: 0.0625rem solid rgba(190,200,224,0.22); border-radius: 0.45rem; padding: 0.2rem 0.4rem; background: rgba(190,200,224,0.05); }
     .pre-vconn { grid-row: 2 !important; justify-self: center; display: flex; flex-direction: column; align-items: center; padding-top: 0.12rem; }
     .pre-vconn i { font-style: normal; font-size: 0.62rem; line-height: 1; }
-    .pre-vconn .vln { width: 0; height: 1.05rem; border-left: 0.1rem dashed; }
+    .pre-vconn .vln { width: 0; height: 2.4rem; border-left: 0.1rem dashed; }
     .pre-vconn.sk { grid-column: 1; } .pre-vconn.sk i { color: #B7A5FF !important; } .pre-vconn.sk .vln { border-color: rgba(155,130,255,0.65); }
     .pre-vconn.mc { grid-column: 5; } .pre-vconn.mc i { color: #7FE8D8 !important; } .pre-vconn.mc .vln { border-color: rgba(43,234,208,0.6); }
     .mas-ov-pre .hole-fix { grid-row: 3 !important; margin-top: 0; }
-    .mas-ov-pre .hole-fix.sk { grid-column: 1; }
-    .mas-ov-pre .hole-fix.mc { grid-column: 5; }
+    .mas-ov-pre .hole-fix.sk { grid-column: 1; box-shadow: 0 0 0.55rem rgba(155,130,255,0.18); }
+    .mas-ov-pre .hole-fix.mc { grid-column: 5; box-shadow: 0 0 0.55rem rgba(43,234,208,0.16); }
+    /* 강조 애니(진입 시 1회) — 기본 상태 = 최종 상태, print/reduced-motion은 하단 가드에서 animation:none */
+    @keyframes preVconn { 0% { opacity: 0; } 100% { opacity: 1; } }
+    @keyframes preVln { 0% { height: 0; } 100% { height: 2.4rem; } }
+    @keyframes preFixSk { 0% { opacity: 0; transform: translateY(-0.5rem); } 55% { opacity: 1; transform: translateY(0) scale(1.05); box-shadow: 0 0 1.5rem rgba(155,130,255,0.5); } 100% { opacity: 1; transform: none; box-shadow: 0 0 0.55rem rgba(155,130,255,0.18); } }
+    @keyframes preFixMc { 0% { opacity: 0; transform: translateY(-0.5rem); } 55% { opacity: 1; transform: translateY(0) scale(1.05); box-shadow: 0 0 1.5rem rgba(43,234,208,0.45); } 100% { opacity: 1; transform: none; box-shadow: 0 0 0.55rem rgba(43,234,208,0.16); } }
+    section.present .mas-ov-pre .pre-vconn { animation: preVconn 0.3s ease 0.9s both; }
+    section.present .mas-ov-pre .pre-vconn .vln { animation: preVln 0.4s ease-out 0.9s both; }
+    section.present .mas-ov-pre .hole-fix.sk { animation: preFixSk 0.6s ease 1.25s both; }
+    section.present .mas-ov-pre .hole-fix.mc { animation: preFixMc 0.6s ease 1.25s both; }
     /* 33장 mini: 같은 문법의 축소판 (라벨·패널 생략) */
     .mas-ov-mini .mas-ov-workflow { grid-template-columns: 1fr 2.4rem 1.22fr 2.4rem 1fr; column-gap: 0.4rem; }
     .mas-ov-mini .ov-agent { font-size: 1.08rem; }
