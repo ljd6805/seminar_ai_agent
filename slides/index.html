@@ -298,38 +298,6 @@ footer, header, hgroup, main, menu, nav, section {
     .note b { color: #FFFFFF; }
     .note .accent, .note .accent2, .note .accent4 { font-weight: 700; }
 
-    /* vertical timeline (history) */
-    .timeline { position: relative; padding-left: 1.7rem; margin-top: 0.7rem; }
-    .timeline::before {
-      content: ""; position: absolute; left: 0.5rem; top: 0.375rem; bottom: 0.375rem;
-      width: 0.125rem; background: linear-gradient(180deg, var(--accent), var(--accent-2));
-    }
-    .tline { position: relative; padding: 0.42rem 0 0.42rem 1.0rem; }
-    .tline::before {
-      content: ""; position: absolute; left: calc(-1.7rem - 0.0312rem); top: 0.88rem;
-      width: 0.8125rem; height: 0.8125rem; border-radius: 50%;
-      background: var(--bg-0); border: 0.1875rem solid var(--accent);
-      box-shadow: 0 0 0.45rem rgba(124,92,255,0.4);
-    }
-    .tline.green::before { border-color: var(--accent-2); box-shadow: 0 0 0.5rem rgba(0,224,199,0.45); }
-    .tline p { font-size: 1.08rem; line-height: 1.5; margin: 0; }
-    .tline .yr {
-      display: inline-block;
-      font-family: var(--mono);
-      color: var(--accent-4);
-      font-size: 0.82rem;
-      font-weight: 700;
-      padding: 0.12em 0.55em;
-      border-radius: 0.375rem;
-      background: rgba(255, 200, 87, 0.12);
-      border: 0.0625rem solid rgba(255, 212, 107, 0.4);
-      margin-right: 0.5em;
-      vertical-align: 0.08em;
-    }
-    .tline .tn { font-weight: 800; }
-    .tline .td { color: #C9D0E4 !important; }
-    .tline .td b { color: #FFFFFF; }
-
     /* chat bubbles */
     .chat { display: flex; flex-direction: column; gap: 0.5rem; }
     .bubble {
@@ -535,9 +503,8 @@ footer, header, hgroup, main, menu, nav, section {
     .sk-leg b { font-family: var(--mono); font-weight: 600; color: #C4D2FF !important; font-size: 0.76rem; }
     .sk-leg span { color: var(--fg-soft) !important; }
 
-    /* 52장 부록 OpenCode 설치 터미널 (진입 시 1회, PC 셸 룩) */
+    /* PC 셸 룩 — 18·21장 공용 (구 설치 데모에서 승격) */
     .ty { display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; width: 0; }
-    .oc-line { opacity: 0; }
     .shell { background: #0C0F16; border-color: #2A2F3A; border-radius: 0.45rem; }
     .shell .term-bar { background: #1A1E27; border-bottom-color: #2A2F3A; }
     .shell .term-bar .term-title { color: #9AA4B2; letter-spacing: 0.02em; margin-left: 0; }
@@ -550,21 +517,6 @@ footer, header, hgroup, main, menu, nav, section {
     .sh-dim { color: #8B949E; }
     .sh-ok { color: #3FB950; }
     @keyframes ocIn { to { opacity: 1; } }
-    @keyframes ocTy1a { to { width: 32em; } }
-    @keyframes ocTy1b { to { width: 15.2em; } }
-    @keyframes ocTy2 { to { width: 9.2em; } }
-    @keyframes ocTy3 { to { width: 6.2em; } }
-    section.present .ty1a { animation: ocTy1a 0.85s steps(51, end) 0.3s forwards; }
-    section.present .oc0 { animation: ocIn 0.01s ease 1.15s forwards; }
-    section.present .ty1b { animation: ocTy1b 0.45s steps(23, end) 1.2s forwards; }
-    section.present .oc1 { animation: ocIn 0.25s ease 2.0s forwards; }
-    section.present .oc2 { animation: ocIn 0.25s ease 2.5s forwards; }
-    section.present .oc3 { animation: ocIn 0.01s ease 3.0s forwards; }
-    section.present .ty2 { animation: ocTy2 0.35s steps(13, end) 3.1s forwards; }
-    section.present .oc4 { animation: ocIn 0.01s ease 3.6s forwards; }
-    section.present .ty3 { animation: ocTy3 0.3s steps(8, end) 3.7s forwards; }
-    section.present .oc5 { animation: ocIn 0.3s ease 4.2s forwards; }
-    section.present .oc6 { animation: ocIn 0.3s ease 4.6s forwards; }
 
     /* 19장 데모 2 — opencode 세션 실행 (진입 시 1회) */
     .sk-line { opacity: 0; }
@@ -2834,108 +2786,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">유창함과 신뢰성은 다릅니다.</b> 근거가 없는 내용은 "확인 불가"로 남기게 하고, 중요한 결과는 사람이 확인해야 합니다.</p>
     </section>
 
-    <!-- 48 · 부록 — 역사 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · 역사</span></div>
-      <h2>AI Agent는 어떻게 실무 도구로 발전했을까요?</h2>
-      <p class="dim" style="font-size:1.1rem">대규모 학습, 대화형 인터페이스, 도구 호출과 표준 연결이 차례로 발전하면서 <b style="color:#fff">Agent가 실무 도구로 확장</b>됐습니다.</p>
-      <div class="timeline">
-        <div class="tline autoshow fade-left"><p><span class="yr">2012</span><span class="tn">AlexNet</span> <span class="td">— GPU 딥러닝이 <b>대규모 이미지 인식에서 실용성을 증명</b>한 상징적 사건</span></p></div>
-        <div class="tline autoshow fade-left"><p><span class="yr">2017</span><span class="tn">Transformer</span> <span class="td">— <b>토큰 사이의 관계를 attention으로 처리하는 구조</b> — 대규모 학습, LLM의 뼈대</span></p></div>
-        <div class="tline autoshow fade-left"><p><span class="yr">2020</span><span class="tn">GPT-3</span> <span class="td">— <b>예시 몇 개만으로</b> 재학습 없이(few-shot) — 프롬프트로 지시</span></p></div>
-        <div class="tline autoshow fade-left"><p><span class="yr">2022</span><span class="tn">ChatGPT</span> <span class="td">— <b>사람 피드백</b>(RLHF)으로 지시를 잘 따름 — 대화로 대중화</span></p></div>
-        <div class="tline autoshow fade-left"><p><span class="yr">2023</span><span class="tn">function calling</span> <span class="td">— 모델이 <b>외부 도구를 호출</b>하게 만든 대표 API 패턴 — 말에서 행동으로</span></p></div>
-        <div class="tline autoshow fade-left"><p><span class="yr">2024</span><span class="tn">MCP</span> <span class="td">— AI와 외부 도구를 잇는 <b>공용 규격으로 확산 중</b> — 연결의 재사용 가능성이 커짐</span></p></div>
-        <div class="tline green autoshow fade-left"><p><span class="yr">2024–25</span><span class="tn accent2">Agent 제품화</span> <span class="td">— 도구를 사용하는 Agent 제품의 <b>확산</b> — 계획·실행·확인 루프가 실무 도구로</span></p></div>
-      </div>
-      <p class="note autoshow fade-up" style="margin-top:0.8rem">도구를 사용하는 Agent형 제품이 실무에 빠르게 확산된 것은 <b class="accent2">최근 몇 년</b>입니다.</p>
-    </section>
-
-    <!-- 49 · 부록 — 왜 지금 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · 왜 지금</span></div>
-      <h2>왜 지금일까요?</h2>
-      <p class="autoshow fade-up" style="font-size:1.22rem"><b>도구 호출, 외부 시스템 연결, 장시간 작업과 실행 통제를 지원하는 제품이 최근 빠르게 성숙했습니다.</b> <span class="dim">그리고 우리에겐 이미 사내 LLM이 있습니다.</span></p>
-      <div class="grid-2" style="margin-top:1.1rem">
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">지금까지</div>
-          <h3>반복 작업에 묶이는 시간</h3>
-          <p>문서 정리, 로그에서 필요한 줄 골라내기, 형식 맞추기 — 매번 사람 손으로 합니다. 정작 판단·설계에 쓸 시간이 밀려납니다.</p>
-        </div>
-        <div class="card mint autoshow fade-up">
-          <div class="pill green">Agent를 쓰면</div>
-          <h3 class="accent2">판단·설계에 쓰는 시간</h3>
-          <p>반복은 Agent에게 넘기고, 사람은 "무엇을 시킬지, 무엇을 믿을지"에 집중합니다.</p>
-        </div>
-      </div>
-      <p class="note autoshow fade-up" style="margin-top:1.2rem">설계·검증 업무에도 <b class="accent2">반복적이고 검증 가능한 적용 후보</b>가 많습니다.</p>
-    </section>
-
-    <!-- 50 · 부록 — 왜 우리 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · 왜 우리</span></div>
-      <h2>설계·검증의 하루에서 반복은 어디에 숨어 있을까요?</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">많은 설계·검증 업무에는 <b style="color:#fff">판단 전에 수행하는 반복적인 준비 작업</b>이 포함됩니다. <span class="dim">(예시 — 각자의 하루로 바꿔 읽어 보세요)</span></p>
-      <div class="grid-3" style="margin-top:0.9rem">
-        <div class="card autoshow fade-up">
-          <div class="pill">스펙 · 문서</div>
-          <h3>읽고 옮기고 맞추고</h3>
-          <p>개정판에서 바뀐 곳 찾기, 레지스터 맵을 표로 옮기기, 리뷰 자료 형식 맞추기.</p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill">로그 · 리포트</div>
-          <h3>골라내고 분류하고</h3>
-          <p>시뮬레이션 로그에서 원인 줄 찾기, regression 결과를 유형별로 나눠 요약하기.</p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill">코드 · 스크립트</div>
-          <h3>거의 같은 걸 또</h3>
-          <p>테스트벤치 보일러플레이트, 비슷한 스크립트 복사·수정, 형식만 다른 변환.</p>
-        </div>
-      </div>
-      <p class="note autoshow fade-up" style="margin-top:1.1rem">공통점은 <b class="accent">규칙이 분명하고 검증 가능한 반복 작업</b>이라는 것입니다. Agent 적용을 먼저 검토하기 좋은 후보입니다.</p>
-    </section>
-
-    <!-- 51 · 부록 — 일의 재배치 · 책임 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · 일의 재배치</span></div>
-      <h2>역할이 이동해도, 책임은 이동하지 않습니다</h2>
-      <p class="autoshow fade-up" style="font-size:1.12rem"><span class="dim">본편 8~9장의 역할 분담을 운영 관점에서 보충합니다.</span> <b>실행을 나눠 맡겨도, 결과에 대한 책임은 사람과 조직에 남습니다.</b></p>
-      <div class="grid-2" style="margin-top:1.0rem">
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">역할이 이동해도 변하지 않는 것</div>
-          <p style="margin-top:0.7rem">결과 <b style="color:#fff">책임은 위임되지 않습니다</b> — 실행을 맡겨도 반영·공유의 책임은 승인한 사람에게 남습니다.<br>사람은 <b style="color:#fff">중간에도 개입할 수 있습니다</b> — 처음과 끝에만 있는 구조가 아닙니다.</p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">업무마다 달라지는 것</div>
-          <p style="margin-top:0.7rem">역할 분담의 폭은 <b style="color:#fff">업무 위험도에 따라</b> 다릅니다 — 되돌리기 쉬운 반복 작업은 넓게, 판단 책임이 큰 업무는 좁게.<br>모든 업무가 <b style="color:#fff">사람→Agent→사람으로 단순화되지는 않습니다</b> — 부분 위임과 여러 번의 되물음이 섞입니다.</p>
-        </div>
-      </div>
-      <div class="quote autoshow fade-up" style="margin-top:1.1rem">본편의 세 구간(사람 → Agent → 사람)은 <b>기본 모델</b>입니다. 실제 배치는 업무 위험도와 팀 규정이 정합니다.</div>
-    </section>
-    <!-- 52 · 부록 — OpenCode 설치 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · OpenCode 설치</span></div>
-      <h2>OpenCode 설치 — 사내 저장소에서 안전하게</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.12rem">본문 1의 사내 도구 셋 중 <b style="color:#fff">OpenCode(터미널)</b> — 승인된 사내 저장소에서, 버전을 고정해 설치합니다. <span class="mono tiny faint">(설명을 위해 구성한 예시 · 진입 시 1회 재생)</span></p>
-      <div class="term shell sim autoshow fade-up" style="margin-top:0.8rem">
-        <div class="term-bar"><span class="term-title">user@ds-linux: ~ — bash</span><span class="win-btns"><span>–</span><span class="wb-sq"></span><span>×</span></span></div>
-        <div class="term-body" style="line-height:1.9; padding:0.9rem 1.2rem">
-          <div><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">curl -fsSLO https://______.______/repository/opencode/install-v1.x.sh</span> <span class="sh-dim">← ① 설치 스크립트 내려받기</span></div>
-          <div class="oc-line oc0"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">curl -fsSLO https://______.______/repository/opencode/install-v1.x.sh.sha256</span> <span class="sh-dim">← ② checksum 내려받기</span></div>
-          <div class="oc-line oc1"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">sha256sum -c install-v1.x.sh.sha256</span> <span class="sh-dim">← ③ 무결성 검증 →</span> <span class="sh-ok">install-v1.x.sh: OK</span></div>
-          <div class="oc-line oc2"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">less install-v1.x.sh</span> <span class="sh-dim">← ④ 스크립트 내용 확인</span></div>
-          <div class="oc-line oc3"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">bash install-v1.x.sh</span> <span class="sh-dim">← ⑤ 실행</span></div>
-          <div class="oc-line oc4"><span class="sh-ok">  ✓ opencode 설치 완료 — PATH에 추가됨</span></div>
-          <div class="oc-line oc5"><span class="sh-user">user@ds-linux</span><span class="sh-dim">:</span><span class="sh-path">~</span><span class="sh-dim">$</span> <span class="sh-cmd">opencode</span> <span class="sh-dim">— 실행하면 터미널에서 대화가 시작됩니다</span></div>
-          <div class="oc-line oc6">무엇을 도와드릴까요? <span class="llm-cursor">▍</span></div>
-        </div>
-      </div>
-      <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
-      <p class="note autoshow fade-up" style="margin-top:0.9rem">원칙 — <b class="accent">HTTPS · 승인된 사내 저장소 · 버전 고정 · checksum 확인 · 스크립트 내용 확인 후 실행.</b> <span class="dim">설치 주소·사내 서버 설정은 사내 안내 페이지(______)를 참고하세요.</span></p>
-    </section>
-
-    <!-- 53 · 부록 — 회의 메모 skill -->
+    <!-- 48 · 부록 — 회의 메모 skill -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 다른 업무에도</span></div>
       <h2>같은 구조, 다른 업무 — 회의 메모 Skill</h2>
@@ -2956,7 +2807,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">회의록 정리 · spec 변경점 요약 · review comment 분류 — <b class="accent">절차와 검증 기준으로 정의할 수 있다면 Skill로 재사용할 수 있습니다.</b></p>
     </section>
 
-    <!-- 54 · 부록 — skill 기준 -->
+    <!-- 49 · 부록 — skill 기준 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · Skill 기준</span></div>
       <h2>좋은 Skill은 작업 기준이 선명합니다</h2>
@@ -2985,86 +2836,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem"><b class="accent">AI에게 맡길 때는 작업 기준과 검증 방법을 더 명확히 정의해야 합니다.</b></p>
     </section>
 
-    <!-- 55 · 부록 — MCP 구조와 제공 요소 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · MCP 구조와 제공 요소</span></div>
-      <h2>MCP의 구조 — 클라이언트 · 서버 · 제공 요소</h2>
-      <p class="dim" style="font-size:1.1rem">구성은 단순합니다. <b style="color:#fff">한쪽에는 AI 클라이언트, 다른 쪽에는 도구와 데이터가 있고, 그 사이를 공통 규격이 연결합니다.</b></p>
-      <div class="flow-lane" style="margin-top:1.3rem">
-        <div class="flow-step neutral"><span>도구·데이터</span><small>예: Jira — 이슈가 있는 곳</small></div>
-        <span class="flow-arrow">⇄</span>
-        <div class="flow-step ai"><span>MCP 서버</span><small>공용 규격으로 통역 — 데모 3의 연결 통로</small></div>
-        <span class="flow-arrow">⇄</span>
-        <div class="flow-step me"><span>AI 클라이언트</span><small>모델·Agent가 있는 쪽 — OpenCode 등</small></div>
-      </div>
-      <p style="font-size:1.0rem; margin-top:1.3rem" class="dim">서버가 클라이언트에 노출하는 세 가지:</p>
-      <div class="pills" style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-top:0.5rem">
-        <span class="pill green">tools · 도구</span><span class="pill green">resources · 데이터</span><span class="pill green">prompts · 프롬프트 템플릿</span>
-      </div>
-      <p class="note" style="margin-top:1.3rem"><b class="accent">Skill</b>은 절차를, <b class="accent2">MCP</b>는 연결을 담당합니다. <span class="mono tiny faint">출처: MCP 공식 문서(modelcontextprotocol.io) · 확인일 2026-07</span></p>
-    </section>
-
-    <!-- 56 · 부록 — harness 장단점 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · Harness 장단점</span></div>
-      <h2>Harness를 도입하면 무엇을 얻고 무엇을 부담하게 될까요?</h2>
-      <div class="grid-2" style="margin-top:1.0rem">
-        <div class="card mint autoshow fade-up">
-          <div class="pill green">얻는 것</div>
-          <h3 class="accent2">형식 일관성 · 추적 가능성</h3>
-          <p>검증을 통과한 결과만 후속 단계로 전달하고, <b style="color:#fff">실행 과정과 실패 원인을 기록</b>할 수 있습니다.</p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">부담하는 것</div>
-          <h3>초기 설계 · 유지보수</h3>
-          <p>틀을 처음 설계하는 비용과, 작업이 바뀌면 틀도 함께 손봐야 하는 관리 비용이 듭니다.</p>
-        </div>
-      </div>
-      <p class="note autoshow fade-up" style="margin-top:1.2rem">Harness 도입 여부는 <b style="color:#fff">작업의 반복성, 실패 영향, 자동 연결 여부</b>를 기준으로 결정합니다.</p>
-    </section>
-
-    <!-- 57 · 부록 — FAQ -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · FAQ</span></div>
-      <h2>세 가지 질문에 미리 답합니다</h2>
-      <div class="grid-3" style="margin-top:0.9rem">
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">Q1</div>
-          <h3>"내 일이 없어지나요?"</h3>
-          <p>반복 업무의 비중은 줄어들 수 있지만, <b style="color:#fff">작업 정의·검토·판단의 책임</b>은 여전히 사람에게 있습니다.</p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">Q2</div>
-          <h3>"어디까지 믿어야 하나요?"</h3>
-          <p>형식 검증은 자동화할 수 있지만, <b style="color:#fff">내용의 정확성은 근거와 사람 검토가 필요합니다.</b></p>
-        </div>
-        <div class="card autoshow fade-up">
-          <div class="pill neutral">Q3</div>
-          <h3>"무엇을 공부해야 하나요?"</h3>
-          <p>우선 필요한 것은 <b style="color:#fff">일을 작은 단위로 정의하고, 결과를 검증할 기준을 세우는 연습</b>입니다.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 58 · 부록 — 확장 도구 후보 -->
-    <section data-layer="APPENDIX" data-sec="부록">
-      <div><span class="chip">부록 · 확장 도구 후보 · 자가학습용</span></div>
-      <h2>확장 도구 후보 — 설치 전 검토가 필요합니다</h2>
-      <p class="dim" style="font-size:1.08rem">이미 만들어진 확장 요소도 많습니다. 발표에서는 다루지 않으며, <b style="color:#fff">출처를 확인하기 어려운 후보는 제외</b>했습니다.</p>
-      <div class="panel" style="margin-top:0.8rem">
-        <table class="risk-table">
-          <tr><th>이름</th><th>유형</th><th>주요 용도</th><th>외부 통신</th><th>요구 권한</th><th>출처</th><th>확인일</th></tr>
-          <tr><td>playwright</td><td>MCP 서버</td><td>브라우저 자동화 · 웹 화면 확인</td><td>있음 — 웹 접속</td><td>브라우저 실행</td><td>Microsoft 공식</td><td>2026-07</td></tr>
-          <tr><td>firecrawl</td><td>MCP 서버</td><td>웹 문서 수집·정리</td><td>있음 — 외부 API</td><td>외부 API 키</td><td>Firecrawl 공식</td><td>2026-07</td></tr>
-          <tr><td>claude-mem</td><td>플러그인</td><td>세션 기록 · 컨텍스트 메모리</td><td>주로 로컬</td><td>로컬 파일 접근</td><td>커뮤니티(공개 저장소)</td><td>2026-07</td></tr>
-          <tr><td>superpowers</td><td>플러그인 (Skill 모음)</td><td>작업 절차 Skill 모음</td><td>주로 로컬</td><td>로컬 파일 접근</td><td>커뮤니티(공개 저장소)</td><td>2026-07</td></tr>
-        </table>
-      </div>
-      <p class="mono tiny faint" style="margin-top:0.5rem">유형 예 — 컨텍스트 확장 · 웹/브라우저 · 작업 절차 모음. 그 밖의 유형(토큰 절약 등)은 사내 검토 후 추가합니다. 사내 승인 여부·데이터 처리 위치는 설치 전에 확인하세요(______).</p>
-      <p class="note" style="margin-top:1.0rem">설치 전 <b class="accent">출처 · 요구 권한 · 외부 통신 여부 · 유지보수 상태</b>를 확인합니다. 일부 도구는 <b class="accent3">외부로 연결</b>되어 설계 자산이 나갈 수 있습니다. <b class="accent2">애매하면 보안 검토가 우선입니다</b>(본문 1의 원칙).</p>
-    </section>
-
-    <!-- 59 · 부록 — 용어집 -->
+    <!-- 50 · 부록 — 용어집 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 용어집</span></div>
       <h2>부록 — 오늘 나온 용어</h2>
