@@ -6,10 +6,10 @@
 
 | 문서 | 내용 |
 |------|------|
-| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.9) |
-| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.29) |
+| [docs/seminar-synopsis.md](docs/seminar-synopsis.md) | 발표 시놉 — 목표·청자·핵심 메시지와 섹션별 구조 (v2.9.1) |
+| [docs/seminar-page-list.md](docs/seminar-page-list.md) | 페이지별 구성 — 슬라이드 단위 분해 + 데모 예시 설계 (v0.29.1) |
 | [docs/speaker-notes.md](docs/speaker-notes.md) | 발표자 노트 v2.6 — 장별 핵심 문장·오해 바로잡기·90분 배분 |
-| [slides/index.html](slides/index.html) | 50장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
+| [slides/index.html](slides/index.html) | 51장 슬라이드 (reveal.js 단일 파일, 외부 의존 0 · v1.9 디자인 점검 — Master Visual · 발표 모드 `?mode=presentation`) |
 
 ## 한눈에
 
@@ -21,7 +21,7 @@
 - **4요소**: Agent(실행 시스템) · Skill(작업 매뉴얼) · MCP(공용 규격) · Harness(통제 구조) · **4원칙**: 작게 시작 · 출력 구조화 · 근거 남기기 · 사람 승인
 - **자료 형태**: reveal.js 단일 파일 HTML — 키보드 네비게이션, 진입 시 자동 스태거(fragment 없음), ESC 오버뷰, DEMO/READ/APPENDIX 레이어 배지
 
-### 전체 흐름 (50장 = 본편 43 + 부록 7 · 발표 모드 41장)
+### 전체 흐름 (51장 = 본편 43 + 부록 8 · 발표 모드 41장)
 
 ```
 도입    표지 · 목차 · 오늘의 결론(4요소) · 데모1(prompt만)+해부 · 정의 · LLM은 모델, AI Agent는 실행 시스템
@@ -32,12 +32,12 @@
 본문 3  구분 페이지 · 실패의 현실 · 데모4 ①②(멈추는 순간 → Harness 게이트 시네마) · 스키마 게이트(통과의 의미)
         · Harness란 · UVM 나란히 · 구성 요소 · 언제 쓰나(받는 쪽 3단)
 마무리  회고 → 자율성 단계 L0~L5(오늘의 위치) → 좋은/나쁜 요청 → 설계 템플릿 9칸 → 첫 실험 CTA → Q&A
-부록    LLM 기초 ①~④(다음 토큰·컨텍스트·토큰·환각) · 회의 메모 Skill · Skill 기준 · 용어집
+부록    구분 페이지 · LLM 기초 ①~④(다음 토큰·컨텍스트·토큰·환각) · 회의 메모 Skill · Skill 기준 · 용어집
 ```
 
 ## 진행 상태
 
-**확정** — 관통 시나리오(테스트 실패 분류 Agent) + 50장 구조(v2.8 데모 선행 + v2.8.6 Skill·MCP 구분 페이지 + v2.9 부록 축소), 핵심 메시지·계층·4원칙 고정, 데모 4개(전부 구성된 예시), harness=UVM 비유+공식 근거, 문구 보수화(권한·한도·통제·세미나용 예시 명시), 표기 통일(Agent·Skill·Harness 대문자), 전 장 한국어 문체 정밀 교정(v2.8.2 — 정중체·질문형 제목·대시 정리·대표 정의 통일)
+**확정** — 관통 시나리오(테스트 실패 분류 Agent) + 51장 구조(v2.8 데모 선행 + v2.8.6 Skill·MCP 구분 페이지 + v2.9 부록 축소), 핵심 메시지·계층·4원칙 고정, 데모 4개(전부 구성된 예시), harness=UVM 비유+공식 근거, 문구 보수화(권한·한도·통제·세미나용 예시 명시), 표기 통일(Agent·Skill·Harness 대문자), 전 장 한국어 문체 정밀 교정(v2.8.2 — 정중체·질문형 제목·대시 정리·대표 정의 통일)
 
 **미결** — 표지 ver(draft 0.1), 사내 서비스 데이터 처리 조건(보안 조직 확인), 리허설 후 미세 조정 — 설치 안내·대표 도구 실값은 해당 장 삭제(v2.9)로 해소
 

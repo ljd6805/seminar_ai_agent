@@ -349,6 +349,9 @@ footer, header, hgroup, main, menu, nav, section {
     .ol li .ix { font-family: var(--mono); font-size: 0.78rem; color: #B5A1FF !important; min-width: 5.2ch; }
     .ol li .lb { font-weight: 700; }
 
+    /* 43장 Q&A 클로징 — 좌측 타이포 마크 (v2.9.1) */
+    .qa-mark { font-size: 7.5rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; flex: 0 0 auto; }
+
     /* 41장 설계 템플릿 — Skill/Harness 그룹 박스 (v0.28.18) */
     .tpl-grp { border: 0.09rem solid rgba(155,130,255,0.38); border-radius: 0.8rem; padding: 0.5rem 0.65rem 0.55rem; background: rgba(155,130,255,0.05); }
     .tpl-grp.hn { border-color: rgba(255,122,149,0.42); background: rgba(255,122,149,0.05); }
@@ -703,7 +706,7 @@ footer, header, hgroup, main, menu, nav, section {
     .risk-table td:first-child { white-space: nowrap; font-weight: 700; }
     .risk-table td:last-child { color: #5BFFE0; }
 
-    /* 45장 부록 컨텍스트 — 창이 차오르고, 차면 앞부터 흐려짐 (9s · 1회) */
+    /* 46장 부록 컨텍스트 — 창이 차오르고, 차면 앞부터 흐려짐 (9s · 1회) */
     .sim-cap { margin: 0.85rem 0 0; font-family: var(--sans); font-size: 0.95rem; color: var(--fg-soft); }
     .ctx-win { display: flex; flex-wrap: wrap; gap: 0.45rem; border: 0.0625rem dashed rgba(155,130,255,0.55); border-radius: 0.7rem; padding: 0.7rem; }
     .ctx-chip { border: 0.0625rem solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); border-radius: 0.5rem; padding: 0.18rem 0.62rem; font-family: var(--sans); font-weight: 700; font-size: 0.92rem; opacity: 0; }
@@ -728,7 +731,7 @@ footer, header, hgroup, main, menu, nav, section {
     .ctx-cap { opacity: 0.15; }
     section.present .ctx-cap { animation: ctxCap 9s ease-in-out 1 forwards; }
 
-    /* 46장 부록 토큰 — 문장이 조각으로 잘리고 미터가 참 (7s · 1회) */
+    /* 47장 부록 토큰 — 문장이 조각으로 잘리고 미터가 참 (7s · 1회) */
     .tok { display: inline-block; padding: 0.04rem 0.32rem; margin: 0 0.07rem; border-radius: 0.4rem; border: 0.0625rem solid transparent; }
     @keyframes tok1 { 0%, 10% { border-color: transparent; background: transparent; } 15%, 100% { border-color: rgba(155,130,255,0.7); background: rgba(155,130,255,0.12); } }
     @keyframes tok2 { 0%, 18% { border-color: transparent; background: transparent; } 23%, 100% { border-color: rgba(155,130,255,0.7); background: rgba(155,130,255,0.12); } }
@@ -751,7 +754,7 @@ footer, header, hgroup, main, menu, nav, section {
     .tok-cap { opacity: 0.15; }
     section.present .tok-cap { animation: tokCap 7s ease-in-out 1 forwards; }
 
-    /* 47장 부록 환각 — 질문 → 유창한 오답 → 스탬프 → 근거를 주면 (10s · 1회) */
+    /* 48장 부록 환각 — 질문 → 유창한 오답 → 스탬프 → 근거를 주면 (10s · 1회) */
     @keyframes halQ { 0%, 3% { opacity: 0; transform: translateY(0.4rem); } 9%, 100% { opacity: 1; transform: none; } }
     @keyframes halA { 0%, 16% { opacity: 0; transform: translateY(0.4rem); } 23%, 100% { opacity: 1; transform: none; } }
     @keyframes halStamp { 0%, 36% { opacity: 0; transform: scale(1.7) rotate(-10deg); } 43%, 100% { opacity: 1; transform: scale(1) rotate(-3deg); } }
@@ -2699,12 +2702,23 @@ footer, header, hgroup, main, menu, nav, section {
     <!-- 43 · Q&A · 클로징 -->
     <section class="section-opener" data-hero data-sec="마무리">
       <div><span class="chip">마무리 · Q&amp;A</span></div>
-      <p style="font-size:2.1rem; font-weight:800; line-height:1.5; margin-top:0.8rem; word-break:keep-all">오늘 AI Agent와 <span class="accent2">Skill · MCP · Harness</span> 네 요소를<br>예시와 함께 살펴봤습니다.<br>이번 주, 사내 환경에서 <span class="accent4">검증 가능한 작업 하나</span>로<br>첫 실험을 시작해 보세요.</p>
-      <p class="autoshow fade-up" style="font-size:2.1rem; font-weight:800; line-height:1.5; margin-top:1.5rem; word-break:keep-all">작은 실험이 쌓이면,<br><span class="grad">반복 업무를 줄일 수 있는 지점이 보이기 시작합니다.</span></p>
-
+      <div style="display:flex; align-items:center; gap:3.4rem; margin-top:1.4rem">
+        <div class="qa-mark grad autoshow fade-up">Q&amp;A</div>
+        <div>
+          <p style="font-size:2.1rem; font-weight:800; line-height:1.5; margin:0; word-break:keep-all">오늘 AI Agent와 <span class="accent2">Skill · MCP · Harness</span> 네 요소를<br>예시와 함께 살펴봤습니다.<br>이번 주, <span class="accent4">검증 가능한 작업 하나</span>로<br>첫 실험을 시작해 보세요.</p>
+          <p class="autoshow fade-up" style="font-size:2.1rem; font-weight:800; line-height:1.5; margin:1.5rem 0 0; word-break:keep-all">작은 실험이 쌓이면,<br><span class="grad">반복 업무를 줄일 수 있는 지점이 보이기 시작합니다.</span></p>
+        </div>
+      </div>
     </section>
 
-    <!-- 44 · 부록 — LLM 기초 ① 다음 토큰 -->
+    <!-- 44 · 구분 페이지 — 부록 -->
+    <section class="section-opener" data-hero data-layer="APPENDIX" data-sec="부록">
+      <div class="autoshow fade-up"><span class="chip">부록</span></div>
+      <h1 class="autoshow fade-up" style="font-size:3.6rem">부록<br><span class="grad">발표 후 참고 자료</span></h1>
+      <p class="dim autoshow fade-up" style="font-size:1.2rem; margin-top:1.0rem">LLM 기초 ①~④ · 회의 메모 Skill · Skill 기준 · 용어집</p>
+    </section>
+
+    <!-- 45 · 부록 — LLM 기초 ① 다음 토큰 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · LLM 기초 ①</span></div>
       <h2>LLM은 다음 토큰을 예측합니다</h2>
@@ -2726,7 +2740,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">LLM의 기본 동작은 검색이나 사실 확인이 아니라 <b class="accent">다음 토큰을 예측하는 것</b>입니다. 따라서 유창한 답도 별도 검증이 필요합니다.</p>
     </section>
 
-    <!-- 45 · 부록 — LLM 기초 ② 컨텍스트 -->
+    <!-- 46 · 부록 — LLM 기초 ② 컨텍스트 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · LLM 기초 ②</span></div>
       <h2>LLM이 한 번에 참고할 수 있는 범위에는 한도가 있습니다</h2>
@@ -2750,7 +2764,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">따라서 <b class="accent">필요한 절차와 자료만 제공하고, 불필요한 내용은 줄여야 합니다.</b> Skill은 반복 절차를 필요할 때 불러오는 한 가지 방법입니다. <span class="dim">수십 MB 로그 전체보다 실패 지점 주변 로그와 요약 정보를 제공하는 것이 효과적입니다.</span></p>
     </section>
 
-    <!-- 46 · 부록 — LLM 기초 ③ 토큰 -->
+    <!-- 47 · 부록 — LLM 기초 ③ 토큰 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · LLM 기초 ③</span></div>
       <h2>토큰은 입력과 출력을 나누어 세는 단위입니다</h2>
@@ -2768,7 +2782,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">토큰 사용량은 비용과 처리 시간에 영향을 줍니다. 수십 MB regression log 전체보다 <b class="accent">실패 지점 주변 로그와 요약 정보만 제공하는 쪽이 효과적</b>입니다.</p>
     </section>
 
-    <!-- 47 · 부록 — LLM 기초 ④ 환각 -->
+    <!-- 48 · 부록 — LLM 기초 ④ 환각 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · LLM 기초 ④</span></div>
       <h2>유창함은 사실성의 증거가 아닙니다</h2>
@@ -2786,7 +2800,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">유창함과 신뢰성은 다릅니다.</b> 근거가 없는 내용은 "확인 불가"로 남기게 하고, 중요한 결과는 사람이 확인해야 합니다.</p>
     </section>
 
-    <!-- 48 · 부록 — 회의 메모 skill -->
+    <!-- 49 · 부록 — 회의 메모 skill -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 다른 업무에도</span></div>
       <h2>같은 구조, 다른 업무 — 회의 메모 Skill</h2>
@@ -2807,7 +2821,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">회의록 정리 · spec 변경점 요약 · review comment 분류 — <b class="accent">절차와 검증 기준으로 정의할 수 있다면 Skill로 재사용할 수 있습니다.</b></p>
     </section>
 
-    <!-- 49 · 부록 — skill 기준 -->
+    <!-- 50 · 부록 — skill 기준 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · Skill 기준</span></div>
       <h2>좋은 Skill은 작업 기준이 선명합니다</h2>
@@ -2836,7 +2850,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem"><b class="accent">AI에게 맡길 때는 작업 기준과 검증 방법을 더 명확히 정의해야 합니다.</b></p>
     </section>
 
-    <!-- 50 · 부록 — 용어집 -->
+    <!-- 51 · 부록 — 용어집 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 용어집</span></div>
       <h2>부록 — 오늘 나온 용어</h2>
