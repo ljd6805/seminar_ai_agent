@@ -381,6 +381,14 @@ footer, header, hgroup, main, menu, nav, section {
     .ol li .ix { font-family: var(--mono); font-size: 0.78rem; color: #B5A1FF !important; min-width: 5.2ch; }
     .ol li .lb { font-weight: 700; }
 
+    /* 41장 설계 템플릿 — Skill/Harness 그룹 박스 (v0.28.18) */
+    .tpl-grp { border: 0.09rem solid rgba(155,130,255,0.38); border-radius: 0.8rem; padding: 0.5rem 0.65rem 0.55rem; background: rgba(155,130,255,0.05); }
+    .tpl-grp.hn { border-color: rgba(255,122,149,0.42); background: rgba(255,122,149,0.05); }
+    .tpl-grp .grp-t { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.03em; color: var(--accent); margin: 0 0 0.3rem 0.25rem; }
+    .tpl-grp.hn .grp-t { color: var(--accent-3); }
+    .tpl-grp .ol { margin: 0; flex: none; gap: 0.35rem; justify-content: flex-start; }
+    .tpl-grp .ol li { padding: 0.32rem 0.7rem; }
+
     /* fake terminal */
     .term {
       background: #0B0E1A;
@@ -2681,18 +2689,29 @@ footer, header, hgroup, main, menu, nav, section {
       <div><span class="chip">마무리 · 일 맡기기 설계 템플릿</span></div>
       <h2>맡기기 전에 아홉 칸만 채워 보세요</h2>
       <p class="dim autoshow fade-up" style="font-size:1.06rem">코드가 아니라 <b style="color:#fff">글 아홉 줄</b>입니다. 오른쪽은 오늘의 테스트 실패 분류 예시입니다.</p>
-      <ul class="ol autoshow fade-up" style="margin-top:0.55rem; flex:none">
-        <li class="show"><span class="ix">업무</span><span class="lb">맡길 업무</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">regression 실패 1차 분류</span></li>
-        <li class="show"><span class="ix">입력</span><span class="lb">제공할 입력</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">어젯밤 자동 테스트 실패 로그</span></li>
-        <li class="show"><span class="ix">출력</span><span class="lb">기대 출력 형식</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">JSON — category · evidence · next_action</span></li>
-        <li class="show"><span class="ix">근거</span><span class="lb">판단에 사용할 근거</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">로그 원문 · 과거 Jira 이슈</span></li>
-        <li class="show"><span class="ix">금지</span><span class="lb">하지 말 것</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">근거 없는 추정 · 원인 확정</span></li>
-        <li class="show"><span class="ix">검증</span><span class="lb">결과 확인 방법</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">스키마 검사 + 대표 케이스는 사람이 확인</span></li>
-        <li class="show"><span class="ix">승인</span><span class="lb">사람 승인 지점</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">티켓 생성·상태 변경 전</span></li>
-        <li class="show"><span class="ix">실패</span><span class="lb">실패 시 처리</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">unknown 표시 후 중단·보고</span></li>
-        <li class="show"><span class="ix">지표</span><span class="lb">평가 지표</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">수정 횟수 · 누락 · 오분류 · 근거 없는 주장</span></li>
-      </ul>
-      <p class="note autoshow fade-up" style="margin-top:0.6rem">이 <b class="accent">아홉 줄이 그대로 Skill 초안</b>이 되고, 그중 승인·실패 처리 두 줄은 <b class="accent3">Harness 요구사항</b>이 됩니다.</p>
+      <div style="margin-top:0.55rem; flex:none; display:flex; flex-direction:column; gap:0.55rem">
+        <div class="tpl-grp sk autoshow fade-up">
+          <div class="grp-t">Skill 초안이 되는 줄 — 절차와 기준</div>
+          <ul class="ol">
+            <li class="show"><span class="ix">업무</span><span class="lb">맡길 업무</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">regression 실패 1차 분류</span></li>
+            <li class="show"><span class="ix">입력</span><span class="lb">제공할 입력</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">어젯밤 자동 테스트 실패 로그</span></li>
+            <li class="show"><span class="ix">출력</span><span class="lb">기대 출력 형식</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">JSON — category · evidence · next_action</span></li>
+            <li class="show"><span class="ix">근거</span><span class="lb">판단에 사용할 근거</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">로그 원문 · 과거 Jira 이슈</span></li>
+            <li class="show"><span class="ix">금지</span><span class="lb">하지 말 것</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">근거 없는 추정 · 원인 확정</span></li>
+          </ul>
+        </div>
+        <div class="tpl-grp hn autoshow fade-up">
+          <div class="grp-t">Harness 요구사항이 되는 줄 — 검증과 통제</div>
+          <ul class="ol">
+            <li class="show"><span class="ix">검증</span><span class="lb">결과 확인 방법</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">스키마 검사 + 대표 케이스는 사람이 확인</span></li>
+            <li class="show"><span class="ix">승인</span><span class="lb">사람 승인 지점</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">티켓 생성·상태 변경 전</span></li>
+            <li class="show"><span class="ix">실패</span><span class="lb">실패 시 처리</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">unknown 표시 후 중단·보고</span></li>
+          </ul>
+        </div>
+        <ul class="ol autoshow fade-up" style="margin:0; flex:none">
+          <li class="show"><span class="ix">지표</span><span class="lb">평가 지표</span><span class="dim" style="margin-left:auto; font-weight:400; font-size:0.9rem">수정 횟수 · 누락 · 오분류 · 근거 없는 주장</span></li>
+        </ul>
+      </div>
     </section>
 
     <!-- 42 · 첫 실험 CTA -->
