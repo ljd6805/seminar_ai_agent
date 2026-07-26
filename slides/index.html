@@ -511,7 +511,7 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .ex1-r4 { animation: ex1In 0.4s ease 4.45s both; }
     section.present .ex1-cap { animation: ex1In 0.4s ease 4.8s both; }
 
-    /* 20장 Skill 구조 — SKILL.md 4존 해부(①name 보라 / ②description 앰버 / ③본문 민트 / ④참조 청보라) · 21장이 같은 색 언어 재사용 */
+    /* 21장 Skill 구조 — SKILL.md 4존 해부(①name 보라 / ②description 앰버 / ③본문 민트 / ④참조 청보라) · 22장이 같은 색 언어 재사용 */
     .sk25 .term-body { font-size: 0.8rem; line-height: 1.6; }
     .skmd-zone { position: relative; border: 0.0625rem dashed rgba(255,224,138,0.45); border-radius: 0.55rem; padding: 0.7rem 0.75rem 0.45rem; margin-top: 0.62rem; white-space: normal !important; }
     .skmd-zone.md { border-color: rgba(43,234,208,0.4); }
@@ -556,7 +556,7 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .oc5 { animation: ocIn 0.3s ease 4.2s forwards; }
     section.present .oc6 { animation: ocIn 0.3s ease 4.6s forwards; }
 
-    /* 18장 데모 2 — opencode 세션 실행 (진입 시 1회) */
+    /* 19장 데모 2 — opencode 세션 실행 (진입 시 1회) */
     .sk-line { opacity: 0; }
     @keyframes skTy { to { width: 22em; } }
     section.present .skty { animation: skTy 1.1s steps(24, end) 0.4s forwards; }
@@ -573,7 +573,7 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .skl4 { animation: ocIn 0.3s ease 5.0s forwards; }
 
 
-    /* 21장 Skill 만드는 법 — 정적(autoshow만).
+    /* 22장 Skill 만드는 법 — 정적(autoshow만).
        v2.4.2: 방법 헤더 = 원형 번호 배지(.mk-n — 21장 .sx-n과 같은 문법, ①앰버=사람 직접 / ②보라=Agent와 함께)
        + 중앙 "또는" 점선 구분선(.mk-div)으로 두 방법이 대안 관계임을 표기 */
     .mk-h { display: flex; align-items: center; gap: 0.55rem; margin-bottom: 0.6rem; padding-bottom: 0.5rem; font-weight: 800; font-size: 1.06rem; color: #fff !important; line-height: 1.22; }
@@ -598,7 +598,7 @@ footer, header, hgroup, main, menu, nav, section {
     .mk-checks { display: grid; grid-template-columns: 1fr 1fr; gap: 0.16rem 1.2rem; margin-top: 0.35rem; font-size: 0.82rem; color: #A9B4D8 !important; }
     .mk-checks div::before { content: "✓ "; color: var(--accent-2); font-weight: 700; }
 
-    /* 22·23장 데모 3 — 데이터 여정 애니메이션 (진입 시 1회) */
+    /* 24·25장 데모 3 — 데이터 여정 애니메이션 (진입 시 1회) */
     .mcp-scene { border: 0.0625rem solid rgba(255,255,255,0.1); border-radius: 0.9rem; background: rgba(255,255,255,0.02); padding: 0.45rem 1.1rem 0.7rem; }
     .ms-track { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 0.6rem; padding: 0.55rem 0; }
     .ms-track::before { content: ""; position: absolute; left: 8%; right: 8%; top: 50%; height: 0.12rem; background: rgba(255,255,255,0.10); border-radius: 1rem; }
@@ -643,7 +643,7 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .ms-chip.t2 { animation: msChipTeal 0.35s ease 3.0s both; }
     section.present .ms-chip.t3 { animation: msChipTeal 0.35s ease 3.9s both; }
 
-    /* 28·29장 데모 4 — Harness 게이트 시네마 (진입 시 1회 + ↻) · 기본 위치 = 최종 상태(print/reduced-motion에서 완료 장면) */
+    /* 30·31장 데모 4 — Harness 게이트 시네마 (진입 시 1회 + ↻) · 기본 위치 = 최종 상태(print/reduced-motion에서 완료 장면) */
     /* 28① 미니 레인 — 깨진 출력이 검사 없이 후속 스크립트로 흘러가 멈춤 */
     .g4m { border: 0.0625rem solid rgba(255,122,149,0.22); border-radius: 0.9rem; background: rgba(255,122,149,0.03); padding: 0.55rem 0.8rem 0.6rem; }
     .g4m-track { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 0.5rem; padding: 2.1rem 0 1.05rem; }
@@ -1078,12 +1078,12 @@ footer, header, hgroup, main, menu, nav, section {
 
     @media print {
       .reveal .autoshow { opacity: 1 !important; animation: none !important; transform: none !important; }
-      .mas-ov-pre .pre-vconn, .mas-ov-pre .pre-vconn .vln, .mas-ov-pre .hole-fix { opacity: 1 !important; animation: none !important; transform: none !important; }
+      .mas-ov-pre .pre-vconn, .mas-ov-pre .pre-vconn .vln, .mas-ov-pre .hole-fix { animation: none !important; transform: none !important; }
       body::before, body::after { display: none; }
     }
     @media (prefers-reduced-motion: reduce) {
       .reveal .autoshow { opacity: 1 !important; animation: none !important; transform: none !important; }
-      .mas-ov-pre .pre-vconn, .mas-ov-pre .pre-vconn .vln, .mas-ov-pre .hole-fix { opacity: 1 !important; animation: none !important; transform: none !important; }
+      .mas-ov-pre .pre-vconn, .mas-ov-pre .pre-vconn .vln, .mas-ov-pre .hole-fix { animation: none !important; transform: none !important; }
       .grad, .hb-nebula { animation: none !important; }
     }
 
@@ -1237,14 +1237,23 @@ footer, header, hgroup, main, menu, nav, section {
     section.present .mas-ov-pre .pre-vconn .vln { animation: preVln 0.4s ease-out 0.9s both; }
     section.present .mas-ov-pre .hole-fix.sk { animation: preFixSk 0.6s ease 1.25s both; }
     section.present .mas-ov-pre .hole-fix.mc { animation: preFixMc 0.6s ease 1.25s both; }
-    /* 33장 mini: 같은 문법의 축소판 (라벨·패널 생략) */
+    /* 17·23장 구분 페이지(신설 v0.28.14) — 16장 그림 재사용: .pre-focus로 기본 진입 애니 해제, 초점 열만 재생·나머지 .dimmed */
+    section.present .pre-focus .pre-vconn, section.present .pre-focus .pre-vconn .vln,
+    section.present .pre-focus .hole-fix.sk, section.present .pre-focus .hole-fix.mc { animation: none; }
+    section.present .pre-focus-sk .pre-vconn.sk { animation: preVconn 0.3s ease 0.55s both; }
+    section.present .pre-focus-sk .pre-vconn.sk .vln { animation: preVln 0.4s ease-out 0.55s both; }
+    section.present .pre-focus-sk .hole-fix.sk { animation: preFixSk 0.7s ease 0.9s both; }
+    section.present .pre-focus-mc .pre-vconn.mc { animation: preVconn 0.3s ease 0.55s both; }
+    section.present .pre-focus-mc .pre-vconn.mc .vln { animation: preVln 0.4s ease-out 0.55s both; }
+    section.present .pre-focus-mc .hole-fix.mc { animation: preFixMc 0.7s ease 0.9s both; }
+    /* 35장 mini: 같은 문법의 축소판 (라벨·패널 생략) */
     .mas-ov-mini .mas-ov-workflow { grid-template-columns: 1fr 2.4rem 1.22fr 2.4rem 1fr; column-gap: 0.4rem; }
     .mas-ov-mini .ov-agent { font-size: 1.08rem; }
     .mas-ov-mini .mas-ov-bridge { height: 1.7rem; margin: 0; }
     .mas-ov-ctlmini { display: flex; justify-content: center; align-items: center; gap: 0.4rem; }
     .mas-ov-ctlmini .mas-node, .mas-ov-ctlmini .mas-gate { flex: none; font-size: 0.95rem; padding: 0.35rem 0.7rem; background: rgba(255,255,255,0.02); }
 
-    /* --- 4원칙 리본 (12장·35장) --- */
+    /* --- 4원칙 리본 (12장·37장) --- */
     .ribbon { display: flex; align-items: stretch; gap: 0.55rem; }
     .ribbon .rb {
       flex: 1; text-align: center; padding: 0.85rem 0.6rem 0.9rem;
@@ -1259,7 +1268,7 @@ footer, header, hgroup, main, menu, nav, section {
     .ribbon.mini .rb .rb-n { font-size: 0.95rem; display: inline; margin-right: 0.35rem; }
     .ribbon.mini .rb .rb-t { display: inline; font-size: 1.0rem; margin: 0; }
 
-    /* --- 자율성 단계 매트릭스 (36장) — 행 = L0~L5, 열 = 단계·예시 / 권한 / 영향 / 리스크·통제 --- */
+    /* --- 자율성 단계 매트릭스 (38장) — 행 = L0~L5, 열 = 단계·예시 / 권한 / 영향 / 리스크·통제 --- */
     .lvx { display: flex; flex-direction: column; gap: 0.28rem; }
     .lv-head, .lv-row { display: grid; grid-template-columns: 12.2rem 1.02fr 0.92fr 1.62fr; column-gap: 1.0rem; align-items: center; }
     .lv-head { font-family: var(--mono); font-size: 0.7rem; color: #8A93B2 !important; padding: 0 0.85rem; }
@@ -1291,7 +1300,7 @@ footer, header, hgroup, main, menu, nav, section {
     .lv-row.r5 .lvm i.on { background: rgba(255,122,149,0.95); }
     .lv-risk .rt { font-size: 0.76rem; line-height: 1.4; color: #B9C2DA !important; word-break: keep-all; }
 
-    /* --- 점검 결정 흐름 (16장) --- */
+    /* --- 점검 결정 흐름 (14장) --- */
     .dtree { display: flex; flex-direction: column; gap: 0.28rem; }
     .dtree .dq { display: flex; align-items: center; gap: 0.7rem; }
     .dtree .dq-box {
@@ -1312,7 +1321,7 @@ footer, header, hgroup, main, menu, nav, section {
       border-radius: 0.7rem; padding: 0.5rem 1.1rem; font-weight: 800; font-size: 1.05rem; color: #A9FFF0 !important;
     }
 
-    /* --- UVM 나란히 (32장): 동형 루프 레인 — 자극→대상→검사(코랄 게이트)→사람(앰버) + ✕ 반환 루프.
+    /* --- UVM 나란히 (34장): 동형 루프 레인 — 자극→대상→검사(코랄 게이트)→사람(앰버) + ✕ 반환 루프.
            두 레인이 같은 고정 열 템플릿을 써서 위아래 같은 자리 = 같은 역할로 읽힘 --- */
     .uv { display: grid; grid-template-columns: 11.6rem 3.2rem 8.2rem 3.2rem 12.4rem 5.4rem 12.4rem; grid-template-rows: auto auto;
       row-gap: 0.2rem; column-gap: 0.4rem; align-items: center; justify-content: center; margin-top: 0.55rem; }
@@ -1332,7 +1341,7 @@ footer, header, hgroup, main, menu, nav, section {
       border-bottom: 0.44rem solid rgba(255,122,149,0.85); border-left: 0.27rem solid transparent; border-right: 0.27rem solid transparent; }
     .uv-ret span { font-family: var(--mono); font-size: 0.66rem; color: #C7CFE8 !important; white-space: nowrap; padding-bottom: 0.26rem; }
 
-    /* --- 언제 쓰나 — 수신처 3단 (34장): 출력을 받는 쪽의 동작이 필요한 검사를 정한다 --- */
+    /* --- 언제 쓰나 — 수신처 3단 (36장): 출력을 받는 쪽의 동작이 필요한 검사를 정한다 --- */
     .wh { display: flex; flex-direction: column; gap: 0.55rem; }
     .wh-row { display: grid; grid-template-columns: 11.8rem 1fr 12.6rem; column-gap: 1.0rem; align-items: center;
       border: 0.0625rem solid rgba(190,200,224,0.22); border-radius: 0.7rem; background: rgba(11,14,26,0.62); padding: 0.6rem 0.85rem; }
@@ -1358,7 +1367,7 @@ footer, header, hgroup, main, menu, nav, section {
     .wh-need { font-size: 0.8rem; font-weight: 700; color: #E8ECF8 !important; word-break: keep-all; line-height: 1.4; }
     .wh-need small { display: block; font-weight: 400; font-size: 0.7rem; color: #8A93B2 !important; margin-top: 0.18rem; line-height: 1.4; word-break: keep-all; }
 
-    /* --- 실행 파이프라인 + 실패 callout (27장) --- */
+    /* --- 실행 파이프라인 + 실패 callout (29장) --- */
     .failmap { margin-top: 1.1rem; }
     .failmap .fm-callouts { display: flex; gap: 0.55rem; margin-bottom: 0.5rem; }
     .failmap .fm-co {
@@ -1386,7 +1395,7 @@ footer, header, hgroup, main, menu, nav, section {
     section[data-layer="APPENDIX"] .card:hover { transform: none; box-shadow: none; border-color: rgba(190,200,224,0.35); }
     section[data-layer="APPENDIX"] .term, section[data-layer="READ"] .term { box-shadow: none; }
 
-    /* 33장 — Harness 구성요소를 경계 사방에 배치 */
+    /* 35장 — Harness 구성요소를 경계 사방에 배치 */
     .mas31 { display: grid; grid-template-columns: 11.5rem 1fr 11.5rem; grid-template-rows: auto auto auto; gap: 0.55rem; align-items: center; }
     .mas31 .m31-side {
       font-size: 0.92rem; line-height: 1.65; color: #C9D0E4 !important;
@@ -1406,16 +1415,16 @@ footer, header, hgroup, main, menu, nav, section {
     /* 코드 창 traffic-light 장식 제거 — 문서형 헤더만 */
     .term-bar .dot { display: none; }
 
-    /* 15장 — 개발 환경 지도 */
+    /* 13장 — 개발 환경 지도 */
     .envmap { display: flex; gap: 0.7rem; border: 0.0625rem dashed rgba(43,234,208,0.35); border-radius: 1rem; padding: 1.0rem; background: rgba(0,224,199,0.03); }
     .envmap .env { flex: 1; text-align: center; padding: 0.95rem 0.7rem 1.0rem; border: 0.0625rem solid rgba(190,200,224,0.25); border-radius: 0.8rem; background: rgba(11,14,26,0.6); }
     .envmap .env-ic { display: block; font-family: var(--mono); font-style: normal; font-size: 1.35rem; font-weight: 700; color: var(--accent-2) !important; margin-bottom: 0.35rem; }
     .envmap .env-where { display: block; font-size: 0.82rem; color: #8A93B2 !important; font-weight: 700; letter-spacing: 0.08em; }
     .envmap .env-name { display: block; font-size: 1.4rem; font-weight: 800; margin-top: 0.15rem; }
     .envmap .env small { display: block; font-size: 0.86rem; color: var(--fg-soft) !important; margin-top: 0.35rem; line-height: 1.5; word-break: keep-all; }
-    /* 25장 위험 3종 — 대응 줄 */
+    /* 27장 위험 3종 — 대응 줄 */
     .fm-co .co-fix { display: block; font-size: 0.86rem; font-weight: 700; color: #A9FFF0 !important; margin-top: 0.35rem; }
-    /* 37장 — 모호한 요청은 중립 회색 (색이 아닌 라벨·아이콘으로 구분) */
+    /* 39장 — 모호한 요청은 중립 회색 (색이 아닌 라벨·아이콘으로 구분) */
     .run.plain { border-color: rgba(138,147,178,0.4); }
     .run.plain .rh .st { color: #8A93B2 !important; font-weight: 700; }
     .run.plain code { color: #A8B0C8; }
@@ -1828,7 +1837,38 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem"><b class="accent">절차의 공백은 Skill</b>이, <b class="accent2">시스템 연결의 공백은 MCP</b>가 채웁니다.</p>
     </section>
 
-    <!-- 17 · 데모 2a — 업무 정의 -->
+    <!-- 17 · 구분 — 2단계 Skill 시작 (신설 v0.28.14: 16장 그림 재사용, Skill 열만 강조) -->
+    <section data-sec="본문 2 · 테스트 실패 분류 Agent">
+      <div><span class="chip">본문 2 · 2단계 Skill</span></div>
+      <h2>먼저 공백 ① — 절차를 <b class="accent">Skill</b>로 채웁니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">방금 그림의 <b style="color:#fff">왼쪽 자리</b>부터 채웁니다. 사람이 반복해 온 분류 절차를 Agent가 쓸 수 있는 형태로 적어 넣는 단계입니다.</p>
+      <div class="mas mas-ov mas-ov-pre pre-focus pre-focus-sk autoshow fade-up" style="margin-top:1.0rem">
+        <div class="mas-core mas-ov-core">
+          <div class="mas-ov-work">
+            <span class="mas-ov-slabel">작업 실행</span>
+            <div class="mas-ov-workflow">
+              <div class="mas-node hole ov-skill">절차 없음<small>공백 ① — 팀의 리뷰 규칙·문서 형식·노하우를 모른다. 매번 처음부터 설명해야 한다</small></div>
+              <div class="mas-ov-conn ov-c1 dimmed"><span class="cline"></span></div>
+              <div class="mas-node n-agent ov-agent dimmed">AI Agent<small>LLM 기반 — 계획 · 실행 · 확인은 이미 가능</small></div>
+              <div class="mas-ov-conn ov-c2 dimmed"><span class="cline"></span></div>
+              <div class="mas-node hole ov-mcp dimmed">시스템 연결 없음<small>공백 ② — 사내 문서·Jira·DB를 직접 조회할 연결과 권한이 없다</small></div>
+              <div class="pre-cut dimmed"><i>✕</i></div>
+              <div class="mas-ov-external dimmed">
+                <span class="ext-t">닿지 못하는 곳</span>
+                <div class="ext-items"><span>Jira</span><span>문서고</span><span>DB</span></div>
+              </div>
+              <div class="pre-vconn sk"><i>▲</i><span class="vln"></span></div>
+              <div class="pre-vconn mc dimmed"><i>▲</i><span class="vln"></span></div>
+              <div class="hole-fix sk"><span class="hf-label">공백 ①을 채우는 확장 요소</span><span class="hf-name">Skill</span><span class="hf-desc">절차를 적어 넣는다</span></div>
+              <div class="hole-fix mc dimmed"><span class="hf-label">공백 ②를 채우는 확장 요소</span><span class="hf-name">MCP</span><span class="hf-desc">시스템과 연결한다</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem">지금부터 데모 2와 함께 <b class="accent">Skill</b>을 살펴봅니다. 시스템 연결(MCP)은 그다음입니다.</p>
+    </section>
+
+    <!-- 18 · 데모 2a — 업무 정의 -->
     <section data-layer="DEMO" data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 2단계 Skill · 데모 2 ① 업무 정의</span></div>
       <h2>먼저 손으로 하던 분류 절차를 그대로 적어 봅니다</h2>
@@ -1862,7 +1902,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem"><b class="accent">검증 가능한 절차로 정의할 수 있는 일부터 맡깁니다.</b> "원인이 불확실하면 unknown으로 두고 추정하지 않는다"는 규칙은 근거 없는 생성을 줄이는 데 도움이 됩니다.</p>
     </section>
 
-    <!-- 18 · 데모 2b — skill 저장 → 실행 -->
+    <!-- 19 · 데모 2b — skill 저장 → 실행 -->
     <section data-layer="DEMO" data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 2단계 Skill · 데모 2 ② 저장 → 실행·활용</span> <span class="pill green">원칙 ② 출력 구조화</span></div>
       <h2>정의를 SKILL.md로 저장하면 같은 절차를 재사용할 수 있습니다</h2>
@@ -1930,7 +1970,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 19 · skill 개념 -->
+    <!-- 20 · skill 개념 -->
     <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill</span></div>
       <h2>Skill은 반복 업무의 절차와 기준을 담은 작업 매뉴얼입니다</h2>
@@ -1946,7 +1986,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">반복해서 쓰던 긴 프롬프트를 <b class="accent">절차와 기준을 담은 작업 매뉴얼</b>로 만든 것입니다. 3장의 Skill 정의 그대로입니다.</p>
     </section>
 
-    <!-- 20 · skill 구조 (v2.4: 구 20장을 20 구조 / 21 실행 과정 / 22 만드는 법 3장으로 분리) -->
+    <!-- 21 · skill 구조 (v2.4: 구 20장을 20 구조 / 21 실행 과정 / 22 만드는 법 3장으로 분리) -->
     <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill · 구조</span> <span class="pill amber">원칙 ③ 근거를 남긴다</span></div>
       <h2>Skill은 SKILL.md와 필요한 자료로 구성됩니다</h2>
@@ -2018,7 +2058,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.6rem">SKILL.md에 <b class="accent">핵심 절차</b>만 두고 한꺼번에 읽지 않는 이유 중 하나는 <b class="accent">컨텍스트가 유한</b>하기 때문입니다. <b class="accent4">references는 Skill과 함께 관리하는 자료이고, 계속 변하는 외부 시스템의 현재 데이터 조회는 별도 연결이 필요합니다.</b> <span class="mono tiny faint">구조는 OpenCode 문서 기준 · 확인일 2026-07 · 컨텍스트는 부록 LLM 기초</span></p>
     </section>
 
-    <!-- 21 · skill 만드는 법 (신설 v2.4) -->
+    <!-- 22 · skill 만드는 법 (신설 v2.4) -->
     <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ①</span> <span class="pill">Skill · 만드는 법</span></div>
       <h2>Skill은 직접 작성하거나 실제 작업에서 추출할 수 있습니다</h2>
@@ -2086,7 +2126,38 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.55rem">Skill도 코드처럼 <b class="accent">작성하고, diff로 검토하고, 실제 입력으로 시험한 뒤 버전 관리합니다</b>. <b class="accent4">초안은 Agent가 만들 수 있지만, 기준과 최종 승인은 사람이 맡습니다.</b></p>
     </section>
 
-    <!-- 22 · 데모 3a — MCP 없을 때 -->
+    <!-- 23 · 구분 — 3단계 MCP 시작 (신설 v0.28.14: 16장 그림 재사용, MCP 열만 강조) -->
+    <section data-sec="본문 2 · 테스트 실패 분류 Agent">
+      <div><span class="chip">본문 2 · 3단계 MCP</span></div>
+      <h2>다음은 공백 ② — 시스템 연결을 <b class="accent2">MCP</b>로 채웁니다</h2>
+      <p class="dim autoshow fade-up" style="font-size:1.12rem">절차는 Skill로 채웠습니다. 이제 남은 <b style="color:#fff">오른쪽 자리</b> — 닿지 못하던 Jira · 문서고 · DB에 Agent를 연결할 차례입니다.</p>
+      <div class="mas mas-ov mas-ov-pre pre-focus pre-focus-mc autoshow fade-up" style="margin-top:1.0rem">
+        <div class="mas-core mas-ov-core">
+          <div class="mas-ov-work">
+            <span class="mas-ov-slabel">작업 실행</span>
+            <div class="mas-ov-workflow">
+              <div class="mas-node hole ov-skill dimmed">절차 없음<small>공백 ① — 팀의 리뷰 규칙·문서 형식·노하우를 모른다. 매번 처음부터 설명해야 한다</small></div>
+              <div class="mas-ov-conn ov-c1 dimmed"><span class="cline"></span></div>
+              <div class="mas-node n-agent ov-agent dimmed">AI Agent<small>LLM 기반 — 계획 · 실행 · 확인은 이미 가능</small></div>
+              <div class="mas-ov-conn ov-c2 dimmed"><span class="cline"></span></div>
+              <div class="mas-node hole ov-mcp">시스템 연결 없음<small>공백 ② — 사내 문서·Jira·DB를 직접 조회할 연결과 권한이 없다</small></div>
+              <div class="pre-cut"><i>✕</i></div>
+              <div class="mas-ov-external">
+                <span class="ext-t">닿지 못하는 곳</span>
+                <div class="ext-items"><span>Jira</span><span>문서고</span><span>DB</span></div>
+              </div>
+              <div class="pre-vconn sk dimmed"><i>▲</i><span class="vln"></span></div>
+              <div class="pre-vconn mc"><i>▲</i><span class="vln"></span></div>
+              <div class="hole-fix sk dimmed"><span class="hf-label">공백 ①을 채우는 확장 요소</span><span class="hf-name">Skill</span><span class="hf-desc">절차를 적어 넣는다</span></div>
+              <div class="hole-fix mc"><span class="hf-label">공백 ②를 채우는 확장 요소</span><span class="hf-name">MCP</span><span class="hf-desc">시스템과 연결한다</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="note autoshow fade-up" style="margin-top:0.9rem">지금부터 데모 3과 함께 <b class="accent2">MCP</b>를 살펴봅니다. ✕로 끊겨 있던 연결이 어떻게 이어지는지가 핵심입니다.</p>
+    </section>
+
+    <!-- 24 · 데모 3a — MCP 없을 때 -->
     <section data-layer="DEMO" data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 3단계 MCP · 데모 3 ① 없을 때</span></div>
       <h2>분류는 맡겼지만, 과거 이슈 대조는 아직 사람이 합니다</h2>
@@ -2118,7 +2189,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">대조는 해 주지만, 검색·복사·전달은 여전히 사람이 합니다. <b class="accent2">Jira 조회까지 Agent에 맡기려면 무엇이 필요할까요?</b></p>
     </section>
 
-    <!-- 23 · 데모 3b — MCP로 연결 -->
+    <!-- 25 · 데모 3b — MCP로 연결 -->
     <section data-layer="DEMO" data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 3단계 MCP · 데모 3 ② 있을 때</span></div>
       <h2>MCP로 연결하면 조회와 대조까지 Agent가 수행합니다</h2>
@@ -2158,7 +2229,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">사람이 하던 조회 단계가 줄었고, 원인 확정과 티켓 갱신은 사람이 합니다. <b class="accent2">이 연결을 가능하게 하는 공용 규격이 MCP입니다.</b></p>
     </section>
 
-    <!-- 24 · MCP 개념 -->
+    <!-- 26 · MCP 개념 -->
     <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP</span></div>
       <h2>MCP는 Agent와 데이터·도구를 연결하는 공용 규격입니다</h2>
@@ -2175,7 +2246,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">MCP는 <b class="accent2">개방형 규격</b>이며, <b class="accent">연결 방식을 표준화할 뿐 Agent의 판단 품질을 보장하지 않습니다.</b></p>
     </section>
 
-    <!-- 25 · MCP 통제 -->
+    <!-- 27 · MCP 통제 -->
     <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP · 통제</span></div>
       <h2>연결이 쉬워질수록 권한과 실행 범위를 더 엄격하게 통제해야 합니다</h2>
@@ -2198,7 +2269,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem">Skill로 작업 절차를 정의했고, MCP로 Jira 조회를 연결했습니다. <b style="color:#fff">남은 질문은 하나 — Agent가 만든 결과를 자동화 파이프라인에 넣어도 될까요?</b></p>
     </section>
 
-    <!-- 26 · 간지 — 본문 3 -->
+    <!-- 28 · 간지 — 본문 3 -->
     <section class="section-opener" data-hero data-sec="본문 3 · Harness · 통제">
       <div class="autoshow fade-up"><span class="chip">본문 3</span></div>
       <h1 class="autoshow fade-up" style="font-size:3.6rem">Harness<br><span class="grad">Agent 실행을 검증하고 통제하는 구조</span></h1>
@@ -2209,7 +2280,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 27 · 실패의 현실 -->
+    <!-- 29 · 실패의 현실 -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 정직한 전제</span></div>
       <h2>AI Agent, 매번 믿을 수 있을까요?</h2>
@@ -2234,7 +2305,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.4rem">실패는 출력 형식만이 아니라 <b style="color:#fff">실행 구간 곳곳에서</b> 생깁니다. 이를 실행 규칙으로 다루는 구조가 <b class="accent">Harness</b>입니다.</p>
     </section>
 
-    <!-- 28 · 데모 4 ① — Harness 없을 때 (v2.8 이동: 구 33장) -->
+    <!-- 30 · 데모 4 ① — Harness 없을 때 (v2.8 이동: 구 33장) -->
     <section data-layer="DEMO" data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 4단계 Harness · 데모 4 ① 없을 때</span></div>
       <h2>출력 형식이 흔들리면 후속 단계가 멈춥니다</h2>
@@ -2266,7 +2337,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">세 실행 모두 내용은 그럴듯합니다 — 사람이 읽을 때는 넘어가지만, 받는 쪽이 프로그램이면 <b class="accent3">형식이 하나만 어긋나도 거기서 멈춥니다</b>. 형식은 확률에 맡길 일이 아니라, <b class="accent2">검사로 지킬 일</b>입니다.</p>
     </section>
 
-    <!-- 29 · 데모 4 ② — Harness로 감싸면 (v2.8 이동: 구 34장) -->
+    <!-- 31 · 데모 4 ② — Harness로 감싸면 (v2.8 이동: 구 34장) -->
     <section data-layer="DEMO" data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 4단계 Harness · 데모 4 ② 있을 때</span> <span class="pill amber">원칙 ④ 사람 승인</span></div>
       <h2>Harness로 감싸면, 걸러지고 승인된 결과만 나갑니다</h2>
@@ -2302,7 +2373,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.55rem"><b class="accent2">형식 일관성</b> — 통과한 결과는 같은 구조를 가집니다<br><b class="accent2">검증 가능성</b> — 같은 검사 규칙을 반복 적용합니다<br><b class="accent3">보장 범위</b> — 게이트가 확인하는 것은 구조까지, unknown 3건의 내용 판단은 여전히 <b class="accent4">사람의 몫</b>입니다</p>
     </section>
 
-    <!-- 30 · 스키마 게이트 — 통과의 의미 (v2.8.1: 데모 직후로 — 구 31장 재작성) -->
+    <!-- 32 · 스키마 게이트 — 통과의 의미 (v2.8.1: 데모 직후로 — 구 31장 재작성) -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 통과의 의미</span></div>
       <h2>게이트를 통과해도 보장되는 것은 구조까지입니다</h2>
@@ -2325,7 +2396,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">스키마는 출력 구조만 검사합니다. 올바른 JSON이라도 내용은 틀릴 수 있습니다. 그래서 데모 4의 마지막 단계가 게이트가 아니라 <b class="accent4">사람 승인</b>이었습니다.</p>
     </section>
 
-    <!-- 31 · Harness란 (v2.8.1: 구 28장) -->
+    <!-- 33 · Harness란 (v2.8.1: 구 28장) -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · Harness란</span></div>
       <h2>Harness는 Agent 실행을 감싸는 통제 구조입니다</h2>
@@ -2367,7 +2438,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">Harness는 Agent 옆의 네 번째 부품이 아니라 <b class="accent3">실행 전체를 감싸는 경계</b>입니다. 말의 범위는 제품·문맥에 따라 다르며, 이 자료에서는 위 실행 통제 구조를 뜻합니다.</p>
     </section>
 
-    <!-- 32 · UVM 나란히 (v2.8.1: 구 29장) -->
+    <!-- 34 · UVM 나란히 (v2.8.1: 구 29장) -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 익숙한 그림</span></div>
       <h2>설계·검증에서 익숙한 구조와 닮아 있습니다</h2>
@@ -2402,7 +2473,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">두 구조 모두 <b>실패를 버리지 않고 되돌려 다시 실행</b>하고, 검사를 통과한 결과도 <b class="accent4">사람의 판단</b>을 거쳐야 끝납니다. <b class="accent">검사는 자동으로 하고, 최종 판단은 사람이 합니다.</b> 이 방식 그대로, 대상만 칩에서 Agent 실행으로 바뀝니다.</p>
     </section>
 
-    <!-- 33 · Harness 구성 요소 (v2.8 이동: 구 30장) -->
+    <!-- 35 · Harness 구성 요소 (v2.8 이동: 구 30장) -->
     <section data-layer="READ" data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 무엇으로 이루어지나</span></div>
       <h2>Harness에 들어갈 수 있는 것</h2>
@@ -2436,7 +2507,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="dim reader-only" style="margin-top:0.6rem; font-size:0.95rem">그 밖에 — <b style="color:#fff">근거·확신도 필드(evidence·confidence)</b>로 불확실성을 출력에 남기고, <b style="color:#fff">읽기 전용 기본 · 사전 실행(dry-run)</b>으로 쓰기 전 변경 내용을 사람이 확인합니다.</p>
     </section>
 
-    <!-- 34 · 언제 쓰나 — 받는 쪽이 정한다 (v2.8 이동: 구 32장) -->
+    <!-- 36 · 언제 쓰나 — 받는 쪽이 정한다 (v2.8 이동: 구 32장) -->
     <section data-sec="본문 3 · Harness · 통제">
       <div><span class="chip">본문 3 · 판단 기준</span></div>
       <h2>필요한 Harness의 수준은 출력을 받는 대상에 따라 달라집니다</h2>
@@ -2474,7 +2545,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem">어느 줄인지 애매하면 다섯 가지를 확인합니다 — <b class="accent">자동 입력되나 · 영향이 큰가 · 되돌리기 어렵나 · 반복되나 · 쓰기 권한을 쓰나.</b> "예"가 많을수록 아랫줄의 통제가 필요합니다.</p>
     </section>
 
-    <!-- 35 · 회고 -->
+    <!-- 37 · 회고 -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 회고</span></div>
       <h2>오늘 지나온 길 — 그림 하나가 완성됐습니다</h2>
@@ -2521,7 +2592,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 36 · 자율성 단계 — 오늘의 위치와 다음 단계 (v2.7 이동: 구 33장) -->
+    <!-- 38 · 자율성 단계 — 오늘의 위치와 다음 단계 (v2.7 이동: 구 33장) -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 다음 단계</span></div>
       <h2>오늘은 읽기 전용 조회인 L3까지 다뤘습니다</h2>
@@ -2568,7 +2639,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">새 작업을 맡길 때는 다시 <b class="accent">L1~L2에서 정확도와 검증 방법을 확인한 뒤, 한 단계씩 올라갑니다</b>. L4부터 필요한 <b class="accent4">사람 승인</b>은 데모 4에서 이미 봤습니다.</p>
     </section>
 
-    <!-- 37 · 좋은 요청 / 나쁜 요청 -->
+    <!-- 39 · 좋은 요청 / 나쁜 요청 -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 요청하는 법</span></div>
       <h2>좋은 요청은 결과를 검증하기 쉽습니다</h2>
@@ -2584,7 +2655,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">요청을 쓸 때는 세 가지만 기억하면 됩니다: <b class="accent">작게 · 구체적으로 · 검증 가능하게.</b></p>
     </section>
 
-    <!-- 38 · 설계 템플릿 -->
+    <!-- 40 · 설계 템플릿 -->
     <section data-layer="READ" data-sec="마무리">
       <div><span class="chip">마무리 · 일 맡기기 설계 템플릿</span></div>
       <h2>맡기기 전에 아홉 칸만 채워 보세요</h2>
@@ -2603,7 +2674,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.6rem">이 <b class="accent">아홉 줄이 그대로 Skill 초안</b>이 되고, 그중 승인·실패 처리 두 줄은 <b class="accent3">Harness 요구사항</b>이 됩니다.</p>
     </section>
 
-    <!-- 39 · 첫 실험 CTA -->
+    <!-- 41 · 첫 실험 CTA -->
     <section data-sec="마무리">
       <div><span class="chip">마무리 · 첫걸음 · CTA</span></div>
       <h2>내일부터 어떻게 시작하면 될까요?</h2>
@@ -2628,7 +2699,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem">첫 목표는 <b class="accent">반복 업무 하나에서 실제 효용과 오류 유형을 확인하는 것</b>입니다. 민감 데이터는 <b class="accent2">승인된 사내 경로에서만</b> 사용합니다.</p>
     </section>
 
-    <!-- 40 · Q&A · 클로징 -->
+    <!-- 42 · Q&A · 클로징 -->
     <section class="section-opener" data-hero data-sec="마무리">
       <div><span class="chip">마무리 · Q&amp;A</span></div>
       <p style="font-size:2.1rem; font-weight:800; line-height:1.5; margin-top:0.8rem; word-break:keep-all">오늘 AI Agent와 <span class="accent2">Skill · MCP · Harness</span> 네 요소를<br>예시와 함께 살펴봤습니다.<br>이번 주, 사내 환경에서 <span class="accent4">검증 가능한 작업 하나</span>로<br>첫 실험을 시작해 보세요.</p>
@@ -2636,7 +2707,7 @@ footer, header, hgroup, main, menu, nav, section {
 
     </section>
 
-    <!-- 41 · 부록 — LLM 기초 ① 다음 토큰 -->
+    <!-- 43 · 부록 — LLM 기초 ① 다음 토큰 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · LLM 기초 ①</span></div>
       <h2>LLM은 다음 토큰을 예측합니다</h2>
@@ -2658,7 +2729,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">LLM의 기본 동작은 검색이나 사실 확인이 아니라 <b class="accent">다음 토큰을 예측하는 것</b>입니다. 따라서 유창한 답도 별도 검증이 필요합니다.</p>
     </section>
 
-    <!-- 42 · 부록 — LLM 기초 ② 컨텍스트 -->
+    <!-- 44 · 부록 — LLM 기초 ② 컨텍스트 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · LLM 기초 ②</span></div>
       <h2>LLM이 한 번에 참고할 수 있는 범위에는 한도가 있습니다</h2>
@@ -2682,7 +2753,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">따라서 <b class="accent">필요한 절차와 자료만 제공하고, 불필요한 내용은 줄여야 합니다.</b> Skill은 반복 절차를 필요할 때 불러오는 한 가지 방법입니다. <span class="dim">수십 MB 로그 전체보다 실패 지점 주변 로그와 요약 정보를 제공하는 것이 효과적입니다.</span></p>
     </section>
 
-    <!-- 43 · 부록 — LLM 기초 ③ 토큰 -->
+    <!-- 45 · 부록 — LLM 기초 ③ 토큰 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · LLM 기초 ③</span></div>
       <h2>토큰은 입력과 출력을 나누어 세는 단위입니다</h2>
@@ -2700,7 +2771,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">토큰 사용량은 비용과 처리 시간에 영향을 줍니다. 수십 MB regression log 전체보다 <b class="accent">실패 지점 주변 로그와 요약 정보만 제공하는 쪽이 효과적</b>입니다.</p>
     </section>
 
-    <!-- 44 · 부록 — LLM 기초 ④ 환각 -->
+    <!-- 46 · 부록 — LLM 기초 ④ 환각 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · LLM 기초 ④</span></div>
       <h2>유창함은 사실성의 증거가 아닙니다</h2>
@@ -2718,7 +2789,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem"><b class="accent">유창함과 신뢰성은 다릅니다.</b> 근거가 없는 내용은 "확인 불가"로 남기게 하고, 중요한 결과는 사람이 확인해야 합니다.</p>
     </section>
 
-    <!-- 45 · 부록 — 역사 -->
+    <!-- 47 · 부록 — 역사 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 역사</span></div>
       <h2>AI Agent는 어떻게 실무 도구로 발전했을까요?</h2>
@@ -2735,7 +2806,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.8rem">도구를 사용하는 Agent형 제품이 실무에 빠르게 확산된 것은 <b class="accent2">최근 몇 년</b>입니다.</p>
     </section>
 
-    <!-- 46 · 부록 — 왜 지금 -->
+    <!-- 48 · 부록 — 왜 지금 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 왜 지금</span></div>
       <h2>왜 지금일까요?</h2>
@@ -2755,7 +2826,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.2rem">설계·검증 업무에도 <b class="accent2">반복적이고 검증 가능한 적용 후보</b>가 많습니다.</p>
     </section>
 
-    <!-- 47 · 부록 — 왜 우리 -->
+    <!-- 49 · 부록 — 왜 우리 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 왜 우리</span></div>
       <h2>설계·검증의 하루에서 반복은 어디에 숨어 있을까요?</h2>
@@ -2780,7 +2851,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.1rem">공통점은 <b class="accent">규칙이 분명하고 검증 가능한 반복 작업</b>이라는 것입니다. Agent 적용을 먼저 검토하기 좋은 후보입니다.</p>
     </section>
 
-    <!-- 48 · 부록 — 일의 재배치 · 책임 -->
+    <!-- 50 · 부록 — 일의 재배치 · 책임 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 일의 재배치</span></div>
       <h2>역할이 이동해도, 책임은 이동하지 않습니다</h2>
@@ -2797,7 +2868,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
       <div class="quote autoshow fade-up" style="margin-top:1.1rem">본편의 세 구간(사람 → Agent → 사람)은 <b>기본 모델</b>입니다. 실제 배치는 업무 위험도와 팀 규정이 정합니다.</div>
     </section>
-    <!-- 49 · 부록 — OpenCode 설치 -->
+    <!-- 51 · 부록 — OpenCode 설치 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · OpenCode 설치</span></div>
       <h2>OpenCode 설치 — 사내 저장소에서 안전하게</h2>
@@ -2819,7 +2890,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">원칙 — <b class="accent">HTTPS · 승인된 사내 저장소 · 버전 고정 · checksum 확인 · 스크립트 내용 확인 후 실행.</b> <span class="dim">설치 주소·사내 서버 설정은 사내 안내 페이지(______)를 참고하세요.</span></p>
     </section>
 
-    <!-- 50 · 부록 — 회의 메모 skill -->
+    <!-- 52 · 부록 — 회의 메모 skill -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 다른 업무에도</span></div>
       <h2>같은 구조, 다른 업무 — 회의 메모 Skill</h2>
@@ -2840,7 +2911,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:0.9rem">회의록 정리 · spec 변경점 요약 · review comment 분류 — <b class="accent">절차와 검증 기준으로 정의할 수 있다면 Skill로 재사용할 수 있습니다.</b></p>
     </section>
 
-    <!-- 51 · 부록 — skill 기준 -->
+    <!-- 53 · 부록 — skill 기준 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · Skill 기준</span></div>
       <h2>좋은 Skill은 작업 기준이 선명합니다</h2>
@@ -2869,7 +2940,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.0rem"><b class="accent">AI에게 맡길 때는 작업 기준과 검증 방법을 더 명확히 정의해야 합니다.</b></p>
     </section>
 
-    <!-- 52 · 부록 — MCP 구조 ① 구조와 제공 요소 -->
+    <!-- 54 · 부록 — MCP 구조 ① 구조와 제공 요소 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · MCP 구조 ① 구조와 제공 요소</span></div>
       <h2>MCP의 구조 — 클라이언트 · 서버 · 제공 요소</h2>
@@ -2888,7 +2959,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note" style="margin-top:1.3rem"><b class="accent">Skill</b>은 절차를, <b class="accent2">MCP</b>는 연결을 담당합니다. <span class="mono tiny faint">출처: MCP 공식 문서(modelcontextprotocol.io) · 확인일 2026-07</span></p>
     </section>
 
-    <!-- 53 · 부록 — MCP 구조 ② 연결 설정과 호출 흐름 -->
+    <!-- 55 · 부록 — MCP 구조 ② 연결 설정과 호출 흐름 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · MCP 구조 ② 연결 설정과 호출 흐름</span></div>
       <h2>연결 설정과 호출 흐름</h2>
@@ -2918,7 +2989,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note" style="margin-top:0.9rem">서버 등록은 설정에서 시작하지만, <b class="accent">인증 · 권한 · 네트워크 정책은 별도로 구성</b>해야 합니다.</p>
     </section>
 
-    <!-- 54 · 부록 — harness 장단점 -->
+    <!-- 56 · 부록 — harness 장단점 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · Harness 장단점</span></div>
       <h2>Harness를 도입하면 무엇을 얻고 무엇을 부담하게 될까요?</h2>
@@ -2937,7 +3008,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note autoshow fade-up" style="margin-top:1.2rem">Harness 도입 여부는 <b style="color:#fff">작업의 반복성, 실패 영향, 자동 연결 여부</b>를 기준으로 결정합니다.</p>
     </section>
 
-    <!-- 55 · 부록 — FAQ -->
+    <!-- 57 · 부록 — FAQ -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · FAQ</span></div>
       <h2>세 가지 질문에 미리 답합니다</h2>
@@ -2960,7 +3031,7 @@ footer, header, hgroup, main, menu, nav, section {
       </div>
     </section>
 
-    <!-- 56 · 부록 — 확장 도구 후보 -->
+    <!-- 58 · 부록 — 확장 도구 후보 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 확장 도구 후보 · 자가학습용</span></div>
       <h2>확장 도구 후보 — 설치 전 검토가 필요합니다</h2>
@@ -2978,7 +3049,7 @@ footer, header, hgroup, main, menu, nav, section {
       <p class="note" style="margin-top:1.0rem">설치 전 <b class="accent">출처 · 요구 권한 · 외부 통신 여부 · 유지보수 상태</b>를 확인합니다. 일부 도구는 <b class="accent3">외부로 연결</b>되어 설계 자산이 나갈 수 있습니다. <b class="accent2">애매하면 보안 검토가 우선입니다</b>(본문 1의 원칙).</p>
     </section>
 
-    <!-- 57 · 부록 — 용어집 -->
+    <!-- 59 · 부록 — 용어집 -->
     <section data-layer="APPENDIX" data-sec="부록">
       <div><span class="chip">부록 · 용어집</span></div>
       <h2>부록 — 오늘 나온 용어</h2>
