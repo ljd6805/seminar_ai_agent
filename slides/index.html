@@ -1207,9 +1207,25 @@ footer, header, hgroup, main, menu, nav, section {
     .mas-ov-external { flex: 0 0 9.6rem; margin-top: 3.3rem; text-align: center; border: 0.0625rem solid rgba(190,200,224,0.28); border-radius: 0.6rem; padding: 0.5rem 0.5rem 0.55rem; background: rgba(11,14,26,0.45); }
     .mas-ov-external .ext-t { display: block; font-size: 0.92rem; font-weight: 700; color: #C7CEE0 !important; }
     .mas-ov-external .ext-d { display: block; font-size: 0.72rem; color: #8A93B2 !important; margin-top: 0.2rem; }
-    /* 18장 pre: Harness 도입 전 — 경계 없음, 같은 문법의 축약형 */
+    /* 16장 pre: Harness 도입 전 — 경계 없음, 같은 문법의 축약형.
+       한 그리드 3행: 1행 노드(공백 2 + Agent + ✕절단 + 닿지 못하는 곳) / 2행 수직 연결 / 3행 hole-fix — 공백↔확장 요소 수직 정렬 */
     .mas-ov-pre .mas-ov-core { border-color: transparent; background: transparent; }
-    .mas-ov-pre .mas-ov-external { margin-top: 4.2rem; }
+    .mas-ov-pre .mas-ov-workflow { grid-template-columns: 1fr 5.6rem 1.18fr 5.6rem 1fr 3.2rem 11.5rem; row-gap: 0.1rem; }
+    .mas-ov-pre .mas-ov-workflow > * { grid-row: 1; }
+    .pre-cut { grid-column: 6; align-self: center; position: relative; height: 0; border-top: 0.09rem dashed rgba(255,212,107,0.5); }
+    .pre-cut i { position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); font-style: normal; font-weight: 800; font-size: 0.9rem; line-height: 1; color: #FFD46B !important; background: var(--bg-0); padding: 0 0.18rem; }
+    .mas-ov-pre .mas-ov-external { grid-column: 7; align-self: center; margin-top: 0; border-style: dashed; border-color: rgba(190,200,224,0.38); padding: 0.6rem 0.65rem 0.65rem; }
+    .mas-ov-pre .mas-ov-external .ext-t { font-size: 0.95rem; }
+    .mas-ov-pre .ext-items { display: flex; flex-direction: column; gap: 0.28rem; margin-top: 0.4rem; }
+    .mas-ov-pre .ext-items span { display: block; font-size: 0.8rem; color: #A9B4D8 !important; border: 0.0625rem solid rgba(190,200,224,0.22); border-radius: 0.45rem; padding: 0.2rem 0.4rem; background: rgba(190,200,224,0.05); }
+    .pre-vconn { grid-row: 2 !important; justify-self: center; display: flex; flex-direction: column; align-items: center; padding-top: 0.12rem; }
+    .pre-vconn i { font-style: normal; font-size: 0.62rem; line-height: 1; }
+    .pre-vconn .vln { width: 0; height: 1.05rem; border-left: 0.1rem dashed; }
+    .pre-vconn.sk { grid-column: 1; } .pre-vconn.sk i { color: #B7A5FF !important; } .pre-vconn.sk .vln { border-color: rgba(155,130,255,0.65); }
+    .pre-vconn.mc { grid-column: 5; } .pre-vconn.mc i { color: #7FE8D8 !important; } .pre-vconn.mc .vln { border-color: rgba(43,234,208,0.6); }
+    .mas-ov-pre .hole-fix { grid-row: 3 !important; margin-top: 0; }
+    .mas-ov-pre .hole-fix.sk { grid-column: 1; }
+    .mas-ov-pre .hole-fix.mc { grid-column: 5; }
     /* 33장 mini: 같은 문법의 축소판 (라벨·패널 생략) */
     .mas-ov-mini .mas-ov-workflow { grid-template-columns: 1fr 2.4rem 1.22fr 2.4rem 1fr; column-gap: 0.4rem; }
     .mas-ov-mini .ov-agent { font-size: 1.08rem; }
@@ -1785,17 +1801,18 @@ footer, header, hgroup, main, menu, nav, section {
               <div class="mas-node n-agent ov-agent" data-id="system-agent">AI Agent<small>LLM 기반 — 계획 · 실행 · 확인은 이미 가능</small></div>
               <div class="mas-ov-conn ov-c2 dimmed"><span class="cline"></span></div>
               <div class="mas-node hole ov-mcp" data-id="system-mcp">시스템 연결 없음<small>공백 ② — 사내 문서·Jira·DB를 직접 조회할 연결과 권한이 없다</small></div>
+              <div class="pre-cut"><i>✕</i></div>
+              <div class="mas-ov-external" data-id="system-external-tools">
+                <span class="ext-t">닿지 못하는 곳</span>
+                <div class="ext-items"><span>Jira</span><span>문서고</span><span>DB</span></div>
+              </div>
+              <div class="pre-vconn sk"><i>▲</i><span class="vln"></span></div>
+              <div class="pre-vconn mc"><i>▲</i><span class="vln"></span></div>
+              <div class="hole-fix sk"><span class="hf-label">공백 ①을 채우는 확장 요소</span><span class="hf-name">Skill</span><span class="hf-desc">절차를 적어 넣는다</span></div>
+              <div class="hole-fix mc"><span class="hf-label">공백 ②를 채우는 확장 요소</span><span class="hf-name">MCP</span><span class="hf-desc">시스템과 연결한다</span></div>
             </div>
           </div>
         </div>
-        <div class="mas-ov-external dimmed" data-id="system-external-tools">
-          <span class="ext-t">닿지 못하는 곳</span>
-          <span class="ext-d">Jira · 문서고 · DB</span>
-        </div>
-      </div>
-      <div class="autoshow fade-up" style="display:flex; gap:1.0rem; margin-top:0.9rem">
-        <div class="hole-fix sk" style="flex:1; margin-top:0"><span class="hf-label">공백 ①을 채우는 확장 요소</span><span class="hf-name">Skill</span><span class="hf-desc">절차를 적어 넣는다</span></div>
-        <div class="hole-fix mc" style="flex:1; margin-top:0"><span class="hf-label">공백 ②를 채우는 확장 요소</span><span class="hf-name">MCP</span><span class="hf-desc">시스템과 연결한다</span></div>
       </div>
       <p class="note autoshow fade-up" style="margin-top:0.9rem"><b class="accent">절차의 공백은 Skill</b>이, <b class="accent2">시스템 연결의 공백은 MCP</b>가 채웁니다.</p>
     </section>
