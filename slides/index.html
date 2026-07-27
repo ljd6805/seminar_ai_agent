@@ -519,6 +519,10 @@ footer, header, hgroup, main, menu, nav, section {
     .sh-cmd { color: #E6EDF3; }
     .sh-dim { color: #8B949E; }
     .sh-ok { color: #3FB950; }
+    /* 19장 셸 역할 색 — 사용자 입력 앰버 · Agent 동작 보라 (v0.29.5)
+       주의: `.reveal section span` 흰색 기본 규칙(특이도 0,1,2)보다 세야 해서 .reveal section 접두 필수 */
+    .reveal section .sh-req { color: #FFD46B; font-weight: 700; }
+    .reveal section .sh-agent { color: #B2A4EF; }
     @keyframes ocIn { to { opacity: 1; } }
 
     /* 19장 데모 2 — opencode 세션 실행 (진입 시 1회) */
@@ -1890,10 +1894,10 @@ footer, header, hgroup, main, menu, nav, section {
           <div class="term shell sim">
             <div class="term-bar"><span class="term-title">user@ds-linux: ~/my-project — opencode</span><span class="win-btns"><span>–</span><span class="wb-sq"></span><span>×</span></span></div>
             <div class="term-body" style="line-height:1.85; padding:0.7rem 1.0rem">
-              <div><span class="sh-ok">></span> <span class="ty skty sh-cmd">regression 실패 분류해줘 — logs/0708/</span></div>
-              <div class="sk-line skl1"><span class="sh-dim">● regression-failure-triage Skill 로드 — 설명이 작업과 일치</span></div>
-              <div class="sk-line skl2"><span class="sh-dim">● logs/0708/ 로그 3파일 읽음 — 실패 12건 추출</span></div>
-              <div class="sk-line skl3"><span class="sh-dim">● 절차 1~5 수행 → triage.json 저장</span></div>
+              <div><span class="sh-req">></span> <span class="ty skty sh-req">regression 실패 분류해줘 — logs/0708/</span></div>
+              <div class="sk-line skl1"><span class="sh-agent">● regression-failure-triage Skill 로드 — 설명이 작업과 일치</span></div>
+              <div class="sk-line skl2"><span class="sh-agent">● logs/0708/ 로그 3파일 읽음 — 실패 12건 추출</span></div>
+              <div class="sk-line skl3"><span class="sh-agent">● 절차 1~5 수행 → triage.json 저장</span></div>
               <div class="sk-line skj1">[{ <span class="t-key">"category"</span>:<span class="t-str">"timeout"</span>, <span class="t-key">"count"</span>:5,</div>
               <div class="sk-line skj2">   <span class="t-key">"representative_test"</span>:<span class="t-str">"usb_stress_t3 (seed 42)"</span>,</div>
               <div class="sk-line skj3">   <span class="t-key">"evidence"</span>:<span class="t-str">"TIMEOUT @82us — if_burst stall"</span>,</div>
@@ -1901,7 +1905,7 @@ footer, header, hgroup, main, menu, nav, section {
               <div class="sk-line skj5"> { <span class="t-key">"category"</span>:<span class="t-str">"assertion"</span>, <span class="t-key">"count"</span>:4, <span class="t-out">…</span> },</div>
               <div class="sk-line skj6"> { <span class="t-key">"category"</span>:<span class="t-str">"unknown"</span>, <span class="t-key">"count"</span>:3,</div>
               <div class="sk-line skj7">   <span class="t-key">"evidence"</span>:<span class="t-str">"근거 부족 — 추정 안 함"</span> }]</div>
-              <div class="sk-line skl4"><span class="sh-ok">✓ 완료</span> <span class="sh-dim">— unknown 3건은 사람 검토 대상으로 표시</span></div>
+              <div class="sk-line skl4"><span class="sh-ok">✓ 완료</span> <span class="sh-agent">— unknown 3건은 사람 검토 대상으로 표시</span></div>
             </div>
           </div>
           <div class="sim-replay-row"><button class="sim-replay" onclick="simReplay(this)">↻ 다시 재생</button></div>
