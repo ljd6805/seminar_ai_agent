@@ -2213,10 +2213,11 @@ footer, header, hgroup, main, menu, nav, section {
     <section data-sec="본문 2 · 테스트 실패 분류 Agent">
       <div><span class="chip">본문 2 · 확장 요소 ②</span> <span class="pill green">MCP · 사용</span></div>
       <h2>서버를 등록하면 Agent가 도구를 골라 씁니다</h2>
-      <p class="dim autoshow fade-up" style="font-size:1.1rem">클라이언트 설정에 서버 정보를 등록해 연결을 시작합니다. <span class="dim">(OpenCode 기준 · 주소는 가상)</span></p>
-      <div class="term autoshow fade-up" style="margin-top:0.8rem; max-width:36rem">
-        <div class="term-bar"><span class="term-title">opencode.json — MCP 서버 등록</span></div>
-        <div class="term-body" style="white-space:pre-wrap; font-size:1.0rem">{
+      <p class="dim autoshow fade-up" style="font-size:1.1rem">클라이언트 설정에 서버 정보를 등록해 연결을 시작합니다. <span class="dim">(OpenCode 기준 · 주소·도구 목록은 예시)</span></p>
+      <div class="autoshow fade-up" style="display:flex; align-items:center; gap:1.0rem; margin-top:0.8rem">
+        <div class="term" style="flex:0 0 33rem">
+          <div class="term-bar"><span class="term-title">opencode.json — MCP 서버 등록</span></div>
+          <div class="term-body" style="white-space:pre-wrap; font-size:1.0rem">{
   <span class="t-key">"mcp"</span>: {
     <span class="t-key">"jira"</span>: {   <span class="t-out">← 데모 3의 그 서버</span>
       <span class="t-key">"type"</span>: <span class="t-str">"remote"</span>,
@@ -2225,6 +2226,19 @@ footer, header, hgroup, main, menu, nav, section {
     }
   }
 }</div>
+        </div>
+        <div style="flex:none; display:flex; flex-direction:column; align-items:center; gap:0.15rem">
+          <span class="flow-arrow" style="font-size:1.35rem">→</span>
+          <span class="mono tiny faint">연결</span>
+        </div>
+        <div class="term" style="flex:1">
+          <div class="term-bar"><span class="term-title">연결 직후 — Agent가 받는 도구 목록 (예시)</span></div>
+          <div class="term-body" style="font-size:0.95rem; line-height:2.0">
+            <div><span class="t-key">jira_search</span> <span class="t-out">— 이슈 검색 · 데모 3에서 호출한 도구</span></div>
+            <div><span class="t-key">jira_get_issue</span> <span class="t-out">— 이슈 상세 조회</span></div>
+            <div><span class="t-key">jira_add_comment</span> <span class="t-out">— 코멘트 작성</span></div>
+          </div>
+        </div>
       </div>
       <div class="autoshow fade-up" style="margin-top:1.0rem">
         <div class="phead">동작 — 연결에서 결과 수신까지</div>
