@@ -384,10 +384,11 @@ footer, header, hgroup, main, menu, nav, section {
     .term-bar .term-title { margin-left: 0.5rem; font-size: 0.7rem; letter-spacing: 0.08em; color: #8A93B2; }
     .term-body { padding: 0.95rem 1.15rem; font-size: 0.92rem; line-height: 1.75; text-align: left; }
     .term-body div { white-space: pre-wrap; }
-    .t-key { color: #B5A1FF; }
-    .t-str { color: #5BFFE0; }
-    .t-out { color: #C9D0E4; }
-    .t-hl  { color: #FFE08A; }
+    /* 구문색은 `.reveal section span` 흰색 기본 규칙(0,1,2)보다 세야 해서 .reveal section 접두 필수 (v0.29.6 복원) */
+    .reveal section .t-key { color: #B5A1FF; }
+    .reveal section .t-str { color: #5BFFE0; }
+    .reveal section .t-out { color: #C9D0E4; }
+    .reveal section .t-hl  { color: #FFE08A; }
 
     /* 기초 애니메이션(4~7장) — 슬라이드 진입 시 1회 재생 후 정지, ↻ 버튼으로 재생 (10장 루프는 별도) */
     @keyframes llmBar { 0%, 8% { width: 0; } 25%, 100% { width: var(--w); } }
@@ -402,9 +403,9 @@ footer, header, hgroup, main, menu, nav, section {
     @keyframes llmCap { 0%, 58% { opacity: 0.15; } 70%, 100% { opacity: 1; } }
     @keyframes llmCursor { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0.12; } }
     .llm-line { font-family: var(--sans); }
-    .llm-word { color: var(--accent-2); display: inline-block; margin-left: 0.35rem; opacity: 0; }
+    .reveal section .llm-word { color: var(--accent-2); display: inline-block; margin-left: 0.35rem; opacity: 0; }
     section.present .llm-word { animation: llmWord 7s ease-in-out 1 forwards; }
-    .llm-cursor { color: var(--accent); margin-left: 0.12rem; font-weight: 400; animation: llmCursor 1.1s steps(1) infinite; }
+    .reveal section .llm-cursor { color: var(--accent); margin-left: 0.12rem; font-weight: 400; animation: llmCursor 1.1s steps(1) infinite; }
     .llm-cands { display: flex; flex-direction: column; gap: 0.42rem; }
     .llm-cand {
       display: flex; align-items: center; gap: 0.7rem;
@@ -514,11 +515,11 @@ footer, header, hgroup, main, menu, nav, section {
     .shell .win-btns { margin-left: auto; display: flex; align-items: center; gap: 0.55rem; color: #6B7484; font-size: 0.8rem; }
     .shell .win-btns .wb-sq { width: 0.55rem; height: 0.55rem; border: 0.09rem solid #6B7484; display: inline-block; }
     .shell .term-body { color: #C9D1D9; font-size: 0.88rem; }
-    .sh-user { color: #3FB950; font-weight: 700; }
-    .sh-path { color: #58A6FF; }
-    .sh-cmd { color: #E6EDF3; }
-    .sh-dim { color: #8B949E; }
-    .sh-ok { color: #3FB950; }
+    .reveal section .sh-user { color: #3FB950; font-weight: 700; }
+    .reveal section .sh-path { color: #58A6FF; }
+    .reveal section .sh-cmd { color: #E6EDF3; }
+    .reveal section .sh-dim { color: #8B949E; }
+    .reveal section .sh-ok { color: #3FB950; }
     /* 19장 셸 역할 색 — 사용자 입력 앰버 · Agent 동작 보라 (v0.29.5)
        주의: `.reveal section span` 흰색 기본 규칙(특이도 0,1,2)보다 세야 해서 .reveal section 접두 필수 */
     .reveal section .sh-req { color: #FFD46B; font-weight: 700; }
